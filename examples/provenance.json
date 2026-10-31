@@ -1,0 +1,30 @@
+{
+  "source_url": "https://raw.githubusercontent.com/owid/co2-data/382ee6c662b0ece26e111f263b44c029afad7787/owid-co2-data.csv",
+  "original_document_sha256": "7f78e2b218ce4bb8c538bbec04fdc9a7982e8d40bff972e650df603899edd5f6",
+  "excerpt_sha256": "43b36aca67dfc1892ca9dae8271c3f9402802a80d93665478183ae5e736f7b52",
+  "selection": {
+    "countries": [
+      "Pakistan",
+      "United Kingdom",
+      "United States"
+    ],
+    "year": 2023,
+    "columns": [
+      "country",
+      "year",
+      "cement_co2"
+    ]
+  },
+  "transformation": "Selected three rows and three columns only. No values calculated or changed.",
+  "upstream_license_evidence": "https://raw.githubusercontent.com/owid/etl/master/snapshots/gcp/2025-11-13/global_carbon_budget_fossil_co2_emissions.csv.dvc",
+  "indicator_metadata": [
+    {
+      "column": "cement_co2",
+      "title": "Annual CO\u2082 emissions from cement",
+      "description": "Annual emissions of carbon dioxide (CO\u2082) from cement, measured in million tonnes.",
+      "unit": "million tonnes (Mt)",
+      "source": "Global Carbon Budget (2025) [https://globalcarbonbudget.org/]"
+    }
+  ],
+  "indicator_metadata_url": "https://raw.githubusercontent.com/owid/co2-data/382ee6c662b0ece26e111f263b44c029afad7787/owid-co2-codebook.csv"
+}

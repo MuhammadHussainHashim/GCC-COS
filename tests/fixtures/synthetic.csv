@@ -1,0 +1,3 @@
+name,value,unit,country,year
+SYNTHETIC TEST MATERIAL,1000,kg CO2e/t,Testland,2020
+SYNTHETIC INVALID,not-a-number,unknown,,

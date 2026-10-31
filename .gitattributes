@@ -1,0 +1,7 @@
+# Keep application source consistent across Windows and Linux.
+* text=auto eol=lf
+*.ps1 text eol=crlf
+
+# Preserve licensed reference inputs byte-for-byte (checksums and attribution).
+# Upstream CSV/Markdown may intentionally retain CRLF or terminal blank lines.
+examples/** -text -eol whitespace=cr-at-eol,-blank-at-eof

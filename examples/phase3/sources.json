@@ -1,0 +1,82 @@
+[
+  {
+    "id": "epd-0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5",
+    "title": "Argeton",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Wienerberger GmbH; public ILCD mirror ocni-dtu/epdx; registration EPD-WIN-20140143-ICA2-DE",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "a00d88fe337df044b2143a376ea67c0ec19ddc94a88fc328b6c39aff001153f8",
+    "subcategory": "ceramic facade",
+    "material": "ceramics",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  },
+  {
+    "id": "epd-0e80e6e7-6882-47be-8bd8-5cd869a746d9",
+    "title": "EQUITONE Pictura / Natura Pro Faserzementtafel",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e80e6e7-6882-47be-8bd8-5cd869a746d9",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Etex Building Performance International; public ILCD mirror ocni-dtu/epdx; registration EPD-ETE-20190179-CCC1-EN",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "25c808fd5a83e66d5ca258c1105437cdc36fbeab46e510238b59ece515db38eb",
+    "subcategory": "fibre cement board",
+    "material": "fibre cement",
+    "modules": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  },
+  {
+    "id": "epd-0e9fd868-9656-489e-be6c-8251b3d43283",
+    "title": "Fassaden - Moeding Keramikfassaden GmbH - Alphaton",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e9fd868-9656-489e-be6c-8251b3d43283",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Moeding Keramikfassaden GmbH; public ILCD mirror ocni-dtu/epdx; registration EPD-MFA-48.0",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "3c2d4ceec0eacc1c2f213bc8308218e05b91252599fb25d5d7013129b4badc5a",
+    "subcategory": "ceramic facade",
+    "material": "ceramics",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  }
+]

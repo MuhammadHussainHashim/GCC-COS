@@ -1,0 +1,30 @@
+[
+  {
+    "id": "owid-cement-snapshot",
+    "title": "OWID CO2 dataset \u2014 Global Carbon Budget (2025), cement CO2 \u2014 three-row attributed excerpt",
+    "url": "https://raw.githubusercontent.com/owid/co2-data/382ee6c662b0ece26e111f263b44c029afad7787/owid-co2-data.csv",
+    "discovery_url": "https://github.com/owid/co2-data",
+    "license": "CC BY 4.0 (OWID and upstream Global Carbon Budget)",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://raw.githubusercontent.com/owid/etl/master/snapshots/gcp/2025-11-13/global_carbon_budget_fossil_co2_emissions.csv.dvc",
+    "attribution": "Andrew, R. M. & Peters, G. P. (2025), Global Carbon Project fossil CO2 emissions dataset (2025v15), doi:10.5281/zenodo.17417124; processed by Our World in Data (Pablo Rosado et al.).",
+    "reuse_permitted": true,
+    "enabled": false,
+    "access_method": "local_excerpt",
+    "format": "csv",
+    "adapter": "owid_cement",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "min_interval_seconds": 1,
+    "sha256": "43b36aca67dfc1892ca9dae8271c3f9402802a80d93665478183ae5e736f7b52",
+    "countries": [
+      "Pakistan",
+      "United Kingdom",
+      "United States"
+    ],
+    "year": 2023,
+    "connector_status": "local_ingestion_tested",
+    "notes": "Annual national cement-process CO2 totals, NOT product carbon footprints or factors. No HS assignment applies."
+  }
+]
