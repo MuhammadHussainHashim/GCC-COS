@@ -1,0 +1,48 @@
+{
+  "boavizta_commit": "61323eb5c3bb63b0703e7a9c6456482ccbaac3a6",
+  "epdx_commit": "2baec750dddd29de750337c8f18e2cef7106c78f",
+  "files": [
+    {
+      "source_id": "boavizta-products",
+      "source_url": "https://raw.githubusercontent.com/Boavizta/environmental-footprint-data/61323eb5c3bb63b0703e7a9c6456482ccbaac3a6/boavizta-data-us.csv",
+      "sha256": "eaeb19cc36308c8759deeea496d270d9d6ed0e46c3f113099844c3f9bf6cca9c",
+      "local_file": "examples/phase2/boavizta-products.csv"
+    },
+    {
+      "source_id": "epd-503dfca1-7c65-4179-9ffa-ebc6d8b48b7d",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json",
+      "sha256": "370282515cdfc14a09d5dd3e8c43dd15f06746c94325cc4437ccb2d65f422154",
+      "local_file": "examples/phase2/epd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json"
+    },
+    {
+      "source_id": "epd-335241f9-db84-486c-9a19-cd5ebb791903",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/335241f9-db84-486c-9a19-cd5ebb791903.json",
+      "sha256": "d090358f3dec709d5972128c824658c08073582a6bd5e5ac9f35b277559e5429",
+      "local_file": "examples/phase2/epd/335241f9-db84-486c-9a19-cd5ebb791903.json"
+    },
+    {
+      "source_id": "epd-0e85f255-4d11-4973-9daa-c03889948351",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e85f255-4d11-4973-9daa-c03889948351.json",
+      "sha256": "ade6452d595a7e674bcd774a5ffcc0ffd672e92f6b20620d22c117726637d93a",
+      "local_file": "examples/phase2/epd/0e85f255-4d11-4973-9daa-c03889948351.json"
+    },
+    {
+      "source_id": "epd-0cb92770-9007-48c6-bc03-466af8894419",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0cb92770-9007-48c6-bc03-466af8894419.json",
+      "sha256": "1fca1a575838c4436532ff7e1be49fad0819273ec049603bdba296884385c0e6",
+      "local_file": "examples/phase2/epd/0cb92770-9007-48c6-bc03-466af8894419.json"
+    },
+    {
+      "source_id": "epd-0b4c397d-c7a1-4ceb-9718-184334f6364e",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json",
+      "sha256": "9f6b51c75b425c4ab3ebf97b10c0cf079cbcd443a828dbb480376fc59692f6a4",
+      "local_file": "examples/phase2/epd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json"
+    },
+    {
+      "source_id": "epd-0aa8b645-02d9-41b4-8aa3-70335af2a9e7",
+      "source_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json",
+      "sha256": "9e5fa9dda1bfb38ef0f044fecf1068074d1862b85d2eefdd6c13b37539ca8354",
+      "local_file": "examples/phase2/epd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json"
+    }
+  ]
+}

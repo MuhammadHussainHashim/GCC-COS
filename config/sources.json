@@ -1,0 +1,460 @@
+[
+  {
+    "id": "owid-cement",
+    "title": "OWID CO2 dataset — Global Carbon Budget (2025), cement CO2",
+    "url": "https://raw.githubusercontent.com/owid/co2-data/382ee6c662b0ece26e111f263b44c029afad7787/owid-co2-data.csv",
+    "discovery_url": "https://github.com/owid/co2-data",
+    "license": "CC BY 4.0 (OWID and upstream Global Carbon Budget)",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://raw.githubusercontent.com/owid/etl/master/snapshots/gcp/2025-11-13/global_carbon_budget_fossil_co2_emissions.csv.dvc",
+    "attribution": "Andrew, R. M. & Peters, G. P. (2025), Global Carbon Project fossil CO2 emissions dataset (2025v15), doi:10.5281/zenodo.17417124; processed by Our World in Data (Pablo Rosado et al.).",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "https_document",
+    "format": "csv",
+    "adapter": "owid_cement",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "min_interval_seconds": 1,
+    "sha256": "7f78e2b218ce4bb8c538bbec04fdc9a7982e8d40bff972e650df603899edd5f6",
+    "countries": [
+      "Pakistan",
+      "United Kingdom",
+      "United States"
+    ],
+    "year": 2023,
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Annual national cement-process CO2 totals, NOT product carbon footprints or factors. No HS assignment applies."
+  },
+  {
+    "id": "us-epa",
+    "title": "US EPA emission factors",
+    "url": "https://www.epa.gov/climateleadership/ghg-emission-factors-hub",
+    "license": "US government works; verify individual publication",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "publication discovery/manual mapping",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "uk-government",
+    "title": "UK Government GHG conversion factors",
+    "url": "https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting",
+    "license": "Open Government Licence where stated; verify workbook",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "publication discovery/manual workbook mapping",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "us-lca-commons",
+    "title": "US LCA Commons",
+    "url": "https://www.lcacommons.gov/",
+    "license": "Dataset-specific; permission review required",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "dataset-specific JSON/API adapter required",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "public-epd",
+    "title": "Public EPDs",
+    "url": null,
+    "license": "Publisher-specific; public access alone is not permission",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "authorized PDF/JSON and manual mapping",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "open-lca",
+    "title": "Open licensed LCA datasets",
+    "url": null,
+    "license": "Dataset-specific; permission review required",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "authorized tabular mapping",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "manufacturer",
+    "title": "Manufacturer footprint reports",
+    "url": null,
+    "license": "Publisher-specific; permission review required",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "authorized PDF extraction/manual mapping",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "methodology-only",
+    "title": "Ecochain / carbon calculators",
+    "url": null,
+    "license": "No data reuse permission established",
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "methodology reference only",
+    "connector_status": "not_implemented_or_not_tested",
+    "notes": "Disabled until a specific reusable document, license, and tested mapping are configured."
+  },
+  {
+    "id": "boavizta-products",
+    "title": "Boavizta Environmental Footprint Data — manufacturer-reported PCFs",
+    "url": "https://raw.githubusercontent.com/Boavizta/environmental-footprint-data/61323eb5c3bb63b0703e7a9c6456482ccbaac3a6/boavizta-data-us.csv",
+    "schema_url": "https://raw.githubusercontent.com/Boavizta/environmental-footprint-data/61323eb5c3bb63b0703e7a9c6456482ccbaac3a6/README.md",
+    "license": "ODbL 1.0 (database); DbCL 1.0 (individual contents)",
+    "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "contents_license_url": "https://opendatacommons.org/licenses/dbcl/1-0/",
+    "license_evidence_url": "https://raw.githubusercontent.com/Boavizta/environmental-footprint-data/61323eb5c3bb63b0703e7a9c6456482ccbaac3a6/README.md#license",
+    "attribution": "Boavizta Environmental Footprint Data contributors; underlying manufacturer reports linked per record.",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "licensed_public_csv",
+    "format": "csv",
+    "adapter": "boavizta",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "eaeb19cc36308c8759deeea496d270d9d6ed0e46c3f113099844c3f9bf6cca9c",
+    "connector_status": "live_download_ingestion_tested",
+    "categories": [
+      "electronics",
+      "smartphones",
+      "appliances (limited IoT/printers only)"
+    ],
+    "notes": "Indirect manufacturer-report collection via licensed Boavizta database, not independent re-extraction of manufacturer PDFs. ODbL share-alike/attribution applies to the derived database. Do not compare different manufacturers or use for precise assessments.",
+    "license_evidence_file": "examples/phase2/Boavizta-README.md",
+    "license_evidence_sha256": "856faaff7f2904abc20dfd4f3bacd9d998f39a70b895ed9096143d2fe75a2646"
+  },
+  {
+    "id": "epd-503dfca1-7c65-4179-9ffa-ebc6d8b48b7d",
+    "title": " Betonelement Væg C35 Passiv",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json",
+    "primary_source_url": "https://data.eco-platform.org/resource/datastocks/5c4cf6c3-3cdb-4688-800f-d595c4600b10/processes/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Heidelberg Materials Precast Denmark A/S; public ILCD mirror maintained by ocni-dtu/epdx. Original registration NEPD-6213-5470-DK",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "370282515cdfc14a09d5dd3e8c43dd15f06746c94325cc4437ccb2d65f422154",
+    "subcategory": "precast concrete wall",
+    "material": "concrete",
+    "modules": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "epd-335241f9-db84-486c-9a19-cd5ebb791903",
+    "title": "Beton C20/25 XC1 XC2 F3 16 M ECOPact, Rezept Nummer DI3234-BHFS Version 1, Transportbetonwerk Lüdenscheid-Freisenberg, Germany",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/335241f9-db84-486c-9a19-cd5ebb791903.json",
+    "primary_source_url": "https://data.eco-platform.org/resource/datastocks/5c4cf6c3-3cdb-4688-800f-d595c4600b10/processes/335241f9-db84-486c-9a19-cd5ebb791903",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/335241f9-db84-486c-9a19-cd5ebb791903.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/335241f9-db84-486c-9a19-cd5ebb791903.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Holcim (Deutschland) GmbH; public ILCD mirror maintained by ocni-dtu/epdx. Original registration IBU-CEI-HOL-2205120-DE2023000499-1SUG001-DE",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "d090358f3dec709d5972128c824658c08073582a6bd5e5ac9f35b277559e5429",
+    "subcategory": "ready-mix concrete",
+    "material": "concrete",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "epd-0e85f255-4d11-4973-9daa-c03889948351",
+    "title": "Beton-Pflastersteine",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e85f255-4d11-4973-9daa-c03889948351.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e85f255-4d11-4973-9daa-c03889948351",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e85f255-4d11-4973-9daa-c03889948351.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e85f255-4d11-4973-9daa-c03889948351.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Rinn Beton- und Naturstein GmbH & Co.KG; public ILCD mirror maintained by ocni-dtu/epdx. Original registration EPD-RIN-20210165-IBC1-DE",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "ade6452d595a7e674bcd774a5ffcc0ffd672e92f6b20620d22c117726637d93a",
+    "subcategory": "concrete paving stones",
+    "material": "concrete",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "epd-0cb92770-9007-48c6-bc03-466af8894419",
+    "title": "Aluminiumprofil pressblank",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0cb92770-9007-48c6-bc03-466af8894419.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0cb92770-9007-48c6-bc03-466af8894419",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0cb92770-9007-48c6-bc03-466af8894419.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0cb92770-9007-48c6-bc03-466af8894419.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Höfer Metall Technik GmbH & Co KG; public ILCD mirror maintained by ocni-dtu/epdx. Original registration EPD-HFE-20220036-IBA1-DE",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "1fca1a575838c4436532ff7e1be49fad0819273ec049603bdba296884385c0e6",
+    "subcategory": "aluminum profile",
+    "material": "aluminum",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "epd-0b4c397d-c7a1-4ceb-9718-184334f6364e",
+    "title": "Cement-based insulation foam: MasterProtect NFF 2070 IN",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0b4c397d-c7a1-4ceb-9718-184334f6364e",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Master Builders Solutions Deutschland GmbH; public ILCD mirror maintained by ocni-dtu/epdx. Original registration EPD-MDS-20210038-CBA1-EN",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "9f6b51c75b425c4ab3ebf97b10c0cf079cbcd443a828dbb480376fc59692f6a4",
+    "subcategory": "cement-based insulation foam",
+    "material": "cement-based foam",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "epd-0aa8b645-02d9-41b4-8aa3-70335af2a9e7",
+    "title": "Aggressiv 35MPa max 16mm vib-fri Færdig beton",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json",
+    "primary_source_url": "https://data.eco-platform.org/resource/datastocks/5c4cf6c3-3cdb-4688-800f-d595c4600b10/processes/0aa8b645-02d9-41b4-8aa3-70335af2a9e7",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Skagen Cement Støberi A/S; public ILCD mirror maintained by ocni-dtu/epdx. Original registration NEPD-4945-3957-DK",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "9e5fa9dda1bfb38ef0f044fecf1068074d1862b85d2eefdd6c13b37539ca8354",
+    "subcategory": "ready-mix concrete",
+    "material": "concrete",
+    "modules": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Real ILCD dataset embedded licenseType permits all users/uses and accessRestrictions is None. Repository software MIT license is not used as a data license. Original publisher not independently crosschecked. Review claims and dates retained as reported."
+  },
+  {
+    "id": "construction-pending",
+    "title": "Phase 2 pending category: plain cement, steel, glass",
+    "categories": [
+      "plain cement",
+      "steel",
+      "glass"
+    ],
+    "url": "https://www.oekobaudat.de/",
+    "license": null,
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "permission_and_dataset_review_required",
+    "connector_status": "not_collected",
+    "notes": "No product-level coverage claimed. Source-specific license and functional connector needed."
+  },
+  {
+    "id": "vehicles-pending",
+    "title": "Phase 2 pending category: vehicles",
+    "categories": [
+      "vehicles"
+    ],
+    "url": null,
+    "license": null,
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "permission_and_dataset_review_required",
+    "connector_status": "not_collected",
+    "notes": "No product-level coverage claimed. Source-specific license and functional connector needed."
+  },
+  {
+    "id": "appliances-pending",
+    "title": "Phase 2 pending category: appliances",
+    "categories": [
+      "appliances"
+    ],
+    "url": null,
+    "license": null,
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "permission_and_dataset_review_required",
+    "connector_status": "not_collected",
+    "notes": "No product-level coverage claimed. Source-specific license and functional connector needed."
+  },
+  {
+    "id": "clothing-pending",
+    "title": "Phase 2 pending category: clothing",
+    "categories": [
+      "clothing"
+    ],
+    "url": null,
+    "license": null,
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "permission_and_dataset_review_required",
+    "connector_status": "not_collected",
+    "notes": "No product-level coverage claimed. Source-specific license and functional connector needed."
+  },
+  {
+    "id": "furniture-pending",
+    "title": "Phase 2 pending category: furniture",
+    "categories": [
+      "furniture"
+    ],
+    "url": null,
+    "license": null,
+    "license_url": null,
+    "reuse_permitted": false,
+    "enabled": false,
+    "access_method": "permission_and_dataset_review_required",
+    "connector_status": "not_collected",
+    "notes": "No product-level coverage claimed. Source-specific license and functional connector needed."
+  },
+  {
+    "id": "epd-0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5",
+    "title": "Argeton",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e0c4e37-b7e6-4a4f-b1c9-d36da0aa16f5.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Wienerberger GmbH; public ILCD mirror ocni-dtu/epdx; registration EPD-WIN-20140143-ICA2-DE",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "a00d88fe337df044b2143a376ea67c0ec19ddc94a88fc328b6c39aff001153f8",
+    "subcategory": "ceramic facade",
+    "material": "ceramics",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  },
+  {
+    "id": "epd-0e80e6e7-6882-47be-8bd8-5cd869a746d9",
+    "title": "EQUITONE Pictura / Natura Pro Faserzementtafel",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e80e6e7-6882-47be-8bd8-5cd869a746d9",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e80e6e7-6882-47be-8bd8-5cd869a746d9.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Etex Building Performance International; public ILCD mirror ocni-dtu/epdx; registration EPD-ETE-20190179-CCC1-EN",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "25c808fd5a83e66d5ca258c1105437cdc36fbeab46e510238b59ece515db38eb",
+    "subcategory": "fibre cement board",
+    "material": "fibre cement",
+    "modules": [
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  },
+  {
+    "id": "epd-0e9fd868-9656-489e-be6c-8251b3d43283",
+    "title": "Fassaden - Moeding Keramikfassaden GmbH - Alphaton",
+    "url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json",
+    "primary_source_url": "https://oekobaudat.de/OEKOBAU.DAT/resource/datastocks/cd2bda71-760b-4fcc-8a0b-3877c10000a8/processes/0e9fd868-9656-489e-be6c-8251b3d43283",
+    "license": "Free of charge for all users and uses",
+    "license_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json#administrativeInformation/publicationAndOwnership",
+    "license_evidence_url": "https://raw.githubusercontent.com/ocni-dtu/epdx/2baec750dddd29de750337c8f18e2cef7106c78f/tests/datafixtures/ilcd/0e9fd868-9656-489e-be6c-8251b3d43283.json#administrativeInformation/publicationAndOwnership",
+    "attribution": "EPD dataset owner: Moeding Keramikfassaden GmbH; public ILCD mirror ocni-dtu/epdx; registration EPD-MFA-48.0",
+    "reuse_permitted": true,
+    "enabled": true,
+    "access_method": "public_ilcd_mirror_explicit_document_license",
+    "format": "ilcd_json",
+    "adapter": "ilcd_epd",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "sha256": "3c2d4ceec0eacc1c2f213bc8308218e05b91252599fb25d5d7013129b4badc5a",
+    "subcategory": "ceramic facade",
+    "material": "ceramics",
+    "modules": [
+      "A1-A3"
+    ],
+    "connector_status": "live_download_ingestion_tested",
+    "notes": "Historical mirrored EPD; preserve source review and validity years. Expired declarations are not current evidence. Individual embedded data permissions checked; original publisher not independently crosschecked."
+  }
+]

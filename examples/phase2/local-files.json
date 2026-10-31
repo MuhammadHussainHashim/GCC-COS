@@ -1,0 +1,9 @@
+{
+  "boavizta-products": "examples/phase2/boavizta-products.csv",
+  "epd-503dfca1-7c65-4179-9ffa-ebc6d8b48b7d": "examples/phase2/epd/503dfca1-7c65-4179-9ffa-ebc6d8b48b7d.json",
+  "epd-335241f9-db84-486c-9a19-cd5ebb791903": "examples/phase2/epd/335241f9-db84-486c-9a19-cd5ebb791903.json",
+  "epd-0e85f255-4d11-4973-9daa-c03889948351": "examples/phase2/epd/0e85f255-4d11-4973-9daa-c03889948351.json",
+  "epd-0cb92770-9007-48c6-bc03-466af8894419": "examples/phase2/epd/0cb92770-9007-48c6-bc03-466af8894419.json",
+  "epd-0b4c397d-c7a1-4ceb-9718-184334f6364e": "examples/phase2/epd/0b4c397d-c7a1-4ceb-9718-184334f6364e.json",
+  "epd-0aa8b645-02d9-41b4-8aa3-70335af2a9e7": "examples/phase2/epd/0aa8b645-02d9-41b4-8aa3-70335af2a9e7.json"
+}
