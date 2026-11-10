@@ -23,7 +23,11 @@ build/
 dist/
 .coverage
 htmlcov/
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea/
 
 # Historical machine-generated reports stay local; reusable licensed inputs remain versioned.
