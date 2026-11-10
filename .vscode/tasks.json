@@ -1,0 +1,217 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "GCC-COS: create virtual environment",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "-m",
+        "venv",
+        ".venv"
+      ],
+      "windows": {
+        "command": "py",
+        "args": [
+          "-3.12",
+          "-m",
+          "venv",
+          ".venv"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: install requirements",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements.txt"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: 1 Set up (run once)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "GCC-COS: create virtual environment",
+        "GCC-COS: install requirements"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: load Phase 2 bundled data",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos",
+        "--registry",
+        "examples/phase2/sources.json",
+        "ingest",
+        "--manifest",
+        "examples/phase2/local-files.json"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: revalidate records",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos",
+        "revalidate"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: load Phase 3 bundled data",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos",
+        "--registry",
+        "examples/phase3/sources.json",
+        "ingest",
+        "--manifest",
+        "examples/phase3/local-files.json"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: 2 Load bundled data (offline)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "GCC-COS: load Phase 2 bundled data",
+        "GCC-COS: revalidate records",
+        "GCC-COS: load Phase 3 bundled data"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "GCC-COS: 3 Run dashboard",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "streamlit",
+        "run",
+        "dashboard.py",
+        "--server.address",
+        "127.0.0.1"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": [],
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "GCC-COS: Run tests",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    }
+  ]
+}

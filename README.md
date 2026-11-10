@@ -72,6 +72,16 @@ If you already have this repository, open its existing folder; skip cloning it. 
 
 These commands were checked against the CLI and Python packaging configuration. **Execution was tested on Linux/Python 3.12, not native Windows.** On Linux/macOS create the environment with `python3 -m venv .venv` and replace `.\.venv\Scripts\python.exe` with `.venv/bin/python`.
 
+### Run it from VS Code without typing commands
+
+The repository includes shared VS Code tasks. Open the GCC-COS folder in VS Code, install the recommended Python extension when prompted, then choose **Terminal → Run Task…** and run these in order:
+
+1. **GCC-COS: 1 Set up (run once)** — creates `.venv` and installs the requirements.
+2. **GCC-COS: 2 Load bundled data (offline)** — loads the bundled Phase 2 and Phase 3 files; no network needed.
+3. **GCC-COS: 3 Run dashboard** — starts Streamlit on `http://localhost:8501`. `Ctrl+Shift+B` runs this task directly.
+
+Streamlit normally opens your default browser. To view it inside VS Code instead, press `Ctrl+Shift+P`, choose **Simple Browser: Show** and enter `http://localhost:8501`. Stop the dashboard with `Ctrl+C` in its terminal panel. Press `F5` and pick **GCC-COS dashboard** to run it under the debugger. The tasks were checked on Linux; native Windows execution of them remains untested.
+
 ## 2. Collect real product records
 
 ### Download from the tested public sources
