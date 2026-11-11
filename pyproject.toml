@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gcc-cos"
-version = "0.4.0"
+version = "1.0.0"
 description = "Evidence-first carbon data collection"
 requires-python = ">=3.11"
 dynamic = ["dependencies"]
@@ -20,3 +20,7 @@ gcc-cos = "gcc_cos.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.ruff.lint]
+# Real errors only: undefined names, unused imports, syntax problems.
+select = ["F", "E9"]

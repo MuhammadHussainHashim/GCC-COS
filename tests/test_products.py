@@ -1,6 +1,5 @@
 """Real attributed examples are in examples/phase2. All invented rows below are labeled SYNTHETIC."""
 from decimal import Decimal
-import copy
 import json
 from pathlib import Path
 import sqlite3
@@ -10,7 +9,7 @@ from gcc_cos.products import boavizta, ilcd_records
 from gcc_cos.ingest import ingest, load_registry
 from gcc_cos.model import validate, is_product, PRODUCT_FIELDS
 from gcc_cos.storage import connect, records, insert
-from gcc_cos.export import export, frame
+from gcc_cos.export import export
 from gcc_cos.query import select
 
 ROOT = Path(__file__).resolve().parents[1]

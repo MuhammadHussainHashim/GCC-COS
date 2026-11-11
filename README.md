@@ -1,4 +1,37 @@
-# Green Carbon Corridor — Carbon Operating System (GCC-COS)
+# GCC-Final-System — Green Carbon Corridor Carbon Operating System
+
+This is the consolidated, cleaned-up repository for the Green Carbon Corridor **Carbon Operating System (GCC-COS)**. It brings together everything from the earlier `GCC-COS` repository: the Phase 1–4 application from `main` and the shared VS Code setup that previously lived only on a side branch. The Python package and command are still named `gcc_cos` / `gcc-cos`.
+
+## Quick start
+
+```powershell
+git clone https://github.com/MuhammadHussainHashim/GCC-Final-System.git
+cd GCC-Final-System
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase2/sources.json ingest --manifest examples/phase2/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase3/sources.json ingest --manifest examples/phase3/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos revalidate
+.\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
+```
+
+That loads the 1,241 bundled observations without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+
+## Repository map
+
+| Path | What it is |
+| --- | --- |
+| `gcc_cos/` | The application: ingestion, validation, normalization, storage, audit, human review, export and the command line |
+| `dashboard.py` | Streamlit dashboard |
+| `config/` | Full source registry and the (intentionally empty) HS6 rules |
+| `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte |
+| `tests/` | Test suite (111 tests) |
+| `scripts/` | Windows PowerShell helpers, diagnostics and the smoke test |
+| `.vscode/` | Shared VS Code tasks, launch configurations and settings |
+| `.github/workflows/` | Linux and Windows test workflow |
+| `WINDOWS.md`, `PHASE4.md`, `DATA_LICENSES.md`, `CHANGELOG.md` | Beginner instructions, human-review guide, data licensing, and what changed in this consolidation |
+
+## Overview
 
 GCC-COS is a local, free Python application for collecting carbon-footprint evidence. It downloads authorized documents, keeps their original values and references, checks data quality, stores records in SQLite, and exports CSV, Excel and SQLite. Streamlit provides a searchable dashboard. No paid APIs, AI subscriptions or account are required for the working sources.
 
@@ -61,8 +94,8 @@ The dashboard adds original-source links, selected-record details, warning filte
 Install **Python 3.12 (64-bit)** and select “Add Python to PATH”. Install Git and VS Code. Open PowerShell or CMD:
 
 ```powershell
-git clone https://github.com/MuhammadHussainHashim/GCC-COS.git
-cd GCC-COS
+git clone https://github.com/MuhammadHussainHashim/GCC-Final-System.git
+cd GCC-Final-System
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip check
@@ -74,7 +107,7 @@ These commands were checked against the CLI and Python packaging configuration. 
 
 ### Run it from VS Code without typing commands
 
-The repository includes shared VS Code tasks. Open the GCC-COS folder in VS Code, install the recommended Python extension when prompted, then choose **Terminal → Run Task…** and run these in order:
+The repository includes shared VS Code tasks. Open the GCC-Final-System folder in VS Code, install the recommended Python extension when prompted, then choose **Terminal → Run Task…** and run these in order:
 
 1. **GCC-COS: 1 Set up (run once)** — creates `.venv` and installs the requirements.
 2. **GCC-COS: 2 Load bundled data (offline)** — loads the bundled Phase 2 and Phase 3 files; no network needed.

@@ -2,10 +2,9 @@ import argparse
 import json
 from pathlib import Path
 from .ingest import ingest, load_registry
-from .storage import connect, records, review, revalidate
+from .storage import connect, review, revalidate
 from .export import export, selected_rows
 from .discovery import discover
-from .query import select
 
 
 def add_filters(parser):

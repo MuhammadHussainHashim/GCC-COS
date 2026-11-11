@@ -7,7 +7,7 @@ from urllib.parse import urlsplit
 from urllib.robotparser import RobotFileParser
 import requests
 import pandas as pd
-from .verification import FIELDS, schema, packets, latest_packet, save_packet, verified_rows, review_state, digest
+from .verification import FIELDS, schema, latest_packet, save_packet, verified_rows, review_state, digest
 from .storage import records, now
 from .model import is_product
 from .audit import safe_frame

@@ -67,7 +67,7 @@ def excel_bytes(db, verified_only=False, **filters):
             if verified_only:
                 if table == 'runs': audit = audit[audit['source_id'].isin(set(df['source_id']))]
                 else: audit = audit[audit['record_id'].isin(set(df['id']))]
-            for column in audit.select_dtypes(include="object"):
+            for column in [c for c in audit.columns if pd.api.types.is_object_dtype(audit[c]) or pd.api.types.is_string_dtype(audit[c])]:
                 audit[column] = audit[column].map(lambda v: "'" + v if isinstance(v, str) and v.startswith(("=", "+", "-", "@", "\t", "\r")) else v)
             if any(isinstance(v, str) and len(v) > 32767 for v in audit.to_numpy().flat):
                 raise ValueError("Audit note exceeds Excel cell limit; inspect SQLite instead")
