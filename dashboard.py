@@ -8,16 +8,19 @@ from gcc_cos.export import frame, excel_bytes
 from gcc_cos.query import select
 from gcc_cos.model import is_product
 from gcc_cos.audit import build_audit
+from gcc_cos import hs
 
 st.set_page_config(page_title="GCC-COS", layout="wide")
 st.title("Green Carbon Corridor — Carbon Data Collection")
 st.caption("Quality checks do not verify a footprint. Annual inventories are not product factors.")
 db = connect("data/carbon.sqlite")
 try:
-    rows = records(db)
+    hs_table, hs_source = hs.load_table()
+    hs_mappings = hs.load_mappings(table=hs_table)
+    rows = hs.annotate(records(db), hs_mappings, hs_table, hs_source)
     filters = {}
     filters['products_only'] = st.checkbox("Products only", value=False)
-    filters['search'] = st.text_input("Search products, manufacturers, materials, EPD IDs or HS6")
+    filters['search'] = st.text_input("Search products, manufacturers, materials, EPD IDs or HS code")
     for label, key, field in [("Category", "category", "category"), ("Manufacturer", "manufacturer", "manufacturer"),
                               ("Geography", "geography", "geography"), ("Review status", "status", "review_status"),
                               ("Source-reported verification status", "verification_status", "verification_status")]:
@@ -27,7 +30,7 @@ try:
     warnings = sorted({issue for row in rows for issue in row.get('issues', [])})
     filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
     selected = select(rows, **filters)
-    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review"])
+    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes"])
     with tabs[0]:
         st.metric("Collected records", len(rows))
         st.metric("Product observations (all records)", sum(is_product(r) for r in rows))
@@ -43,7 +46,7 @@ try:
             st.json({k:record.get(k) for k in ['manufacturer','product_name','original_value','original_unit',
                                              'declared_quantity','declared_unit','lifecycle_scope','geography','geography_basis',
                                              'publication_date','year','primary_source_url','source_url','license','attribution',
-                                             'verification_status','hs6','hs_evidence','hs_edition','issues','evidence']})
+                                             'verification_status','hs_code','hs_description','hs_status','hs_basis','hs_reference_edition','issues','evidence']})
         st.warning("Manufacturer-reported PCFs and mirrored EPD review claims are not independent verification by GCC-COS. Read source limitations; do not compare different scopes or methods.")
     with tabs[1]:
         st.dataframe(pd.DataFrame(load_registry("config/sources.json")).astype(str))
@@ -140,5 +143,30 @@ try:
         st.caption(f"{len(qualified)} records currently qualify for human-approved verified-only export. Expired, rejected, stale and unsupported evidence is excluded dynamically.")
         st.download_button("Download human-approved verified-only Excel",excel_bytes(db,verified_only=True,**filters),'verified-only.xlsx',
                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    with tabs[7]:
+        st.subheader("HS codes (edition: " + hs_source["edition"] + ")")
+        products = [r for r in rows if is_product(r)]
+        summary = hs.coverage(products)
+        unverified = summary["by_status"].get("proposed_not_verified", 0)
+        if unverified:
+            st.warning(f"NOT VERIFIED: {unverified} of {summary['records']} product records use a proposed HS mapping that no customs authority or reviewer has confirmed. Replace each one in config/hs_mappings.json once it is verified.")
+        st.caption(f"{summary['by_status'].get('unmapped', 0)} product records have no HS code. A 4-digit code means only the heading is known, not the 6-digit subheading.")
+        table = pd.DataFrame(summary["codes"])
+        if not table.empty:
+            table["hs_status"] = table["hs_status"].map(hs.LABELS)
+            st.dataframe(table, use_container_width=True, hide_index=True)
+        st.subheader("Product-type mappings")
+        st.dataframe(pd.DataFrame([{"category": m["match"].get("category"), "subcategory": m["match"].get("subcategory"),
+                                    "product_name": m["match"].get("product_name"), "hs_code": m["hs_code"],
+                                    "status": hs.LABELS[m["status"]], "basis": m["basis"]} for m in hs_mappings]).astype(str),
+                     use_container_width=True, hide_index=True)
+        st.subheader("Look up an HS code")
+        query = st.text_input("Type a code (for example 8471) or words (for example smartphones)", key="hs_lookup")
+        if query:
+            found = hs.lookup(query, hs_table)
+            st.dataframe(pd.DataFrame([{k: c[k] for k in ("code", "level", "description")} for c in found]), use_container_width=True, hide_index=True)
+            if not found:
+                st.info("No HS 2022 code matches.")
+        st.caption("Source: " + hs_source["attribution"] + " License: " + hs_source["license"] + ". " + hs_source["limitations"])
 finally:
     db.close()

@@ -13,7 +13,7 @@ def add_filters(parser):
     parser.add_argument('--search', default='')
     parser.add_argument('--warnings-only', action='store_true')
     parser.add_argument('--warning')
-    parser.add_argument('--hs6')
+    parser.add_argument('--hs6', '--hs', dest='hs6', help='HS code or prefix (2, 4 or 6 digits)')
     for field in ('category', 'manufacturer', 'geography', 'status', 'verification-status'):
         parser.add_argument('--' + field)
 
@@ -61,6 +61,9 @@ def main(argv=None):
     p = sub.add_parser("research-prepare", help="Quarantine a legacy product workbook for manual evidence review")
     p.add_argument("workbook")
     p.add_argument("--output-dir", default="exports/research-review")
+    p = sub.add_parser("hs-lookup", help="Search the bundled HS 2022 code list by number or words")
+    p.add_argument("query")
+    sub.add_parser("hs-coverage", help="Show how many product records have an HS code, and how reliable it is")
     p = sub.add_parser("audit")
     p.add_argument("--output-dir", default="reports/phase3")
     p.add_argument("--workbook", default=None)
@@ -92,8 +95,19 @@ def main(argv=None):
         except (ValueError, FileNotFoundError) as exc:
             parser.error(str(exc))
         return 0
+    if args.command == "hs-lookup":
+        from .hs import load_table, lookup
+        for code in lookup(args.query, load_table()[0]):
+            print(json.dumps({k: code[k] for k in ("code", "level", "description")}, ensure_ascii=False))
+        return 0
     db = connect(args.db)
     try:
+        if args.command == "hs-coverage":
+            from .hs import annotate, coverage
+            from .model import is_product
+            from .storage import records
+            print(json.dumps(coverage(annotate([r for r in records(db) if is_product(r)])), indent=2, ensure_ascii=False))
+            return 0
         if args.command in {'reviewer-add','reviewer-disable','review-prepare','review-probe','review-workbook','review-attach','human-review'}:
             from . import verification as verification
             from . import review_batch

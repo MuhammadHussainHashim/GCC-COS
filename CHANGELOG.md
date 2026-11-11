@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.0 — HS codes, layer 2 (2026-11-11)
+
+### Added
+- HS 2022 code list (5,613 six-digit codes) in `reference/hs2022/`, with source, checksum and PDDL license recorded.
+- Product-type HS mappings in `config/hs_mappings.json`. **All are marked `proposed_not_verified`.** 1,177 of the 1,241 bundled records get a code (805 at 6 digits, 372 at heading level only); 64 stay without a code, each with a written reason.
+- HS columns in the dashboard, CSV/Excel exports and `records` output; an **HS codes** dashboard tab; `hs-lookup` and `hs-coverage` commands; `--hs` filter accepting 2, 4 or 6 digits.
+- `docs/HS_CODES.md`, including how to replace a proposed mapping with a verified one.
+
+### Not changed
+- Stored records, carbon values, sources and licenses. HS columns are added when records are shown or exported.
+
+### Checked (Linux, Python 3.13)
+- 135 of 135 tests pass; `ruff` reports no issues. The HS tab was opened in a browser and rendered without errors.
+- Native Windows execution remains untested. No mapping has been checked by a customs authority.
+
 ## 1.0.1 — one working copy (2026-11-11)
 
 Merged the two parallel consolidations (the 1.0.0 clean-up and the "source 2" research snapshot) into one branch. No carbon values, source records, licenses or bundled input files were changed.

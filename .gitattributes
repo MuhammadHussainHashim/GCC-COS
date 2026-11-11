@@ -4,4 +4,5 @@
 
 # Preserve licensed reference inputs byte-for-byte (checksums and attribution).
 # Upstream CSV/Markdown may intentionally retain CRLF or terminal blank lines.
+reference/** -text -eol whitespace=cr-at-eol,-blank-at-eof
 examples/** -text -eol whitespace=cr-at-eol,-blank-at-eof

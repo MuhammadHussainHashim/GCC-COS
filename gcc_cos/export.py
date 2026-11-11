@@ -4,6 +4,7 @@ import pandas as pd
 from .model import FIELDS
 from .storage import records
 from .query import select
+from .hs import annotate, HS_COLUMNS
 
 
 APPROVAL_COLUMNS = ['human_approval_id','human_reviewer','human_verified_at','approval_explanation','primary_evidence_sha256','human_review_status','primary_evidence_url','primary_document_license','primary_document_license_url','primary_document_title','primary_document_date','primary_declared_expiry','verification_scope']
@@ -12,8 +13,8 @@ APPROVAL_COLUMNS = ['human_approval_id','human_reviewer','human_verified_at','ap
 def selected_rows(db, verified_only=False, **filters):
     if verified_only:
         from .verification import verified_rows
-        return select(verified_rows(db), **filters)
-    return select(records(db), **filters)
+        return select(annotate(verified_rows(db)), **filters)
+    return select(annotate(records(db)), **filters)
 
 
 def frame(db, verified_only=False, **filters):
@@ -25,7 +26,7 @@ def frame(db, verified_only=False, **filters):
             elif isinstance(value, str) and value.startswith(("=", "+", "-", "@", "\t", "\r")):
                 # Avoid spreadsheet formula injection in text cells.
                 row[key] = "'" + value
-    return pd.DataFrame(rows, columns=["id"] + FIELDS + (APPROVAL_COLUMNS if verified_only else []))
+    return pd.DataFrame(rows, columns=["id"] + FIELDS + HS_COLUMNS + (APPROVAL_COLUMNS if verified_only else []))
 
 
 def export(db, destination, **filters):

@@ -11,7 +11,7 @@ def select(rows, products_only=False, search='', category=None, manufacturer=Non
             continue
         if warning and warning not in (row.get("issues") or []):
             continue
-        if hs6 and row.get("hs6") != hs6:
+        if hs6 and not str(row.get("hs_code") or row.get("hs6") or "").startswith(hs6):
             continue
         if products_only and not is_product(row):
             continue
@@ -20,7 +20,7 @@ def select(rows, products_only=False, search='', category=None, manufacturer=Non
             ('review_status', status), ('verification_status', verification_status)]):
             continue
         haystack = ' '.join(str(row.get(k) or '') for k in
-                            ('product_name', 'manufacturer', 'category', 'subcategory', 'material', 'epd_id', 'hs6'))
+                            ('product_name', 'manufacturer', 'category', 'subcategory', 'material', 'epd_id', 'hs6', 'hs_code'))
         if needle and needle not in haystack.casefold():
             continue
         results.append(row)
