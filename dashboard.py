@@ -210,12 +210,23 @@ try:
                         lines = calculator.read_basket(staged)
                     except (ValueError, UnicodeDecodeError) as exc:
                         st.error(str(exc))
+        people = st.number_input("People sharing this footprint (staff or household); leave 0 to skip", min_value=0, value=0, step=1)
         if lines:
-            result = calculator.calculate(products, lines, hs_table)
+            result = calculator.calculate(products, lines, hs_table, people=people or None)
             for total in result["totals"]:
                 st.metric(f"Total, {total['scope']}", f"{float(total['total_kg_co2e']):,.1f} kg CO2e",
                           help=f"Lowest {float(total['total_lowest']):,.1f} and highest {float(total['total_highest']):,.1f} kg CO2e, from the lowest and highest source record for each line.")
                 st.caption(f"Range {float(total['total_lowest']):,.1f} to {float(total['total_highest']):,.1f} kg CO2e across {total['lines']} lines. NOT VERIFIED.")
+                facts = [f"Biggest line: line {total['biggest_line']}, {total['biggest_line_share_percent']}% of this total."]
+                if total["use_phase_kg_co2e"] is not None:
+                    facts.append(f"Use phase {float(total['use_phase_kg_co2e']):,.1f} kg CO2e; making, transport and end of life {float(total['making_and_other_kg_co2e']):,.1f} kg CO2e.")
+                if total["per_year_kg_co2e"] is not None:
+                    facts.append(f"Per year of use: {float(total['per_year_kg_co2e']):,.1f} kg CO2e, using the lifetimes the sources assumed.")
+                if total["per_person_kg_co2e"] is not None:
+                    facts.append(f"Per person: {float(total['per_person_kg_co2e']):,.1f} kg CO2e.")
+                st.write(" ".join(facts))
+                chart = pd.DataFrame([{"line": f"{r['line']}: {r['label'] or r['query']}", "kg CO2e": float(r["total_kg_co2e"])} for r in result["lines"] if r["status"] == "ok" and r["scope"] == total["scope"]])
+                st.bar_chart(chart, x="line", y="kg CO2e", horizontal=True)
             for warning in result["warnings"]:
                 (st.error if warning.startswith("INCOMPLETE") else st.warning if warning.startswith("NOT VERIFIED") else st.info)(warning)
             table = pd.DataFrame(calculator.flat_lines(result), columns=calculator.LINE_COLUMNS)

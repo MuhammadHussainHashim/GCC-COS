@@ -67,6 +67,7 @@ def main(argv=None):
     p.add_argument("basket", nargs="?", help="CSV with quantity and one of record_id, hs_code, product_type per row")
     p.add_argument("--item", action="append", default=[], metavar="KIND=VALUE:QUANTITY",
                    help="One line without a file, for example hs=847130:10, type=Smartphone:2 or record=15:1. Repeat for more lines.")
+    p.add_argument("--people", help="Number of people (staff or household) for a per-person figure")
     p.add_argument("--output", help="Save the full result as .json, .csv or .xlsx")
     sub.add_parser("hs-coverage", help="Show how many product records have an HS code, and how reliable it is")
     p = sub.add_parser("audit")
@@ -120,7 +121,7 @@ def main(argv=None):
                     lines.append({"kind": kind, "value": value, "quantity": quantity})
                 if not lines:
                     raise ValueError("Give a basket CSV or at least one --item")
-                result = calculator.calculate(records(db), lines)
+                result = calculator.calculate(records(db), lines, people=args.people)
                 if args.output:
                     calculator.write_result(result, args.output)
             except (ValueError, OSError) as exc:
@@ -128,11 +129,20 @@ def main(argv=None):
             for r in result["lines"]:
                 if r["status"] == "ok":
                     print(f"{r['line']:>3}  {r['quantity']} {r['quantity_unit']} x {float(r['per_unit']):,.2f} {r['unit']} = {float(r['total_kg_co2e']):,.1f} kg CO2e"
-                          f"  [{r['kind']} {r['query']}: {r['label']}; {r['basis']}]")
+                          f"  ({r['share_of_total_percent']}% of total)  [{r['kind']} {r['query']}: {r['label']}; {r['basis']}]")
+                    if r["versus_same_maker_percent"] is not None:
+                        print(f"       {float(r['versus_same_maker_percent']):+.1f}% against the median of {r['same_maker_records']} records of this type from the same manufacturer")
                 else:
                     print(f"{r['line']:>3}  NO VALUE  [{r['kind']} {r['query']}] {r['message']}")
             for t in result["totals"]:
                 print(f"TOTAL {t['scope']}: {float(t['total_kg_co2e']):,.1f} kg CO2e (lowest {float(t['total_lowest']):,.1f}, highest {float(t['total_highest']):,.1f}; {t['lines']} lines)")
+                print(f"  Biggest line: {t['biggest_line']} ({t['biggest_line_share_percent']}% of this total)")
+                if t["use_phase_kg_co2e"] is not None:
+                    print(f"  Use phase {float(t['use_phase_kg_co2e']):,.1f} kg CO2e; making, transport and end of life {float(t['making_and_other_kg_co2e']):,.1f} kg CO2e")
+                if t["per_year_kg_co2e"] is not None:
+                    print(f"  Per year of use: {float(t['per_year_kg_co2e']):,.1f} kg CO2e (using the lifetimes the sources assumed)")
+                if t["per_person_kg_co2e"] is not None:
+                    print(f"  Per person: {float(t['per_person_kg_co2e']):,.1f} kg CO2e")
             for warning in result["warnings"]:
                 print("! " + warning)
             return 0 if result["complete"] else 2

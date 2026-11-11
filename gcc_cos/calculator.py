@@ -41,6 +41,28 @@ def _value(row):
         return None
 
 
+def _decimal(value):
+    try:
+        number = Decimal(str(value))
+        return number if number.is_finite() else None
+    except (InvalidOperation, ValueError):
+        return None
+
+
+def use_share(row):
+    """Share of the footprint from the use phase, as the source reports it (0 to 1), or None."""
+    evidence = row.get("evidence")
+    raw = evidence.get("raw") if isinstance(evidence, dict) else None
+    share = _decimal(raw.get("gwp_use_ratio")) if isinstance(raw, dict) else None
+    return share if share is not None and 0 <= share <= 1 else None
+
+
+def lifetime(row):
+    """Years of use the source assumed, or None."""
+    years = _decimal(row.get("lifetime_years"))
+    return years if years is not None and years > 0 else None
+
+
 def prepare(rows):
     """Product rows with HS columns; pass storage.records(db)."""
     rows = [r for r in rows if is_product(r)]
@@ -107,6 +129,27 @@ def estimate(rows, kind, value, quantity, table=None):
         flags.append("production_stage_only_not_full_lifecycle")
     if any("declaration_expired" in (r.get("issues") or []) for r in used):
         flags.append("declaration_expired")
+    if len(used) > 1 and low > 0 and high / low > 3:
+        flags.append("wide_range")
+    total = per_unit * amount
+    shares = [s for s in (use_share(r) for r in used) if s is not None]
+    years = [y for y in (lifetime(r) for r in used) if y is not None]
+    share = statistics.median(shares) if shares and scope == FULL_LIFECYCLE else None
+    life = statistics.median(years) if years and scope == FULL_LIFECYCLE else None
+    extras = {"use_phase_share": str(share) if share is not None else None, "use_phase_share_records": len(shares) if share is not None else 0,
+              "use_phase_kg_co2e": str(total * share) if share is not None else None,
+              "making_and_other_kg_co2e": str(total * (1 - share)) if share is not None else None,
+              "lifetime_years": str(life) if life is not None else None, "lifetime_records": len(years) if life is not None else 0,
+              "per_year_kg_co2e": str(total / life) if life is not None else None,
+              "same_maker_median": None, "same_maker_records": 0, "versus_same_maker_percent": None}
+    if kind == "record":
+        one = used[0]
+        peers = [_value(r) for r in rows if r.get("manufacturer") == one.get("manufacturer") and r.get("subcategory") == one.get("subcategory")
+                 and r.get("normalized_unit") == unit and scope_of(r) == scope and _value(r) is not None]
+        if len(peers) >= 3:
+            peer_median = statistics.median(peers)
+            extras.update(same_maker_median=str(peer_median), same_maker_records=len(peers),
+                          versus_same_maker_percent=str(((per_unit - peer_median) / peer_median * 100).quantize(Decimal("0.1"))) if peer_median > 0 else None)
     sources = []
     for r in used:
         source = {"dataset": r.get("document_title"), "dataset_url": r.get("source_url"), "license": r.get("license"), "attribution": r.get("attribution")}
@@ -119,15 +162,15 @@ def estimate(rows, kind, value, quantity, table=None):
             "basis": "one source record" if len(used) == 1 else f"median of {len(used)} source records",
             "records_used": len(used), "record_ids": [r["id"] for r in used], "product_types": types,
             "per_unit": str(per_unit), "per_unit_lowest": str(low), "per_unit_highest": str(high),
-            "total_kg_co2e": str(per_unit * amount), "total_lowest": str(low * amount), "total_highest": str(high * amount),
+            "total_kg_co2e": str(total), **extras, "total_lowest": str(low * amount), "total_highest": str(high * amount),
             "hs_code": first.get("hs_code") if len({r.get("hs_code") for r in used}) == 1 else (query if kind == "hs" else None),
             "hs_status": first.get("hs_status") if len({r.get("hs_status") for r in used}) == 1 else "mixed",
             "report_url": first.get("primary_source_url") if len(used) == 1 else None,
             "flags": flags, "sources": sources}
 
 
-def calculate(rows, lines, table=None):
-    """Work out every line and total them by lifecycle scope."""
+def calculate(rows, lines, table=None, people=None):
+    """Work out every line and total them by lifecycle scope. people (optional) adds a per-person figure."""
     rows = prepare(rows)
     codes = table if table is not None else load_table()[0]
     results = []
@@ -143,8 +186,26 @@ def calculate(rows, lines, table=None):
         t["total"] += Decimal(r["total_kg_co2e"])
         t["lowest"] += Decimal(r["total_lowest"])
         t["highest"] += Decimal(r["total_highest"])
-    totals = [{"scope": t["scope"], "lines": t["lines"], "total_kg_co2e": str(t["total"]),
-               "total_lowest": str(t["lowest"]), "total_highest": str(t["highest"])} for t in totals.values()]
+    head_count = _decimal(people) if people not in (None, "") else None
+    if people not in (None, "") and (head_count is None or head_count <= 0):
+        raise ValueError("People must be a number greater than zero")
+    summaries = []
+    for t in totals.values():
+        good = [r for r in results if r["status"] == "ok" and r["scope"] == t["scope"]]
+        for r in good:
+            r["share_of_total_percent"] = str((Decimal(r["total_kg_co2e"]) / t["total"] * 100).quantize(Decimal("0.1"))) if t["total"] > 0 else None
+        biggest = max(good, key=lambda r: Decimal(r["total_kg_co2e"]))
+        staged = [r for r in good if r["use_phase_kg_co2e"] is not None]
+        yearly = [r for r in good if r["per_year_kg_co2e"] is not None]
+        summaries.append({
+            "scope": t["scope"], "lines": t["lines"], "total_kg_co2e": str(t["total"]),
+            "total_lowest": str(t["lowest"]), "total_highest": str(t["highest"]),
+            "biggest_line": biggest["line"], "biggest_line_share_percent": biggest["share_of_total_percent"],
+            "use_phase_kg_co2e": str(sum(Decimal(r["use_phase_kg_co2e"]) for r in staged)) if len(staged) == len(good) else None,
+            "making_and_other_kg_co2e": str(sum(Decimal(r["making_and_other_kg_co2e"]) for r in staged)) if len(staged) == len(good) else None,
+            "per_year_kg_co2e": str(sum(Decimal(r["per_year_kg_co2e"]) for r in yearly)) if len(yearly) == len(good) else None,
+            "per_person_kg_co2e": str(t["total"] / head_count) if head_count else None})
+    totals = summaries
     missing = [r["line"] for r in results if r["status"] != "ok"]
     warnings = []
     if any("footprint_not_verified" in r.get("flags", []) for r in results):
@@ -157,6 +218,8 @@ def calculate(rows, lines, table=None):
         warnings.append(f"INCOMPLETE: {len(missing)} of {len(results)} lines have no value and are left out of the totals (lines {', '.join(map(str, missing))}).")
     if len(totals) > 1:
         warnings.append("Lines cover different lifecycle scopes. They are totalled separately and must not be added together.")
+    if any("wide_range" in r.get("flags", []) for r in results):
+        warnings.append("WIDE RANGE: for some lines the highest source record is more than three times the lowest. Pick a specific product for a closer figure.")
     warnings.append("Transport of the goods (shipping) is not included.")
     return {"lines": results, "totals": totals,
             "grand_total_kg_co2e": totals[0]["total_kg_co2e"] if len(totals) == 1 else None,
@@ -185,7 +248,9 @@ def read_basket(path):
 
 
 LINE_COLUMNS = ["line", "note", "kind", "query", "label", "quantity", "quantity_unit", "status", "message", "per_unit", "unit",
-                "per_unit_lowest", "per_unit_highest", "total_kg_co2e", "total_lowest", "total_highest", "scope", "basis",
+                "per_unit_lowest", "per_unit_highest", "total_kg_co2e", "total_lowest", "total_highest", "share_of_total_percent",
+                "use_phase_share", "use_phase_kg_co2e", "making_and_other_kg_co2e", "lifetime_years", "per_year_kg_co2e",
+                "same_maker_median", "versus_same_maker_percent", "scope", "basis",
                 "records_used", "hs_code", "hs_status", "flags", "report_url", "source_datasets", "licenses", "record_ids"]
 
 

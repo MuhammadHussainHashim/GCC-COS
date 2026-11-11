@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.3.0 — Calculator refinements (2026-11-11)
+
+Added after reviewing published descriptions of other calculators (see `docs/CALCULATOR.md`):
+- Use phase versus making split, from the use-phase share each source reports (1,151 of the 1,226 electronics records report one).
+- Biggest line and each line's share of the total; a bar chart of lines in the dashboard.
+- Per year of use (from source-assumed lifetimes) and per person (`--people`).
+- Same-manufacturer comparison for a specific product; wide-range flag for medians.
+
+Not added because no sourced data exists in the project: transport by route, household energy and travel, "km driven" style equivalents.
+
+Checked on Linux / Python 3.13: 178 of 178 tests pass; `ruff` clean. Windows untested.
+
 ## 1.2.0 — Calculator, layer 3 (2026-11-11)
 
 ### Added

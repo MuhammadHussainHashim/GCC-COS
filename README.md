@@ -28,7 +28,7 @@ That loads the 1,241 bundled observations without any network access and opens t
 | `config/` | Full source registry, the product-type HS mappings (`hs_mappings.json`, all marked not verified) and the (intentionally empty) exact-name HS6 rules |
 | `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte. `examples/calculator/` holds two sample baskets |
 | `reference/hs2022/` | HS 2022 code list with its source, checksum and license |
-| `tests/` | Test suite (168 tests) |
+| `tests/` | Test suite (178 tests) |
 | `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
 | `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
 | `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |

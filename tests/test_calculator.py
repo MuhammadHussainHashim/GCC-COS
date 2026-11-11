@@ -205,3 +205,68 @@ def test_dashboard_calculator_tab(real_db, monkeypatch):
     app.run(timeout=60)
     assert not app.exception
     assert any("Total, Full lifecycle" in m.label for m in app.metric)
+
+
+def staged(id, value, share, years, maker="SYNTHETIC", subcategory="Laptop"):
+    return product(id, value, subcategory, manufacturer=maker, lifetime_years=years, evidence={"raw": {"gwp_use_ratio": share}})
+
+
+STAGED = calculator.prepare([staged(1, "100", "0.2", "4"), staged(2, "200", "0.4", "4"), staged(3, "300", "", "5"),
+                             staged(4, "50", "7.5", None, subcategory="Smartphone"), staged(5, "1000", "0.9", "5", maker="OTHER")])
+
+
+def test_use_phase_split_and_per_year_for_one_record():
+    r = calculator.estimate(STAGED, "record", "2", "3", TABLE)
+    assert (Decimal(r["use_phase_kg_co2e"]), Decimal(r["making_and_other_kg_co2e"])) == (240, 360)
+    assert Decimal(r["per_year_kg_co2e"]) == 150 and r["lifetime_years"] == "4"
+
+
+def test_median_line_uses_median_share_from_records_that_report_one():
+    r = calculator.estimate(STAGED, "type", "Laptop", "1", TABLE)
+    assert Decimal(r["per_unit"]) == 250 and r["use_phase_share_records"] == 3   # record 3 reports no share
+    assert Decimal(r["use_phase_share"]) == Decimal("0.4") and Decimal(r["use_phase_kg_co2e"]) == 100
+    assert "wide_range" in r["flags"]                                            # 1000 / 100 > 3
+
+
+def test_out_of_range_share_and_missing_lifetime_are_not_used():
+    r = calculator.estimate(STAGED, "record", "4", "1", TABLE)
+    assert r["use_phase_share"] is None and r["use_phase_kg_co2e"] is None and r["per_year_kg_co2e"] is None
+
+
+def test_same_maker_comparison_needs_three_records():
+    r = calculator.estimate(STAGED, "record", "1", "1", TABLE)
+    assert (r["same_maker_records"], Decimal(r["same_maker_median"]), r["versus_same_maker_percent"]) == (3, 200, "-50.0")
+    assert calculator.estimate(STAGED, "record", "5", "1", TABLE)["same_maker_median"] is None
+    assert calculator.estimate(STAGED, "type", "Laptop", "1", TABLE)["same_maker_median"] is None
+
+
+def test_hotspot_stage_totals_and_per_person():
+    result = calculator.calculate(STAGED, [{"kind": "record", "value": "1", "quantity": "1"}, {"kind": "record", "value": "2", "quantity": "2"}], TABLE, people="4")
+    total = result["totals"][0]
+    assert (total["biggest_line"], total["biggest_line_share_percent"]) == (2, "80.0")
+    assert [r["share_of_total_percent"] for r in result["lines"]] == ["20.0", "80.0"]
+    assert (Decimal(total["use_phase_kg_co2e"]), Decimal(total["making_and_other_kg_co2e"])) == (180, 320)
+    assert Decimal(total["per_year_kg_co2e"]) == 125 and Decimal(total["per_person_kg_co2e"]) == 125
+
+
+def test_stage_total_is_withheld_when_a_line_has_no_share():
+    result = calculator.calculate(STAGED, [{"kind": "record", "value": "1", "quantity": "1"}, {"kind": "record", "value": "4", "quantity": "1"}], TABLE)
+    assert result["totals"][0]["use_phase_kg_co2e"] is None and result["totals"][0]["per_person_kg_co2e"] is None
+
+
+@pytest.mark.parametrize("people", ["0", "-1", "abc"])
+def test_bad_people_number_is_refused(people):
+    with pytest.raises(ValueError, match="People"):
+        calculator.calculate(STAGED, [{"kind": "record", "value": "1", "quantity": "1"}], TABLE, people=people)
+
+
+def test_real_data_reports_stage_split(real_db):
+    from gcc_cos.storage import connect, records
+    db = connect(real_db)
+    try:
+        rows = records(db)
+    finally:
+        db.close()
+    r = calculator.estimate(calculator.prepare(rows), "record", "1", "1", TABLE)   # Apple 13-inch MacBook Air: 161 kg, 15% use
+    assert Decimal(r["use_phase_kg_co2e"]) == Decimal("24.15") and r["lifetime_years"] == "3"
+    assert r["same_maker_records"] >= 3
