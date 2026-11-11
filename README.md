@@ -1,6 +1,6 @@
 # GCC-Final-System — Green Carbon Corridor Carbon Operating System
 
-> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data) and layer 2 (HS codes) work. Layer 3 (calculator) and layer 4 (reduce and offset recommendations) are **not built yet**. **Nothing is verified:** no footprint is independently verified, and every HS code is a proposed mapping marked `NOT VERIFIED` (see [HS codes](docs/HS_CODES.md)); 64 of the 1,241 records have no HS code. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
+> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data), layer 2 (HS codes) and layer 3 ([calculator](docs/CALCULATOR.md)) work. Layer 4 (reduce and offset recommendations) is **not built yet**. **Nothing is verified:** no footprint is independently verified, and every HS code is a proposed mapping marked `NOT VERIFIED` (see [HS codes](docs/HS_CODES.md)); 64 of the 1,241 records have no HS code. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
 
 This is the consolidated, cleaned-up repository for the Green Carbon Corridor **Carbon Operating System (GCC-COS)**. It brings together everything from the earlier `GCC-COS` repository: the Phase 1–4 application from `main` and the shared VS Code setup that previously lived only on a side branch. The Python package and command are still named `gcc_cos` / `gcc-cos`.
 
@@ -26,9 +26,9 @@ That loads the 1,241 bundled observations without any network access and opens t
 | `gcc_cos/` | The application: ingestion, validation, normalization, storage, audit, human review, export and the command line |
 | `dashboard.py` | Streamlit dashboard |
 | `config/` | Full source registry, the product-type HS mappings (`hs_mappings.json`, all marked not verified) and the (intentionally empty) exact-name HS6 rules |
-| `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte |
+| `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte. `examples/calculator/` holds two sample baskets |
 | `reference/hs2022/` | HS 2022 code list with its source, checksum and license |
-| `tests/` | Test suite (135 tests) |
+| `tests/` | Test suite (168 tests) |
 | `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
 | `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
 | `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |

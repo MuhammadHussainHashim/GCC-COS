@@ -63,6 +63,11 @@ def main(argv=None):
     p.add_argument("--output-dir", default="exports/research-review")
     p = sub.add_parser("hs-lookup", help="Search the bundled HS 2022 code list by number or words")
     p.add_argument("query")
+    p = sub.add_parser("calculate", help="Total footprint for a basket of products and quantities")
+    p.add_argument("basket", nargs="?", help="CSV with quantity and one of record_id, hs_code, product_type per row")
+    p.add_argument("--item", action="append", default=[], metavar="KIND=VALUE:QUANTITY",
+                   help="One line without a file, for example hs=847130:10, type=Smartphone:2 or record=15:1. Repeat for more lines.")
+    p.add_argument("--output", help="Save the full result as .json, .csv or .xlsx")
     sub.add_parser("hs-coverage", help="Show how many product records have an HS code, and how reliable it is")
     p = sub.add_parser("audit")
     p.add_argument("--output-dir", default="reports/phase3")
@@ -102,6 +107,35 @@ def main(argv=None):
         return 0
     db = connect(args.db)
     try:
+        if args.command == "calculate":
+            from . import calculator
+            from .storage import records
+            try:
+                lines = calculator.read_basket(args.basket) if args.basket else []
+                for item in args.item:
+                    kind, _, rest = item.partition("=")
+                    value, _, quantity = rest.rpartition(":")
+                    if kind not in calculator.KINDS or not value or not quantity:
+                        raise ValueError(f"Cannot read --item {item!r}; write it like hs=847130:10")
+                    lines.append({"kind": kind, "value": value, "quantity": quantity})
+                if not lines:
+                    raise ValueError("Give a basket CSV or at least one --item")
+                result = calculator.calculate(records(db), lines)
+                if args.output:
+                    calculator.write_result(result, args.output)
+            except (ValueError, OSError) as exc:
+                parser.error(str(exc))
+            for r in result["lines"]:
+                if r["status"] == "ok":
+                    print(f"{r['line']:>3}  {r['quantity']} {r['quantity_unit']} x {float(r['per_unit']):,.2f} {r['unit']} = {float(r['total_kg_co2e']):,.1f} kg CO2e"
+                          f"  [{r['kind']} {r['query']}: {r['label']}; {r['basis']}]")
+                else:
+                    print(f"{r['line']:>3}  NO VALUE  [{r['kind']} {r['query']}] {r['message']}")
+            for t in result["totals"]:
+                print(f"TOTAL {t['scope']}: {float(t['total_kg_co2e']):,.1f} kg CO2e (lowest {float(t['total_lowest']):,.1f}, highest {float(t['total_highest']):,.1f}; {t['lines']} lines)")
+            for warning in result["warnings"]:
+                print("! " + warning)
+            return 0 if result["complete"] else 2
         if args.command == "hs-coverage":
             from .hs import annotate, coverage
             from .model import is_product

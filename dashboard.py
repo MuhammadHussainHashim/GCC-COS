@@ -30,7 +30,7 @@ try:
     warnings = sorted({issue for row in rows for issue in row.get('issues', [])})
     filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
     selected = select(rows, **filters)
-    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes"])
+    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes", "Calculator"])
     with tabs[0]:
         st.metric("Collected records", len(rows))
         st.metric("Product observations (all records)", sum(is_product(r) for r in rows))
@@ -168,5 +168,67 @@ try:
             if not found:
                 st.info("No HS 2022 code matches.")
         st.caption("Source: " + hs_source["attribution"] + " License: " + hs_source["license"] + ". " + hs_source["limitations"])
+    with tabs[8]:
+        from gcc_cos import calculator
+        import io
+        st.subheader("Footprint calculator")
+        st.warning("NOT VERIFIED: every footprint is the figure its publisher reported, and every HS code link is a proposed mapping. Use the results as estimates only. Transport of the goods is not included.")
+        products = calculator.prepare(rows)
+        basket = st.session_state.setdefault("calculator_basket", [])
+        mode = st.radio("How do you want to enter products?", ["Pick products one by one", "Upload a CSV basket"], horizontal=True)
+        if mode == "Pick products one by one":
+            find_by = st.radio("Find by", ["Product type", "Specific product", "HS code"], horizontal=True)
+            with st.form("calculator_add", clear_on_submit=True):
+                if find_by == "Product type":
+                    kind, value = "type", st.selectbox("Product type", sorted({str(r["subcategory"]) for r in products if r.get("subcategory")}, key=str.casefold))
+                elif find_by == "Specific product":
+                    choices = {f"{r['id']}: {r.get('manufacturer') or ''} - {r.get('product_name') or ''}": str(r["id"]) for r in products}
+                    kind, value = "record", choices.get(st.selectbox("Product (type to search)", list(choices)))
+                else:
+                    kind, value = "hs", st.text_input("HS code, 4 or 6 digits (for example 847130)")
+                quantity = st.number_input("Quantity", min_value=0.0, value=1.0, step=1.0)
+                if st.form_submit_button("Add to basket"):
+                    if value and quantity > 0:
+                        basket.append({"kind": kind, "value": str(value), "quantity": str(quantity)})
+                    else:
+                        st.error("Choose a product and a quantity greater than zero.")
+            if basket and st.button("Clear basket"):
+                basket.clear()
+                st.rerun()
+            lines = list(basket)
+        else:
+            st.caption("The CSV needs a quantity column and one of record_id, hs_code or product_type in each row. See examples/calculator/company-basket.csv.")
+            uploaded = st.file_uploader("Basket CSV", type=["csv"])
+            lines = []
+            if uploaded is not None:
+                import tempfile
+                from pathlib import Path
+                with tempfile.TemporaryDirectory() as temporary:
+                    staged = Path(temporary) / "basket.csv"
+                    staged.write_bytes(uploaded.getvalue())
+                    try:
+                        lines = calculator.read_basket(staged)
+                    except (ValueError, UnicodeDecodeError) as exc:
+                        st.error(str(exc))
+        if lines:
+            result = calculator.calculate(products, lines, hs_table)
+            for total in result["totals"]:
+                st.metric(f"Total, {total['scope']}", f"{float(total['total_kg_co2e']):,.1f} kg CO2e",
+                          help=f"Lowest {float(total['total_lowest']):,.1f} and highest {float(total['total_highest']):,.1f} kg CO2e, from the lowest and highest source record for each line.")
+                st.caption(f"Range {float(total['total_lowest']):,.1f} to {float(total['total_highest']):,.1f} kg CO2e across {total['lines']} lines. NOT VERIFIED.")
+            for warning in result["warnings"]:
+                (st.error if warning.startswith("INCOMPLETE") else st.warning if warning.startswith("NOT VERIFIED") else st.info)(warning)
+            table = pd.DataFrame(calculator.flat_lines(result), columns=calculator.LINE_COLUMNS)
+            st.dataframe(table.astype(str).replace({"None": ""}), use_container_width=True, hide_index=True,
+                         column_config={"report_url": st.column_config.LinkColumn("Publisher report (not checked)")})
+            st.download_button("Download result CSV", table.to_csv(index=False).encode("utf-8-sig"), "gcc-footprint-result.csv", "text/csv")
+            buffer = io.BytesIO()
+            with pd.ExcelWriter(buffer, engine="openpyxl") as writer:
+                table.to_excel(writer, index=False, sheet_name="Lines")
+                pd.DataFrame(result["totals"]).to_excel(writer, index=False, sheet_name="Totals")
+                pd.DataFrame({"Read this first": result["warnings"]}).to_excel(writer, index=False, sheet_name="Warnings")
+            st.download_button("Download result Excel", buffer.getvalue(), "gcc-footprint-result.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        else:
+            st.info("Add a product or upload a basket to see a total.")
 finally:
     db.close()

@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.2.0 — Calculator, layer 3 (2026-11-11)
+
+### Added
+- `gcc_cos/calculator.py`: products and quantities in, kg CO2e out. A line uses one source record, or the median of all source records for a product type or HS code, with the lowest and highest record shown.
+- **Calculator** dashboard tab (pick products one by one, or upload a CSV basket; CSV and Excel downloads) and a `calculate` command.
+- Two sample baskets in `examples/calculator/` and `docs/CALCULATOR.md`.
+
+### How it stays honest
+- Lines without data return "no value", are left out of the total, and mark the result INCOMPLETE.
+- Every result carries NOT VERIFIED warnings for footprints and HS links.
+- Totals are kept separate per lifecycle scope; transport is not included.
+
+### Checked (Linux, Python 3.13)
+- 168 of 168 tests pass; `ruff` reports no issues. The sample company basket was run against the 1,241 bundled records.
+- Native Windows execution remains untested.
+
 ## 1.1.0 — HS codes, layer 2 (2026-11-11)
 
 ### Added
