@@ -1,0 +1,26 @@
+[
+  {
+    "source_name": "Federal LCA Commons",
+    "source_type": "LCA dataset discovery",
+    "url": "https://www.lcacommons.gov/lca-commons-api-guide",
+    "access_method": "Review official API guide before enabling automated requests",
+    "enabled": false,
+    "notes": "Do not treat dataset discovery metadata as a numeric carbon factor. Confirm current endpoint, response schema, identifiers, API key requirements and dataset terms from the official guide."
+  },
+  {
+    "source_name": "UK Government GHG Conversion Factors",
+    "source_type": "Activity emission factors",
+    "url": "https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting",
+    "access_method": "Download official workbook and place it in data/input",
+    "enabled": true,
+    "notes": "Keep publication year, geography, original unit and methodology. Activity factors are not product-specific footprints."
+  },
+  {
+    "source_name": "US EPA GHG Emission Factors Hub",
+    "source_type": "Activity emission factors",
+    "url": "https://www.epa.gov/climateleadership/ghg-emission-factors-hub",
+    "access_method": "Download official workbook and place it in data/input",
+    "enabled": true,
+    "notes": "Keep publication year, geography, original unit and methodology. Activity factors are not product-specific footprints."
+  }
+]

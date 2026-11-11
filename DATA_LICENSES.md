@@ -2,6 +2,8 @@
 
 This notice covers data bundled for offline demonstrations and regression tests. It does not assign a new license to GCC-COS application code or override any upstream data terms. Dependencies retain their own licenses.
 
+The manufacturer research compilation (`Combined_Product_Carbon_Footprints.xlsx`, 4,146 rows) is a user research staging file, not a licensed primary-source snapshot. The rights to redistribute it have not been established, so its rows are **not included** in this repository; `.gitignore` blocks `research/**/*.csv` and `research/**/*.xlsx`. Only `research/2026-11-10/audit_summary.json` (row counts and the workbook checksum, no footprint values) is included. The `archive/legacy` code is historical and must not be treated as approved, secure production code.
+
 | Included input | Source and applicable terms | Attribution/provenance |
 | --- | --- | --- |
 | `examples/cement-source.csv` | Three-row selection from OWID's CO₂ dataset / Global Carbon Budget (2025); CC BY 4.0 as identified by OWID and upstream metadata | Andrew, R. M. & Peters, G. P. (2025), Global Carbon Project fossil CO₂ emissions dataset (2025v15), doi:10.5281/zenodo.17417124; processing by Our World in Data. `examples/provenance.json`, `OWID-README.md`, `GCP-license-metadata.yml` and `cement-codebook.csv` retain selection, definitions, source and attribution. Values are unchanged national inventories, not product factors. |

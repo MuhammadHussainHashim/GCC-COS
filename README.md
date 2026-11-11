@@ -1,5 +1,7 @@
 # GCC-Final-System — Green Carbon Corridor Carbon Operating System
 
+> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data) works. Layer 2 (HS codes), layer 3 (calculator) and layer 4 (reduce and offset recommendations) are **not built yet**. No record has an HS code and no record is independently verified. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
+
 This is the consolidated, cleaned-up repository for the Green Carbon Corridor **Carbon Operating System (GCC-COS)**. It brings together everything from the earlier `GCC-COS` repository: the Phase 1–4 application from `main` and the shared VS Code setup that previously lived only on a side branch. The Python package and command are still named `gcc_cos` / `gcc-cos`.
 
 ## Quick start
@@ -25,11 +27,22 @@ That loads the 1,241 bundled observations without any network access and opens t
 | `dashboard.py` | Streamlit dashboard |
 | `config/` | Full source registry and the (intentionally empty) HS6 rules |
 | `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte |
-| `tests/` | Test suite (111 tests) |
+| `tests/` | Test suite (115 tests) |
+| `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
+| `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
+| `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |
 | `scripts/` | Windows PowerShell helpers, diagnostics and the smoke test |
 | `.vscode/` | Shared VS Code tasks, launch configurations and settings |
 | `.github/workflows/` | Linux and Windows test workflow |
 | `WINDOWS.md`, `PHASE4.md`, `DATA_LICENSES.md`, `CHANGELOG.md` | Beginner instructions, human-review guide, data licensing, and what changed in this consolidation |
+
+## Manufacturer research workbook (kept out of this repository)
+
+A separate workbook, `Combined_Product_Carbon_Footprints.xlsx`, holds 4,146 manufacturer-reported rows. They are unverified and their reuse rights are not established, so the rows are **not** stored here and are **not** part of the 1,241 observations. Only a counts summary is kept in `research/2026-11-10/audit_summary.json`. To rebuild the review files on your own PC from your copy of the workbook:
+
+```powershell
+.\.venv\Scripts\python.exe -m gcc_cos research-prepare "C:\path\to\Combined_Product_Carbon_Footprints.xlsx" --output-dir exports\research-review
+```
 
 ## Overview
 

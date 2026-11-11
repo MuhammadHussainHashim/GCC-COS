@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.1 — one working copy (2026-11-11)
+
+Merged the two parallel consolidations (the 1.0.0 clean-up and the "source 2" research snapshot) into one branch. No carbon values, source records, licenses or bundled input files were changed.
+
+### Added from the research snapshot
+- `research-prepare` command (`gcc_cos/research.py`) and its 4 tests: stages a manufacturer workbook for manual review without loading it into the database.
+- `docs/` (project history, data policy, asset catalog, Windows workflow) and `archive/legacy/` (older prototypes, reference only).
+- `research/2026-11-10/audit_summary.json` (counts only).
+
+### Deliberately left out
+- The three research CSV files (4,146 unverified rows and their duplicate/conflict lists). This repository is public and the right to redistribute those rows is not established. They can be regenerated locally with `research-prepare`.
+
+### Checked (Linux, Python 3.13)
+- 115 of 115 tests pass, including the Streamlit dashboard tests; `ruff` reports no issues.
+- Offline load of the bundled data gives 1,241 observations.
+- Native Windows execution remains untested.
+
 ## 1.0.0 — GCC-Final-System (2026-11-11)
 
 Consolidation of the earlier `GCC-COS` repository into one clean repository. No carbon values, source records, licenses or bundled input files were changed; everything under `examples/` is byte-for-byte identical.

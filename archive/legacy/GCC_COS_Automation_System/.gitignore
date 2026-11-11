@@ -1,0 +1,13 @@
+ .venv/
+venv/
+__pycache__/
+.env
+*.pyc
+data/incoming/*
+data/processed/*
+data/exports/*
+logs/*
+!data/incoming/.gitkeep
+!data/processed/.gitkeep
+!data/exports/.gitkeep
+!logs/.gitkeep

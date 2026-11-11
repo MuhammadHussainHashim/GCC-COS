@@ -58,6 +58,9 @@ def main(argv=None):
     from .templates import CATEGORIES
     p.add_argument("category", choices=CATEGORIES)
     p.add_argument("output")
+    p = sub.add_parser("research-prepare", help="Quarantine a legacy product workbook for manual evidence review")
+    p.add_argument("workbook")
+    p.add_argument("--output-dir", default="exports/research-review")
     p = sub.add_parser("audit")
     p.add_argument("--output-dir", default="reports/phase3")
     p.add_argument("--workbook", default=None)
@@ -82,6 +85,13 @@ def main(argv=None):
     p.add_argument("--decision", choices=["accepted", "rejected"], required=True)
     p.add_argument("--note", required=True)
     args = parser.parse_args(argv)
+    if args.command == "research-prepare":
+        from .research import prepare_research
+        try:
+            print(json.dumps(prepare_research(args.workbook, args.output_dir), ensure_ascii=False))
+        except (ValueError, FileNotFoundError) as exc:
+            parser.error(str(exc))
+        return 0
     db = connect(args.db)
     try:
         if args.command in {'reviewer-add','reviewer-disable','review-prepare','review-probe','review-workbook','review-attach','human-review'}:

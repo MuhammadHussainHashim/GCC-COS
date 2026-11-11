@@ -1,0 +1,42 @@
+COS Carbon Data Collection Tool — Windows + VS Code
+
+1. Install Python 3.11 or 3.12 from https://www.python.org/downloads/windows/
+   During installation, tick “Add python.exe to PATH”.
+2. Install VS Code from https://code.visualstudio.com/ and install the Microsoft Python extension.
+3. Extract this folder somewhere simple, e.g. C:\COS_Carbon_Tool.
+4. In VS Code choose File > Open Folder and select COS_Carbon_Tool.
+5. Open Terminal > New Terminal. Confirm it is PowerShell or Command Prompt.
+6. Run these commands one at a time:
+
+   py -m venv .venv
+   .venv\Scripts\python.exe -m pip install --upgrade pip
+   .venv\Scripts\python.exe -m pip install -r requirements.txt
+   .venv\Scripts\python.exe main.py init
+
+7. Copy your existing HS6_Carbon_Footprint_Expanded_Units.xlsx into data\input.
+   Also copy official factor workbooks/CSVs you downloaded directly from their publishers.
+8. Run the complete local workflow:
+
+   .venv\Scripts\python.exe main.py run
+
+9. Outputs appear in data\output:
+   - COS_Carbon_Data_Collection.xlsx
+   - all_carbon_records.csv
+   - approved_status_records.csv
+   - collection_log.csv
+   - imported_source_files.csv
+   - run_report.txt
+   - cos_carbon_data.sqlite
+
+Useful commands:
+   .venv\Scripts\python.exe main.py import
+   .venv\Scripts\python.exe main.py status
+   .venv\Scripts\python.exe main.py export
+
+Important limitations:
+- This starter version imports and validates locally available spreadsheets/CSVs. It does NOT claim to have scraped the entire internet or retrieved every product footprint.
+- Source sheets are only imported as numeric records when factor and unit columns are detected. Inspect the output/source sheet and review mappings before relying on records.
+- Every imported record stays Pending review. Do not promote a record without checking source evidence, unit, geography, year, lifecycle boundary and licensing.
+- Only a small set of mass-based unit conversions is performed; no cross-dimensional conversions are guessed.
+- The LCA Commons connector is listed for the next integration step, disabled until the current official API endpoint and response format have been verified.
+- This local tool preserves the original workbook; it never overwrites it.

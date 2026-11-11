@@ -45,5 +45,8 @@ examples/phase3/source-verification.csv
 *.p12
 *.pfx
 .DS_Store
+# Unverified manufacturer research rows: reuse rights not established, so never commit them.
+research/**/*.csv
+research/**/*.xlsx
 /smoke-report.json
 /diagnostics.json
