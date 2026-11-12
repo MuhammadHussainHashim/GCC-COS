@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.7.0 — More reference data, and the CBAM values checked (2026-11-12)
+
+- All 570 UK CBAM default values were checked against GOV.UK: no differences. Official 8-digit descriptions added.
+- All 25 US EPA calculator values were checked against the EPA pages.
+- New table `spend_factors`: 1,016 US EPA supply chain factors per 2022 US dollar by industry.
+- New table `product_averages`: 2,451 AGRIBALYSE foods per kg (France).
+- `activity_factors` gained 2,622 UK government conversion factors for 2026.
+- New commands `load-spend-factors` and `load-product-averages`. Reloading a changed dataset replaces its older rows.
+- 233 of 233 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.6.0 — Calculator: travel, home energy and digital use (2026-11-12)
 
 - Basket lines can now be an activity (47 transport modes per km, 9 heating types per m2 per year, 7 digital uses; ADEME averages for France) or electricity in kWh for any of 214 countries (Our World in Data).

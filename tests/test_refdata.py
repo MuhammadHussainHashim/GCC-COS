@@ -119,7 +119,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
     link = one(db, "SELECT * FROM hs_industry_links WHERE hs6='010121'")
     assert (link["industry_code"], link["import_lines"], link["share_of_lines"], link["year"], link["geography"]) == ("112920", "2", "1", "2017", "United States")
     gas = one(db, "SELECT * FROM benchmarks WHERE item='Natural gas carbon coefficient'")
-    assert (gas["value_original"], gas["unit_original"], gas["unit_metric"], gas["year"], gas["verification_status"]) == ("117", "lb CO2 per MMBtu", "kg CO2 per GJ", "2024", "unverified")
+    assert (gas["value_original"], gas["unit_original"], gas["unit_metric"], gas["year"], gas["verification_status"]) == ("117", "lb CO2 per MMBtu", "kg CO2 per GJ", "2024", "checked against the publisher's pages")
     assert abs(Decimal(gas["value_metric"]) - Decimal(gas["value_original"]) * Decimal(gas["factor_to_metric"])) < Decimal("0.000001")
     assert {r[0] for r in db.execute("SELECT DISTINCT publisher FROM benchmarks")} == {"US EPA Household Carbon Footprint Calculator"}
     karachi = one(db, "SELECT * FROM airports WHERE iata_code='KHI'")

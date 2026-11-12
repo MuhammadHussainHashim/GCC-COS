@@ -7,9 +7,9 @@
  "license": "US government work (public domain in the United States)",
  "license_url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers#copyright",
  "attribution": "US Environmental Protection Agency, Household Carbon Footprint Calculator and its assumptions page.",
- "obtained": "Typed from the EPA pages into the user's workbook; copied here unchanged",
- "verification_status": "unverified",
- "verification_note": "epa.gov could not be reached on 12 November 2026, so no value was re-checked against the pages.",
+ "obtained": "Typed from the EPA pages into the user's workbook; copied here unchanged, then compared with the pages",
+ "verification_status": "checked against the publisher's pages",
+ "verification_note": "On 12 November 2026 each of the 25 values was found, with its wording, on the EPA calculator page or its assumptions page (https://www.epa.gov/node/273393). The metric conversions are the workbook's arithmetic, not EPA figures.",
  "left_out": {
   "reason": "The workbook gives no licence for these calculators' published figures, and their pages could not be opened to read the terms",
   "rows": [
