@@ -1,0 +1,167 @@
+{
+ "id": "epa-calculator-reference",
+ "table": "benchmarks",
+ "title": "US EPA Household Carbon Footprint Calculator: published averages and assumptions",
+ "publisher": "US Environmental Protection Agency",
+ "url": "https://www.epa.gov/ghgemissions/carbon-footprint-calculator",
+ "license": "US government work (public domain in the United States)",
+ "license_url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers#copyright",
+ "attribution": "US Environmental Protection Agency, Household Carbon Footprint Calculator and its assumptions page.",
+ "obtained": "Typed from the EPA pages into the user's workbook; copied here unchanged",
+ "verification_status": "unverified",
+ "verification_note": "epa.gov could not be reached on 12 November 2026, so no value was re-checked against the pages.",
+ "left_out": {
+  "reason": "The workbook gives no licence for these calculators' published figures, and their pages could not be opened to read the terms",
+  "rows": [
+   {
+    "calculator": "carbonfootprint.com",
+    "item": "UK average footprint per person (consumption-based, 2023)",
+    "url": "https://www.carbonfootprint.com/calculator.aspx"
+   },
+   {
+    "calculator": "carbonfootprint.com",
+    "item": "World average per person (fossil fuels and industry, CO2 only, 2023)",
+    "url": "https://www.carbonfootprint.com/calculator.aspx"
+   },
+   {
+    "calculator": "carbonfootprint.com",
+    "item": "Often-cited level consistent with 1.5 C by 2050",
+    "url": "https://www.carbonfootprint.com/calculator.aspx"
+   },
+   {
+    "calculator": "carbonfootprint.com",
+    "item": "Share of average footprint treated as shared home emissions",
+    "url": "https://www.carbonfootprint.com/calculator.aspx"
+   },
+   {
+    "calculator": "carbonfootprint.com",
+    "item": "Understatement of fuels if well-to-tank and grid losses are left out",
+    "url": "https://www.carbonfootprint.com/calculator.aspx"
+   },
+   {
+    "calculator": "The Nature Conservancy",
+    "item": "US average footprint per person",
+    "url": "https://www.nature.org/en-us/get-involved/how-to-help/carbon-footprint-calculator/"
+   },
+   {
+    "calculator": "The Nature Conservancy",
+    "item": "World average footprint per person",
+    "url": "https://www.nature.org/en-us/get-involved/how-to-help/carbon-footprint-calculator/"
+   },
+   {
+    "calculator": "The Nature Conservancy",
+    "item": "Target for world average by 2050",
+    "url": "https://www.nature.org/en-us/get-involved/how-to-help/carbon-footprint-calculator/"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "UK average footprint per person, 2022",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "UK average footprint per person, 2018",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Government share added to every user",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Home insurance and maintenance added to every user",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed speed: car",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed speed: train",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed speed: bus",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed car occupancy",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Electric vehicle consumption",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Heat pump coefficient of performance",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Daily food energy used for diet footprints",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Food waste \"none\": change to food footprint",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Food waste \"0-10%\": change to food footprint",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Food waste \"over 30%\": change to food footprint",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Turning off lights and appliances: change to that part",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed price: TV, laptop or PC",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed price: large furniture",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed price: large appliance",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Assumed price: mobile phone or tablet",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Flight distance assumed: Europe (up to)",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   },
+   {
+    "calculator": "WWF-UK",
+    "item": "Flight distance assumed: outside Europe (up to)",
+    "url": "https://www.wwf.org.uk/sites/default/files/2022-05/WWFFootprintCalculator-MethodologyDocument-2021.pdf"
+   }
+  ]
+ },
+ "file": "data.csv",
+ "rows": 25,
+ "sha256": "594a4c7bc00220bfd309de038f2425ffc4b1f1414f5c73d9fc66b65ce843c6a8",
+ "prepared": "2026-11-12"
+}

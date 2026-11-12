@@ -1,0 +1,17 @@
+{
+ "id": "uk-cbam-defaults",
+ "table": "reference_values",
+ "title": "UK CBAM default values",
+ "publisher": "HM Revenue & Customs (GOV.UK)",
+ "url": "https://www.gov.uk/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam",
+ "license": "Open Government Licence v3.0 (Crown copyright)",
+ "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+ "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. HM Revenue & Customs, 'Check the default values for the Carbon Border Adjustment Mechanism (CBAM)', published 16 October 2026.",
+ "obtained": "Typed from the GOV.UK pages into the user's workbook on 11 November 2026; copied here unchanged",
+ "verification_status": "unverified",
+ "verification_note": "GOV.UK could not be reached on 11 or 12 November 2026, so no value was re-checked against the source pages, including commodity code 73065029, whose row was split across two page sections when read. No corrections were made.",
+ "file": "data.csv",
+ "rows": 570,
+ "sha256": "e86e9d4811de411642fc687589d54a7f1086694b7013bac79520d316b84c65b5",
+ "prepared": "2026-11-12"
+}

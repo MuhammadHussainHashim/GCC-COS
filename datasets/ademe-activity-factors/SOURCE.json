@@ -1,0 +1,18 @@
+{
+ "id": "ademe-activity-factors",
+ "table": "activity_factors",
+ "title": "ADEME Impact CO2 activity factors (transport, home heating, digital use)",
+ "publisher": "ADEME Impact CO2 (incubateur-ademe/impactco2)",
+ "url": "https://raw.githubusercontent.com/incubateur-ademe/impactco2/aadc7be1d75b07d820452c07eaa79493c5f7bbd1/src/utils/Equivalent/values.json",
+ "license": "MIT (incubateur-ademe/impactco2 repository), Copyright (c) 2022 Datagir",
+ "license_url": "https://raw.githubusercontent.com/incubateur-ademe/impactco2/aadc7be1d75b07d820452c07eaa79493c5f7bbd1/license",
+ "attribution": "ADEME Impact CO2 (incubateur-ademe/impactco2), Copyright (c) 2022 Datagir, MIT License.",
+ "upstream_commit": "aadc7be1d75b07d820452c07eaa79493c5f7bbd1",
+ "obtained": "Rebuilt from the unmodified upstream values.json kept in examples/phase5/ademe-upstream; every value equals the workbook's",
+ "verification_status": "checked against the publisher's file",
+ "verification_note": "French averages. French rail and electric heating run on low-carbon electricity, so those values are too low for most other countries. English names are the workbook's translations; the French name is the publisher's.",
+ "file": "data.csv",
+ "rows": 63,
+ "sha256": "2878cb2c586a757671e78bfef1bb2dc18c46498197f0cc9ca7f611d282f2e8ba",
+ "prepared": "2026-11-12"
+}
