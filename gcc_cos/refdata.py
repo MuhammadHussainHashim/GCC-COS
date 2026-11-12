@@ -73,6 +73,11 @@ def _insert(db, table, rows, source, sha256, rows_in_file):
     stamp = now()
     added = 0
     with db:
+        # A changed data file replaces that dataset's rows, so corrected or re-checked values take effect.
+        known = db.execute("SELECT file_sha256 FROM reference_datasets WHERE dataset_id=?", (source["id"],)).fetchone()
+        replaced = bool(known and known[0] != sha256)
+        if replaced:
+            db.execute(f"DELETE FROM {table} WHERE dataset_id=?", (source["id"],))
         for row in rows:
             full = {"dataset_id": source["id"], "source_title": source["title"], "source_url": source["url"], "license": source["license"],
                     "license_url": source["license_url"], "attribution": source["attribution"],
@@ -85,7 +90,7 @@ def _insert(db, table, rows, source, sha256, rows_in_file):
                    [source["id"], table, source["title"], source["publisher"], source["url"], source["license"], source["license_url"],
                     source["attribution"], source.get("obtained"), source["verification_status"], source.get("verification_note"),
                     sha256, str(rows_in_file), str(total), stamp])
-    return {"dataset": source["id"], "table": table, "rows_in_file": rows_in_file, "inserted": added, "already_present": rows_in_file - added}
+    return {"dataset": source["id"], "table": table, "rows_in_file": rows_in_file, "inserted": added, "already_present": rows_in_file - added, "replaced_older_version": replaced}
 
 
 def load_dataset(db, folder, expected_table=None):

@@ -5,6 +5,8 @@ or an upstream source changes:
 
     python scripts/build_reference_datasets.py --workbook GCC-carbon-data.xlsx --downloads DOWNLOADS_FOLDER
 
+    (add --cbam-pages FOLDER with the five saved GOV.UK pages)
+
 DOWNLOADS_FOLDER must hold git clones named co2-data, energy-data, ourairports-data,
 concordance and impactco2 (see datasets/*/SOURCE.json for the repository addresses).
 No value is changed, estimated or filled in here: rows are copied, and unit conversions
@@ -62,30 +64,54 @@ def clean_label(label):
     return label[:1].upper() + label[1:]
 
 
-def build_cbam(book):
+CBAM_PAGES = {"iron-and-steel": "Iron and steel", "aluminium": "Aluminium", "fertilisers": "Fertilisers", "cement": "Cement", "hydrogen": "Hydrogen"}
+CBAM_URL = "https://www.gov.uk/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam"
+
+
+def read_cbam_pages(folder):
+    """Rows of the five GOV.UK sector pages (saved as HTML): code, description and value exactly as published."""
+    import html
+    clean = lambda cell: re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", cell))).strip()  # noqa: E731
+    rows, hashes = {}, {}
+    for page, sector in CBAM_PAGES.items():
+        raw = (Path(folder) / f"{page}.html").read_bytes()
+        hashes[f"{page}-default-values"] = hashlib.sha256(raw).hexdigest()
+        for row in re.findall(r"<tr[^>]*>(.*?)</tr>", raw.decode("utf-8"), re.S):
+            cells = [clean(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
+            if len(cells) == 3 and re.fullmatch(r"\d{8}", cells[0].replace(" ", "")):
+                value, unit = re.fullmatch(r"(\d+(?:\.\d+)?) (tCO2e per tonne)", cells[2]).groups()
+                code = cells[0].replace(" ", "")
+                assert code not in rows, code
+                rows[code] = {"sector": sector, "description": cells[1], "value": value, "page": f"{CBAM_URL}/{page}-default-values"}
+    return rows, hashes
+
+
+def build_cbam(book, pages):
+    """UK CBAM default values, read from the saved GOV.UK pages and compared with the workbook."""
+    site, hashes = read_cbam_pages(pages)
     header, rows = sheet(book, "CBAM defaults")
+    workbook = {text(dict(zip(header, r))["CN code (8-digit)"]): dict(zip(header, r)) for r in rows}
+    assert set(site) == set(workbook) and len(site) == 570
+    corrections = [{"code": c, "workbook": number(workbook[c]["Default value (tCO2e per tonne of product)"]), "gov_uk": site[c]["value"]}
+                   for c in sorted(site) if Decimal(str(workbook[c]["Default value (tCO2e per tonne of product)"])) != Decimal(site[c]["value"])]
     out = []
-    for row in rows:
-        r = dict(zip(header, row))
-        cn = text(r["CN code (8-digit)"])
-        assert re.fullmatch(r"\d{8}", cn) and text(r["HS code (6-digit)"]) == cn[:6]
-        value = Decimal(str(r["Default value (tCO2e per tonne of product)"]))
+    for cn in sorted(site):
+        r = site[cn]
         out.append({"scheme": "UK CBAM default value", "code_system": "UK commodity code (8-digit)", "code": cn, "hs6": cn[:6], "hs4": cn[:4],
                     "hs_code_basis": "First six digits of the commodity code in the source table",
-                    "sector": text(r["Sector"]), "description": text(r["Description"]), "description_basis": text(r["Description basis"]),
-                    "value_original": number(value), "unit_original": "t CO2e per tonne of product",
-                    "value_metric": number(value), "unit_metric": "kg CO2e per kg of product", "conversion": "1 t CO2e per tonne = 1 kg CO2e per kg",
+                    "sector": r["sector"], "description": r["description"], "description_basis": "Combined Nomenclature description as published on GOV.UK",
+                    "value_original": r["value"], "unit_original": "t CO2e per tonne of product",
+                    "value_metric": r["value"], "unit_metric": "kg CO2e per kg of product", "conversion": "1 t CO2e per tonne = 1 kg CO2e per kg",
                     "value_kind": "regulatory default value", "geography": "United Kingdom (imports)", "year": "2026", "year_basis": "Year of publication (16 October 2026)",
-                    "published": text(r["Published"]), "source_page": text(r["Source URL"]), "note": text(r["Note"])})
-    assert len({r["code"] for r in out}) == len(out) == 570
+                    "published": "16 October 2026", "source_page": r["page"], "note": ""})
     write("uk-cbam-defaults", list(out[0]), out, {
-        "table": "reference_values", "title": "UK CBAM default values", "publisher": "HM Revenue & Customs (GOV.UK)",
-        "url": "https://www.gov.uk/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam",
+        "table": "reference_values", "title": "UK CBAM default values", "publisher": "HM Revenue & Customs (GOV.UK)", "url": CBAM_URL,
         "license": "Open Government Licence v3.0 (Crown copyright)", "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
         "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. HM Revenue & Customs, 'Check the default values for the Carbon Border Adjustment Mechanism (CBAM)', published 16 October 2026.",
-        "obtained": "Typed from the GOV.UK pages into the user's workbook on 11 November 2026; copied here unchanged",
-        "verification_status": "unverified",
-        "verification_note": "GOV.UK could not be reached on 11 or 12 November 2026, so no value was re-checked against the source pages, including commodity code 73065029, whose row was split across two page sections when read. No corrections were made."})
+        "obtained": "Read from the five GOV.UK sector pages downloaded on 12 November 2026",
+        "page_sha256": hashes, "verification_status": "checked against the publisher's pages",
+        "verification_note": f"All 570 codes, descriptions and values were read from the GOV.UK pages on 12 November 2026. The user's workbook, typed by hand on 11 November 2026, was compared with them: {len(corrections)} values differed. Commodity code 73065029, flagged in the workbook, is 2.811 on GOV.UK, as typed. Default values are conservative regulatory figures, not measurements of any factory.",
+        "corrections_to_workbook": corrections})
 
 
 def build_activity(book, downloads):
@@ -250,10 +276,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--workbook", required=True)
     parser.add_argument("--downloads", required=True)
+    parser.add_argument("--cbam-pages", required=True, help="Folder with the five GOV.UK sector pages saved as iron-and-steel.html, aluminium.html, fertilisers.html, cement.html, hydrogen.html")
     args = parser.parse_args()
     workbook = openpyxl.load_workbook(args.workbook, read_only=True, data_only=True)
     folder = Path(args.downloads)
-    build_cbam(workbook)
+    build_cbam(workbook, args.cbam_pages)
     build_activity(workbook, folder)
     build_country(workbook, folder)
     build_links(workbook, folder)

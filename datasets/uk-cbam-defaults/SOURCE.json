@@ -7,11 +7,19 @@
  "license": "Open Government Licence v3.0 (Crown copyright)",
  "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
  "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. HM Revenue & Customs, 'Check the default values for the Carbon Border Adjustment Mechanism (CBAM)', published 16 October 2026.",
- "obtained": "Typed from the GOV.UK pages into the user's workbook on 11 November 2026; copied here unchanged",
- "verification_status": "unverified",
- "verification_note": "GOV.UK could not be reached on 11 or 12 November 2026, so no value was re-checked against the source pages, including commodity code 73065029, whose row was split across two page sections when read. No corrections were made.",
+ "obtained": "Read from the five GOV.UK sector pages downloaded on 12 November 2026",
+ "page_sha256": {
+  "iron-and-steel-default-values": "977db30ee5f4d7e759dd80c802dd2ad70fba136262d1a9457e087942e23a58c5",
+  "aluminium-default-values": "3cbb5c867e50312e020a8c08a87da615d9b91a9a3f70d05ffa2cb36148182a12",
+  "fertilisers-default-values": "b593d5b395e354c68209cdb03c240289cfeb11d11ee379bb157b59cb8b0381ae",
+  "cement-default-values": "adfe5deed5389a9bb98be9aaacc19b29c8ad6cc7e09d47cea1eec2ac82a95823",
+  "hydrogen-default-values": "4dbb5ba927b002a86734030eb1f8c491c782c29a8d6ad1e5937756dececae9e6"
+ },
+ "verification_status": "checked against the publisher's pages",
+ "verification_note": "All 570 codes, descriptions and values were read from the GOV.UK pages on 12 November 2026. The user's workbook, typed by hand on 11 November 2026, was compared with them: 0 values differed. Commodity code 73065029, flagged in the workbook, is 2.811 on GOV.UK, as typed. Default values are conservative regulatory figures, not measurements of any factory.",
+ "corrections_to_workbook": [],
  "file": "data.csv",
  "rows": 570,
- "sha256": "e86e9d4811de411642fc687589d54a7f1086694b7013bac79520d316b84c65b5",
+ "sha256": "46dc2ef551612d836faf4d1b64235480235efd39ec24f20f4c1e6092d9be6adf",
  "prepared": "2026-11-12"
 }

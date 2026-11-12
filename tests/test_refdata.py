@@ -68,15 +68,17 @@ def test_kinds_of_numbers_are_labelled_and_kept_apart(loaded):
                      "country_data": {"per-person country average", "country electricity factor"}, "benchmarks": {"published benchmark or assumption"}}
 
 
-def test_cbam_values_keep_original_and_metric_and_are_marked_unverified(loaded):
+def test_cbam_values_keep_original_and_metric_and_are_marked_checked(loaded):
     db = loaded[0]
     cement = one(db, "SELECT * FROM reference_values WHERE code='25232900'")
     assert (cement["value_original"], cement["unit_original"], cement["value_metric"], cement["unit_metric"]) == ("1.375", "t CO2e per tonne of product", "1.375", "kg CO2e per kg of product")
-    assert (cement["hs6"], cement["hs4"], cement["geography"], cement["year"], cement["verification_status"]) == ("252329", "2523", "United Kingdom (imports)", "2026", "unverified")
+    assert (cement["hs6"], cement["hs4"], cement["geography"], cement["year"], cement["verification_status"]) == ("252329", "2523", "United Kingdom (imports)", "2026", "checked against the publisher's pages")
     assert "Open Government Licence" in cement["license"]
     flagged = one(db, "SELECT * FROM reference_values WHERE code='73065029'")
-    assert flagged["value_original"] == "2.811" and "split across two page sections" in flagged["note"]
-    assert db.execute("SELECT count(*) FROM reference_values WHERE substr(code,1,6)<>hs6 OR verification_status<>'unverified'").fetchone()[0] == 0
+    assert flagged["value_original"] == "2.811" and flagged["description"].startswith("Precision steel tubes, welded")
+    assert db.execute("SELECT count(*) FROM reference_values WHERE substr(code,1,6)<>hs6 OR verification_status='unverified'").fetchone()[0] == 0
+    source = json.loads((refdata.DATASETS / "uk-cbam-defaults/SOURCE.json").read_text(encoding="utf-8"))
+    assert source["corrections_to_workbook"] == [] and len(source["page_sha256"]) == 5
     assert db.execute("SELECT count(DISTINCT hs6) FROM reference_values").fetchone()[0] == 283
     assert db.execute("SELECT count(*) FROM reference_values r WHERE NOT EXISTS (SELECT 1 FROM hs_codes h WHERE h.code=r.hs6)").fetchone()[0] == 0
 
@@ -124,7 +126,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
 def test_register_lists_every_dataset_with_its_verification_state(loaded):
     register = {r["dataset_id"]: r for r in refdata.rows(loaded[0], "reference_datasets")}
     assert len(register) == 7 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
-    assert register["uk-cbam-defaults"]["verification_status"] == "unverified" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
+    assert register["uk-cbam-defaults"]["verification_status"] == "checked against the publisher's pages" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
     assert register["owid-country-data"]["verification_status"] == "checked against the publisher's file"
 
 
@@ -251,3 +253,17 @@ def test_dashboard_shows_reference_tab(loaded, monkeypatch):
     app = AppTest.from_file(str(refdata.ROOT / "dashboard.py")).run(timeout=90)
     assert not app.exception
     assert any(s.value == "Reference data" for s in app.subheader)
+
+
+def test_a_changed_dataset_file_replaces_its_older_rows(tmp_path):
+    db = connect(tmp_path / "replace.sqlite")
+    try:
+        first = dict(BASE, item="old item")
+        assert refdata.load_dataset(db, dataset(tmp_path / "d", rows=[first]))["replaced_older_version"] is False
+        assert refdata.load_dataset(db, dataset(tmp_path / "d", rows=[first]))["inserted"] == 0
+        result = refdata.load_dataset(db, dataset(tmp_path / "d", rows=[dict(BASE, item="new item"), dict(BASE, item="second new item")]))
+        assert result["replaced_older_version"] is True and result["inserted"] == 2
+        assert [r["item"] for r in refdata.rows(db, "benchmarks")] == ["new item", "second new item"]
+        assert refdata.rows(db, "reference_datasets")[0]["rows_loaded"] == "2"
+    finally:
+        db.close()
