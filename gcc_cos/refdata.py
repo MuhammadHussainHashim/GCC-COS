@@ -51,6 +51,11 @@ TABLES = {
          "value_original", "unit_original", "value_metric", "unit_metric", "conversion", "fossil_part", "biogenic_part", "land_use_change_part",
          "data_quality_rating", "delivery", "packaging", "preparation", "value_kind", "lifecycle_scope", "geography", "year", "year_basis"],
         ["dataset_id", "product_code"], ["product_code", "name_en", "value_original", "unit_original", "value_kind", "geography", "year"], "Product averages"),
+    "energy_prices": (
+        ["fuel", "consumer", "tier", "price_component", "value_original", "unit_original", "value_metric", "unit_metric", "conversion",
+         "fixed_charge", "fixed_charge_unit", "value_kind", "geography", "year", "effective", "source_page", "source_location", "note"],
+        ["dataset_id", "fuel", "consumer", "tier", "price_component", "unit_original"],
+        ["fuel", "consumer", "tier", "value_original", "unit_original", "value_kind", "geography", "year"], "Energy prices"),
     "spend_factors": (
         ["industry_system", "industry_code", "industry_title", "ghg", "value_original", "unit_original", "value_metric", "unit_metric", "conversion",
          "value_without_margins", "value_of_margins", "reference_useeio_code", "value_kind", "geography", "year", "year_basis"],
@@ -62,7 +67,7 @@ TABLES = {
 }
 BUNDLED = {
     "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors", "uk-desnz-conversion-factors-2026"], "country_data": ["owid-country-data"],
-    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis"], "spend_factors": ["epa-supply-chain-factors"], "airports": ["ourairports"],
+    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis"], "spend_factors": ["epa-supply-chain-factors"], "energy_prices": ["pakistan-energy-prices"], "airports": ["ourairports"],
 }
 REGISTRY = ["dataset_id", "table_name", "title", "publisher", "url", "license", "license_url", "attribution", "obtained",
             "verification_status", "verification_note", "file_sha256", "rows_in_file", "rows_loaded", "loaded_at"]

@@ -13,7 +13,7 @@ from gcc_cos.cli import main
 from gcc_cos.export import export
 from gcc_cos.storage import connect, records
 
-EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622, "country_data": 1184, "hs_codes": 6939, "product_averages": 2451, "spend_factors": 1016,
+EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622, "country_data": 1184, "hs_codes": 6939, "product_averages": 2451, "spend_factors": 1016, "energy_prices": 30,
             "hs_industry_links": 6322, "benchmarks": 25, "airports": 3245}
 
 
@@ -128,7 +128,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
 
 def test_register_lists_every_dataset_with_its_verification_state(loaded):
     register = {r["dataset_id"]: r for r in refdata.rows(loaded[0], "reference_datasets")}
-    assert len(register) == 10 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
+    assert len(register) == 11 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
     assert register["uk-cbam-defaults"]["verification_status"] == "checked against the publisher's pages" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
     assert register["owid-country-data"]["verification_status"] == "checked against the publisher's file"
 
@@ -197,7 +197,7 @@ def test_bad_hs_code_and_wrong_table_are_refused(tmp_path):
 
 
 COMMANDS = [("load-reference-values", "reference_values"), ("load-activity-factors", "activity_factors"), ("load-country-data", "country_data"),
-            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-product-averages", "product_averages"), ("load-spend-factors", "spend_factors"), ("load-airports", "airports")]
+            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-product-averages", "product_averages"), ("load-spend-factors", "spend_factors"), ("load-energy-prices", "energy_prices"), ("load-airports", "airports")]
 
 
 @pytest.mark.parametrize("command, table", COMMANDS)
@@ -214,7 +214,7 @@ def test_each_load_command(tmp_path, capsys, command, table):
 def test_load_all_command_dataset_option_and_errors(tmp_path, capsys):
     path = str(tmp_path / "cli.sqlite")
     assert main(["--db", path, "load-reference-data"]) == 0
-    assert len(capsys.readouterr().out.strip().splitlines()) == 10
+    assert len(capsys.readouterr().out.strip().splitlines()) == 11
     assert main(["--db", path, "load-benchmarks", "--dataset", str(dataset(tmp_path / "d"))]) == 0
     assert json.loads(capsys.readouterr().out)["inserted"] == 1
     with pytest.raises(SystemExit):
@@ -229,13 +229,13 @@ def test_excel_and_sqlite_exports_carry_every_reference_table(loaded, tmp_path):
     sheets = pd.read_excel(tmp_path / "all.xlsx", sheet_name=None, dtype=str)
     for table, (_, _, _, sheet) in refdata.TABLES.items():
         assert len(sheets[sheet]) == EXPECTED[table], sheet
-    assert len(sheets["Reference datasets"]) == 10 and "Records" in sheets and "License notices" in sheets
+    assert len(sheets["Reference datasets"]) == 11 and "Records" in sheets and "License notices" in sheets
     assert sheets["Reference values by code"].loc[sheets["Reference values by code"]["code"] == "25232900", "hs6"].item() == "252329"
     export(db, tmp_path / "all.sqlite")
     with sqlite3.connect(tmp_path / "all.sqlite") as copy:
         for table, expected in EXPECTED.items():
             assert copy.execute(f"SELECT count(*) FROM {table}").fetchone()[0] == expected
-        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 10
+        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 11
 
 
 def test_export_without_reference_data_has_no_extra_sheets(tmp_path):
@@ -307,3 +307,21 @@ def test_agribalyse_foods_keep_french_name_parts_and_quality_rating(loaded):
     assert (stock["geography"], stock["year"], stock["value_kind"], stock["language_original"]) == ("France", "2025", "product average footprint (per kg)", "fr")
     assert "Licence Ouverte" in stock["license"]
     assert db.execute("SELECT count(*) FROM product_averages WHERE name_en IS NULL OR name_original IS NULL OR value_original IS NULL").fetchone()[0] == 0
+
+
+def test_pakistan_energy_prices_are_labelled_as_transcribed_and_add_up(loaded):
+    db = loaded[0]
+    rows = refdata.rows(db, "energy_prices")
+    assert {r["fuel"] for r in rows} == {"Electricity", "Natural gas", "LPG", "Kerosene"}
+    assert {r["verification_status"] for r in rows} == {"transcribed from the scanned notification"}
+    assert all(r["value_kind"] == "regulated consumer price" and r["geography"].startswith("Pakistan") and r["source_page"] for r in rows)
+    slab = one(db, "SELECT * FROM energy_prices WHERE fuel='Electricity' AND tier='201-300 units'")
+    assert (slab["value_original"], slab["unit_original"], slab["fixed_charge"], slab["year"]) == ("33.10", "PKR per kWh", "350", "2026")
+    gas = one(db, "SELECT * FROM energy_prices WHERE fuel='Natural gas' AND tier='Above 4 hm3 per month'")
+    assert (gas["value_original"], gas["unit_original"], gas["unit_metric"]) == ("4200", "PKR per MMBtu", "PKR per GJ")
+    assert abs(Decimal(gas["value_metric"]) * Decimal("1.055056") - Decimal("4200")) < Decimal("0.01")
+    lpg = one(db, "SELECT * FROM energy_prices WHERE fuel='LPG' AND unit_original='PKR per tonne'")
+    assert (lpg["value_original"], lpg["value_metric"], lpg["unit_metric"]) == ("294075.47", "294.08", "PKR per kg")
+    assert Decimal("252775.47") + Decimal("35000") + Decimal("6300") == Decimal(lpg["value_original"])
+    assert one(db, "SELECT * FROM energy_prices WHERE fuel='Kerosene'")["value_original"] == "308.52"
+    assert "No licence stated" in rows[0]["license"]
