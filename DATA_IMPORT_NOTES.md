@@ -65,6 +65,7 @@ Rules built into the loader (`gcc_cos/refdata.py`):
 
 - **UK CBAM:** the five GOV.UK pages were downloaded and read by program. All 570 codes and values equal the hand transcription; 73065029 is 2.811. No corrections. The dataset now carries the official 8-digit descriptions and the status "checked against the publisher's pages".
 - **US EPA calculator values:** each of the 25 values was found, with its wording, on the EPA pages. Status changed to checked.
+- One workbook note could not be confirmed: the row "Fuel saved by regular vehicle maintenance" says the EPA page also lists 1.6% from a 2024 source. That figure was not found on the page. The value itself (7%) was.
 - **New table `spend_factors`:** 1,016 US EPA supply chain factors per 2022 US dollar (public domain). Kept separate because per-dollar factors are a different kind of number.
 - **New table `product_averages`:** 2,451 AGRIBALYSE foods per kg (Licence Ouverte). Kept in a reference table, not in `records`, because nothing under `examples/` may be changed and the record loader's sources live there.
 - **`activity_factors`** gained 2,622 UK government conversion factors for 2026. Only the "kg CO2e" rows with a value are loaded; per-gas rows and blanks are not. Rows given per mile, per tonne or per million litres keep that original and get a per-km, per-kg or per-litre value beside it.

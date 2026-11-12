@@ -8,7 +8,7 @@
 - New table `product_averages`: 2,451 AGRIBALYSE foods per kg (France).
 - `activity_factors` gained 2,622 UK government conversion factors for 2026.
 - New commands `load-spend-factors` and `load-product-averages`. Reloading a changed dataset replaces its older rows.
-- 233 of 233 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+- 232 of 232 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
 
 ## 1.6.0 — Calculator: travel, home energy and digital use (2026-11-12)
 
