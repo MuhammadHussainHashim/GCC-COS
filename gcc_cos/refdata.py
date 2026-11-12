@@ -46,14 +46,18 @@ TABLES = {
         ["publisher", "item", "value_original", "unit_original", "factor_to_metric", "value_metric", "unit_metric", "value_kind",
          "stated_source", "geography", "year", "year_basis", "source_page", "note"],
         ["publisher", "item"], ["publisher", "item", "value_original", "unit_original", "value_kind", "geography", "year"], "Benchmarks and assumptions"),
+    "spend_factors": (
+        ["industry_system", "industry_code", "industry_title", "ghg", "value_original", "unit_original", "value_metric", "unit_metric", "conversion",
+         "value_without_margins", "value_of_margins", "reference_useeio_code", "value_kind", "geography", "year", "year_basis"],
+        ["dataset_id", "industry_code"], ["industry_system", "industry_code", "industry_title", "value_original", "unit_original", "value_kind", "geography", "year"], "Spend-based factors"),
     "airports": (
         ["ident", "iata_code", "icao_code", "name", "type", "municipality", "iso_country", "iso_region", "latitude_deg", "longitude_deg",
          "elevation_ft", "elevation_m"],
         ["ident"], ["ident", "iata_code", "name", "iso_country", "latitude_deg", "longitude_deg"], "Airports"),
 }
 BUNDLED = {
-    "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors"], "country_data": ["owid-country-data"],
-    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "airports": ["ourairports"],
+    "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors", "uk-desnz-conversion-factors-2026"], "country_data": ["owid-country-data"],
+    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "spend_factors": ["epa-supply-chain-factors"], "airports": ["ourairports"],
 }
 REGISTRY = ["dataset_id", "table_name", "title", "publisher", "url", "license", "license_url", "attribution", "obtained",
             "verification_status", "verification_note", "file_sha256", "rows_in_file", "rows_loaded", "loaded_at"]

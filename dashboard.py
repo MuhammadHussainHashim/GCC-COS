@@ -186,8 +186,8 @@ try:
                     choices = {f"{r['id']}: {r.get('manufacturer') or ''} - {r.get('product_name') or ''}": str(r["id"]) for r in products}
                     kind, value = "record", choices.get(st.selectbox("Product (type to search)", list(choices)))
                 elif find_by == "Travel, heating or digital use":
-                    activities = {f"{a['area']}: {a['name_en']} (per {a['unit_metric'].split(' per ', 1)[-1]})": a["activity_id"] for a in calculator_reference["activity"].values()}
-                    kind, value = "activity", activities.get(st.selectbox("Activity (averages for France; the quantity is in the unit shown)", sorted(activities))) if activities else None
+                    activities = {f"{a['geography']} | {a['area']}: {a['name_en']} (per {a['unit_metric'].split(' per ', 1)[-1]})": a["activity_id"] for a in calculator_reference["activity"].values()}
+                    kind, value = "activity", activities.get(st.selectbox("Activity (the list starts with the country the factor is for; the quantity is in the unit shown)", sorted(activities))) if activities else None
                 elif find_by == "Home electricity":
                     countries = {f"{c['country']} ({float(c['value_metric']):.3f} kg CO2e per kWh, {c['year']})": c["iso3"] for c in calculator_reference["electricity"].values()}
                     names = sorted(countries)

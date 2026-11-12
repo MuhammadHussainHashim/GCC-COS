@@ -70,6 +70,7 @@ def main(argv=None):
             ("load-hs-codes", "hs_codes", "Load the HS 2022 code list into the database"),
             ("load-hs-industry-links", "hs_industry_links", "Load the HS-to-industry link (bundled: HS 6-digit to NAICS, 2017)"),
             ("load-benchmarks", "benchmarks", "Load published benchmarks and assumptions (bundled: US EPA calculator)"),
+            ("load-spend-factors", "spend_factors", "Load spend-based factors per US dollar by industry (bundled: US EPA supply chain factors)"),
             ("load-airports", "airports", "Load airports with coordinates (bundled: OurAirports)")):
         p = sub.add_parser(command, help=text)
         p.set_defaults(reference_table=table)

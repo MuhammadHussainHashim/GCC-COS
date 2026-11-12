@@ -271,11 +271,69 @@ def build_airports(downloads):
         "verification_note": "Community-maintained data. Small airfields, heliports and closed airports are left out. Elevation in metres is the source's feet multiplied by 0.3048."})
 
 
+def build_spend(path):
+    """US EPA Supply Chain GHG Emission Factors v1.3.0 (kg CO2e per 2022 US dollar), copied row for row."""
+    out = []
+    for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+        unit = r["Unit"]
+        assert unit == "kg CO2e/2022 USD, purchaser price" and r["GHG"] == "All GHGs"
+        out.append({"industry_system": "NAICS 2017 (US, 6-digit)", "industry_code": r["2017 NAICS Code"], "industry_title": r["2017 NAICS Title"], "ghg": r["GHG"],
+                    "value_original": r["Supply Chain Emission Factors with Margins"], "unit_original": unit,
+                    "value_metric": r["Supply Chain Emission Factors with Margins"], "unit_metric": "kg CO2e per 2022 US dollar (purchaser price)", "conversion": "none (already metric)",
+                    "value_without_margins": r["Supply Chain Emission Factors without Margins"], "value_of_margins": r["Margins of Supply Chain Emission Factors"],
+                    "reference_useeio_code": r["Reference USEEIO Code"], "value_kind": "spend-based factor (per US dollar)", "geography": "United States", "year": "2022",
+                    "year_basis": "Dollar year and data year named in the source file"})
+    assert len({r["industry_code"] for r in out}) == len(out)
+    write("epa-supply-chain-factors", list(out[0]), out, {
+        "table": "spend_factors", "title": "US EPA Supply Chain GHG Emission Factors v1.3.0 by NAICS-6", "publisher": "US EPA Office of Research and Development",
+        "url": "https://pasteur.epa.gov/uploads/10.23719/1531143/SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv",
+        "license": "US public domain (EPA data, 17 U.S.C. 105)", "license_url": "https://pasteur.epa.gov/license/sciencehub-license.html",
+        "attribution": "US Environmental Protection Agency, Supply Chain Greenhouse Gas Emission Factors v1.3 by NAICS-6, doi:10.23719/1531143.",
+        "upstream_sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(), "obtained": "Downloaded from EPA ScienceHub on 12 November 2026; every row copied unchanged",
+        "verification_status": "copied from the publisher's file",
+        "verification_note": "Factors are for US industries, per 2022 US dollar at purchaser price, including margins; the without-margins and margins-only values are kept beside them. They describe an average dollar spent in the United States and are not product footprints. Linking them to HS codes uses the 2017 HS-to-NAICS table and gives an estimate only."})
+
+
+def build_desnz(path):
+    """UK government GHG conversion factors 2026, flat file: every 'kg CO2e' row that has a number."""
+    import openpyxl
+    rows = [r for r in openpyxl.load_workbook(path, read_only=True, data_only=True)["Factors by Category"].iter_rows(values_only=True)]
+    start = next(i for i, r in enumerate(rows) if r and r[0] == "ID")
+    header = [str(c) for c in rows[start]]
+    metric = {"miles": ("km", Decimal("1.609344"), "divided by 1.609344 (miles to km)"), "tonnes": ("kg", Decimal(1000), "divided by 1000 (tonnes to kg)"),
+              "million litres": ("litre", Decimal(1000000), "divided by 1,000,000")}
+    out = []
+    for row in rows[start + 1:]:
+        r = dict(zip(header, row))
+        value = r["GHG Conversion Factor 2026"]
+        if r["GHG/Unit"] != "kg CO2e" or not isinstance(value, (int, float)):
+            continue
+        uom = text(r["UOM"])
+        to, factor, how = metric.get(uom, (uom, Decimal(1), "none (already metric)"))
+        name = " · ".join(text(r[k]) for k in ("Level 2", "Level 3", "Level 4", "Column Text") if text(r[k]))
+        out.append({"activity_id": "desnz2026:" + text(r["ID"]), "area": text(r["Level 1"]), "name_en": name, "name_original": name, "language_original": "en",
+                    "upstream_label_en": text(r["ID"]), "value_original": number(value), "unit_original": f"kg CO2e per {uom}",
+                    "value_metric": number((Decimal(str(value)) / factor).quantize(Decimal("0.00000001"))) if factor != 1 else number(value), "unit_metric": f"kg CO2e per {to}", "conversion": how,
+                    "value_kind": "activity emission factor", "geography": "United Kingdom", "year": "2026", "year_basis": "Reporting year of the factor set",
+                    "source_page": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026", "note": text(r["Scope"])})
+    assert len({r["activity_id"] for r in out}) == len(out)
+    write("uk-desnz-conversion-factors-2026", list(out[0]), out, {
+        "table": "activity_factors", "title": "UK government GHG conversion factors for company reporting 2026 (flat file, version 1.2)", "publisher": "Department for Energy Security and Net Zero (GOV.UK)",
+        "url": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx",
+        "license": "Open Government Licence v3.0 (Crown copyright)", "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+        "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Department for Energy Security and Net Zero, 'Greenhouse gas reporting: conversion factors 2026'.",
+        "upstream_sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(), "obtained": "Downloaded from GOV.UK on 12 November 2026 (flat file revised July 2026); every 'kg CO2e' row with a value copied",
+        "verification_status": "copied from the publisher's file",
+        "verification_note": "Factors are for the United Kingdom. The per-gas rows (CO2, CH4, N2O) and rows the publisher leaves blank are not loaded. The scope (1, 2, 3 or outside of scopes) is in the note column. Well-to-tank (WTT) and transmission rows are separate factors and must be added to, not mixed with, the direct factors. Flights are given with and without radiative forcing."})
+
+
 if __name__ == "__main__":
     import openpyxl
     parser = argparse.ArgumentParser()
     parser.add_argument("--workbook", required=True)
     parser.add_argument("--downloads", required=True)
+    parser.add_argument("--epa-factors", help="SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv")
+    parser.add_argument("--desnz-flat", help="ghg-conversion-factors-2026-flat-format-revised.xlsx")
     parser.add_argument("--cbam-pages", required=True, help="Folder with the five GOV.UK sector pages saved as iron-and-steel.html, aluminium.html, fertilisers.html, cement.html, hydrogen.html")
     args = parser.parse_args()
     workbook = openpyxl.load_workbook(args.workbook, read_only=True, data_only=True)
@@ -286,3 +344,7 @@ if __name__ == "__main__":
     build_links(workbook, folder)
     build_benchmarks(workbook)
     build_airports(folder)
+    if args.epa_factors:
+        build_spend(args.epa_factors)
+    if args.desnz_flat:
+        build_desnz(args.desnz_flat)

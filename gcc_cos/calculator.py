@@ -121,8 +121,10 @@ def estimate(rows, kind, value, quantity, table=None, reference=None):
             row = book.get(query)
             if row is None:
                 return _failed(line, "unknown_activity")
-            flags = ["average_for_france_not_local"] + (["footprint_not_verified"] if row["verification_status"] == "unverified" else [])
-            return _reference_line(line, amount, row, f"{row['name_en']} ({row['area']})", row["unit_metric"].split(" per ", 1)[-1], ACTIVITY_SCOPE, flags)
+            french = row["geography"] == "France"
+            flags = (["average_for_france_not_local"] if french else ["average_for_another_country_not_local"]) + (["footprint_not_verified"] if row["verification_status"] == "unverified" else [])
+            scope = ACTIVITY_SCOPE if french else f"Activity factors for {row['geography']} ({row['source_title']})"
+            return _reference_line(line, amount, row, f"{row['name_en']} ({row['area']})", row["unit_metric"].split(" per ", 1)[-1], scope, flags)
         query = line["query"] = query.upper()
         row = book.get(query)
         if row is None:
@@ -273,6 +275,8 @@ def calculate(rows, lines, table=None, people=None, reference=None):
         warnings.append(f"INCOMPLETE: {len(missing)} of {len(results)} lines have no value and are left out of the totals (lines {', '.join(map(str, missing))}).")
     if any("average_for_france_not_local" in r.get("flags", []) for r in results):
         warnings.append("Travel, heating and digital-use lines use averages for France. French trains and electric heating are low-carbon, so those figures are too low for most other countries.")
+    if any("average_for_another_country_not_local" in r.get("flags", []) for r in results):
+        warnings.append("Some activity lines use another country's published factors (for example the United Kingdom's). Vehicles, fuels and electricity differ between countries.")
     if any("country_average_generation_not_your_supplier" in r.get("flags", []) for r in results):
         warnings.append("Electricity lines use the country's average for electricity generation. Losses in the grid and your own supplier's mix are not included.")
     if len(totals) > 1:

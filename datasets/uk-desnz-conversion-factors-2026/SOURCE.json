@@ -1,0 +1,18 @@
+{
+ "id": "uk-desnz-conversion-factors-2026",
+ "table": "activity_factors",
+ "title": "UK government GHG conversion factors for company reporting 2026 (flat file, version 1.2)",
+ "publisher": "Department for Energy Security and Net Zero (GOV.UK)",
+ "url": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx",
+ "license": "Open Government Licence v3.0 (Crown copyright)",
+ "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+ "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. Department for Energy Security and Net Zero, 'Greenhouse gas reporting: conversion factors 2026'.",
+ "upstream_sha256": "a9a455ab396dae226d510c7be6233748416d490c41a5d20f3dc7a0c45feecd5e",
+ "obtained": "Downloaded from GOV.UK on 12 November 2026 (flat file revised July 2026); every 'kg CO2e' row with a value copied",
+ "verification_status": "copied from the publisher's file",
+ "verification_note": "Factors are for the United Kingdom. The per-gas rows (CO2, CH4, N2O) and rows the publisher leaves blank are not loaded. The scope (1, 2, 3 or outside of scopes) is in the note column. Well-to-tank (WTT) and transmission rows are separate factors and must be added to, not mixed with, the direct factors. Flights are given with and without radiative forcing.",
+ "file": "data.csv",
+ "rows": 2622,
+ "sha256": "7e1d0ad3e2f0e1877d830eaa6a513e0d054a983e8ebc77b906ff54611e815ea4",
+ "prepared": "2026-11-12"
+}

@@ -13,7 +13,7 @@ from gcc_cos.cli import main
 from gcc_cos.export import export
 from gcc_cos.storage import connect, records
 
-EXPECTED = {"reference_values": 570, "activity_factors": 63, "country_data": 1184, "hs_codes": 6939,
+EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622, "country_data": 1184, "hs_codes": 6939, "spend_factors": 1016,
             "hs_industry_links": 6322, "benchmarks": 25, "airports": 3245}
 
 
@@ -36,7 +36,10 @@ def one(db, sql, *args):
 def test_every_table_loads_once_and_reloading_adds_nothing(loaded):
     db, first, second, _ = loaded
     assert refdata.counts(db) == EXPECTED
-    assert {r["table"]: r["inserted"] for r in first} == EXPECTED
+    inserted = {}
+    for r in first:
+        inserted[r["table"]] = inserted.get(r["table"], 0) + r["inserted"]
+    assert inserted == EXPECTED
     assert all(r["inserted"] == 0 and r["already_present"] == r["rows_in_file"] for r in second)
     assert records(db) == []                                  # product records are a separate table and untouched
 
@@ -86,8 +89,8 @@ def test_cbam_values_keep_original_and_metric_and_are_marked_checked(loaded):
 def test_activity_factors_are_french_keep_the_french_name_and_equal_the_publisher_file(loaded):
     db = loaded[0]
     upstream = json.loads((refdata.ROOT / "examples/phase5/ademe-upstream/values.json").read_text(encoding="utf-8"))
-    rows = refdata.rows(db, "activity_factors")
-    assert {r["geography"] for r in rows} == {"France"} and {r["language_original"] for r in rows} == {"fr"}
+    rows = [r for r in refdata.rows(db, "activity_factors") if r["dataset_id"] == "ademe-activity-factors"]
+    assert len(rows) == 63 and {r["geography"] for r in rows} == {"France"} and {r["language_original"] for r in rows} == {"fr"}
     assert {r["area"]: 0 for r in rows}.keys() == {"Transport", "Home heating", "Digital use"}
     for row in rows:
         grams = Decimal(str(upstream[row["activity_id"]]["value"]))
@@ -125,7 +128,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
 
 def test_register_lists_every_dataset_with_its_verification_state(loaded):
     register = {r["dataset_id"]: r for r in refdata.rows(loaded[0], "reference_datasets")}
-    assert len(register) == 7 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
+    assert len(register) == 9 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
     assert register["uk-cbam-defaults"]["verification_status"] == "checked against the publisher's pages" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
     assert register["owid-country-data"]["verification_status"] == "checked against the publisher's file"
 
@@ -194,15 +197,15 @@ def test_bad_hs_code_and_wrong_table_are_refused(tmp_path):
 
 
 COMMANDS = [("load-reference-values", "reference_values"), ("load-activity-factors", "activity_factors"), ("load-country-data", "country_data"),
-            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-airports", "airports")]
+            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-spend-factors", "spend_factors"), ("load-airports", "airports")]
 
 
 @pytest.mark.parametrize("command, table", COMMANDS)
 def test_each_load_command(tmp_path, capsys, command, table):
     path = str(tmp_path / "cli.sqlite")
     assert main(["--db", path, command]) == 0
-    result = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
-    assert (result["table"], result["inserted"]) == (table, EXPECTED[table])
+    results = [json.loads(line) for line in capsys.readouterr().out.strip().splitlines()]
+    assert {r["table"] for r in results} == {table} and sum(r["inserted"] for r in results) == EXPECTED[table]
     assert main(["--db", path, "reference-tables"]) == 0
     shown = json.loads(capsys.readouterr().out)
     assert shown[table] == EXPECTED[table] and sum(shown.values()) == EXPECTED[table]
@@ -211,7 +214,7 @@ def test_each_load_command(tmp_path, capsys, command, table):
 def test_load_all_command_dataset_option_and_errors(tmp_path, capsys):
     path = str(tmp_path / "cli.sqlite")
     assert main(["--db", path, "load-reference-data"]) == 0
-    assert len(capsys.readouterr().out.strip().splitlines()) == 7
+    assert len(capsys.readouterr().out.strip().splitlines()) == 9
     assert main(["--db", path, "load-benchmarks", "--dataset", str(dataset(tmp_path / "d"))]) == 0
     assert json.loads(capsys.readouterr().out)["inserted"] == 1
     with pytest.raises(SystemExit):
@@ -226,13 +229,13 @@ def test_excel_and_sqlite_exports_carry_every_reference_table(loaded, tmp_path):
     sheets = pd.read_excel(tmp_path / "all.xlsx", sheet_name=None, dtype=str)
     for table, (_, _, _, sheet) in refdata.TABLES.items():
         assert len(sheets[sheet]) == EXPECTED[table], sheet
-    assert len(sheets["Reference datasets"]) == 7 and "Records" in sheets and "License notices" in sheets
+    assert len(sheets["Reference datasets"]) == 9 and "Records" in sheets and "License notices" in sheets
     assert sheets["Reference values by code"].loc[sheets["Reference values by code"]["code"] == "25232900", "hs6"].item() == "252329"
     export(db, tmp_path / "all.sqlite")
     with sqlite3.connect(tmp_path / "all.sqlite") as copy:
         for table, expected in EXPECTED.items():
             assert copy.execute(f"SELECT count(*) FROM {table}").fetchone()[0] == expected
-        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 7
+        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 9
 
 
 def test_export_without_reference_data_has_no_extra_sheets(tmp_path):
@@ -267,3 +270,29 @@ def test_a_changed_dataset_file_replaces_its_older_rows(tmp_path):
         assert refdata.rows(db, "reference_datasets")[0]["rows_loaded"] == "2"
     finally:
         db.close()
+
+
+def test_spend_factors_are_per_dollar_us_and_copied_from_the_epa_file(loaded):
+    db = loaded[0]
+    soy = one(db, "SELECT * FROM spend_factors WHERE industry_code='111110'")
+    assert (soy["industry_title"], soy["value_original"], soy["value_without_margins"], soy["value_of_margins"]) == ("Soybean Farming", "0.532", "0.488", "0.044")
+    assert (soy["unit_original"], soy["value_kind"], soy["geography"], soy["year"]) == ("kg CO2e/2022 USD, purchaser price", "spend-based factor (per US dollar)", "United States", "2022")
+    assert "public domain" in soy["license"] and soy["verification_status"] == "copied from the publisher's file"
+    for row in refdata.rows(db, "spend_factors"):
+        assert abs(Decimal(row["value_without_margins"]) + Decimal(row["value_of_margins"]) - Decimal(row["value_original"])) <= Decimal("0.0011"), row["industry_code"]
+    linked = db.execute("SELECT count(DISTINCT l.hs6) FROM hs_industry_links l JOIN spend_factors s ON s.industry_code=l.industry_code").fetchone()[0]
+    assert linked > 4000          # most HS codes reach a factor through the industry link; codes ending in X do not
+
+
+def test_uk_conversion_factors_keep_original_units_and_scope(loaded):
+    db = loaded[0]
+    assert db.execute("SELECT count(*) FROM activity_factors WHERE dataset_id='uk-desnz-conversion-factors-2026'").fetchone()[0] == 2622
+    flight = one(db, "SELECT * FROM activity_factors WHERE activity_id='desnz2026:21_316_3160_11_1'")
+    assert (flight["area"], flight["value_original"], flight["unit_original"], flight["geography"], flight["year"], flight["note"]) == \
+        ("Business travel- air", "0.22928", "kg CO2e per passenger.km", "United Kingdom", "2026", "Scope 3")
+    assert flight["name_en"].endswith("With RF") and "Open Government Licence" in flight["license"]
+    butane = one(db, "SELECT * FROM activity_factors WHERE activity_id='desnz2026:1_100_1000_15_1'")
+    assert (butane["value_original"], butane["unit_original"], butane["value_metric"], butane["unit_metric"]) == ("3033.38067", "kg CO2e per tonnes", "3.03338067", "kg CO2e per kg")
+    miles = one(db, "SELECT * FROM activity_factors WHERE dataset_id='uk-desnz-conversion-factors-2026' AND unit_original='kg CO2e per miles' LIMIT 1")
+    assert miles["unit_metric"] == "kg CO2e per km" and abs(Decimal(miles["value_metric"]) * Decimal("1.609344") - Decimal(miles["value_original"])) < Decimal("0.000001")
+    assert {r[0] for r in db.execute("SELECT DISTINCT geography FROM activity_factors")} == {"France", "United Kingdom"}
