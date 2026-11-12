@@ -327,12 +327,41 @@ def build_desnz(path):
         "verification_note": "Factors are for the United Kingdom. The per-gas rows (CO2, CH4, N2O) and rows the publisher leaves blank are not loaded. The scope (1, 2, 3 or outside of scopes) is in the note column. Well-to-tank (WTT) and transmission rows are separate factors and must be added to, not mixed with, the direct factors. Flights are given with and without radiative forcing."})
 
 
+def build_agribalyse(path):
+    """AGRIBALYSE v3.2 synthesis: climate change per kg of food as consumed in France, copied row for row."""
+    out = []
+    for r in csv.DictReader(open(path, encoding="utf-8-sig")):
+        if not r["Code AGB"].strip():
+            continue
+        value = r["Changement climatique"].strip()
+        out.append({"product_code": r["Code AGB"].strip(), "code_system": "AGRIBALYSE (AGB) code", "other_code": r["Code CIQUAL"].strip(),
+                    "group_original": r["Groupe d'aliment"].strip(), "subgroup_original": r["Sous-groupe d'aliment"].strip(),
+                    "name_en": r["LCI Name"].strip(), "name_original": r["Nom du Produit en Français"].strip(), "language_original": "fr",
+                    "value_original": value, "unit_original": "kg CO2 eq per kg of product", "value_metric": value, "unit_metric": "kg CO2e per kg of product",
+                    "conversion": "none (already metric)", "fossil_part": r["Changement climatique - émissions fossiles"].strip(),
+                    "biogenic_part": r["Changement climatique - émissions biogéniques"].strip(),
+                    "land_use_change_part": r["Changement climatique - émissions liées au changement d'affectation des sols"].strip(),
+                    "data_quality_rating": r["DQR"].strip(), "delivery": r["Livraison"].strip(), "packaging": r["Approche emballage "].strip(), "preparation": r["Préparation"].strip(),
+                    "value_kind": "product average footprint (per kg)", "lifecycle_scope": "Field to plate, as consumed in France (AGRIBALYSE)", "geography": "France", "year": "2025",
+                    "year_basis": "Year the data file was last updated (AGRIBALYSE v3.2, 27 February 2025)"})
+    assert len({r["product_code"] for r in out}) == len(out) and all(r["name_en"] and r["value_original"] for r in out)
+    write("agribalyse-3.2-synthesis", list(out[0]), out, {
+        "table": "product_averages", "title": "AGRIBALYSE v3.2 synthesis: food products consumed in France", "publisher": "ADEME (and INRAE), data.ademe.fr",
+        "url": "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/raw",
+        "license": "Licence Ouverte / Open Licence (Etalab)", "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence",
+        "attribution": "AGRIBALYSE v3.2, ADEME. Licence Ouverte / Open Licence.",
+        "upstream_sha256": hashlib.sha256(Path(path).read_bytes()).hexdigest(), "obtained": "Downloaded from data.ademe.fr on 12 November 2026; every product row copied, empty rows dropped",
+        "verification_status": "copied from the publisher's file",
+        "verification_note": "Averages for food as consumed in France, from field to plate. English names are the publisher's own (LCI Name). The data quality rating runs from 1 (excellent) to 5 (very weak). The publisher asks users to read its user guide before use: https://doc.agribalyse.fr/documentation/utiliser-agribalyse/precautions-et-conditions-dusage"})
+
+
 if __name__ == "__main__":
     import openpyxl
     parser = argparse.ArgumentParser()
     parser.add_argument("--workbook", required=True)
     parser.add_argument("--downloads", required=True)
     parser.add_argument("--epa-factors", help="SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv")
+    parser.add_argument("--agribalyse", help="AGRIBALYSE synthesis CSV from data.ademe.fr")
     parser.add_argument("--desnz-flat", help="ghg-conversion-factors-2026-flat-format-revised.xlsx")
     parser.add_argument("--cbam-pages", required=True, help="Folder with the five GOV.UK sector pages saved as iron-and-steel.html, aluminium.html, fertilisers.html, cement.html, hydrogen.html")
     args = parser.parse_args()
@@ -348,3 +377,5 @@ if __name__ == "__main__":
         build_spend(args.epa_factors)
     if args.desnz_flat:
         build_desnz(args.desnz_flat)
+    if args.agribalyse:
+        build_agribalyse(args.agribalyse)

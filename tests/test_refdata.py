@@ -13,7 +13,7 @@ from gcc_cos.cli import main
 from gcc_cos.export import export
 from gcc_cos.storage import connect, records
 
-EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622, "country_data": 1184, "hs_codes": 6939, "spend_factors": 1016,
+EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622, "country_data": 1184, "hs_codes": 6939, "product_averages": 2451, "spend_factors": 1016,
             "hs_industry_links": 6322, "benchmarks": 25, "airports": 3245}
 
 
@@ -128,7 +128,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
 
 def test_register_lists_every_dataset_with_its_verification_state(loaded):
     register = {r["dataset_id"]: r for r in refdata.rows(loaded[0], "reference_datasets")}
-    assert len(register) == 9 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
+    assert len(register) == 10 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
     assert register["uk-cbam-defaults"]["verification_status"] == "checked against the publisher's pages" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
     assert register["owid-country-data"]["verification_status"] == "checked against the publisher's file"
 
@@ -197,7 +197,7 @@ def test_bad_hs_code_and_wrong_table_are_refused(tmp_path):
 
 
 COMMANDS = [("load-reference-values", "reference_values"), ("load-activity-factors", "activity_factors"), ("load-country-data", "country_data"),
-            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-spend-factors", "spend_factors"), ("load-airports", "airports")]
+            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-product-averages", "product_averages"), ("load-spend-factors", "spend_factors"), ("load-airports", "airports")]
 
 
 @pytest.mark.parametrize("command, table", COMMANDS)
@@ -214,7 +214,7 @@ def test_each_load_command(tmp_path, capsys, command, table):
 def test_load_all_command_dataset_option_and_errors(tmp_path, capsys):
     path = str(tmp_path / "cli.sqlite")
     assert main(["--db", path, "load-reference-data"]) == 0
-    assert len(capsys.readouterr().out.strip().splitlines()) == 9
+    assert len(capsys.readouterr().out.strip().splitlines()) == 10
     assert main(["--db", path, "load-benchmarks", "--dataset", str(dataset(tmp_path / "d"))]) == 0
     assert json.loads(capsys.readouterr().out)["inserted"] == 1
     with pytest.raises(SystemExit):
@@ -229,13 +229,13 @@ def test_excel_and_sqlite_exports_carry_every_reference_table(loaded, tmp_path):
     sheets = pd.read_excel(tmp_path / "all.xlsx", sheet_name=None, dtype=str)
     for table, (_, _, _, sheet) in refdata.TABLES.items():
         assert len(sheets[sheet]) == EXPECTED[table], sheet
-    assert len(sheets["Reference datasets"]) == 9 and "Records" in sheets and "License notices" in sheets
+    assert len(sheets["Reference datasets"]) == 10 and "Records" in sheets and "License notices" in sheets
     assert sheets["Reference values by code"].loc[sheets["Reference values by code"]["code"] == "25232900", "hs6"].item() == "252329"
     export(db, tmp_path / "all.sqlite")
     with sqlite3.connect(tmp_path / "all.sqlite") as copy:
         for table, expected in EXPECTED.items():
             assert copy.execute(f"SELECT count(*) FROM {table}").fetchone()[0] == expected
-        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 9
+        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 10
 
 
 def test_export_without_reference_data_has_no_extra_sheets(tmp_path):
@@ -296,3 +296,14 @@ def test_uk_conversion_factors_keep_original_units_and_scope(loaded):
     miles = one(db, "SELECT * FROM activity_factors WHERE dataset_id='uk-desnz-conversion-factors-2026' AND unit_original='kg CO2e per miles' LIMIT 1")
     assert miles["unit_metric"] == "kg CO2e per km" and abs(Decimal(miles["value_metric"]) * Decimal("1.609344") - Decimal(miles["value_original"])) < Decimal("0.000001")
     assert {r[0] for r in db.execute("SELECT DISTINCT geography FROM activity_factors")} == {"France", "United Kingdom"}
+
+
+def test_agribalyse_foods_keep_french_name_parts_and_quality_rating(loaded):
+    db = loaded[0]
+    stock = one(db, "SELECT * FROM product_averages WHERE product_code='11172'")
+    assert (stock["name_en"], stock["name_original"], stock["value_original"], stock["unit_metric"]) == \
+        ("Aromatic stock cube, for fish, dehydrated", "Court-bouillon pour poissons, déshydraté", "7.58", "kg CO2e per kg of product")
+    assert (stock["fossil_part"], stock["biogenic_part"], stock["land_use_change_part"], stock["data_quality_rating"]) == ("7.46", "0.104", "0.0212", "2.24")
+    assert (stock["geography"], stock["year"], stock["value_kind"], stock["language_original"]) == ("France", "2025", "product average footprint (per kg)", "fr")
+    assert "Licence Ouverte" in stock["license"]
+    assert db.execute("SELECT count(*) FROM product_averages WHERE name_en IS NULL OR name_original IS NULL OR value_original IS NULL").fetchone()[0] == 0
