@@ -178,7 +178,7 @@ try:
         mode = st.radio("How do you want to enter products?", ["Pick products one by one", "Upload a CSV basket"], horizontal=True)
         if mode == "Pick products one by one":
             calculator_reference = calculator.reference_from(db)
-            find_by = st.radio("What do you want to add?", ["Product type", "Specific product", "HS code", "Travel, heating or digital use", "Home electricity"], horizontal=True)
+            find_by = st.radio("What do you want to add?", ["Product type", "Specific product", "HS code", "Travel, heating or digital use", "Home electricity", "Food (AGRIBALYSE)"], horizontal=True)
             with st.form("calculator_add", clear_on_submit=True):
                 if find_by == "Product type":
                     kind, value = "type", st.selectbox("Product type", sorted({str(r["subcategory"]) for r in products if r.get("subcategory")}, key=str.casefold))
@@ -188,6 +188,9 @@ try:
                 elif find_by == "Travel, heating or digital use":
                     activities = {f"{a['geography']} | {a['area']}: {a['name_en']} (per {a['unit_metric'].split(' per ', 1)[-1]})": a["activity_id"] for a in calculator_reference["activity"].values()}
                     kind, value = "activity", activities.get(st.selectbox("Activity (the list starts with the country the factor is for; the quantity is in the unit shown)", sorted(activities))) if activities else None
+                elif find_by == "Food (AGRIBALYSE)":
+                    foods = {f"{f['name_en']} ({f['name_original']})": f["product_code"] for f in calculator_reference["food"].values()}
+                    kind, value = "food", foods.get(st.selectbox("Food (averages for France; the quantity is in kg)", sorted(foods))) if foods else None
                 elif find_by == "Home electricity":
                     countries = {f"{c['country']} ({float(c['value_metric']):.3f} kg CO2e per kWh, {c['year']})": c["iso3"] for c in calculator_reference["electricity"].values()}
                     names = sorted(countries)

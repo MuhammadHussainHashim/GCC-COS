@@ -11,6 +11,7 @@ Updated 12 November 2026, after the official data sites were allowed in the buil
 | UK government conversion factors 2026: fuels (including coal and wood), vehicles, flights by cabin class with and without radiative forcing, well-to-tank, ferry, taxi, freight, waste disposal, material use, hotel stays | `activity_factors` | 2,622 |
 | AGRIBALYSE foods per kg | `product_averages` | 2,451 |
 | US EPA calculator values: all 25 re-checked against the EPA pages | `benchmarks` | 25 |
+| Pakistan residential electricity tariff (NEPRA, February 2026), domestic gas slabs (OGRA, July 2025), LPG (November 2026) and kerosene (November 2026), transcribed from the scanned notifications | `energy_prices` | 30 |
 
 ## Reached, but not loaded yet
 
@@ -18,8 +19,8 @@ These sites now open. Each needs careful reading of PDF or web tables by hand, s
 
 | # | What | Where | What is needed |
 | --- | --- | --- | --- |
-| 1 | Pakistan electricity prices | https://nepra.org.pk/tariff/Distribution%20WAPDA.php and https://nepra.org.pk/tariff/Distribution%20K-Electric.php | The current consumer-end tariff schedule (PDF notifications). Tell me which distribution company and date you want, or I will take the latest uniform tariff. |
-| 2 | Pakistan gas and fuel prices | https://www.ogra.org.pk/consumer-gas-prices and https://www.ogra.org.pk/notified-petroleum-prices | The latest notified prices (PDF notifications). |
+| 1 | Petrol and diesel prices for Pakistan | Set by the Ministry of Energy (Petroleum Division), not in OGRA's notifications, which cover kerosene, LPG and gas | The latest petrol (motor spirit) and high-speed diesel price notification |
+| 2 | Monthly fuel charges and quarterly adjustments on electricity bills | https://nepra.org.pk/tariff/Distribution%20IESCO.php (monthly decisions) | Needed to turn a whole electricity bill into kWh; the base tariff is loaded |
 | 3 | Pakistan household energy use | https://www.pbs.gov.pk/ | The right survey report (HIES or PSLM) with fuel and electricity tables. |
 | 4 | Vehicle make and model fuel economy | https://www.fueleconomy.gov/feg/epadata/vehicles.csv | The file downloads (22 MB, about 48,000 vehicles). Not loaded: it is a "Later" item and US-specific. Say if you want it. |
 | 5 | Recycling and landfill factors | https://www.epa.gov/waste-reduction-model/documentation-waste-reduction-model | The WARM documentation tables. (UK waste-disposal factors are already in `activity_factors`.) |
@@ -30,9 +31,9 @@ These sites now open. Each needs careful reading of PDF or web tables by hand, s
 
 | # | What | Why | What to do |
 | --- | --- | --- | --- |
-| 8 | EU CBAM default values by country of origin | The Commission page opens, but I did not find the annex file on it | Download the default-values annex (PDF or Excel) from https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en and upload it |
+| 8 | EU CBAM default values by country of origin | EUR-Lex answers automated downloads with an empty page (it expects a browser), and getting round that was not attempted | Open https://eur-lex.europa.eu/eli/reg_impl/2025/2621/oj/eng in a browser, save the PDF of Implementing Regulation (EU) 2025/2621, and also save its correction, Implementing Regulation (EU) 2026/1740, then upload both |
 | 9 | Footprint by diet type (Scarborough et al. 2023) | nature.com still refuses the connection | Download the supplementary data from https://www.nature.com/articles/s43016-023-00795-w and upload it |
-| 10 | ICE database (materials) | The page opens but offers no direct file link | Download the Excel file from https://circularecology.com/embodied-carbon-footprint-database.html and upload it; check its terms of use |
+| 10 | ICE database (materials) | Download needs registration, and the publisher now limits free use to teaching and academic research; professional use needs a paid licence | Only load it if your use qualifies or you buy a licence: https://circularecology.com/registerice.html |
 | 11 | ADEME Base Empreinte | Registration required | https://base-empreinte.ademe.fr/ |
 | 12 | Open CEDA spend factors | Link is sent by email after a form | https://openceda.org/ |
 | 13 | 16 environmental impact indicators | Not attempted | EU Joint Research Centre, Environmental Footprint reference package |
@@ -54,6 +55,6 @@ No HS code was assigned, because no published table gives one for these:
 
 The only source-given HS codes in the system are the 283 on the UK CBAM values. The EPA spend-based factors reach most HS codes through the HS-to-NAICS link, as an estimate per dollar, not a classification.
 
-## One label that is now out of date
+## One label in examples/ (now handled)
 
-The calculator's own copy of the CBAM values (under `examples/phase5`) still carries the label "typed from the source page, not checked". The values are identical to the checked ones. That folder was left untouched because an earlier instruction said not to change anything under `examples/`. Say the word and the label will be updated.
+The calculator's own copy of the CBAM values (under `examples/phase5`) still carries the label "typed from the source page, not checked", because nothing under `examples/` is changed. The calculator now compares each of those records with the GOV.UK-checked table and drops the "not checked" warning when code and value agree, so results no longer show it.

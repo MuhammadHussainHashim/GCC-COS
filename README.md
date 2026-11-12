@@ -19,7 +19,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
 ```
 
-That loads the 1,241 product observations plus 771 published averages and default values (2,012 records) and nine reference tables (24,437 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+That loads the 1,241 product observations plus 771 published averages and default values (2,012 records) and ten reference tables (24,467 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
 
 ## Repository map
 
@@ -31,7 +31,7 @@ That loads the 1,241 product observations plus 771 published averages and defaul
 | `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte. `examples/calculator/` holds two sample baskets |
 | `reference/hs2022/` | HS 2022 code list with its source, checksum and license |
 | `datasets/` | Reference datasets, each a folder with `data.csv` and `SOURCE.json` (source, licence, checksum, verification state) |
-| `tests/` | Test suite (232 tests) |
+| `tests/` | Test suite (237 tests) |
 | `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
 | `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
 | `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.0 — Pakistan prices and more calculator options (2026-11-12)
+
+- New table `energy_prices`: 30 Pakistani regulated prices (NEPRA residential electricity tariff 2026, OGRA domestic gas, LPG, kerosene), transcribed from the scanned notifications and labelled so.
+- Calculator: food lines from AGRIBALYSE (`food`), and the UK conversion factors as activity lines with their own "another country" warning.
+- Calculator: CBAM records whose code and value match the GOV.UK-checked table no longer carry the "not checked" warning.
+- 237 of 237 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.7.0 — More reference data, and the CBAM values checked (2026-11-12)
 
 - All 570 UK CBAM default values were checked against GOV.UK: no differences. Official 8-digit descriptions added.

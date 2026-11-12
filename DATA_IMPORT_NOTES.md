@@ -72,6 +72,16 @@ Rules built into the loader (`gcc_cos/refdata.py`):
 - **Reloading:** a dataset file whose checksum changed now replaces that dataset's older rows.
 - **Decision:** PDF-only sources (NEPRA, OGRA, PBS, IPCC, EPA WARM) were not rushed in. Reading tariff slabs out of PDFs by program risks wrong numbers, which breaks the first rule. They are listed in `STILL_NEEDED.md` as reached but not loaded.
 
+## Third pass (12 November 2026)
+
+- **Pakistan prices (new table `energy_prices`, 30 rows):** NEPRA's uniform residential tariff (S.R.O. 279(I)/2026, approved 11 February 2026), OGRA's domestic gas slabs (effective 1 July 2025, the latest on OGRA's consumer gas page), LPG (1 November 2026) and kerosene (7 November 2026). All four notices are scanned images, so the values were read from the page images by eye and are labelled "transcribed from the scanned notification". Totals printed in the LPG and kerosene notices were checked against their parts.
+- **Decision:** the publishers state no licence. The prices were loaded anyway, because they are regulated prices published for the Gazette and you named NEPRA and OGRA as sources; each row says no licence is stated.
+- **NEPRA's "applicable tariff" web page** shows 2019–20 rates and was not used.
+- **Petrol and diesel** are priced by the Petroleum Division, not in OGRA's notices; listed as still needed.
+- **EU CBAM:** EUR-Lex returns an empty page to automated downloads. Fetching it through a headless browser was blocked by this session's safety checks, so it was left for you to download.
+- **ICE:** its terms now limit free use to teaching and research, so it was not loaded.
+- **Calculator:** now accepts AGRIBALYSE foods (`food`) and the UK conversion factors (as `activity` lines). For the CBAM records under `examples/phase5`, it compares each with the GOV.UK-checked table instead of changing the folder.
+
 ## What was tried for each "Data to add" row marked Missing or Partly
 
 Only files hosted on GitHub could be reached. Every other site named in the workbook refused the connection, and so did the second source tried.

@@ -21,7 +21,9 @@ After `load-reference-data`, a basket can also hold:
 | An **activity** (for example `busthermique`, `chauffagegaz`, `streamingvideo`) | One ADEME Impact CO2 factor, an average for France | The factor's own unit: km, m2 of home for one year, hours, GB |
 | **Electricity** in a country (for example `PAK`) | That country's average for electricity generation, from Our World in Data | kWh |
 
-In a basket CSV these are the columns `activity_id` and `electricity_country`. On the command line: `--item activity=busthermique:120 --item electricity=PAK:300`.
+A **food** from AGRIBALYSE (per kg, average for France) uses its AGRIBALYSE code, for example `--item food=11172:2`. The 2,622 UK government conversion factors are activity lines too, with ids such as `desnz2026:21_316_3160_11_1` (a domestic flight, per passenger-km, with radiative forcing); see the `activity_factors` table for the list.
+
+In a basket CSV these are the columns `activity_id`, `electricity_country` and `food_code`. On the command line: `--item activity=busthermique:120 --item electricity=PAK:300`.
 
 Limits to keep in mind: the activity factors are French averages (French trains and electric heating are low-carbon, so those figures are too low elsewhere), and the electricity figure does not include grid losses or your own supplier's mix. Each part gets its own total. "All parts together" is shown only as a rough indication, because the parts are measured in different ways.
 

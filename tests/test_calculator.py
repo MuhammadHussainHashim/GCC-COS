@@ -279,6 +279,8 @@ def reference(tmp_path_factory):
     db = connect(tmp_path_factory.mktemp("calcref") / "ref.sqlite")
     refdata.load_table_datasets(db, "activity_factors")
     refdata.load_table_datasets(db, "country_data")
+    refdata.load_table_datasets(db, "product_averages")
+    refdata.load_table_datasets(db, "reference_values")
     book = calculator.reference_from(db)
     db.close()
     return book
@@ -331,3 +333,29 @@ def test_command_line_activity_and_electricity(real_db, capsys):
     assert main(["--db", str(real_db), "calculate", "--item", "activity=busthermique:10", "--item", "electricity=PAK:100", "--item", "type=Laptop:1"]) == 0
     out = capsys.readouterr().out
     assert "Electricity in Pakistan" in out and "ALL PARTS TOGETHER" in out and "averages for France" in out
+
+
+def test_food_line_uses_agribalyse(reference):
+    r = calculator.estimate(ROWS, "food", "11172", "2", TABLE, reference)
+    assert r["status"] == "ok" and r["quantity_unit"] == "kg" and r["scope"] == calculator.FOOD_SCOPE
+    assert Decimal(r["per_unit"]) == Decimal("7.58") and Decimal(r["total_kg_co2e"]) == Decimal("15.16")
+    assert "Licence Ouverte" in r["sources"][0]["license"] and "average_for_france_not_local" in r["flags"]
+    assert calculator.estimate(ROWS, "food", "99999999", "1", TABLE, reference)["status"] == "unknown_food"
+
+
+def test_uk_conversion_factor_line_is_labelled_as_uk(reference):
+    r = calculator.estimate(ROWS, "activity", "desnz2026:21_316_3160_11_1", "1000", TABLE, reference)
+    assert r["status"] == "ok" and Decimal(r["total_kg_co2e"]) == Decimal("229.28") and r["quantity_unit"] == "passenger.km"
+    assert "average_for_another_country_not_local" in r["flags"] and "United Kingdom" in r["scope"]
+
+
+def test_transcribed_cbam_record_counts_as_checked_when_gov_uk_agrees(reference):
+    rows = calculator.prepare([product(1, "1.375", "Cement", "kg CO2e/kg", data_kind="published_generic_factor", product_name="CN 25232900: Portland cement",
+                                       original_value="1.375", verification_status="transcribed_from_source_page_not_digit_checked"),
+                               product(2, "9.999", "Cement", "kg CO2e/kg", data_kind="published_generic_factor", product_name="CN 25232100: White cement",
+                                       original_value="9.999", verification_status="transcribed_from_source_page_not_digit_checked")])
+    agreed = calculator.estimate(rows, "record", "1", "1", TABLE, reference)
+    assert "transcribed_not_checked_against_source" not in agreed["flags"] and "value_checked_against_gov_uk" in agreed["flags"]
+    differs = calculator.estimate(rows, "record", "2", "1", TABLE, reference)
+    assert "transcribed_not_checked_against_source" in differs["flags"]       # 9.999 is not the GOV.UK value
+    assert "transcribed_not_checked_against_source" in calculator.estimate(rows, "record", "1", "1", TABLE)["flags"]   # no reference loaded

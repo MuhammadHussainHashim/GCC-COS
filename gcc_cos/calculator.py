@@ -14,15 +14,17 @@ from pathlib import Path
 from .hs import annotate, load_table
 from .model import is_item
 
-KINDS = ("record", "hs", "type", "activity", "electricity")
+KINDS = ("record", "hs", "type", "activity", "electricity", "food")
+FOOD_SCOPE = "Food, field to plate, averages for France (AGRIBALYSE)"
 ACTIVITY_SCOPE = "Activity averages for France (ADEME Impact CO2)"
 ELECTRICITY_SCOPE = "Electricity generation, country average (Our World in Data)"
 FULL_LIFECYCLE = "Full lifecycle (manufacturer-reported)"
 QUANTITY_UNITS = {"kg CO2e/item": "items", "kg CO2e/kg": "kg", "kg CO2e/l": "litres", "kg CO2e/m2": "m2", "kg CO2e/m3": "m3"}
 MESSAGES = {
     "invalid_quantity": "Quantity must be a number greater than zero.",
-    "unknown_kind": "Use record, hs, type, activity or electricity.",
+    "unknown_kind": "Use record, hs, type, activity, electricity or food.",
     "unknown_activity": "No activity factor has this id. Run: python -m gcc_cos load-reference-data, then see the activity_factors table.",
+    "unknown_food": "No AGRIBALYSE food has this code. Run: python -m gcc_cos load-reference-data, then see the product_averages table.",
     "unknown_country": "No electricity figure is held for this country code. Use a three-letter code such as PAK.",
     "reference_data_missing": "Reference data is not loaded. Run: python -m gcc_cos load-reference-data",
     "unknown_record": "No product record has this id.",
@@ -86,7 +88,11 @@ def reference_from(db):
     """Activity factors and country electricity figures from the reference tables, for activity and electricity lines."""
     from . import refdata
     return {"activity": {r["activity_id"]: r for r in refdata.rows(db, "activity_factors")},
-            "electricity": {r["iso3"]: r for r in refdata.rows(db, "country_data") if r["indicator"] == "electricity_carbon_intensity"}}
+            "electricity": {r["iso3"]: r for r in refdata.rows(db, "country_data") if r["indicator"] == "electricity_carbon_intensity"},
+            "food": {r["product_code"]: r for r in refdata.rows(db, "product_averages")},
+            # UK CBAM values that were checked against GOV.UK, by commodity code
+            "checked_cbam": {r["code"]: r["value_original"] for r in refdata.rows(db, "reference_values")
+                             if r["scheme"] == "UK CBAM default value" and r["verification_status"].startswith("checked")}}
 
 
 def _reference_line(line, amount, row, label, quantity_unit, scope, flags):
@@ -113,10 +119,16 @@ def estimate(rows, kind, value, quantity, table=None, reference=None):
     except (InvalidOperation, ValueError):
         return _failed(line, "invalid_quantity")
     query = line["query"]
-    if kind in ("activity", "electricity"):
+    if kind in ("activity", "electricity", "food"):
         book = (reference or {}).get(kind)
         if not book:
             return _failed(line, "reference_data_missing")
+        if kind == "food":
+            row = book.get(query)
+            if row is None:
+                return _failed(line, "unknown_food")
+            flags = ["average_for_france_not_local", "average_or_default_value_not_a_specific_product"]
+            return _reference_line(line, amount, row, f"{row['name_en']} (food)", "kg", FOOD_SCOPE, flags)
         if kind == "activity":
             row = book.get(query)
             if row is None:
@@ -182,8 +194,16 @@ def estimate(rows, kind, value, quantity, table=None, reference=None):
         flags.append("production_stage_only_not_full_lifecycle")
     if any(r.get("data_kind") == "published_generic_factor" for r in used):
         flags.append("average_or_default_value_not_a_specific_product")
-    if any(r.get("verification_status") == "transcribed_from_source_page_not_digit_checked" for r in used):
+    checked = (reference or {}).get("checked_cbam") or {}
+
+    def still_unchecked(row):
+        # A transcribed CBAM record counts as checked when the GOV.UK-checked table holds the same code and value.
+        code = str(row.get("product_name") or "")[3:11]
+        return code not in checked or Decimal(checked[code]) != Decimal(str(row.get("original_value")))
+    if any(r.get("verification_status") == "transcribed_from_source_page_not_digit_checked" and still_unchecked(r) for r in used):
         flags.append("transcribed_not_checked_against_source")
+    elif any(r.get("verification_status") == "transcribed_from_source_page_not_digit_checked" for r in used):
+        flags.append("value_checked_against_gov_uk")
     if any("declaration_expired" in (r.get("issues") or []) for r in used):
         flags.append("declaration_expired")
     if len(used) > 1 and low > 0 and high / low > 3:
@@ -274,7 +294,7 @@ def calculate(rows, lines, table=None, people=None, reference=None):
     if missing:
         warnings.append(f"INCOMPLETE: {len(missing)} of {len(results)} lines have no value and are left out of the totals (lines {', '.join(map(str, missing))}).")
     if any("average_for_france_not_local" in r.get("flags", []) for r in results):
-        warnings.append("Travel, heating and digital-use lines use averages for France. French trains and electric heating are low-carbon, so those figures are too low for most other countries.")
+        warnings.append("Some lines use averages for France (travel, heating, digital use or food). French trains and electric heating are low-carbon, so those figures are too low for most other countries.")
     if any("average_for_another_country_not_local" in r.get("flags", []) for r in results):
         warnings.append("Some activity lines use another country's published factors (for example the United Kingdom's). Vehicles, fuels and electricity differ between countries.")
     if any("country_average_generation_not_your_supplier" in r.get("flags", []) for r in results):
@@ -300,17 +320,17 @@ def read_basket(path):
     with open(path, newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
         columns = {str(name or "").strip().casefold(): name for name in (reader.fieldnames or [])}
-        if "quantity" not in columns or not {"record_id", "hs_code", "product_type", "activity_id", "electricity_country"} & set(columns):
-            raise ValueError("The basket needs a quantity column and at least one of: record_id, hs_code, product_type, activity_id, electricity_country")
+        if "quantity" not in columns or not {"record_id", "hs_code", "product_type", "activity_id", "electricity_country", "food_code"} & set(columns):
+            raise ValueError("The basket needs a quantity column and at least one of: record_id, hs_code, product_type, activity_id, electricity_country, food_code")
         lines = []
         for number, row in enumerate(reader, start=2):
             cell = lambda name: str(row.get(columns.get(name, ""), "") or "").strip()  # noqa: E731
             if not any(str(v or "").strip() for v in row.values()):
                 continue
             filled = [(kind, cell(column)) for kind, column in (("record", "record_id"), ("hs", "hs_code"), ("type", "product_type"),
-                                                                 ("activity", "activity_id"), ("electricity", "electricity_country")) if cell(column)]
+                                                                 ("activity", "activity_id"), ("electricity", "electricity_country"), ("food", "food_code")) if cell(column)]
             if len(filled) != 1:
-                raise ValueError(f"Row {number}: fill in exactly one of record_id, hs_code, product_type, activity_id or electricity_country")
+                raise ValueError(f"Row {number}: fill in exactly one of record_id, hs_code, product_type, activity_id, electricity_country or food_code")
             lines.append({"kind": filled[0][0], "value": filled[0][1], "quantity": cell("quantity"), "note": cell("note")})
     if not lines:
         raise ValueError("The basket has no rows")

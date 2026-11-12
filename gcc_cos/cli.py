@@ -83,7 +83,7 @@ def main(argv=None):
     p = sub.add_parser("calculate", help="Total footprint for a basket of products and quantities")
     p.add_argument("basket", nargs="?", help="CSV with quantity and one of record_id, hs_code, product_type per row")
     p.add_argument("--item", action="append", default=[], metavar="KIND=VALUE:QUANTITY",
-                   help="One line without a file, for example hs=847130:10, type=Smartphone:2, record=15:1, activity=busthermique:120 (km) or electricity=PAK:300 (kWh). Repeat for more lines.")
+                   help="One line without a file, for example hs=847130:10, type=Smartphone:2, record=15:1, activity=busthermique:120 (km), electricity=PAK:300 (kWh) or food=11172:2 (kg, AGRIBALYSE code). Repeat for more lines.")
     p.add_argument("--people", help="Number of people (staff or household) for a per-person figure")
     p.add_argument("--output", help="Save the full result as .json, .csv or .xlsx")
     sub.add_parser("hs-coverage", help="Show how many product records have an HS code, and how reliable it is")
