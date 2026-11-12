@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.5.0 — Reference tables (2026-11-12)
+
+Data-only release. See `DATA_IMPORT_NOTES.md` for the design and decisions and `STILL_NEEDED.md` for what could not be downloaded.
+
+### Added
+- Seven reference tables kept apart from product records, plus a dataset register: `reference_values` (570 UK CBAM defaults), `activity_factors` (63 ADEME factors), `country_data` (1,184 rows for 219 countries and the world), `hs_codes` (6,939 HS 2022 codes), `hs_industry_links` (6,322 HS-to-NAICS links), `benchmarks` (25 US EPA values) and `airports` (3,245).
+- One load command per table, `load-reference-data` for all, and `reference-tables` to show row counts.
+- Excel exports gain one sheet per reference table; SQLite exports carry the tables.
+- A "Reference data" dashboard tab that shows the tables.
+
+### Not changed
+- Product records, existing tests and everything under `examples/`.
+
+### Checked (Linux, Python 3.13)
+- 219 of 219 tests pass; `ruff` clean.
+- The CBAM and EPA values are marked unverified: their source sites could not be reached.
+- Native Windows execution remains untested.
+
 ## 1.4.0 — CBAM default values and everyday products (2026-11-12)
 
 Added from the user's `GCC-carbon-data.xlsx` workbook, without repeating anything already held:

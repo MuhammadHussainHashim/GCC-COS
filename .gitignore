@@ -50,3 +50,4 @@ research/**/*.csv
 research/**/*.xlsx
 /smoke-report.json
 /diagnostics.json
+/deliverables/
