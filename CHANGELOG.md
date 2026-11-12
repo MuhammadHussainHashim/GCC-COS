@@ -5,7 +5,7 @@
 Data-only release. See `DATA_IMPORT_NOTES.md` for the design and decisions and `STILL_NEEDED.md` for what could not be downloaded.
 
 ### Added
-- Seven reference tables kept apart from product records, plus a dataset register: `reference_values` (570 UK CBAM defaults), `activity_factors` (63 ADEME factors), `country_data` (1,184 rows for 219 countries and the world), `hs_codes` (6,939 HS 2022 codes), `hs_industry_links` (6,322 HS-to-NAICS links), `benchmarks` (25 US EPA values) and `airports` (3,245).
+- Seven reference tables kept apart from product records, plus a dataset register: `reference_values` (570 UK CBAM defaults), `activity_factors` (63 ADEME factors), `country_data` (1,184 rows for 226 countries and territories and the world), `hs_codes` (6,939 HS 2022 codes), `hs_industry_links` (6,322 HS-to-NAICS links), `benchmarks` (25 US EPA values) and `airports` (3,245).
 - One load command per table, `load-reference-data` for all, and `reference-tables` to show row counts.
 - Excel exports gain one sheet per reference table; SQLite exports carry the tables.
 - A "Reference data" dashboard tab that shows the tables.
