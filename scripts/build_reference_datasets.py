@@ -101,7 +101,8 @@ def build_activity(book, downloads):
         grams = Decimal(str(source["value"]))
         assert abs(grams / 1000 - Decimal(str(r["kg CO2e per unit"]))) < Decimal("0.0000001"), r["ID"]
         area, per, note = areas[source["category"]]
-        per = per or clean_label(source["en"]).lower()
+        # Digital use: the whole upstream label is the unit, for example "Hour[s] of ;video streaming" -> "hour of video streaming".
+        per = per or re.sub(r"\s+", " ", re.sub(r"\[[^\]]*\]", "", source["en"].replace(";", ""))).strip().lower()
         out.append({"activity_id": text(r["ID"]), "area": area, "name_en": text(r["Activity (English, translated)"]),
                     "name_original": french.get(text(r["ID"]), text(r["Activity (French, as published)"])), "language_original": "fr",
                     "upstream_label_en": source["en"], "value_original": number(grams), "unit_original": f"g CO2e per {per}",
