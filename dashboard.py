@@ -177,13 +177,21 @@ try:
         basket = st.session_state.setdefault("calculator_basket", [])
         mode = st.radio("How do you want to enter products?", ["Pick products one by one", "Upload a CSV basket"], horizontal=True)
         if mode == "Pick products one by one":
-            find_by = st.radio("Find by", ["Product type", "Specific product", "HS code"], horizontal=True)
+            calculator_reference = calculator.reference_from(db)
+            find_by = st.radio("What do you want to add?", ["Product type", "Specific product", "HS code", "Travel, heating or digital use", "Home electricity"], horizontal=True)
             with st.form("calculator_add", clear_on_submit=True):
                 if find_by == "Product type":
                     kind, value = "type", st.selectbox("Product type", sorted({str(r["subcategory"]) for r in products if r.get("subcategory")}, key=str.casefold))
                 elif find_by == "Specific product":
                     choices = {f"{r['id']}: {r.get('manufacturer') or ''} - {r.get('product_name') or ''}": str(r["id"]) for r in products}
                     kind, value = "record", choices.get(st.selectbox("Product (type to search)", list(choices)))
+                elif find_by == "Travel, heating or digital use":
+                    activities = {f"{a['area']}: {a['name_en']} (per {a['unit_metric'].split(' per ', 1)[-1]})": a["activity_id"] for a in calculator_reference["activity"].values()}
+                    kind, value = "activity", activities.get(st.selectbox("Activity (averages for France; the quantity is in the unit shown)", sorted(activities))) if activities else None
+                elif find_by == "Home electricity":
+                    countries = {f"{c['country']} ({float(c['value_metric']):.3f} kg CO2e per kWh, {c['year']})": c["iso3"] for c in calculator_reference["electricity"].values()}
+                    names = sorted(countries)
+                    kind, value = "electricity", countries.get(st.selectbox("Country (the quantity is in kWh)", names, index=next((i for i, n in enumerate(names) if n.startswith("Pakistan")), 0))) if countries else None
                 else:
                     kind, value = "hs", st.text_input("HS code, 4 or 6 digits (for example 847130)")
                 quantity = st.number_input("Quantity", min_value=0.0, value=1.0, step=1.0)
@@ -212,7 +220,9 @@ try:
                         st.error(str(exc))
         people = st.number_input("People sharing this footprint (staff or household); leave 0 to skip", min_value=0, value=0, step=1)
         if lines:
-            result = calculator.calculate(products, lines, hs_table, people=people or None)
+            result = calculator.calculate(products, lines, hs_table, people=people or None, reference=calculator.reference_from(db))
+            if len(result["totals"]) > 1:
+                st.metric("All parts together (rough indication only)", f"{float(result['all_parts_together_kg_co2e']):,.1f} kg CO2e", help="The parts are measured in different ways, so this sum is only a rough guide.")
             for total in result["totals"]:
                 st.metric(f"Total, {total['scope']}", f"{float(total['total_kg_co2e']):,.1f} kg CO2e",
                           help=f"Lowest {float(total['total_lowest']):,.1f} and highest {float(total['total_highest']):,.1f} kg CO2e, from the lowest and highest source record for each line.")

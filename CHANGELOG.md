@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0 — Calculator: travel, home energy and digital use (2026-11-12)
+
+- Basket lines can now be an activity (47 transport modes per km, 9 heating types per m2 per year, 7 digital uses; ADEME averages for France) or electricity in kWh for any of 214 countries (Our World in Data).
+- Each part keeps its own total. An "all parts together" figure is shown, labelled as a rough indication only.
+- New warnings say when French averages or a country generation average are used.
+- 226 of 226 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.5.0 — Reference tables (2026-11-12)
 
 Data-only release. See `DATA_IMPORT_NOTES.md` for the design and decisions and `STILL_NEEDED.md` for what could not be downloaded.

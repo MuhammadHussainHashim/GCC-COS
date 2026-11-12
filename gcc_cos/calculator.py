@@ -14,12 +14,17 @@ from pathlib import Path
 from .hs import annotate, load_table
 from .model import is_item
 
-KINDS = ("record", "hs", "type")
+KINDS = ("record", "hs", "type", "activity", "electricity")
+ACTIVITY_SCOPE = "Activity averages for France (ADEME Impact CO2)"
+ELECTRICITY_SCOPE = "Electricity generation, country average (Our World in Data)"
 FULL_LIFECYCLE = "Full lifecycle (manufacturer-reported)"
 QUANTITY_UNITS = {"kg CO2e/item": "items", "kg CO2e/kg": "kg", "kg CO2e/l": "litres", "kg CO2e/m2": "m2", "kg CO2e/m3": "m3"}
 MESSAGES = {
     "invalid_quantity": "Quantity must be a number greater than zero.",
-    "unknown_kind": "Use record, hs or type.",
+    "unknown_kind": "Use record, hs, type, activity or electricity.",
+    "unknown_activity": "No activity factor has this id. Run: python -m gcc_cos load-reference-data, then see the activity_factors table.",
+    "unknown_country": "No electricity figure is held for this country code. Use a three-letter code such as PAK.",
+    "reference_data_missing": "Reference data is not loaded. Run: python -m gcc_cos load-reference-data",
     "unknown_record": "No product record has this id.",
     "unknown_hs_code": "This is not a 2-, 4- or 6-digit code in the HS 2022 list, or an 8-digit commodity code the system holds.",
     "no_data": "No footprint record is linked to this yet.",
@@ -77,8 +82,29 @@ def _failed(line, status, **extra):
     return {**line, "status": status, "message": MESSAGES[status], "total_kg_co2e": None, **extra}
 
 
-def estimate(rows, kind, value, quantity, table=None):
-    """Work out one line. rows must come from prepare()."""
+def reference_from(db):
+    """Activity factors and country electricity figures from the reference tables, for activity and electricity lines."""
+    from . import refdata
+    return {"activity": {r["activity_id"]: r for r in refdata.rows(db, "activity_factors")},
+            "electricity": {r["iso3"]: r for r in refdata.rows(db, "country_data") if r["indicator"] == "electricity_carbon_intensity"}}
+
+
+def _reference_line(line, amount, row, label, quantity_unit, scope, flags):
+    per_unit = Decimal(row["value_metric"])
+    total = per_unit * amount
+    return {**line, "status": "ok", "message": "", "label": label, "quantity_unit": quantity_unit, "unit": row["unit_metric"], "scope": scope,
+            "basis": "one published factor", "records_used": 1, "record_ids": [], "product_types": [],
+            "per_unit": str(per_unit), "per_unit_lowest": str(per_unit), "per_unit_highest": str(per_unit),
+            "total_kg_co2e": str(total), "use_phase_share": None, "use_phase_share_records": 0, "use_phase_kg_co2e": None,
+            "making_and_other_kg_co2e": None, "lifetime_years": None, "lifetime_records": 0, "per_year_kg_co2e": None,
+            "same_maker_median": None, "same_maker_records": 0, "versus_same_maker_percent": None,
+            "total_lowest": str(total), "total_highest": str(total), "hs_code": None, "hs_status": None,
+            "report_url": row.get("source_page") or row.get("source_url"), "flags": flags, "year": row.get("year"),
+            "sources": [{"dataset": row["source_title"], "dataset_url": row["source_url"], "license": row["license"], "attribution": row["attribution"]}]}
+
+
+def estimate(rows, kind, value, quantity, table=None, reference=None):
+    """Work out one line. rows must come from prepare(); reference from reference_from() for activity and electricity lines."""
     line = {"kind": kind, "query": str(value).strip(), "quantity": str(quantity).strip()}
     try:
         amount = Decimal(line["quantity"])
@@ -87,6 +113,21 @@ def estimate(rows, kind, value, quantity, table=None):
     except (InvalidOperation, ValueError):
         return _failed(line, "invalid_quantity")
     query = line["query"]
+    if kind in ("activity", "electricity"):
+        book = (reference or {}).get(kind)
+        if not book:
+            return _failed(line, "reference_data_missing")
+        if kind == "activity":
+            row = book.get(query)
+            if row is None:
+                return _failed(line, "unknown_activity")
+            flags = ["average_for_france_not_local"] + (["footprint_not_verified"] if row["verification_status"] == "unverified" else [])
+            return _reference_line(line, amount, row, f"{row['name_en']} ({row['area']})", row["unit_metric"].split(" per ", 1)[-1], ACTIVITY_SCOPE, flags)
+        query = line["query"] = query.upper()
+        row = book.get(query)
+        if row is None:
+            return _failed(line, "unknown_country")
+        return _reference_line(line, amount, row, f"Electricity in {row['country']} ({row['year']})", "kWh", ELECTRICITY_SCOPE, ["country_average_generation_not_your_supplier"])
     if kind == "record":
         matches = [r for r in rows if str(r["id"]) == query]
         if not matches:
@@ -183,13 +224,13 @@ def estimate(rows, kind, value, quantity, table=None):
             "flags": flags, "sources": sources}
 
 
-def calculate(rows, lines, table=None, people=None):
+def calculate(rows, lines, table=None, people=None, reference=None):
     """Work out every line and total them by lifecycle scope. people (optional) adds a per-person figure."""
     rows = prepare(rows)
     codes = table if table is not None else load_table()[0]
     results = []
     for number, line in enumerate(lines, start=1):
-        result = estimate(rows, line.get("kind"), line.get("value", ""), line.get("quantity", ""), codes)
+        result = estimate(rows, line.get("kind"), line.get("value", ""), line.get("quantity", ""), codes, reference)
         results.append({"line": number, "note": line.get("note") or "", **result})
     totals = {}
     for r in results:
@@ -230,6 +271,10 @@ def calculate(rows, lines, table=None, people=None):
         warnings.append("Some lines use the median of several products. The real footprint of a specific product can be anywhere in the lowest-to-highest range shown.")
     if missing:
         warnings.append(f"INCOMPLETE: {len(missing)} of {len(results)} lines have no value and are left out of the totals (lines {', '.join(map(str, missing))}).")
+    if any("average_for_france_not_local" in r.get("flags", []) for r in results):
+        warnings.append("Travel, heating and digital-use lines use averages for France. French trains and electric heating are low-carbon, so those figures are too low for most other countries.")
+    if any("country_average_generation_not_your_supplier" in r.get("flags", []) for r in results):
+        warnings.append("Electricity lines use the country's average for electricity generation. Losses in the grid and your own supplier's mix are not included.")
     if len(totals) > 1:
         warnings.append("Lines cover different lifecycle scopes. They are totalled separately and must not be added together.")
     if any("transcribed_not_checked_against_source" in r.get("flags", []) for r in results):
@@ -241,6 +286,8 @@ def calculate(rows, lines, table=None, people=None):
     warnings.append("Transport of the goods (shipping) is not included.")
     return {"lines": results, "totals": totals,
             "grand_total_kg_co2e": totals[0]["total_kg_co2e"] if len(totals) == 1 else None,
+            # A rough indication only: the parts are measured in different ways, which the warnings say.
+            "all_parts_together_kg_co2e": str(sum(Decimal(t["total_kg_co2e"]) for t in totals)) if totals else None,
             "complete": not missing, "missing_lines": missing, "warnings": warnings}
 
 
@@ -249,16 +296,17 @@ def read_basket(path):
     with open(path, newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
         columns = {str(name or "").strip().casefold(): name for name in (reader.fieldnames or [])}
-        if "quantity" not in columns or not {"record_id", "hs_code", "product_type"} & set(columns):
-            raise ValueError("The basket needs a quantity column and at least one of: record_id, hs_code, product_type")
+        if "quantity" not in columns or not {"record_id", "hs_code", "product_type", "activity_id", "electricity_country"} & set(columns):
+            raise ValueError("The basket needs a quantity column and at least one of: record_id, hs_code, product_type, activity_id, electricity_country")
         lines = []
         for number, row in enumerate(reader, start=2):
             cell = lambda name: str(row.get(columns.get(name, ""), "") or "").strip()  # noqa: E731
             if not any(str(v or "").strip() for v in row.values()):
                 continue
-            filled = [(kind, cell(column)) for kind, column in (("record", "record_id"), ("hs", "hs_code"), ("type", "product_type")) if cell(column)]
+            filled = [(kind, cell(column)) for kind, column in (("record", "record_id"), ("hs", "hs_code"), ("type", "product_type"),
+                                                                 ("activity", "activity_id"), ("electricity", "electricity_country")) if cell(column)]
             if len(filled) != 1:
-                raise ValueError(f"Row {number}: fill in exactly one of record_id, hs_code or product_type")
+                raise ValueError(f"Row {number}: fill in exactly one of record_id, hs_code, product_type, activity_id or electricity_country")
             lines.append({"kind": filled[0][0], "value": filled[0][1], "quantity": cell("quantity"), "note": cell("note")})
     if not lines:
         raise ValueError("The basket has no rows")

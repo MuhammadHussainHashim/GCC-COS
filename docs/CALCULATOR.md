@@ -12,6 +12,19 @@ You give it products and quantities. It gives a total in kg CO2e, shows where ev
 
 When a line uses a median, the result also shows the lowest and highest record, so you can see how wide the range is.
 
+## Travel, home energy and digital use
+
+After `load-reference-data`, a basket can also hold:
+
+| You enter | What the calculator uses | Quantity is in |
+| --- | --- | --- |
+| An **activity** (for example `busthermique`, `chauffagegaz`, `streamingvideo`) | One ADEME Impact CO2 factor, an average for France | The factor's own unit: km, m2 of home for one year, hours, GB |
+| **Electricity** in a country (for example `PAK`) | That country's average for electricity generation, from Our World in Data | kWh |
+
+In a basket CSV these are the columns `activity_id` and `electricity_country`. On the command line: `--item activity=busthermique:120 --item electricity=PAK:300`.
+
+Limits to keep in mind: the activity factors are French averages (French trains and electric heating are low-carbon, so those figures are too low elsewhere), and the electricity figure does not include grid losses or your own supplier's mix. Each part gets its own total. "All parts together" is shown only as a rough indication, because the parts are measured in different ways.
+
 ## Rules it follows
 
 - **No invented numbers.** If there is no data for a line, the line says "no value" and is left out of the total. The result is then marked INCOMPLETE.

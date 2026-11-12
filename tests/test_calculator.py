@@ -270,3 +270,64 @@ def test_real_data_reports_stage_split(real_db):
     r = calculator.estimate(calculator.prepare(rows), "record", "1", "1", TABLE)   # Apple 13-inch MacBook Air: 161 kg, 15% use
     assert Decimal(r["use_phase_kg_co2e"]) == Decimal("24.15") and r["lifetime_years"] == "3"
     assert r["same_maker_records"] >= 3
+
+
+@pytest.fixture(scope="module")
+def reference(tmp_path_factory):
+    from gcc_cos import refdata
+    from gcc_cos.storage import connect
+    db = connect(tmp_path_factory.mktemp("calcref") / "ref.sqlite")
+    refdata.load_table_datasets(db, "activity_factors")
+    refdata.load_table_datasets(db, "country_data")
+    book = calculator.reference_from(db)
+    db.close()
+    return book
+
+
+def test_activity_line_uses_the_published_factor_and_says_it_is_french(reference):
+    r = calculator.estimate(ROWS, "activity", "busthermique", "120", TABLE, reference)
+    assert r["status"] == "ok" and r["quantity_unit"] == "km" and r["unit"] == "kg CO2e per km"
+    assert Decimal(r["per_unit"]) == Decimal("0.12242") and Decimal(r["total_kg_co2e"]) == Decimal("14.6904")
+    assert r["scope"] == calculator.ACTIVITY_SCOPE and "average_for_france_not_local" in r["flags"]
+    assert "MIT" in r["sources"][0]["license"] and r["label"] == "Bus (combustion) (Transport)"
+    assert calculator.estimate(ROWS, "activity", "streamingvideo", "2", TABLE, reference)["quantity_unit"] == "hour of video streaming"
+
+
+def test_electricity_line_uses_the_country_figure(reference):
+    r = calculator.estimate(ROWS, "electricity", "pak", "300", TABLE, reference)
+    assert r["status"] == "ok" and r["query"] == "PAK" and r["quantity_unit"] == "kWh"
+    assert Decimal(r["per_unit"]) == Decimal("0.34656") and Decimal(r["total_kg_co2e"]) == Decimal("103.968")
+    assert r["label"] == "Electricity in Pakistan (2025)" and "CC BY 4.0" in r["sources"][0]["license"]
+    assert "country_average_generation_not_your_supplier" in r["flags"]
+
+
+@pytest.mark.parametrize("kind, value, status", [("activity", "teleport", "unknown_activity"), ("electricity", "XXX", "unknown_country")])
+def test_unknown_activity_or_country_gets_no_value(reference, kind, value, status):
+    assert calculator.estimate(ROWS, kind, value, "1", TABLE, reference)["status"] == status
+
+
+def test_activity_lines_need_reference_data():
+    assert calculator.estimate(ROWS, "activity", "busthermique", "1", TABLE)["status"] == "reference_data_missing"
+    assert calculator.estimate(ROWS, "electricity", "PAK", "1", TABLE, {"activity": {}, "electricity": {}})["status"] == "reference_data_missing"
+
+
+def test_mixed_basket_keeps_parts_apart_and_gives_a_labelled_indication(reference, tmp_path):
+    path = tmp_path / "mixed.csv"
+    path.write_text("product_type,activity_id,electricity_country,quantity\nSmartphone,,,1\n,busthermique,,100\n,chauffagegaz,,80\n,,PAK,300\n", encoding="utf-8")
+    result = calculator.calculate(ROWS, calculator.read_basket(path), TABLE, reference=reference)
+    totals = {t["scope"]: Decimal(t["total_kg_co2e"]) for t in result["totals"]}
+    assert set(totals) == {calculator.FULL_LIFECYCLE, calculator.ACTIVITY_SCOPE, calculator.ELECTRICITY_SCOPE}
+    assert totals[calculator.ACTIVITY_SCOPE] == Decimal("12.242") + Decimal("80") * Decimal(reference["activity"]["chauffagegaz"]["value_metric"])
+    assert result["grand_total_kg_co2e"] is None and Decimal(result["all_parts_together_kg_co2e"]) == sum(totals.values())
+    text = " ".join(result["warnings"])
+    assert "averages for France" in text and "average for electricity generation" in text and "must not be added together" in text
+
+
+def test_command_line_activity_and_electricity(real_db, capsys):
+    assert main(["--db", str(real_db), "calculate", "--item", "activity=busthermique:10"]) == 2      # reference data not loaded yet
+    assert "Reference data is not loaded" in capsys.readouterr().out
+    assert main(["--db", str(real_db), "load-reference-data"]) == 0
+    capsys.readouterr()
+    assert main(["--db", str(real_db), "calculate", "--item", "activity=busthermique:10", "--item", "electricity=PAK:100", "--item", "type=Laptop:1"]) == 0
+    out = capsys.readouterr().out
+    assert "Electricity in Pakistan" in out and "ALL PARTS TOGETHER" in out and "averages for France" in out
