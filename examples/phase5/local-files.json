@@ -1,0 +1,4 @@
+{
+  "uk-cbam-defaults": "examples/phase5/uk-cbam-default-values.csv",
+  "ademe-impactco2": "examples/phase5/ademe-common-products.csv"
+}

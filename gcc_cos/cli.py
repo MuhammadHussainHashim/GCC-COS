@@ -148,9 +148,9 @@ def main(argv=None):
             return 0 if result["complete"] else 2
         if args.command == "hs-coverage":
             from .hs import annotate, coverage
-            from .model import is_product
+            from .model import is_item
             from .storage import records
-            print(json.dumps(coverage(annotate([r for r in records(db) if is_product(r)])), indent=2, ensure_ascii=False))
+            print(json.dumps(coverage(annotate([r for r in records(db) if is_item(r)])), indent=2, ensure_ascii=False))
             return 0
         if args.command in {'reviewer-add','reviewer-disable','review-prepare','review-probe','review-workbook','review-attach','human-review'}:
             from . import verification as verification

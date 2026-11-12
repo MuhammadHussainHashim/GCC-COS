@@ -144,12 +144,41 @@
       "problemMatcher": []
     },
     {
+      "label": "GCC-COS: load CBAM and ADEME data",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos",
+        "--registry",
+        "examples/phase5/sources.json",
+        "ingest",
+        "--manifest",
+        "examples/phase5/local-files.json"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "GCC-COS: 2 Load bundled data (offline)",
       "dependsOrder": "sequence",
       "dependsOn": [
         "GCC-COS: load Phase 2 bundled data",
         "GCC-COS: revalidate records",
-        "GCC-COS: load Phase 3 bundled data"
+        "GCC-COS: load Phase 3 bundled data",
+        "GCC-COS: load CBAM and ADEME data"
       ],
       "problemMatcher": []
     },

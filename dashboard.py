@@ -6,7 +6,7 @@ from gcc_cos.storage import connect, records, review
 from gcc_cos.ingest import load_registry
 from gcc_cos.export import frame, excel_bytes
 from gcc_cos.query import select
-from gcc_cos.model import is_product
+from gcc_cos.model import is_product, is_item
 from gcc_cos.audit import build_audit
 from gcc_cos import hs
 
@@ -145,12 +145,12 @@ try:
                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     with tabs[7]:
         st.subheader("HS codes (edition: " + hs_source["edition"] + ")")
-        products = [r for r in rows if is_product(r)]
+        products = [r for r in rows if is_item(r)]
         summary = hs.coverage(products)
         unverified = summary["by_status"].get("proposed_not_verified", 0)
         if unverified:
             st.warning(f"NOT VERIFIED: {unverified} of {summary['records']} product records use a proposed HS mapping that no customs authority or reviewer has confirmed. Replace each one in config/hs_mappings.json once it is verified.")
-        st.caption(f"{summary['by_status'].get('unmapped', 0)} product records have no HS code. A 4-digit code means only the heading is known, not the 6-digit subheading.")
+        st.caption(f"{summary['by_status'].get('exact_rule', 0)} records carry an HS code given by their source. {summary['by_status'].get('unmapped', 0)} product records have no HS code. A 4-digit code means only the heading is known, not the 6-digit subheading.")
         table = pd.DataFrame(summary["codes"])
         if not table.empty:
             table["hs_status"] = table["hs_status"].map(hs.LABELS)

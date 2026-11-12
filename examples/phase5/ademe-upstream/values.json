@@ -1,0 +1,2328 @@
+{
+  "2050": {
+    "category": 13,
+    "value": 2000000,
+    "fr": "% de l';objectif citoyen pour 2050",
+    "en": "% of the ;citizen objective for 2050",
+    "es": "% del ;objetivo ciudadano para 2050",
+    "percentage": true
+  },
+  "avion-pny": {
+    "category": 13,
+    "value": 2060000,
+    "fr": "A/R Paris - New-York en avion",
+    "en": "Roundtrip[s] Paris - New-York by plane",
+    "es": "Viaje de ida y vuelta París - Nueva York en avión"
+  },
+  "tgv-paris-berlin": {
+    "category": 13,
+    "value": 7260,
+    "fr": "A/R Paris - Berlin en TGV",
+    "en": "Roundtrip[s] Paris - Berlin by train",
+    "es": "Viaje de ida y vuelta París - Berlin en tren"
+  },
+  "tgv-paris-marseille": {
+    "category": 13,
+    "value": 4400,
+    "fr": "A/R Paris - Marseille en TGV",
+    "en": "Roundtrip[s] Paris - Marseille by train",
+    "es": "Viaje de ida y vuelta París - Marseille en tren"
+  },
+  "voiture-lille-nimes": {
+    "category": 13,
+    "value": 267720.9218160006,
+    "fr": "A/R Lille - Nîmes en voiture",
+    "en": "Roundtrip[s] Lille - Nîmes by car",
+    "es": "Viaje de ida y vuelta Lille - Nîmes en coche"
+  },
+  "francais": {
+    "category": 13,
+    "value": 9100000,
+    "fr": "% de l';empreinte carbone d'un citoyen français",
+    "en": "% of a ;French citizen's carbon footprint",
+    "es": "% de la huella de ;carbono de un ciudadano francés",
+    "percentage": true
+  },
+  "game-of-thrones": {
+    "category": 13,
+    "value": 31.7,
+    "fr": "Épisode[s] de ;Game of Thrones en streaming",
+    "en": "Game of Thrones streaming=episode[s] of ",
+    "es": "Episodio[s] de ;Game of Thrones streaming"
+  },
+  "friends": {
+    "category": 13,
+    "value": 7860,
+    "fr": "Intégrale[s] de Friends en streaming",
+    "en": "Complete Friends TV show streaming",
+    "es": "Programa de TV completo de Friends streaming"
+  },
+  "ski": {
+    "category": 13,
+    "value": 48900,
+    "fr": "Journée[s] au ski",
+    "en": "Ski day[s]",
+    "es": "Día[s] de esquí"
+  },
+  "piscine": {
+    "category": 13,
+    "value": 7540,
+    "fr": "remplissage[s] de piscine",
+    "en": "pool filling[s]",
+    "es": "llenado de piscinas"
+  },
+  "terre-voiture": {
+    "category": 13,
+    "value": 7570825.010920865,
+    "fr": "Tour[s] de la terre en voiture",
+    "en": "Tour[s] of the earth by car",
+    "es": "Recorrido[s] por la tierra en coche"
+  },
+  "harry-potter": {
+    "category": 13,
+    "value": 630,
+    "fr": "Marathon[s] des films Harry Potter en streaming",
+    "en": "Marathon[s] of Harry Potter films in streaming",
+    "es": "Maratón[es] de películas de Harry Potter en streaming"
+  },
+  "email": {
+    "category": 10,
+    "value": 2.46181262,
+    "fr": "email[s]",
+    "en": "email[s]",
+    "es": "Correo[s] electrónico[s]"
+  },
+  "spam": {
+    "category": 10,
+    "value": 3.73863698,
+    "fr": "spam[s]",
+    "en": "spam[s]",
+    "es": "Spam[s]"
+  },
+  "stockagedonnee": {
+    "category": 10,
+    "value": 0.23533416999999998,
+    "fr": "Go de données (1 an de stockage dans le cloud)",
+    "en": "GB of data (1 year of cloud storage)",
+    "es": "GB de datos (1 año de almacenamiento en la nube)"
+  },
+  "rechercheweb": {
+    "category": 10,
+    "value": 1.23,
+    "fr": "recherche[s] sur le web",
+    "en": "web search[es]",
+    "es": "Búsqueda en la web"
+  },
+  "streamingvideo": {
+    "category": 10,
+    "value": 64.01675291000002,
+    "fr": "Heure[s] de ;streaming vidéo",
+    "en": "Hour[s] of ;video streaming",
+    "es": "Horas de ;transmisión de vídeo"
+  },
+  "visioconference": {
+    "category": 10,
+    "value": 57.06336546216,
+    "fr": "Heure[s] de ;visioconférence",
+    "en": "Hour[s] of ;video conferencing",
+    "es": "Horas de ;videoconferencia"
+  },
+  "telechargement": {
+    "category": 10,
+    "value": 9.504680870000001,
+    "fr": "Go de données (téléchargement)",
+    "en": "GB of data (download)",
+    "es": "GB de datos (descarga)"
+  },
+  "chauffagegaz": {
+    "category": 8,
+    "value": 17837.078297821858,
+    "fr": "année[s] de chauffage par m² avec ;Chaudière à gaz",
+    "en": "year[s] of heating per m² with ;Gas boiler",
+    "es": "Años de calefacción por m² con ;caldera de gas"
+  },
+  "chauffagefioul": {
+    "category": 8,
+    "value": 34971.17557474335,
+    "fr": "année[s] de chauffage par m² avec ;Chaudière au fioul",
+    "en": "year[s] of heating per m² with ;Oil boiler",
+    "es": "Años de calefacción por m² con ;Caldera de fuel"
+  },
+  "chauffageelectrique": {
+    "category": 8,
+    "value": 2144.625500776598,
+    "fr": "année[s] de chauffage par m² avec ;Chaudière ou convecteur électrique",
+    "en": "year[s] of heating per m² with ;Electric boiler or heater",
+    "es": "Años de calefacción por m² con ;Caldera o convector eléctrico"
+  },
+  "pompeachaleur": {
+    "category": 8,
+    "value": 1208.7042251822928,
+    "fr": "année[s] de chauffage par m² avec ;Pompe à chaleur",
+    "en": "year[s] of heating per m² with ;Heat pump",
+    "es": "Años de calefacción por m² con ;Bomba de calor"
+  },
+  "poeleagranule": {
+    "category": 8,
+    "value": 5916.95473372542,
+    "fr": "année[s] de chauffage par m² avec ;Poêle à granulés",
+    "en": "year[s] of heating per m² with ;Pellet stove",
+    "es": "Años de calefacción por m² con ;Estufa de pellets"
+  },
+  "poeleabois": {
+    "category": 8,
+    "value": 8505.622429730291,
+    "fr": "année[s] de chauffage par m² avec ;Poêle à bûches",
+    "en": "year[s] of heating per m² with ;Wood stove",
+    "es": "Años de calefacción por m² con ;Estufa de leña"
+  },
+  "chaudiereagranule": {
+    "category": 8,
+    "value": 3964.948281371474,
+    "fr": "année[s] de chauffage par m² avec ;Chaudière à granulés",
+    "en": "year[s] of heating per m² with ;Pellet boiler",
+    "es": "Años de calefacción por m² con ;Caldera de pellets"
+  },
+  "chaudiereabois": {
+    "category": 8,
+    "value": 5699.613154471493,
+    "fr": "année[s] de chauffage par m² avec ;Chaudière à bûches",
+    "en": "year[s] of heating per m² with ;Wood boiler",
+    "es": "Años de calefacción por m² con ;Caldera de leña"
+  },
+  "reseaudechaleur": {
+    "category": 8,
+    "value": 11077.353589467888,
+    "fr": "année[s] de chauffage par m² via ;Réseau de chaleur",
+    "en": "year[s] of heating per m² via ;District heating",
+    "es": "Años de calefacción por m² a través de ;Red de calor"
+  },
+  "avion-courtcourrier": {
+    "category": 4,
+    "value": 224.572,
+    "fr": "km en ;avion trajet court",
+    "en": "km by ;plane short-haul",
+    "es": "km en ;avión corto recorrido"
+  },
+  "avion-moyencourrier": {
+    "category": 4,
+    "value": 184.661,
+    "fr": "km en ;avion trajet moyen",
+    "en": "km by ;plane medium-haul",
+    "es": "km en ;avión medio recorrido"
+  },
+  "avion-moyenlongcourrier": {
+    "category": 4,
+    "value": 166.794,
+    "fr": "km en ;avion trajet moyen à long",
+    "en": "km by ;plane medium to long-haul",
+    "es": "km en ;avión medio a largo recorrido"
+  },
+  "avion-longcourrier": {
+    "category": 4,
+    "value": 177.894,
+    "fr": "km en ;avion trajet long",
+    "en": "km by ;plane long-haul",
+    "es": "km en ;avión largo recorrido"
+  },
+  "tgv": {
+    "category": 4,
+    "value": 2.9299999999999997,
+    "fr": "km en ;TGV",
+    "en": "km by ;high-speed train",
+    "es": "km en ;TGV"
+  },
+  "intercites": {
+    "category": 4,
+    "value": 8.98,
+    "fr": "km en ;intercités",
+    "en": "km by ;intercity train",
+    "es": "km en ;trenes interurbanos"
+  },
+  "voiturethermique": {
+    "category": 4,
+    "value": 142.25341222954336,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voitureelectrique": {
+    "category": 4,
+    "value": 67.36526222954336,
+    "fr": "km en ;voiture électrique",
+    "en": "km by ;electric car",
+    "es": "km en ;coche eléctrico"
+  },
+  "voiturehybride": {
+    "category": 4,
+    "value": 146.57935353389118,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-citadine-essence": {
+    "category": 4,
+    "value": 144.71475570780424,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-citadine-diesel": {
+    "category": 4,
+    "value": 121.90341195780425,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-citadine-electrique": {
+    "category": 4,
+    "value": 57.59361549041294,
+    "fr": "km en ;voiture électrique",
+    "en": "km by ;electric car",
+    "es": "km en ;coche eléctrico"
+  },
+  "voiture-citadine-hybride": {
+    "category": 4,
+    "value": 135.24939701215205,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-citadine-hybriderechargeable": {
+    "category": 4,
+    "value": 128.88743179476074,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-compact-essence": {
+    "category": 4,
+    "value": 169.70802472954335,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion compact car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-compact-diesel": {
+    "category": 4,
+    "value": 142.25341222954335,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;diesel compact car",
+    "es": "km en ;coche compacto diésel"
+  },
+  "voiture-compact-electrique": {
+    "category": 4,
+    "value": 67.36526222954337,
+    "fr": "km en ;voiture électrique",
+    "en": "km by ;electric car",
+    "es": "km en ;coche eléctrico"
+  },
+  "voiture-compact-hybride": {
+    "category": 4,
+    "value": 146.57935353389116,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-compact-hybriderechargeable": {
+    "category": 4,
+    "value": 133.90036331649985,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-berline-essence": {
+    "category": 4,
+    "value": 189.27062527302162,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustionn",
+    "es": "km en ;berlintermico"
+  },
+  "voiture-berline-diesel": {
+    "category": 4,
+    "value": 183.4024002730216,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-berline-electrique": {
+    "category": 4,
+    "value": 90.71433614258682,
+    "fr": "km en ;voiture électrique",
+    "en": "km by ;electric car",
+    "es": "km en ;coche eléctrico"
+  },
+  "voiture-berline-hybride": {
+    "category": 4,
+    "value": 170.8510165773694,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-berline-hybriderechargeable": {
+    "category": 4,
+    "value": 164.46473260997812,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-grandeberline-essence": {
+    "category": 4,
+    "value": 246.23893777302162,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-grandeberline-diesel": {
+    "category": 4,
+    "value": 169.70828152302162,
+    "fr": "km en ;voiture thermique",
+    "en": "km by ;combustion car",
+    "es": "km en ;coche termico"
+  },
+  "voiture-grandeberline-electrique": {
+    "category": 4,
+    "value": 94.35702527302163,
+    "fr": "km en ;voiture électrique",
+    "en": "km by ;electric car",
+    "es": "km en ;coche eléctrico"
+  },
+  "voiture-grandeberline-hybride": {
+    "category": 4,
+    "value": 181.90301657736943,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "voiture-grandeberline-hybriderechargeable": {
+    "category": 4,
+    "value": 185.9802763599781,
+    "fr": "km en ;voiture hybride",
+    "en": "km by ;hybrid car",
+    "es": "km en ;coche híbrido"
+  },
+  "autocar": {
+    "category": 4,
+    "value": 37.56,
+    "fr": "km en ;autocar thermique",
+    "en": "km by ;combustion coach",
+    "es": "km en ;autocar termico"
+  },
+  "marche": {
+    "category": 4,
+    "value": 0,
+    "fr": "Marche",
+    "en": "Walking",
+    "es": "A pie"
+  },
+  "velo": {
+    "category": 4,
+    "value": 0.17,
+    "fr": "km en ;Vélo mécanique",
+    "en": "km by ;Mechanical bike",
+    "es": "km en ;Bicicleta mecanica"
+  },
+  "veloelectrique": {
+    "category": 4,
+    "value": 10.950000000000001,
+    "fr": "km en ;vélo à assistance électrique",
+    "en": "km by ;electrically assisted bicycle",
+    "es": "km en ;bicicleta eléctrica asistida"
+  },
+  "busthermique": {
+    "category": 4,
+    "value": 122.42,
+    "fr": "km en ;bus thermique",
+    "en": "km by ;combustion bus",
+    "es": "km en ;autobús termico"
+  },
+  "tramway": {
+    "category": 4,
+    "value": 4.28,
+    "fr": "km en ;tramway",
+    "en": "km by ;tram",
+    "es": "km en ;tranvía"
+  },
+  "metro": {
+    "category": 4,
+    "value": 4.4399999999999995,
+    "fr": "km en ;métro",
+    "en": "km by ;metro",
+    "es": "km en ;metro"
+  },
+  "scooter": {
+    "category": 4,
+    "value": 76.30000000000001,
+    "fr": "km en ;scooter thermique",
+    "en": "km by ;combustion scooter",
+    "es": "km en ;scooter termico"
+  },
+  "moto": {
+    "category": 4,
+    "value": 214.7,
+    "fr": "km en ;moto thermique",
+    "en": "km by ;combustion motorcycle",
+    "es": "km en ;moto termico"
+  },
+  "moto-petite": {
+    "category": 4,
+    "value": 87.2,
+    "fr": "km en ;moto thermique",
+    "en": "km by ;combustion motorcycle",
+    "es": "km en ;moto termico"
+  },
+  "rer": {
+    "category": 4,
+    "value": 9.780000000000001,
+    "fr": "km en ;RER ou Transilien",
+    "en": "km by ;RER or suburban train",
+    "es": "km en ;RER o tren de cercanías"
+  },
+  "ter": {
+    "category": 4,
+    "value": 27.689999999999998,
+    "fr": "km en ;TER",
+    "en": "km by ;regional train",
+    "es": "km en ;tren regional"
+  },
+  "buselectrique": {
+    "category": 4,
+    "value": 21.7,
+    "fr": "km en ;bus électrique",
+    "en": "km by ;electric bus",
+    "es": "km en ;autobús eléctrico"
+  },
+  "trottinette": {
+    "category": 4,
+    "value": 24.9,
+    "fr": "km en ;trottinette à assistance électrique",
+    "en": "km by ;electrically assisted scooter",
+    "es": "km en ;patinete eléctrica asistida"
+  },
+  "campingcar": {
+    "category": 4,
+    "value": 493.8332716693085,
+    "fr": "km en ;camping-car",
+    "en": "km by ;camper van",
+    "es": "km en ;autocaravana"
+  },
+  "scooterelectrique": {
+    "category": 4,
+    "value": 59.300000000000004,
+    "fr": "km en ;scooter électrique",
+    "en": "km by ;electric scooter",
+    "es": "km en ;scooter eléctrico"
+  },
+  "triporteurelectrique": {
+    "category": 4,
+    "value": 14.827,
+    "fr": "km en ;vélo cargo triporteur",
+    "en": "km by ;electric cargo tricycle",
+    "es": "km en ;triciclo de carga eléctrico"
+  },
+  "van": {
+    "category": 4,
+    "value": 324.62601166930847,
+    "fr": "km en ;van",
+    "en": "km by ;van",
+    "es": "km en ;furgoneta"
+  },
+  "fraise": {
+    "category": 9,
+    "value": 511.07000000000005,
+    "fr": "kg de ;fraise",
+    "en": "kg of ;strawberry",
+    "es": "kg de ;fresas"
+  },
+  "pomme": {
+    "category": 9,
+    "value": 408.1949,
+    "fr": "kg de ;pomme",
+    "en": "kg of ;apple",
+    "es": "kg de ;manzanas"
+  },
+  "orange": {
+    "category": 9,
+    "value": 677.6838,
+    "fr": "kg d';orange",
+    "en": "kg of ;orange",
+    "es": "kg de ;naranjas"
+  },
+  "citron": {
+    "category": 9,
+    "value": 763.5958,
+    "fr": "kg de ;citron",
+    "en": "kg of ;lemon",
+    "es": "kg de ;limones"
+  },
+  "ail": {
+    "category": 9,
+    "value": 383.49300000000005,
+    "fr": "kg d';ail",
+    "en": "kg of ;garlic",
+    "es": "kg de ;ajos"
+  },
+  "artichaut": {
+    "category": 9,
+    "value": 2556.166,
+    "fr": "kg d';artichaut",
+    "en": "kg of ;artichoke",
+    "es": "kg de ;alcachofas"
+  },
+  "asperge": {
+    "category": 9,
+    "value": 1638.8780000000002,
+    "fr": "kg d';asperge",
+    "en": "kg of ;asparagus",
+    "es": "kg de ;espárragos"
+  },
+  "betterave": {
+    "category": 9,
+    "value": 407.3665,
+    "fr": "kg de ;betterave",
+    "en": "kg of ;beetroot",
+    "es": "kg de ;remolachas"
+  },
+  "blette": {
+    "category": 9,
+    "value": 581.0999999999999,
+    "fr": "kg de ;blette",
+    "en": "kg of ;chard",
+    "es": "kg de ;acelgas"
+  },
+  "carotte": {
+    "category": 9,
+    "value": 396.06649999999996,
+    "fr": "kg de ;carotte",
+    "en": "kg of ;carrot",
+    "es": "kg de ;zanahorias"
+  },
+  "celeri": {
+    "category": 9,
+    "value": 715.7324000000001,
+    "fr": "kg de ;céleri",
+    "en": "kg of ;celery",
+    "es": "kg de ;apio"
+  },
+  "champignonmorille": {
+    "category": 9,
+    "value": 6175.009000000001,
+    "fr": "kg de ;champignon (morille crue)",
+    "en": "kg of ;mushroom (raw morel)",
+    "es": "kg de ;champiñones (morillas crudas)"
+  },
+  "chou": {
+    "category": 9,
+    "value": 847.6329999999998,
+    "fr": "kg de ;chou",
+    "en": "kg of ;cabbage",
+    "es": "kg de ;col"
+  },
+  "choudebruxelles": {
+    "category": 9,
+    "value": 562.1469999999999,
+    "fr": "kg de ;chou de Bruxelles",
+    "en": "kg of ;Brussels sprout",
+    "es": "kg de ;coles de Bruselas"
+  },
+  "choufleur": {
+    "category": 9,
+    "value": 720.705,
+    "fr": "kg de ;chou-fleur",
+    "en": "kg of ;cauliflower",
+    "es": "kg de ;coliflor"
+  },
+  "concombre": {
+    "category": 9,
+    "value": 512.2949,
+    "fr": "kg de ;concombre",
+    "en": "kg of ;cucumber",
+    "es": "kg de ;pepinos"
+  },
+  "courge": {
+    "category": 9,
+    "value": 638.2,
+    "fr": "kg de ;courge",
+    "en": "kg of ;squash",
+    "es": "kg de ;calabazas"
+  },
+  "courgette": {
+    "category": 9,
+    "value": 498.50700000000006,
+    "fr": "kg de ;courgette",
+    "en": "kg of ;zucchini",
+    "es": "kg de ;calabacines"
+  },
+  "cresson": {
+    "category": 9,
+    "value": 868.145,
+    "fr": "kg de ;cresson",
+    "en": "kg of ;watercress",
+    "es": "kg de ;berros"
+  },
+  "echalote": {
+    "category": 9,
+    "value": 393.5757,
+    "fr": "kg d';échalote",
+    "en": "kg of ;shallot",
+    "es": "kg de ;chalotes"
+  },
+  "endive": {
+    "category": 9,
+    "value": 861.009,
+    "fr": "kg d';endive",
+    "en": "kg of ;endive",
+    "es": "kg de ;endivias"
+  },
+  "epinard": {
+    "category": 9,
+    "value": 422.56999999999994,
+    "fr": "kg d';épinard",
+    "en": "kg of ;spinach",
+    "es": "kg de ;espinacas"
+  },
+  "mangue": {
+    "category": 9,
+    "value": 11655.508,
+    "fr": "kg de ;mangue (importée par avion)",
+    "en": "kg of ;mango (imported by plane)",
+    "es": "kg de ;mangos (importados por avión)"
+  },
+  "manguebateau": {
+    "category": 9,
+    "value": 727.508,
+    "fr": "kg de ;mangue (importée par bateau)",
+    "en": "kg of ;mango (imported by boat)",
+    "es": "kg de ;mangos (importados por barco)"
+  },
+  "fenouil": {
+    "category": 9,
+    "value": 1018.233,
+    "fr": "kg de ;fenouil",
+    "en": "kg of ;fennel",
+    "es": "kg de ;hinojos"
+  },
+  "haricotvert": {
+    "category": 9,
+    "value": 446.45700000000005,
+    "fr": "kg d';haricot vert (cru)",
+    "en": "kg of ;green bean (raw)",
+    "es": "kg de ;judías verdes (crudas)"
+  },
+  "laitue": {
+    "category": 9,
+    "value": 868.145,
+    "fr": "kg de ;laitue",
+    "en": "kg of ;lettuce",
+    "es": "kg de ;lechuga"
+  },
+  "mache": {
+    "category": 9,
+    "value": 868.145,
+    "fr": "kg de ;mâche",
+    "en": "kg of ;lamb's lettuce",
+    "es": "kg de ;mache"
+  },
+  "navet": {
+    "category": 9,
+    "value": 396.1,
+    "fr": "kg de ;navet",
+    "en": "kg of ;turnip",
+    "es": "kg de ;nabos"
+  },
+  "mais": {
+    "category": 9,
+    "value": 568.793,
+    "fr": "kg de ;maïs",
+    "en": "kg of ;corn",
+    "es": "kg de ;maíz"
+  },
+  "oignon": {
+    "category": 9,
+    "value": 420.4685,
+    "fr": "kg d';oignon",
+    "en": "kg of ;onion",
+    "es": "kg de ;cebollas"
+  },
+  "panais": {
+    "category": 9,
+    "value": 494.2756,
+    "fr": "kg de ;panais",
+    "en": "kg of ;parsnip",
+    "es": "kg de ;chirivías"
+  },
+  "petitpois": {
+    "category": 9,
+    "value": 701.761,
+    "fr": "kg de ;petit pois",
+    "en": "kg of ;green pea",
+    "es": "kg de ;guisantes"
+  },
+  "poireau": {
+    "category": 9,
+    "value": 611.3778000000001,
+    "fr": "kg de ;poireau",
+    "en": "kg of ;leek",
+    "es": "kg de ;puerros"
+  },
+  "poivron": {
+    "category": 9,
+    "value": 715.4000000000001,
+    "fr": "kg de ;poivron",
+    "en": "kg of ;bell pepper",
+    "es": "kg de ;pimientos"
+  },
+  "potiron": {
+    "category": 9,
+    "value": 638.233,
+    "fr": "kg de ;potiron",
+    "en": "kg of ;pumpkin",
+    "es": "kg de ;calabazas"
+  },
+  "radis": {
+    "category": 9,
+    "value": 384.7324,
+    "fr": "kg de ;radis",
+    "en": "kg of ;radish",
+    "es": "kg de ;rábanos"
+  },
+  "salsifis": {
+    "category": 9,
+    "value": 494.2756,
+    "fr": "kg de ;salsifis",
+    "en": "kg of ;salsify",
+    "es": "kg de ;chirivías negras"
+  },
+  "topinambour": {
+    "category": 9,
+    "value": 491.26650000000006,
+    "fr": "kg de ;topinambour",
+    "en": "kg of ;Jerusalem artichoke",
+    "es": "kg de ;tupinambos"
+  },
+  "cassis": {
+    "category": 9,
+    "value": 1903.508,
+    "fr": "kg de ;cassis",
+    "en": "kg of ;blackcurrant",
+    "es": "kg de ;grosellas negras"
+  },
+  "chataigne": {
+    "category": 9,
+    "value": 1943.945,
+    "fr": "kg de ;châtaigne",
+    "en": "kg of ;chestnut",
+    "es": "kg de ;castañas"
+  },
+  "clementine": {
+    "category": 9,
+    "value": 1301.9120000000003,
+    "fr": "kg de ;clémentine",
+    "en": "kg of ;clementine",
+    "es": "kg de ;clementinas"
+  },
+  "pamplemousse": {
+    "category": 9,
+    "value": 925.5957999999999,
+    "fr": "kg de ;pamplemousse",
+    "en": "kg of ;grapefruit",
+    "es": "kg de ;pomelos"
+  },
+  "coing": {
+    "category": 9,
+    "value": 561.5215000000001,
+    "fr": "kg de ;coing",
+    "en": "kg of ;quince",
+    "es": "kg de ;membrillos"
+  },
+  "figue": {
+    "category": 9,
+    "value": 611.508,
+    "fr": "kg de ;figue",
+    "en": "kg of ;fig",
+    "es": "kg de ;higos"
+  },
+  "groseille": {
+    "category": 9,
+    "value": 1894.5215,
+    "fr": "kg de ;groseille",
+    "en": "kg of ;red currant",
+    "es": "kg de ;grosellas"
+  },
+  "kiwi": {
+    "category": 9,
+    "value": 1001.5,
+    "fr": "kg de ;kiwi",
+    "en": "kg of ;kiwi",
+    "es": "kg de ;kiwis"
+  },
+  "mandarine": {
+    "category": 9,
+    "value": 468.4038,
+    "fr": "kg de ;mandarine",
+    "en": "kg of ;mandarin",
+    "es": "kg de ;mandarinas"
+  },
+  "melon": {
+    "category": 9,
+    "value": 978.343,
+    "fr": "kg de ;melon",
+    "en": "kg of ;melon",
+    "es": "kg de ;melones"
+  },
+  "mure": {
+    "category": 9,
+    "value": 1247.5079999999998,
+    "fr": "kg de ;mûre",
+    "en": "kg of ;blackberry",
+    "es": "kg de ;moras"
+  },
+  "nectarine": {
+    "category": 9,
+    "value": 613.6080000000001,
+    "fr": "kg de ;nectarine",
+    "en": "kg of ;nectarine",
+    "es": "kg de ;nectarinas"
+  },
+  "myrtille": {
+    "category": 9,
+    "value": 921.5589,
+    "fr": "kg de ;myrtille",
+    "en": "kg of ;blueberry",
+    "es": "kg de ;arándanos"
+  },
+  "noisette": {
+    "category": 9,
+    "value": 4811.2,
+    "fr": "kg de ;noisette",
+    "en": "kg of ;hazelnut",
+    "es": "kg de ;avellanas"
+  },
+  "noix": {
+    "category": 9,
+    "value": 4114,
+    "fr": "kg de ;noix",
+    "en": "kg of ;walnut",
+    "es": "kg de ;nueces"
+  },
+  "prune": {
+    "category": 9,
+    "value": 1034.5215,
+    "fr": "kg de ;prune",
+    "en": "kg of ;plum",
+    "es": "kg de ;ciruelas"
+  },
+  "reineclaude": {
+    "category": 9,
+    "value": 1043.508,
+    "fr": "kg de ;reine claude",
+    "en": "kg of ;greengage",
+    "es": "kg de ;ciruelas Claudia"
+  },
+  "rhubarbe": {
+    "category": 9,
+    "value": 701.5215000000001,
+    "fr": "kg de ;rhubarbe",
+    "en": "kg of ;rhubarb",
+    "es": "kg de ;ruibarbo"
+  },
+  "peche": {
+    "category": 9,
+    "value": 590.5215000000001,
+    "fr": "kg de ;pêche",
+    "en": "kg of ;peach",
+    "es": "kg de ;melocotones"
+  },
+  "cerise": {
+    "category": 9,
+    "value": 1744.5080000000003,
+    "fr": "kg de ;cerise",
+    "en": "kg of ;cherry",
+    "es": "kg de ;cerezas"
+  },
+  "abricot": {
+    "category": 9,
+    "value": 1451.508,
+    "fr": "kg d';abricot",
+    "en": "kg of ;apricot",
+    "es": "kg de ;albaricoques"
+  },
+  "framboise": {
+    "category": 9,
+    "value": 1543.0877999999998,
+    "fr": "kg de ;framboise",
+    "en": "kg of ;raspberry",
+    "es": "kg de ;frambuesas"
+  },
+  "poire": {
+    "category": 9,
+    "value": 387.319,
+    "fr": "kg de ;poire",
+    "en": "kg of ;pear",
+    "es": "kg de ;peras"
+  },
+  "raisin": {
+    "category": 9,
+    "value": 509.2949,
+    "fr": "kg de ;raisin",
+    "en": "kg of ;grape",
+    "es": "kg de ;uvas"
+  },
+  "aubergine": {
+    "category": 9,
+    "value": 472.03700000000003,
+    "fr": "kg d';aubergine",
+    "en": "kg of ;eggplant",
+    "es": "kg de ;berenjenas"
+  },
+  "brocoli": {
+    "category": 9,
+    "value": 950.705,
+    "fr": "kg de ;brocoli",
+    "en": "kg of ;broccoli",
+    "es": "kg de ;brócolis"
+  },
+  "tomate": {
+    "category": 9,
+    "value": 625.6,
+    "fr": "kg de ;tomate",
+    "en": "kg of ;tomato",
+    "es": "kg de ;tomates"
+  },
+  "ananas": {
+    "category": 9,
+    "value": 1361.4345,
+    "fr": "kg d';ananas",
+    "en": "kg of ;pineapple",
+    "es": "kg de ;piñas"
+  },
+  "banane": {
+    "category": 9,
+    "value": 908.523,
+    "fr": "kg de ;banane",
+    "en": "kg of ;banana",
+    "es": "kg de ;plátanos"
+  },
+  "avocat": {
+    "category": 9,
+    "value": 1552.523,
+    "fr": "kg d';avocat",
+    "en": "kg of ;avocado",
+    "es": "kg de ;aguacates"
+  },
+  "carambole": {
+    "category": 9,
+    "value": 553.5079999999999,
+    "fr": "kg de ;carambole",
+    "en": "kg of ;starfruit",
+    "es": "kg de ;carambolas"
+  },
+  "datte": {
+    "category": 9,
+    "value": 2892.7609999999995,
+    "fr": "kg de ;datte",
+    "en": "kg of ;date",
+    "es": "kg de ;dátiles"
+  },
+  "fruitdelapassion": {
+    "category": 9,
+    "value": 937.608,
+    "fr": "kg de ;fruit de la passion",
+    "en": "kg of ;passion fruit",
+    "es": "kg de ;maracuyá"
+  },
+  "grenade": {
+    "category": 9,
+    "value": 498.5215,
+    "fr": "kg de ;grenade",
+    "en": "kg of ;pomegranate",
+    "es": "kg de ;granadas"
+  },
+  "kaki": {
+    "category": 9,
+    "value": 949.5215000000001,
+    "fr": "kg de ;kaki",
+    "en": "kg of ;persimmon",
+    "es": "kg de ;caquis"
+  },
+  "noixdecoco": {
+    "category": 9,
+    "value": 2410.9410000000003,
+    "fr": "kg de ;noix de coco",
+    "en": "kg of ;coconut",
+    "es": "kg de ;cocos"
+  },
+  "pasteque": {
+    "category": 9,
+    "value": 680.5,
+    "fr": "kg de ;pastèque",
+    "en": "kg of ;watermelon",
+    "es": "kg de ;sandías"
+  },
+  "smartphone": {
+    "category": 1,
+    "value": 80155.343125,
+    "fr": "smartphone[s]",
+    "en": "smartphone[s]",
+    "es": "smartphone[s]"
+  },
+  "ordinateurfixeparticulier": {
+    "category": 1,
+    "value": 300375.08,
+    "fr": "ordinateur[s] fixe[s] sans écran (particulier)",
+    "en": "desktop computer[s] without screen (personal)",
+    "es": "Ordenadores de sobremesa"
+  },
+  "ordinateurfixeprofessionnel": {
+    "category": 1,
+    "value": 259197.62,
+    "fr": "ordinateur[s] fixe[s] sans écran (professionnel)",
+    "en": "desktop computer[s] without screen (office)",
+    "es": "Ordenadores de sobremesa (ofimáticos)"
+  },
+  "ecran": {
+    "category": 1,
+    "value": 92572.2,
+    "fr": "écran[s] d'ordinateur",
+    "en": "computer screen[s]",
+    "es": "pantalla[s] de computadora"
+  },
+  "tabletteclassique": {
+    "category": 1,
+    "value": 87135.525,
+    "fr": "tablette[s]",
+    "en": "tablet[s]",
+    "es": "Tableta[s]"
+  },
+  "television": {
+    "category": 1,
+    "value": 369711.86,
+    "fr": "télévision[s] ",
+    "en": "television[s]",
+    "es": "Televisore[s]"
+  },
+  "ordinateurportable": {
+    "category": 1,
+    "value": 192620.04125,
+    "fr": "ordinateur[s] portable[s]",
+    "en": "laptop[s]",
+    "es": "Ordenadores portátiles"
+  },
+  "enceintebluetooth": {
+    "category": 1,
+    "value": 26183.05,
+    "fr": "enceinte[s] connectée[s]",
+    "en": "Bluetooth speaker[s]",
+    "es": "Altavoce[s] Bluetooth"
+  },
+  "telephonebasique": {
+    "category": 1,
+    "value": 23400.000000000004,
+    "fr": "téléphone[s] basique[s]",
+    "en": "basic[s] phone[s]",
+    "es": "telefono[s] basico[s]"
+  },
+  "casquevr": {
+    "category": 1,
+    "value": 72594.435,
+    "fr": "casque[s] de réalité virtuelle",
+    "en": "virtual reality headset[s]",
+    "es": "casco[s] de realidad virtual"
+  },
+  "alimentationordinateur": {
+    "category": 1,
+    "value": 4192,
+    "fr": "alimentation[s] externe[s] pour ordinateur portable",
+    "en": "external power supply[s] for laptop",
+    "es": "fuente[s] de alimentación externa para computadora portátil"
+  },
+  "alimentationsmartphone": {
+    "category": 1,
+    "value": 415.3,
+    "fr": "alimentation[s] externe[s] pour smartphone ou tablette",
+    "en": "external power supply[s] for smartphone or tablet",
+    "es": "fuente[s] de alimentación externa para teléfono inteligente o tableta"
+  },
+  "disquedur": {
+    "category": 1,
+    "value": 12657.74,
+    "fr": "disque[s] dur[s] externe[s]",
+    "en": "external hard drive[s]",
+    "es": "disco[s] duro[s] externo[s]"
+  },
+  "ssd": {
+    "category": 1,
+    "value": 135190.4175,
+    "fr": "SSD externe[s]",
+    "en": "external SSD",
+    "es": "SSD externo[s]"
+  },
+  "clefusb": {
+    "category": 1,
+    "value": 5217.427,
+    "fr": "clef[s] usb",
+    "en": "usb key[s]",
+    "es": "llave[s] USB"
+  },
+  "box": {
+    "category": 1,
+    "value": 81225.76,
+    "fr": "box[s]",
+    "en": "box[s]",
+    "es": "caja de internet"
+  },
+  "videoprojecteur": {
+    "category": 1,
+    "value": 58935.95,
+    "fr": "vidéoprojecteur[s]",
+    "en": "projector[s]",
+    "es": "proyector[s]"
+  },
+  "repasavecduboeuf": {
+    "category": 2,
+    "value": 4970,
+    "fr": "repas avec du boeuf",
+    "en": "meal[s] with beef",
+    "es": "Comida con carne de vacuno"
+  },
+  "repasvegetarien": {
+    "category": 2,
+    "value": 850,
+    "fr": "repas végétarien[s]",
+    "en": "vegetarian meal[s]",
+    "es": "Comida vegetariana"
+  },
+  "repasvegetalien": {
+    "category": 2,
+    "value": 540,
+    "fr": "repas végétalien[s]",
+    "en": "vegan meal[s]",
+    "es": "Comida vegana"
+  },
+  "repasavecdupoissongras": {
+    "category": 2,
+    "value": 1460,
+    "fr": "repas avec du saumon",
+    "en": "meal[s] with salmon",
+    "es": "Comida con salmón"
+  },
+  "repasavecdupoissonblanc": {
+    "category": 2,
+    "value": 2430,
+    "fr": "repas avec du cabillaud",
+    "en": "meal[s] with cod",
+    "es": "Comida con bacalao"
+  },
+  "repasavecduporc": {
+    "category": 2,
+    "value": 1650,
+    "fr": "repas avec du porc",
+    "en": "meal[s] with pork",
+    "es": "Comida con cerdo"
+  },
+  "repasavecduveau": {
+    "category": 2,
+    "value": 4120,
+    "fr": "repas avec du veau",
+    "en": "meal[s] with veal",
+    "es": "Comida con ternera"
+  },
+  "repasavecdulieunoir": {
+    "category": 2,
+    "value": 1870,
+    "fr": "repas avec du lieu noir",
+    "en": "meal[s] with pollock",
+    "es": "Comida con abadejo"
+  },
+  "repasavecduthon": {
+    "category": 2,
+    "value": 1600,
+    "fr": "repas avec du thon à l'huile",
+    "en": "meal[s] with tuna in oil",
+    "es": "Comida con atún en aceite"
+  },
+  "repasavecdupoulet": {
+    "category": 2,
+    "value": 1460,
+    "fr": "repas avec du poulet",
+    "en": "meal[s] with chicken",
+    "es": "Comida con pollo"
+  },
+  "jeans": {
+    "category": 5,
+    "value": 25088.72880618721,
+    "fr": "jeans",
+    "en": "jeans",
+    "es": "Jeans"
+  },
+  "polo": {
+    "category": 5,
+    "value": 10163.529075648208,
+    "fr": "polo[s]",
+    "en": "polo[s]",
+    "es": "Polos"
+  },
+  "tshirtencoton": {
+    "category": 5,
+    "value": 6433.790554863734,
+    "fr": "t-shirt[s] en coton",
+    "en": "t-shirt[s] cotton",
+    "es": "Camisetas de algodón"
+  },
+  "tshirtenpolyester": {
+    "category": 5,
+    "value": 6211.492878123854,
+    "fr": "t-shirt[s] en polyester",
+    "en": "t-shirt[s] polyester",
+    "es": "Camisetas de poliéster"
+  },
+  "sweatencoton": {
+    "category": 5,
+    "value": 32492.781078475018,
+    "fr": "sweat[s] en coton",
+    "en": "sweatshirt[s] cotton",
+    "es": "Sudaderas de algodón"
+  },
+  "chemiseencoton": {
+    "category": 5,
+    "value": 13234.66182713826,
+    "fr": "chemise[s] en coton",
+    "en": "shirt[s] cotton",
+    "es": "Camisas de algodón"
+  },
+  "chemiseenviscose": {
+    "category": 5,
+    "value": 12139.796272777625,
+    "fr": "chemise[s] en viscose",
+    "en": "shirt[s] viscose",
+    "es": "Camisas de viscosa"
+  },
+  "chaussuresencuir": {
+    "category": 5,
+    "value": 14954.494546022259,
+    "fr": "paire[s] de chaussures en cuir",
+    "en": "pair[s] of leather shoes",
+    "es": "Par de zapatos de cuero"
+  },
+  "chaussuresentissu": {
+    "category": 5,
+    "value": 18519.8842675649,
+    "fr": "paire[s] de chaussures en tissu",
+    "en": "pair[s] of fabric shoes",
+    "es": "Par de zapatos de tela"
+  },
+  "chaussuresdesport": {
+    "category": 5,
+    "value": 20125.551283507102,
+    "fr": "paire[s] de chaussures de sport",
+    "en": "pair[s] of sports shoes",
+    "es": "Par de zapatos deportivos"
+  },
+  "robeencoton": {
+    "category": 5,
+    "value": 56907.365827855545,
+    "fr": "robe[s] en coton",
+    "en": "dress[es] cotton",
+    "es": "Vestidos de algodón"
+  },
+  "robeenpolyester": {
+    "category": 5,
+    "value": 58257.20551873938,
+    "fr": "robe[s] en polyester",
+    "en": "dress[es] polyester",
+    "es": "Vestidos de poliéster"
+  },
+  "robeenviscose": {
+    "category": 5,
+    "value": 52481.52206560145,
+    "fr": "robe[s] en viscose",
+    "en": "dress[es] viscose",
+    "es": "Vestidos de viscosa"
+  },
+  "pullenlaine": {
+    "category": 5,
+    "value": 56695.456137691894,
+    "fr": "pull[s] en laine",
+    "en": "sweater[s] wool",
+    "es": "Jerséis de lana"
+  },
+  "pullenacrylique": {
+    "category": 5,
+    "value": 28968.38102563544,
+    "fr": "pull[s] en acrylique",
+    "en": "sweater[s] acrylic",
+    "es": "Jerséis de acrílico"
+  },
+  "pullencotonrecycle": {
+    "category": 5,
+    "value": 13192.78107847502,
+    "fr": "pull[s] en coton recyclé",
+    "en": "sweater[s] recycled cotton",
+    "es": "Jerséis de algodón reciclado"
+  },
+  "manteau": {
+    "category": 5,
+    "value": 101420.51607966855,
+    "fr": "manteau[x]",
+    "en": "coat[s]",
+    "es": "Abrigos"
+  },
+  "vesteimpermeable": {
+    "category": 5,
+    "value": 41147.15954637288,
+    "fr": "veste[s] imperméable[s]",
+    "en": "waterproof jacket[s]",
+    "es": "Chaquetas impermeables"
+  },
+  "vestesimilicuir": {
+    "category": 5,
+    "value": 26825.820363170224,
+    "fr": "veste[s] simili-cuir",
+    "en": "faux leather jacket[s]",
+    "es": "Chaquetas de cuero sintético"
+  },
+  "canapeconvertible": {
+    "category": 7,
+    "value": 197500,
+    "fr": "canapé[s] convertible[s]",
+    "en": "sofa[s] convertible",
+    "es": "Sofá[s] convertibles"
+  },
+  "chaiseenbois": {
+    "category": 7,
+    "value": 18630,
+    "fr": "chaise[s] en bois",
+    "en": "wooden chair[s]",
+    "es": "Sillas de madera"
+  },
+  "tableenbois": {
+    "category": 7,
+    "value": 80220,
+    "fr": "table[s] en bois",
+    "en": "wooden table[s]",
+    "es": "Mesas de madera"
+  },
+  "canapetextile": {
+    "category": 7,
+    "value": 179100,
+    "fr": "canapé[s] en textile",
+    "en": "fabric sofa[s]",
+    "es": "Sofás de tela"
+  },
+  "armoire": {
+    "category": 7,
+    "value": 906880,
+    "fr": "armoire",
+    "en": "wardrobe",
+    "es": "Armario"
+  },
+  "lit": {
+    "category": 7,
+    "value": 443810.00000000006,
+    "fr": "lit",
+    "en": "bed",
+    "es": "Cama"
+  },
+  "bouilloire": {
+    "category": 6,
+    "value": 37803.39914,
+    "fr": "bouilloire[s]",
+    "en": "kettle[s]",
+    "es": "Hervidor de agua"
+  },
+  "cafetieredosette": {
+    "category": 6,
+    "value": 237954.38999999998,
+    "fr": "cafetière[s] à dosettes",
+    "en": "coffee maker[s] pods",
+    "es": "Cafetera[s] de cápsulas"
+  },
+  "cafetierefiltre": {
+    "category": 6,
+    "value": 191325.6755,
+    "fr": "cafetière[s] filtre",
+    "en": "coffee maker[s] filter",
+    "es": "Cafetera[s] de filtro"
+  },
+  "cafetiereexpresso": {
+    "category": 6,
+    "value": 212250.88599999997,
+    "fr": "cafetière[s] expresso",
+    "en": "coffee maker[s] espresso",
+    "es": "Cafetera[s] express"
+  },
+  "fourelectrique": {
+    "category": 6,
+    "value": 272607.39995999995,
+    "fr": "four électrique",
+    "en": "electric oven",
+    "es": "Horno eléctrico"
+  },
+  "lavevaisselle": {
+    "category": 6,
+    "value": 460790,
+    "fr": "lave-vaisselle",
+    "en": "dishwasher",
+    "es": "Lavavajillas"
+  },
+  "lavelinge": {
+    "category": 6,
+    "value": 513419.99999999994,
+    "fr": "lave-linge",
+    "en": "washing machine",
+    "es": "Lavadora"
+  },
+  "refrigirateur": {
+    "category": 6,
+    "value": 338714.0334,
+    "fr": "réfrigérateur",
+    "en": "refrigerator",
+    "es": "Refrigerador"
+  },
+  "aspirateur": {
+    "category": 6,
+    "value": 73430,
+    "fr": "aspirateur[s]",
+    "en": "vacuum cleaner[s]",
+    "es": "Aspiradora[s]"
+  },
+  "climatiseur": {
+    "category": 6,
+    "value": 421747.903,
+    "fr": "climatiseur[s]",
+    "en": "air conditioner[s]",
+    "es": "Aires acondicionados"
+  },
+  "eaudurobinet": {
+    "category": 3,
+    "value": 0.132,
+    "fr": "Litre[s] d';eau du robinet",
+    "en": "Liter[s] of ;tap water",
+    "es": "Litro[s] de ;agua del grifo"
+  },
+  "eauenbouteille": {
+    "category": 3,
+    "value": 320.735,
+    "fr": "Litre[s] d';eau en bouteille",
+    "en": "Liter[s] of ;bottled water",
+    "es": "Litro[s] de ;agua embotellada"
+  },
+  "soda": {
+    "category": 3,
+    "value": 493.33000000000004,
+    "fr": "Litre[s] de ;soda",
+    "en": "Liter[s] of ;soda",
+    "es": "Litro[s] de ;refresco"
+  },
+  "biere": {
+    "category": 3,
+    "value": 1347.03,
+    "fr": "Litre[s] de ;bière",
+    "en": "Liter[s] of ;beer",
+    "es": "Litro[s] de ;cerveza"
+  },
+  "vin": {
+    "category": 3,
+    "value": 1268.63,
+    "fr": "Litre[s] de ;vin",
+    "en": "Liter[s] of ;wine",
+    "es": "Litro[s] de ;vino"
+  },
+  "laitdevache": {
+    "category": 3,
+    "value": 1150.5,
+    "fr": "Litre[s] de ;lait de vache",
+    "en": "Liter[s] of ;cow milk",
+    "es": "Litro[s] de ;leche de vaca"
+  },
+  "soja": {
+    "category": 3,
+    "value": 427.20000000000005,
+    "fr": "Litre[s] de ;boisson au soja",
+    "en": "Liter[s] of ;soy milk",
+    "es": "Litro[s] de ;leche de soja"
+  },
+  "the": {
+    "category": 3,
+    "value": 43.587,
+    "fr": "Litre[s] de ;thé",
+    "en": "Liter[s] of ;tea",
+    "es": "Litro[s] de ;té"
+  },
+  "cafe": {
+    "category": 3,
+    "value": 635.463,
+    "fr": "Litre[s] de ;café",
+    "en": "Liter[s] of ;coffee",
+    "es": "Litro[s] de ;café"
+  },
+  "boeuf": {
+    "category": 2,
+    "value": 28009.17,
+    "fr": "kg de ;boeuf",
+    "en": "kg of ;beef",
+    "es": "kg de ;carne de res"
+  },
+  "veau": {
+    "category": 2,
+    "value": 22504.653333333332,
+    "fr": "kg de ;veau",
+    "en": "kg of ;veal",
+    "es": "kg de ;becerro"
+  },
+  "porc": {
+    "category": 2,
+    "value": 6671.304949999999,
+    "fr": "kg de ;porc",
+    "en": "kg of ;pork",
+    "es": "kg de ;cerdo"
+  },
+  "canard": {
+    "category": 2,
+    "value": 8060.900000000001,
+    "fr": "kg de ;canard",
+    "en": "kg of ;duck",
+    "es": "kg de ;pato"
+  },
+  "lapin": {
+    "category": 2,
+    "value": 5782.900000000001,
+    "fr": "kg de ;lapin",
+    "en": "kg of ;rabbit",
+    "es": "kg de ;conejo"
+  },
+  "poulet": {
+    "category": 2,
+    "value": 4560.43,
+    "fr": "kg de ;poulet",
+    "en": "kg of ;chicken",
+    "es": "kg de ;pollo"
+  },
+  "crevettes": {
+    "category": 2,
+    "value": 20345.228,
+    "fr": "kg de ;crevettes",
+    "en": "kg of ;shrimp",
+    "es": "kg de ;camarón"
+  },
+  "moules": {
+    "category": 2,
+    "value": 5328.231000000001,
+    "fr": "kg de ;moules",
+    "en": "kg of ;mussels",
+    "es": "kg de ;mejillones"
+  },
+  "huitres": {
+    "category": 2,
+    "value": 5328.231000000001,
+    "fr": "kg de ;huitres",
+    "en": "kg of ;oysters",
+    "es": "kg de ;ostras"
+  },
+  "cabillaud": {
+    "category": 2,
+    "value": 12086.4877,
+    "fr": "kg de ;cabillaud (cru)",
+    "en": "kg of ;cod (raw)",
+    "es": "kg de ;bacalao (crudo)"
+  },
+  "lieu": {
+    "category": 2,
+    "value": 12086.4877,
+    "fr": "kg de ;lieu jaune ou colin (cru)",
+    "en": "kg of ;pollack or hake (raw)",
+    "es": "kg de ;colín o merluza (crudo)"
+  },
+  "dorade": {
+    "category": 2,
+    "value": 11191.4877,
+    "fr": "kg de ;dorade royale",
+    "en": "kg of ;sea bream",
+    "es": "kg de ;dorada"
+  },
+  "saumon": {
+    "category": 2,
+    "value": 5556.93,
+    "fr": "kg de ;saumon ou truite d'élevage (cru)",
+    "en": "kg of ;salmon or farmed trout (raw)",
+    "es": "kg de ;salmón o trucha de cultivo (crudo)"
+  },
+  "thon": {
+    "category": 2,
+    "value": 4983.43,
+    "fr": "kg de ;thon (cru)",
+    "en": "kg of ;tuna (raw)",
+    "es": "kg de ;atún (crudo)"
+  },
+  "sardines": {
+    "category": 2,
+    "value": 2276.4877,
+    "fr": "kg de ;sardines",
+    "en": "kg of ;sardines",
+    "es": "kg de ;sardinas"
+  },
+  "beurre": {
+    "category": 2,
+    "value": 7913.33,
+    "fr": "kg de ;beurre",
+    "en": "kg of ;butter",
+    "es": "kg de ;mantequilla"
+  },
+  "fromagedure": {
+    "category": 2,
+    "value": 6278.38,
+    "fr": "kg de ;fromage à pâte dure",
+    "en": "kg of ;hard cheese",
+    "es": "kg de ;queso duro"
+  },
+  "feta": {
+    "category": 2,
+    "value": 6305.63,
+    "fr": "kg de ;fêta (brebis)",
+    "en": "kg of ;feta (sheep)",
+    "es": "kg de ;feta (oveja)"
+  },
+  "fromagemolle": {
+    "category": 2,
+    "value": 5144.405000000001,
+    "fr": "kg de ;fromage à pâte molle",
+    "en": "kg of ;soft cheese",
+    "es": "kg de ;queso blando"
+  },
+  "mozarella": {
+    "category": 2,
+    "value": 4714.629999999999,
+    "fr": "kg de ;mozarella",
+    "en": "kg of ;mozzarella",
+    "es": "kg de ;mozzarella"
+  },
+  "fromagebleu": {
+    "category": 2,
+    "value": 6164.963333333335,
+    "fr": "kg de ;fromage bleu",
+    "en": "kg of ;blue cheese",
+    "es": "kg de ;queso azul"
+  },
+  "oeuf": {
+    "category": 2,
+    "value": 1878.0103000000001,
+    "fr": "kg de ;oeufs",
+    "en": "kg of ;eggs",
+    "es": "kg de ;huevos"
+  },
+  "matieregrasse": {
+    "category": 2,
+    "value": 2584.63,
+    "fr": "kg de ;matière grasse végétale",
+    "en": "kg of ;vegetable fat",
+    "es": "kg de ;grasa vegetal"
+  },
+  "yaourt": {
+    "category": 2,
+    "value": 1894.7299999999998,
+    "fr": "kg de ;yaourt nature ou yaourt à la grecque",
+    "en": "kg of ;natural yogurt or greek yogurt",
+    "es": "kg de ;yogur natural o yogur griego"
+  },
+  "fromageblanc": {
+    "category": 2,
+    "value": 1809.6299999999999,
+    "fr": "kg de ;fromage blanc 0%",
+    "en": "kg of ;0% white cheese",
+    "es": "kg de ;queso blanco 0%"
+  },
+  "riz": {
+    "category": 2,
+    "value": 2014.5857500000002,
+    "fr": "kg de ;riz",
+    "en": "kg of ;rice",
+    "es": "kg de ;arroz"
+  },
+  "pates": {
+    "category": 2,
+    "value": 1979.5,
+    "fr": "kg de ;pâtes (sèches)",
+    "en": "kg of ;pasta (dry)",
+    "es": "kg de ;pasta (seca)"
+  },
+  "ble": {
+    "category": 2,
+    "value": 1226.2635,
+    "fr": "kg de ;blé",
+    "en": "kg of ;wheat",
+    "es": "kg de ;trigo"
+  },
+  "boulgour": {
+    "category": 2,
+    "value": 949.9000000000001,
+    "fr": "kg de ;boulgour",
+    "en": "kg of ;bulgur",
+    "es": "kg de ;bulgur"
+  },
+  "poischiches": {
+    "category": 2,
+    "value": 898.5430000000001,
+    "fr": "kg de ;pois chiches",
+    "en": "kg of ;chickpeas",
+    "es": "kg de ;garbanzos"
+  },
+  "haricotsrouges": {
+    "category": 2,
+    "value": 858.5429999999999,
+    "fr": "kg de ;haricots rouges",
+    "en": "kg of ;red beans",
+    "es": "kg de ;frijoles rojos"
+  },
+  "lentilles": {
+    "category": 2,
+    "value": 581.5429999999999,
+    "fr": "kg de ;lentilles (blondes, vertes, corail)",
+    "en": "kg of ;lentils (blond, green, coral)",
+    "es": "kg de ;lentejas (rubias, verdes, coral)"
+  },
+  "cheeseburger": {
+    "category": 2,
+    "value": 18833.399999999998,
+    "fr": "kg de ;cheeseburger",
+    "en": "kg of ;cheeseburger",
+    "es": "kg de ;cheeseburger"
+  },
+  "kebab": {
+    "category": 2,
+    "value": 12806.530000000002,
+    "fr": "kg de ;kebab",
+    "en": "kg of ;kebab",
+    "es": "kg de ;kebab"
+  },
+  "burgerpoulet": {
+    "category": 2,
+    "value": 4361.4,
+    "fr": "kg de ;burger au poulet",
+    "en": "kg of ;chicken burger",
+    "es": "kg de ;hamburguesa de pollo"
+  },
+  "pizza": {
+    "category": 2,
+    "value": 3599.4,
+    "fr": "kg de ;pizza quatre fromages",
+    "en": "kg of ;four cheese pizza",
+    "es": "kg de ;pizza de cuatro quesos"
+  },
+  "sushis": {
+    "category": 2,
+    "value": 2668.9999999999995,
+    "fr": "kg de ;sushis ou makis",
+    "en": "kg of ;sushi or maki",
+    "es": "kg de ;sushi o maki"
+  },
+  "burgervegetarien": {
+    "category": 2,
+    "value": 2707.5,
+    "fr": "kg de ;burger végétarien",
+    "en": "kg of ;vegetarian burger",
+    "es": "kg de ;hamburguesa vegetariana"
+  },
+  "frites": {
+    "category": 2,
+    "value": 1456.9999999999998,
+    "fr": "kg de ;frites (friteuse)",
+    "en": "kg of ;fries (fryer)",
+    "es": "kg de ;papas fritas (freidora)"
+  },
+  "tofu": {
+    "category": 2,
+    "value": 1004.2999999999997,
+    "fr": "kg de ;tofu nature",
+    "en": "kg of ;natural tofu",
+    "es": "kg de ;tofu natural"
+  },
+  "boucheechocolat": {
+    "category": 2,
+    "value": 10521.899999999998,
+    "fr": "kg de ;rocher au chocolat",
+    "en": "kg of ;chocolate rock",
+    "es": "kg de ;roca de chocolate"
+  },
+  "pateatartiner": {
+    "category": 2,
+    "value": 9116.9,
+    "fr": "kg de ;pâte à tartiner à la noisette",
+    "en": "kg of ;hazelnut spread",
+    "es": "kg de ;crema de avellanas"
+  },
+  "brownie": {
+    "category": 2,
+    "value": 8356.9,
+    "fr": "kg de ;brownie au chocolat",
+    "en": "kg of ;chocolate brownie",
+    "es": "kg de ;brownie de chocolate"
+  },
+  "painauchocolat": {
+    "category": 2,
+    "value": 5729.099999999999,
+    "fr": "kg de ;pain au chocolat ou chocolatine",
+    "en": "kg of ;chocolate bread",
+    "es": "kg de ;pan de chocolate"
+  },
+  "cookie": {
+    "category": 2,
+    "value": 6272.900000000001,
+    "fr": "kg de ;cookie au pépites de chocolat",
+    "en": "kg of ;chocolate chip cookie",
+    "es": "kg de ;galleta con chispas de chocolate"
+  },
+  "madeleine": {
+    "category": 2,
+    "value": 2243.3999999999996,
+    "fr": "kg de ;madeleine",
+    "en": "kg of ;madeleine",
+    "es": "kg de ;magdalena"
+  },
+  "painauxraisins": {
+    "category": 2,
+    "value": 2564.1,
+    "fr": "kg de ;pain aux raisins",
+    "en": "kg of ;raisin bread",
+    "es": "kg de ;pan de pasas"
+  },
+  "chaussonauxpommes": {
+    "category": 2,
+    "value": 2044.1000000000004,
+    "fr": "kg de ;chausson aux pommes",
+    "en": "kg of ;apple turnover",
+    "es": "kg de ;rotación de manzana"
+  },
+  "croissant": {
+    "category": 2,
+    "value": 2943.1000000000004,
+    "fr": "kg de ;croissant au beurre",
+    "en": "kg of ;butter croissant",
+    "es": "kg de ;croissant de mantequilla"
+  },
+  "paindemie": {
+    "category": 2,
+    "value": 1559.1000000000001,
+    "fr": "kg de ;pain de mie",
+    "en": "kg of ;sandwich bread",
+    "es": "kg de ;pan de molde"
+  },
+  "bonbons": {
+    "category": 2,
+    "value": 1486.9,
+    "fr": "kg de ;bonbons gélifiés",
+    "en": "kg of ;gummy candies",
+    "es": "kg de ;caramelos de goma"
+  },
+  "baguette": {
+    "category": 2,
+    "value": 776.7,
+    "fr": "kg de ;baguette tradition",
+    "en": "kg of ;traditional baguette",
+    "es": "kg de ;baguette tradicional"
+  },
+  "pommedeterre": {
+    "category": 2,
+    "value": 706.2605000000001,
+    "fr": "kg de ;pomme de terre nouvelle",
+    "en": "kg of ;new potato",
+    "es": "kg de ;papa nueva"
+  },
+  "boulettesvegetales": {
+    "category": 2,
+    "value": 2278.3,
+    "fr": "kg de ;boulettes végétales",
+    "en": "kg of ;vegetable balls",
+    "es": "kg de ;albóndigas vegetales"
+  },
+  "galettefromage": {
+    "category": 2,
+    "value": 2171.2999999999997,
+    "fr": "kg de ;galette au fromage",
+    "en": "kg of ;cheese patty",
+    "es": "kg de ;tortita de queso"
+  },
+  "galettevegetale": {
+    "category": 2,
+    "value": 1659.3,
+    "fr": "kg de ;galette végétale",
+    "en": "kg of ;vegetable patty",
+    "es": "kg de ;tortita vegetal"
+  },
+  "hachevegetal": {
+    "category": 2,
+    "value": 2052,
+    "fr": "kg de ;haché végétal",
+    "en": "kg of ;vegetable mince",
+    "es": "kg de ;picado vegetal"
+  },
+  "nuggetsvegetaux": {
+    "category": 2,
+    "value": 1770.5,
+    "fr": "kg de ;nuggets végétaux",
+    "en": "kg of ;vegetable nuggets",
+    "es": "kg de ;nuggets vegetales"
+  },
+  "saucissevegetale": {
+    "category": 2,
+    "value": 2213.4,
+    "fr": "kg de ;saucisse végétale",
+    "en": "kg of ;vegetable sausage",
+    "es": "kg de ;salchicha vegetal"
+  },
+  "hotel": {
+    "category": 13,
+    "value": 4300,
+    "fr": "nuit[s] dans un hôtel",
+    "en": "night[s] in a hotel",
+    "es": "noche[s] en un hotel"
+  },
+  "camping": {
+    "category": 13,
+    "value": 1400,
+    "fr": "nuit[s] au camping",
+    "en": "night[s] at the campsite",
+    "es": "noche[s] en el camping"
+  },
+  "location": {
+    "category": 13,
+    "value": 5200,
+    "fr": "nuit[s] dans une location saisonnière",
+    "en": "night[s] in a seasonal rental",
+    "es": "noche[s] en un alquiler por temporada"
+  },
+  "residencesecondaire": {
+    "category": 13,
+    "value": 7000,
+    "fr": "nuit[s] dans une résidence secondaire",
+    "en": "night[s] in a second home",
+    "es": "noche[s] en una segunda casa"
+  },
+  "magasin": {
+    "category": 12,
+    "value": 4812.4487375235485,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "magasindouce": {
+    "category": 12,
+    "value": 544.8463706372479,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "pointrelais": {
+    "category": 12,
+    "value": 1651.8921829893677,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "pointrelaisdouce": {
+    "category": 12,
+    "value": 656.1182973825644,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "clickcollect": {
+    "category": 12,
+    "value": 5165.157787556536,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "clickcollectdouce": {
+    "category": 12,
+    "value": 897.5554206702357,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "livraisondomicile": {
+    "category": 12,
+    "value": 722.0005148152214,
+    "fr": "livraison[s] à domicile",
+    "en": "home delivery[s]",
+    "es": "entrega[s] a domicilio"
+  },
+  "magasin2kg": {
+    "category": 12,
+    "value": 5098.005129272797,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "magasindouce2kg": {
+    "category": 12,
+    "value": 830.4027623864959,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "pointrelais2kg": {
+    "category": 12,
+    "value": 1937.4485747386157,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "pointrelaisdouce2kg": {
+    "category": 12,
+    "value": 941.6746891318122,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "clickcollect2kg": {
+    "category": 12,
+    "value": 5450.7141793057845,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "clickcollectdouce2kg": {
+    "category": 12,
+    "value": 1183.1118124194834,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "livraisondomicile2kg": {
+    "category": 12,
+    "value": 1074.976400709455,
+    "fr": "livraison[s] à domicile",
+    "en": "home delivery[s]",
+    "es": "entrega[s] a domicilio"
+  },
+  "magasin15kg": {
+    "category": 12,
+    "value": 11203.671821261016,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "magasindouce15kg": {
+    "category": 12,
+    "value": 6936.069454374716,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "pointrelais15kg": {
+    "category": 12,
+    "value": 7154.535482073386,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "pointrelaisdouce15kg": {
+    "category": 12,
+    "value": 6158.761596466583,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "clickcollect15kg": {
+    "category": 12,
+    "value": 12840.735196229596,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "clickcollectdouce15kg": {
+    "category": 12,
+    "value": 8573.132829343296,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "livraisondomicile15kg": {
+    "category": 12,
+    "value": 7154.681241518084,
+    "fr": "livraison[s] à domicile",
+    "en": "home delivery[s]",
+    "es": "entrega[s] a domicilio"
+  },
+  "magasin30kg": {
+    "category": 12,
+    "value": 18134.30274933973,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "magasindouce30kg": {
+    "category": 12,
+    "value": 13866.700382453431,
+    "fr": "achat[s] en magasin",
+    "en": "purchase[s] in a store",
+    "es": "compra[s] en una tienda"
+  },
+  "pointrelais30kg": {
+    "category": 12,
+    "value": 12632.383489986783,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "pointrelaisdouce30kg": {
+    "category": 12,
+    "value": 11636.609604379979,
+    "fr": "livraison[s] en point de retrait",
+    "en": "delivery[s] in a relay point",
+    "es": "entrega[s] en un punto de relevo"
+  },
+  "clickcollect30kg": {
+    "category": 12,
+    "value": 20732.954437019707,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "clickcollectdouce30kg": {
+    "category": 12,
+    "value": 16465.352070133406,
+    "fr": "Click & Collect",
+    "en": "Click & Collect",
+    "es": "Click & Collect"
+  },
+  "livraisondomicile30kg": {
+    "category": 12,
+    "value": 13628.448894482979,
+    "fr": "livraison[s] à domicile",
+    "en": "home delivery[s]",
+    "es": "entrega[s] a domicilio"
+  },
+  "microondes": {
+    "category": 6,
+    "value": 121350.00000000001,
+    "fr": "Micro-ondes",
+    "en": "Microwave[s]",
+    "es": "Microondas"
+  },
+  "voiturefrancaisejour": {
+    "category": 13,
+    "value": 193699000000,
+    "fr": "Jour[s] de circulation des voitures particulières en France",
+    "en": "Day[s] of circulation of private cars in France",
+    "es": "Día[s] de circulación de coches particulares en Francia"
+  },
+  "voiturefrancaisean": {
+    "category": 13,
+    "value": 70700135000000,
+    "fr": "Année[s] d’émissions des voitures particulières en France",
+    "en": "Year[s] of emissions of private cars in France",
+    "es": "Año[s] de emisiones de coches particulares en Francia"
+  },
+  "populationfrancaise": {
+    "category": 13,
+    "value": 624000000000000,
+    "fr": "Année[s] d’émissions de la population en France",
+    "en": "Year[s] of emissions of the population in France",
+    "es": "Año[s] de emisiones de la población en Francia"
+  },
+  "parcbovin": {
+    "category": 13,
+    "value": 38032000000000,
+    "fr": "Année[s] d’émissions du parc bovin en France",
+    "en": "Year[s] of emissions of the cattle herd in France",
+    "es": "Año[s] de emisiones del ganado vacuno en Francia"
+  },
+  "chauffageenfrance": {
+    "category": 13,
+    "value": 43320025000000,
+    "fr": "Année[s]  d’émissions du chauffage domestique en France",
+    "en": "Year[s] of emissions of domestic heating in France",
+    "es": "Año[s] de emisiones de calefacción doméstica en Francia"
+  },
+  "numeriqueenfrance": {
+    "category": 13,
+    "value": 29500000000000,
+    "fr": "Année[s] d’émissions du numérique en France",
+    "en": "Year[s] of emissions of digital technology in France",
+    "es": "Año[s] de emisiones digitales en Francia"
+  },
+  "aviationcivileenfrance": {
+    "category": 13,
+    "value": 4380000000000,
+    "fr": "Année[s] d’émissions de l’aviation civile en France",
+    "en": "Year[s] of emissions of civil aviation in France",
+    "es": "Año[s] de emisiones de aviación civil en Francia"
+  },
+  "agricoleenfrancejour": {
+    "category": 13,
+    "value": 216439000000,
+    "fr": "Jour[s] d'activité agricole en France",
+    "en": "Day[s] of agricultural activity in France",
+    "es": "Día[s] de actividad agrícola en Francia"
+  },
+  "chauffageenfrancejour": {
+    "category": 13,
+    "value": 118685000000,
+    "fr": "Jour[s] d'utilisation du chauffage domestique en France",
+    "en": "Day[s] of domestic heating use in France",
+    "es": "Día[s] de uso de calefacción doméstica en Francia"
+  },
+  "foretenfrancejour": {
+    "category": 13,
+    "value": 151636000000,
+    "fr": "Jour[s] d’absorption de CO2e par les forêts et les prairies en France",
+    "en": "Day[s] of CO2e absorption by forests and grasslands in France",
+    "es": "Día[s] de absorción de CO2e por bosques y praderas en Francia"
+  },
+  "climatisationenfrancejour": {
+    "category": 13,
+    "value": 3277000000,
+    "fr": "Jour[s] d'utilisation des climatisations domestiques en France",
+    "en": "Day[s] of domestic air conditioning use in France",
+    "es": "Día[s] de uso de aire acondicionado doméstico en Francia"
+  },
+  "voiturefrancaiseheure": {
+    "category": 13,
+    "value": 8071000000,
+    "fr": "Heure[s] de circulation des voitures particulières en France",
+    "en": "Hour[s] of circulation of private cars in France",
+    "es": "Hora[s] de circulación de coches particulares en Francia"
+  },
+  "numeriqueenfrancejour": {
+    "category": 13,
+    "value": 80822000000,
+    "fr": "Jour[s] de fonctionnement du numérique en France",
+    "en": "Day[s] of operation of digital services in France",
+    "es": "Día[s] de funcionamiento de servicios digitales en Francia"
+  },
+  "traitementdechetsjour": {
+    "category": 13,
+    "value": 5178000000,
+    "fr": "Jour[s] de traitement des déchets et eaux usées domestiques",
+    "en": "Day[s] of treatment of domestic waste and wastewater",
+    "es": "Día[s] de tratamiento de residuos y aguas residuales domésticas"
+  },
+  "trainenfrancejour": {
+    "category": 13,
+    "value": 1178000000,
+    "fr": "Jour[s] de circulation des trains en France",
+    "en": "Day[s] of train circulation in France",
+    "es": "Día[s] de circulación de trenes en Francia"
+  },
+  "datacenterjour": {
+    "category": 13,
+    "value": 185000000,
+    "fr": "Jour[s] de fonctionnement d’un campus de data center en France",
+    "en": "Day[s] of operation of a data center campus in France",
+    "es": "Día[s] de funcionamiento de un campus de centro de datos en Francia"
+  },
+  "avion-johannesburg-paris-rugby": {
+    "category": 13,
+    "value": 140000000,
+    "fr": "A/R Johannesburg-Paris d’une équipe de rugby",
+    "en": "Roundtrip[s] Johannesburg-Paris of a rugby team",
+    "es": "Ida y vuelta Johannesburgo-París de un equipo de rugby"
+  },
+  "maisonneuve": {
+    "category": 13,
+    "value": 50000000,
+    "fr": "Maison[s] neuve[s]",
+    "en": "New[s] house[s]",
+    "es": "Casa[s] nueva[s]"
+  }
+}

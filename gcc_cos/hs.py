@@ -18,7 +18,7 @@ HS_COLUMNS = ["hs_code", "hs_level", "hs_heading", "hs_description", "hs_status"
               "hs_reference_edition", "hs_reference_source"]
 LABELS = {
     "verified": "Verified",
-    "exact_rule": "Exact-name rule with cited evidence",
+    "exact_rule": "Code given by the source",
     "proposed_not_verified": "NOT VERIFIED - proposed mapping",
     "unmapped": "No HS code",
 }

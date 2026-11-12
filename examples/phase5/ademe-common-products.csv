@@ -1,0 +1,202 @@
+id,name_en,name_fr,category,category_fr,kg_co2e,unit,declared_unit,source_page,upstream_label_en
+manteau,Coat,Manteau,Clothing,Habillement,101.42051607966855,kg CO2e/item,item,https://impactco2.fr/outils/habillement/manteau,coat[s]
+robeencoton,Dress cotton,Robe en coton,Clothing,Habillement,56.907365827855545,kg CO2e/item,item,https://impactco2.fr/outils/habillement/robeencoton,dress[es] cotton
+robeenpolyester,Dress polyester,Robe en polyester,Clothing,Habillement,58.25720551873938,kg CO2e/item,item,https://impactco2.fr/outils/habillement/robeenpolyester,dress[es] polyester
+robeenviscose,Dress viscose,Robe en viscose,Clothing,Habillement,52.48152206560145,kg CO2e/item,item,https://impactco2.fr/outils/habillement/robeenviscose,dress[es] viscose
+vestesimilicuir,Faux leather jacket,Veste simili-cuir,Clothing,Habillement,26.825820363170224,kg CO2e/item,item,https://impactco2.fr/outils/habillement/vestesimilicuir,faux leather jacket[s]
+jeans,Jeans,Jeans,Clothing,Habillement,25.08872880618721,kg CO2e/item,item,https://impactco2.fr/outils/habillement/jeans,jeans
+chaussuresentissu,Pair of fabric shoes,Paire de chaussures en tissu,Clothing,Habillement,18.5198842675649,kg CO2e/item,item,https://impactco2.fr/outils/habillement/chaussuresentissu,pair[s] of fabric shoes
+chaussuresencuir,Pair of leather shoes,Paire de chaussures en cuir,Clothing,Habillement,14.954494546022259,kg CO2e/item,item,https://impactco2.fr/outils/habillement/chaussuresencuir,pair[s] of leather shoes
+chaussuresdesport,Pair of sports shoes,Paire de chaussures de sport,Clothing,Habillement,20.125551283507102,kg CO2e/item,item,https://impactco2.fr/outils/habillement/chaussuresdesport,pair[s] of sports shoes
+polo,Polo,Polo,Clothing,Habillement,10.163529075648208,kg CO2e/item,item,https://impactco2.fr/outils/habillement/polo,polo[s]
+chemiseencoton,Shirt cotton,Chemise en coton,Clothing,Habillement,13.23466182713826,kg CO2e/item,item,https://impactco2.fr/outils/habillement/chemiseencoton,shirt[s] cotton
+chemiseenviscose,Shirt viscose,Chemise en viscose,Clothing,Habillement,12.139796272777625,kg CO2e/item,item,https://impactco2.fr/outils/habillement/chemiseenviscose,shirt[s] viscose
+pullenacrylique,Sweater acrylic,Pull en acrylique,Clothing,Habillement,28.96838102563544,kg CO2e/item,item,https://impactco2.fr/outils/habillement/pullenacrylique,sweater[s] acrylic
+pullencotonrecycle,Sweater recycled cotton,Pull en coton recyclé,Clothing,Habillement,13.19278107847502,kg CO2e/item,item,https://impactco2.fr/outils/habillement/pullencotonrecycle,sweater[s] recycled cotton
+pullenlaine,Sweater wool,Pull en laine,Clothing,Habillement,56.695456137691894,kg CO2e/item,item,https://impactco2.fr/outils/habillement/pullenlaine,sweater[s] wool
+sweatencoton,Sweatshirt cotton,Sweat en coton,Clothing,Habillement,32.492781078475018,kg CO2e/item,item,https://impactco2.fr/outils/habillement/sweatencoton,sweatshirt[s] cotton
+tshirtencoton,T-shirt cotton,T-shirt en coton,Clothing,Habillement,6.433790554863734,kg CO2e/item,item,https://impactco2.fr/outils/habillement/tshirtencoton,t-shirt[s] cotton
+tshirtenpolyester,T-shirt polyester,T-shirt en polyester,Clothing,Habillement,6.211492878123854,kg CO2e/item,item,https://impactco2.fr/outils/habillement/tshirtenpolyester,t-shirt[s] polyester
+vesteimpermeable,Waterproof jacket,Veste imperméable,Clothing,Habillement,41.14715954637288,kg CO2e/item,item,https://impactco2.fr/outils/habillement/vesteimpermeable,waterproof jacket[s]
+telephonebasique,Basic phone,Téléphone basique,Digital devices,Numérique,23.400000000000004,kg CO2e/item,item,https://impactco2.fr/outils/numerique/telephonebasique,basic[s] phone[s]
+enceintebluetooth,Bluetooth speaker,Enceinte connectée,Digital devices,Numérique,26.18305,kg CO2e/item,item,https://impactco2.fr/outils/numerique/enceintebluetooth,Bluetooth speaker[s]
+box,Box,Box,Digital devices,Numérique,81.22576,kg CO2e/item,item,https://impactco2.fr/outils/numerique/box,box[s]
+disquedur,External hard drive,Disque dur externe,Digital devices,Numérique,12.65774,kg CO2e/item,item,https://impactco2.fr/outils/numerique/disquedur,external hard drive[s]
+alimentationordinateur,External power supply for laptop,Alimentation externe pour ordinateur portable,Digital devices,Numérique,4.192,kg CO2e/item,item,https://impactco2.fr/outils/numerique/alimentationordinateur,external power supply[s] for laptop
+alimentationsmartphone,External power supply for smartphone or tablet,Alimentation externe pour smartphone ou tablette,Digital devices,Numérique,0.4153,kg CO2e/item,item,https://impactco2.fr/outils/numerique/alimentationsmartphone,external power supply[s] for smartphone or tablet
+ssd,External SSD,SSD externe,Digital devices,Numérique,135.1904175,kg CO2e/item,item,https://impactco2.fr/outils/numerique/ssd,external SSD
+videoprojecteur,Projector,Vidéoprojecteur,Digital devices,Numérique,58.93595,kg CO2e/item,item,https://impactco2.fr/outils/numerique/videoprojecteur,projector[s]
+television,Television,Télévision,Digital devices,Numérique,369.71186,kg CO2e/item,item,https://impactco2.fr/outils/numerique/television,television[s]
+clefusb,Usb key,Clef usb,Digital devices,Numérique,5.217427,kg CO2e/item,item,https://impactco2.fr/outils/numerique/clefusb,usb key[s]
+casquevr,Virtual reality headset,Casque de réalité virtuelle,Digital devices,Numérique,72.594435,kg CO2e/item,item,https://impactco2.fr/outils/numerique/casquevr,virtual reality headset[s]
+biere,Beer,Bière,Drinks,Boisson,1.34703,kg CO2e/l,l,https://impactco2.fr/outils/boisson/biere,Liter[s] of ;beer
+eauenbouteille,Bottled water,Eau en bouteille,Drinks,Boisson,0.320735,kg CO2e/l,l,https://impactco2.fr/outils/boisson/eauenbouteille,Liter[s] of ;bottled water
+cafe,Coffee,Café,Drinks,Boisson,0.635463,kg CO2e/l,l,https://impactco2.fr/outils/boisson/cafe,Liter[s] of ;coffee
+laitdevache,Cow milk,Lait de vache,Drinks,Boisson,1.1505,kg CO2e/l,l,https://impactco2.fr/outils/boisson/laitdevache,Liter[s] of ;cow milk
+soda,Soda,Soda,Drinks,Boisson,0.49333000000000004,kg CO2e/l,l,https://impactco2.fr/outils/boisson/soda,Liter[s] of ;soda
+soja,Soy milk,Boisson au soja,Drinks,Boisson,0.42720000000000005,kg CO2e/l,l,https://impactco2.fr/outils/boisson/soja,Liter[s] of ;soy milk
+eaudurobinet,Tap water,Eau du robinet,Drinks,Boisson,0.000132,kg CO2e/l,l,https://impactco2.fr/outils/boisson/eaudurobinet,Liter[s] of ;tap water
+the,Tea,Thé,Drinks,Boisson,0.043587,kg CO2e/l,l,https://impactco2.fr/outils/boisson/the,Liter[s] of ;tea
+vin,Wine,Vin,Drinks,Boisson,1.26863,kg CO2e/l,l,https://impactco2.fr/outils/boisson/vin,Liter[s] of ;wine
+fromageblanc,0% white cheese,Fromage blanc 0%,Food,Alimentation,1.8096299999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/fromageblanc,kg of ;0% white cheese
+chaussonauxpommes,Apple turnover,Chausson aux pommes,Food,Alimentation,2.0441000000000004,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/chaussonauxpommes,kg of ;apple turnover
+boeuf,Beef,Boeuf,Food,Alimentation,28.00917,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/boeuf,kg of ;beef
+fromagebleu,Blue cheese,Fromage bleu,Food,Alimentation,6.164963333333335,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/fromagebleu,kg of ;blue cheese
+boulgour,Bulgur,Boulgour,Food,Alimentation,0.9499000000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/boulgour,kg of ;bulgur
+beurre,Butter,Beurre,Food,Alimentation,7.91333,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/beurre,kg of ;butter
+croissant,Butter croissant,Croissant au beurre,Food,Alimentation,2.9431000000000004,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/croissant,kg of ;butter croissant
+galettefromage,Cheese patty,Galette au fromage,Food,Alimentation,2.1712999999999997,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/galettefromage,kg of ;cheese patty
+cheeseburger,Cheeseburger,Cheeseburger,Food,Alimentation,18.833399999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/cheeseburger,kg of ;cheeseburger
+poulet,Chicken,Poulet,Food,Alimentation,4.56043,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/poulet,kg of ;chicken
+burgerpoulet,Chicken burger,Burger au poulet,Food,Alimentation,4.3614,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/burgerpoulet,kg of ;chicken burger
+poischiches,Chickpeas,Pois chiches,Food,Alimentation,0.8985430000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/poischiches,kg of ;chickpeas
+painauchocolat,Chocolate bread,Pain au chocolat ou chocolatine,Food,Alimentation,5.729099999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/painauchocolat,kg of ;chocolate bread
+brownie,Chocolate brownie,Brownie au chocolat,Food,Alimentation,8.3569,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/brownie,kg of ;chocolate brownie
+cookie,Chocolate chip cookie,Cookie au pépites de chocolat,Food,Alimentation,6.272900000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/cookie,kg of ;chocolate chip cookie
+boucheechocolat,Chocolate rock,Rocher au chocolat,Food,Alimentation,10.521899999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/boucheechocolat,kg of ;chocolate rock
+cabillaud,Cod (raw),Cabillaud (cru),Food,Alimentation,12.0864877,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/cabillaud,kg of ;cod (raw)
+canard,Duck,Canard,Food,Alimentation,8.060900000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/canard,kg of ;duck
+oeuf,Eggs,Oeufs,Food,Alimentation,1.8780103000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/oeuf,kg of ;eggs
+feta,Feta (sheep),Fêta (brebis),Food,Alimentation,6.30563,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/feta,kg of ;feta (sheep)
+pizza,Four cheese pizza,Pizza quatre fromages,Food,Alimentation,3.5994,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/pizza,kg of ;four cheese pizza
+frites,Fries (fryer),Frites (friteuse),Food,Alimentation,1.4569999999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/frites,kg of ;fries (fryer)
+bonbons,Gummy candies,Bonbons gélifiés,Food,Alimentation,1.4869,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/bonbons,kg of ;gummy candies
+fromagedure,Hard cheese,Fromage à pâte dure,Food,Alimentation,6.27838,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/fromagedure,kg of ;hard cheese
+pateatartiner,Hazelnut spread,Pâte à tartiner à la noisette,Food,Alimentation,9.1169,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/pateatartiner,kg of ;hazelnut spread
+kebab,Kebab,Kebab,Food,Alimentation,12.806530000000002,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/kebab,kg of ;kebab
+lentilles,"Lentils (blond, green, coral)","Lentilles (blondes, vertes, corail)",Food,Alimentation,0.5815429999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/lentilles,"kg of ;lentils (blond, green, coral)"
+madeleine,Madeleine,Madeleine,Food,Alimentation,2.2433999999999996,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/madeleine,kg of ;madeleine
+repasavecduboeuf,Meal with beef,Repas avec du boeuf,Food,Alimentation,4.97,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecduboeuf,meal[s] with beef
+repasavecdupoulet,Meal with chicken,Repas avec du poulet,Food,Alimentation,1.46,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecdupoulet,meal[s] with chicken
+repasavecdupoissonblanc,Meal with cod,Repas avec du cabillaud,Food,Alimentation,2.43,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecdupoissonblanc,meal[s] with cod
+repasavecdulieunoir,Meal with pollock,Repas avec du lieu noir,Food,Alimentation,1.87,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecdulieunoir,meal[s] with pollock
+repasavecduporc,Meal with pork,Repas avec du porc,Food,Alimentation,1.65,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecduporc,meal[s] with pork
+repasavecdupoissongras,Meal with salmon,Repas avec du saumon,Food,Alimentation,1.46,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecdupoissongras,meal[s] with salmon
+repasavecduthon,Meal with tuna in oil,Repas avec du thon à l'huile,Food,Alimentation,1.6,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecduthon,meal[s] with tuna in oil
+repasavecduveau,Meal with veal,Repas avec du veau,Food,Alimentation,4.12,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasavecduveau,meal[s] with veal
+mozarella,Mozzarella,Mozarella,Food,Alimentation,4.714629999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/mozarella,kg of ;mozzarella
+moules,Mussels,Moules,Food,Alimentation,5.328231000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/moules,kg of ;mussels
+tofu,Natural tofu,Tofu nature,Food,Alimentation,1.0042999999999997,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/tofu,kg of ;natural tofu
+yaourt,Natural yogurt or greek yogurt,Yaourt nature ou yaourt à la grecque,Food,Alimentation,1.8947299999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/yaourt,kg of ;natural yogurt or greek yogurt
+pommedeterre,New potato,Pomme de terre nouvelle,Food,Alimentation,0.7062605000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/pommedeterre,kg of ;new potato
+huitres,Oysters,Huitres,Food,Alimentation,5.328231000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/huitres,kg of ;oysters
+pates,Pasta (dry),Pâtes (sèches),Food,Alimentation,1.9795,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/pates,kg of ;pasta (dry)
+lieu,Pollack or hake (raw),Lieu jaune ou colin (cru),Food,Alimentation,12.0864877,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/lieu,kg of ;pollack or hake (raw)
+porc,Pork,Porc,Food,Alimentation,6.671304949999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/porc,kg of ;pork
+lapin,Rabbit,Lapin,Food,Alimentation,5.782900000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/lapin,kg of ;rabbit
+painauxraisins,Raisin bread,Pain aux raisins,Food,Alimentation,2.5641,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/painauxraisins,kg of ;raisin bread
+haricotsrouges,Red beans,Haricots rouges,Food,Alimentation,0.8585429999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/haricotsrouges,kg of ;red beans
+riz,Rice,Riz,Food,Alimentation,2.0145857500000002,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/riz,kg of ;rice
+saumon,Salmon or farmed trout (raw),Saumon ou truite d'élevage (cru),Food,Alimentation,5.55693,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/saumon,kg of ;salmon or farmed trout (raw)
+paindemie,Sandwich bread,Pain de mie,Food,Alimentation,1.5591000000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/paindemie,kg of ;sandwich bread
+sardines,Sardines,Sardines,Food,Alimentation,2.2764877,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/sardines,kg of ;sardines
+dorade,Sea bream,Dorade royale,Food,Alimentation,11.1914877,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/dorade,kg of ;sea bream
+crevettes,Shrimp,Crevettes,Food,Alimentation,20.345228,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/crevettes,kg of ;shrimp
+fromagemolle,Soft cheese,Fromage à pâte molle,Food,Alimentation,5.144405000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/fromagemolle,kg of ;soft cheese
+sushis,Sushi or maki,Sushis ou makis,Food,Alimentation,2.6689999999999995,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/sushis,kg of ;sushi or maki
+baguette,Traditional baguette,Baguette tradition,Food,Alimentation,0.7767,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/baguette,kg of ;traditional baguette
+thon,Tuna (raw),Thon (cru),Food,Alimentation,4.98343,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/thon,kg of ;tuna (raw)
+veau,Veal,Veau,Food,Alimentation,22.504653333333332,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/veau,kg of ;veal
+repasvegetalien,Vegan meal,Repas végétalien,Food,Alimentation,0.54,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasvegetalien,vegan meal[s]
+boulettesvegetales,Vegetable balls,Boulettes végétales,Food,Alimentation,2.2783,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/boulettesvegetales,kg of ;vegetable balls
+matieregrasse,Vegetable fat,Matière grasse végétale,Food,Alimentation,2.58463,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/matieregrasse,kg of ;vegetable fat
+hachevegetal,Vegetable mince,Haché végétal,Food,Alimentation,2.052,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/hachevegetal,kg of ;vegetable mince
+nuggetsvegetaux,Vegetable nuggets,Nuggets végétaux,Food,Alimentation,1.7705,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/nuggetsvegetaux,kg of ;vegetable nuggets
+galettevegetale,Vegetable patty,Galette végétale,Food,Alimentation,1.6593,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/galettevegetale,kg of ;vegetable patty
+saucissevegetale,Vegetable sausage,Saucisse végétale,Food,Alimentation,2.2134,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/saucissevegetale,kg of ;vegetable sausage
+burgervegetarien,Vegetarian burger,Burger végétarien,Food,Alimentation,2.7075,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/burgervegetarien,kg of ;vegetarian burger
+repasvegetarien,Vegetarian meal,Repas végétarien,Food,Alimentation,0.85,kg CO2e/item,item,https://impactco2.fr/outils/alimentation/repasvegetarien,vegetarian meal[s]
+ble,Wheat,Blé,Food,Alimentation,1.2262635,kg CO2e/kg,kg,https://impactco2.fr/outils/alimentation/ble,kg of ;wheat
+pomme,Apple,Pomme,Fruit and vegetables,Fruits et légumes,0.4081949,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/pomme,kg of ;apple
+abricot,Apricot,Abricot,Fruit and vegetables,Fruits et légumes,1.451508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/abricot,kg of ;apricot
+artichaut,Artichoke,Artichaut,Fruit and vegetables,Fruits et légumes,2.556166,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/artichaut,kg of ;artichoke
+asperge,Asparagus,Asperge,Fruit and vegetables,Fruits et légumes,1.6388780000000002,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/asperge,kg of ;asparagus
+avocat,Avocado,Avocat,Fruit and vegetables,Fruits et légumes,1.552523,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/avocat,kg of ;avocado
+banane,Banana,Banane,Fruit and vegetables,Fruits et légumes,0.908523,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/banane,kg of ;banana
+betterave,Beetroot,Betterave,Fruit and vegetables,Fruits et légumes,0.4073665,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/betterave,kg of ;beetroot
+poivron,Bell pepper,Poivron,Fruit and vegetables,Fruits et légumes,0.7154000000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/poivron,kg of ;bell pepper
+mure,Blackberry,Mûre,Fruit and vegetables,Fruits et légumes,1.2475079999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/mure,kg of ;blackberry
+cassis,Blackcurrant,Cassis,Fruit and vegetables,Fruits et légumes,1.903508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/cassis,kg of ;blackcurrant
+myrtille,Blueberry,Myrtille,Fruit and vegetables,Fruits et légumes,0.9215589,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/myrtille,kg of ;blueberry
+brocoli,Broccoli,Brocoli,Fruit and vegetables,Fruits et légumes,0.950705,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/brocoli,kg of ;broccoli
+choudebruxelles,Brussels sprout,Chou de Bruxelles,Fruit and vegetables,Fruits et légumes,0.5621469999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/choudebruxelles,kg of ;Brussels sprout
+chou,Cabbage,Chou,Fruit and vegetables,Fruits et légumes,0.8476329999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/chou,kg of ;cabbage
+carotte,Carrot,Carotte,Fruit and vegetables,Fruits et légumes,0.39606649999999996,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/carotte,kg of ;carrot
+choufleur,Cauliflower,Chou-fleur,Fruit and vegetables,Fruits et légumes,0.720705,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/choufleur,kg of ;cauliflower
+celeri,Celery,Céleri,Fruit and vegetables,Fruits et légumes,0.7157324000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/celeri,kg of ;celery
+blette,Chard,Blette,Fruit and vegetables,Fruits et légumes,0.5810999999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/blette,kg of ;chard
+cerise,Cherry,Cerise,Fruit and vegetables,Fruits et légumes,1.7445080000000003,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/cerise,kg of ;cherry
+chataigne,Chestnut,Châtaigne,Fruit and vegetables,Fruits et légumes,1.943945,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/chataigne,kg of ;chestnut
+clementine,Clementine,Clémentine,Fruit and vegetables,Fruits et légumes,1.3019120000000003,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/clementine,kg of ;clementine
+noixdecoco,Coconut,Noix de coco,Fruit and vegetables,Fruits et légumes,2.4109410000000003,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/noixdecoco,kg of ;coconut
+mais,Corn,Maïs,Fruit and vegetables,Fruits et légumes,0.568793,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/mais,kg of ;corn
+concombre,Cucumber,Concombre,Fruit and vegetables,Fruits et légumes,0.5122949,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/concombre,kg of ;cucumber
+datte,Date,Datte,Fruit and vegetables,Fruits et légumes,2.8927609999999995,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/datte,kg of ;date
+aubergine,Eggplant,Aubergine,Fruit and vegetables,Fruits et légumes,0.47203700000000003,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/aubergine,kg of ;eggplant
+endive,Endive,Endive,Fruit and vegetables,Fruits et légumes,0.861009,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/endive,kg of ;endive
+fenouil,Fennel,Fenouil,Fruit and vegetables,Fruits et légumes,1.018233,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/fenouil,kg of ;fennel
+figue,Fig,Figue,Fruit and vegetables,Fruits et légumes,0.611508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/figue,kg of ;fig
+ail,Garlic,Ail,Fruit and vegetables,Fruits et légumes,0.38349300000000005,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/ail,kg of ;garlic
+raisin,Grape,Raisin,Fruit and vegetables,Fruits et légumes,0.5092949,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/raisin,kg of ;grape
+pamplemousse,Grapefruit,Pamplemousse,Fruit and vegetables,Fruits et légumes,0.9255957999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/pamplemousse,kg of ;grapefruit
+haricotvert,Green bean (raw),Haricot vert (cru),Fruit and vegetables,Fruits et légumes,0.44645700000000005,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/haricotvert,kg of ;green bean (raw)
+petitpois,Green pea,Petit pois,Fruit and vegetables,Fruits et légumes,0.701761,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/petitpois,kg of ;green pea
+reineclaude,Greengage,Reine claude,Fruit and vegetables,Fruits et légumes,1.043508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/reineclaude,kg of ;greengage
+noisette,Hazelnut,Noisette,Fruit and vegetables,Fruits et légumes,4.8112,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/noisette,kg of ;hazelnut
+topinambour,Jerusalem artichoke,Topinambour,Fruit and vegetables,Fruits et légumes,0.49126650000000006,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/topinambour,kg of ;Jerusalem artichoke
+kiwi,Kiwi,Kiwi,Fruit and vegetables,Fruits et légumes,1.0015,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/kiwi,kg of ;kiwi
+mache,Lamb's lettuce,Mâche,Fruit and vegetables,Fruits et légumes,0.868145,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/mache,kg of ;lamb's lettuce
+poireau,Leek,Poireau,Fruit and vegetables,Fruits et légumes,0.6113778000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/poireau,kg of ;leek
+citron,Lemon,Citron,Fruit and vegetables,Fruits et légumes,0.7635958,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/citron,kg of ;lemon
+laitue,Lettuce,Laitue,Fruit and vegetables,Fruits et légumes,0.868145,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/laitue,kg of ;lettuce
+mandarine,Mandarin,Mandarine,Fruit and vegetables,Fruits et légumes,0.4684038,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/mandarine,kg of ;mandarin
+manguebateau,Mango (imported by boat),Mangue (importée par bateau),Fruit and vegetables,Fruits et légumes,0.727508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/manguebateau,kg of ;mango (imported by boat)
+mangue,Mango (imported by plane),Mangue (importée par avion),Fruit and vegetables,Fruits et légumes,11.655508,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/mangue,kg of ;mango (imported by plane)
+melon,Melon,Melon,Fruit and vegetables,Fruits et légumes,0.978343,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/melon,kg of ;melon
+champignonmorille,Mushroom (raw morel),Champignon (morille crue),Fruit and vegetables,Fruits et légumes,6.175009000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/champignonmorille,kg of ;mushroom (raw morel)
+nectarine,Nectarine,Nectarine,Fruit and vegetables,Fruits et légumes,0.6136080000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/nectarine,kg of ;nectarine
+oignon,Onion,Oignon,Fruit and vegetables,Fruits et légumes,0.4204685,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/oignon,kg of ;onion
+orange,Orange,Orange,Fruit and vegetables,Fruits et légumes,0.6776838,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/orange,kg of ;orange
+panais,Parsnip,Panais,Fruit and vegetables,Fruits et légumes,0.4942756,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/panais,kg of ;parsnip
+fruitdelapassion,Passion fruit,Fruit de la passion,Fruit and vegetables,Fruits et légumes,0.937608,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/fruitdelapassion,kg of ;passion fruit
+peche,Peach,Pêche,Fruit and vegetables,Fruits et légumes,0.5905215000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/peche,kg of ;peach
+poire,Pear,Poire,Fruit and vegetables,Fruits et légumes,0.387319,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/poire,kg of ;pear
+kaki,Persimmon,Kaki,Fruit and vegetables,Fruits et légumes,0.9495215000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/kaki,kg of ;persimmon
+ananas,Pineapple,Ananas,Fruit and vegetables,Fruits et légumes,1.3614345,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/ananas,kg of ;pineapple
+prune,Plum,Prune,Fruit and vegetables,Fruits et légumes,1.0345215,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/prune,kg of ;plum
+grenade,Pomegranate,Grenade,Fruit and vegetables,Fruits et légumes,0.4985215,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/grenade,kg of ;pomegranate
+potiron,Pumpkin,Potiron,Fruit and vegetables,Fruits et légumes,0.638233,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/potiron,kg of ;pumpkin
+coing,Quince,Coing,Fruit and vegetables,Fruits et légumes,0.5615215000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/coing,kg of ;quince
+radis,Radish,Radis,Fruit and vegetables,Fruits et légumes,0.3847324,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/radis,kg of ;radish
+framboise,Raspberry,Framboise,Fruit and vegetables,Fruits et légumes,1.5430877999999998,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/framboise,kg of ;raspberry
+groseille,Red currant,Groseille,Fruit and vegetables,Fruits et légumes,1.8945215,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/groseille,kg of ;red currant
+rhubarbe,Rhubarb,Rhubarbe,Fruit and vegetables,Fruits et légumes,0.7015215000000001,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/rhubarbe,kg of ;rhubarb
+salsifis,Salsify,Salsifis,Fruit and vegetables,Fruits et légumes,0.4942756,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/salsifis,kg of ;salsify
+echalote,Shallot,Échalote,Fruit and vegetables,Fruits et légumes,0.3935757,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/echalote,kg of ;shallot
+epinard,Spinach,Épinard,Fruit and vegetables,Fruits et légumes,0.42256999999999994,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/epinard,kg of ;spinach
+courge,Squash,Courge,Fruit and vegetables,Fruits et légumes,0.6382,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/courge,kg of ;squash
+carambole,Starfruit,Carambole,Fruit and vegetables,Fruits et légumes,0.5535079999999999,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/carambole,kg of ;starfruit
+fraise,Strawberry,Fraise,Fruit and vegetables,Fruits et légumes,0.51107000000000005,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/fraise,kg of ;strawberry
+tomate,Tomato,Tomate,Fruit and vegetables,Fruits et légumes,0.6256,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/tomate,kg of ;tomato
+navet,Turnip,Navet,Fruit and vegetables,Fruits et légumes,0.3961,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/navet,kg of ;turnip
+noix,Walnut,Noix,Fruit and vegetables,Fruits et légumes,4.114,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/noix,kg of ;walnut
+cresson,Watercress,Cresson,Fruit and vegetables,Fruits et légumes,0.868145,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/cresson,kg of ;watercress
+pasteque,Watermelon,Pastèque,Fruit and vegetables,Fruits et légumes,0.6805,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/pasteque,kg of ;watermelon
+courgette,Zucchini,Courgette,Fruit and vegetables,Fruits et légumes,0.49850700000000006,kg CO2e/kg,kg,https://impactco2.fr/outils/fruitsetlegumes/courgette,kg of ;zucchini
+lit,Bed,Lit,Furniture,Mobilier,443.81000000000006,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/lit,bed
+canapetextile,Fabric sofa,Canapé en textile,Furniture,Mobilier,179.1,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/canapetextile,fabric sofa[s]
+canapeconvertible,Sofa convertible,Canapé convertible,Furniture,Mobilier,197.5,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/canapeconvertible,sofa[s] convertible
+armoire,Wardrobe,Armoire,Furniture,Mobilier,906.88,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/armoire,wardrobe
+chaiseenbois,Wooden chair,Chaise en bois,Furniture,Mobilier,18.63,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/chaiseenbois,wooden chair[s]
+tableenbois,Wooden table,Table en bois,Furniture,Mobilier,80.22,kg CO2e/item,item,https://impactco2.fr/outils/mobilier/tableenbois,wooden table[s]
+climatiseur,Air conditioner,Climatiseur,Household appliances,Électroménager,421.747903,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/climatiseur,air conditioner[s]
+cafetiereexpresso,Coffee maker espresso,Cafetière expresso,Household appliances,Électroménager,212.25088599999997,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/cafetiereexpresso,coffee maker[s] espresso
+cafetierefiltre,Coffee maker filter,Cafetière filtre,Household appliances,Électroménager,191.3256755,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/cafetierefiltre,coffee maker[s] filter
+cafetieredosette,Coffee maker pods,Cafetière à dosettes,Household appliances,Électroménager,237.95438999999998,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/cafetieredosette,coffee maker[s] pods
+lavevaisselle,Dishwasher,Lave-vaisselle,Household appliances,Électroménager,460.79,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/lavevaisselle,dishwasher
+fourelectrique,Electric oven,Four électrique,Household appliances,Électroménager,272.60739995999995,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/fourelectrique,electric oven
+bouilloire,Kettle,Bouilloire,Household appliances,Électroménager,37.80339914,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/bouilloire,kettle[s]
+microondes,Microwave,Micro-ondes,Household appliances,Électroménager,121.35000000000001,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/microondes,Microwave[s]
+refrigirateur,Refrigerator,Réfrigérateur,Household appliances,Électroménager,338.7140334,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/refrigirateur,refrigerator
+aspirateur,Vacuum cleaner,Aspirateur,Household appliances,Électroménager,73.43,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/aspirateur,vacuum cleaner[s]
+lavelinge,Washing machine,Lave-linge,Household appliances,Électroménager,513.41999999999994,kg CO2e/item,item,https://impactco2.fr/outils/electromenager/lavelinge,washing machine

@@ -12,6 +12,8 @@ UNITS = {
     "kg CO2e/t": ("kg CO2e/kg", "0.001"),
     "t CO2e/t": ("kg CO2e/kg", "1"),
     "g CO2e/kg": ("kg CO2e/kg", "0.001"),
+    "kg CO2e/item": ("kg CO2e/item", "1"),
+    "kg CO2e/l": ("kg CO2e/l", "1"),
     "kg CO2": ("kg CO2", "1"),
     "t CO2": ("kg CO2", "1000"),
     "Mt CO2": ("kg CO2", "1000000000"),
@@ -35,6 +37,11 @@ FIELDS += PRODUCT_FIELDS
 def is_product(r):
     return r.get("entity_type") == "product" and r.get("data_kind") in {
         "published_product_footprint", "verified_product_footprint", "calculated_value"}
+
+
+def is_item(r):
+    """A product footprint, or a published average/default factor for a kind of product."""
+    return is_product(r) or (r.get("entity_type") == "product" and r.get("data_kind") == "published_generic_factor")
 
 
 def validate(record):

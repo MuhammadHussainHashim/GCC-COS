@@ -1,6 +1,6 @@
 # GCC-Final-System — Green Carbon Corridor Carbon Operating System
 
-> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data), layer 2 (HS codes) and layer 3 ([calculator](docs/CALCULATOR.md)) work. Layer 4 (reduce and offset recommendations) is **not built yet**. **Nothing is verified:** no footprint is independently verified, and every HS code is a proposed mapping marked `NOT VERIFIED` (see [HS codes](docs/HS_CODES.md)); 64 of the 1,241 records have no HS code. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
+> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data), layer 2 (HS codes) and layer 3 ([calculator](docs/CALCULATOR.md)) work. Layer 4 (reduce and offset recommendations) is **not built yet**. **Nothing is verified:** no footprint is independently verified, and every HS code on the original 1,241 product records is a proposed mapping marked `NOT VERIFIED` (see [HS codes](docs/HS_CODES.md)), and 64 of them have no HS code. Version 1.4.0 adds 570 UK CBAM default values (iron and steel, aluminium, fertilisers, cement, hydrogen; HS codes come from the source's own commodity codes) and 201 ADEME everyday-product averages (food, drinks, clothing, appliances, furniture; no HS codes yet). The CBAM values were typed from GOV.UK and have not been re-checked against it. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
 
 This is the consolidated, cleaned-up repository for the Green Carbon Corridor **Carbon Operating System (GCC-COS)**. It brings together everything from the earlier `GCC-COS` repository: the Phase 1–4 application from `main` and the shared VS Code setup that previously lived only on a side branch. The Python package and command are still named `gcc_cos` / `gcc-cos`.
 
@@ -13,11 +13,12 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase2/sources.json ingest --manifest examples/phase2/local-files.json
 .\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase3/sources.json ingest --manifest examples/phase3/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase5/sources.json ingest --manifest examples/phase5/local-files.json
 .\.venv\Scripts\python.exe -m gcc_cos revalidate
 .\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
 ```
 
-That loads the 1,241 bundled observations without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+That loads the 1,241 product observations plus 771 published averages and default values (2,012 records) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
 
 ## Repository map
 
@@ -28,7 +29,7 @@ That loads the 1,241 bundled observations without any network access and opens t
 | `config/` | Full source registry, the product-type HS mappings (`hs_mappings.json`, all marked not verified) and the (intentionally empty) exact-name HS6 rules |
 | `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte. `examples/calculator/` holds two sample baskets |
 | `reference/hs2022/` | HS 2022 code list with its source, checksum and license |
-| `tests/` | Test suite (178 tests) |
+| `tests/` | Test suite (184 tests) |
 | `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
 | `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
 | `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |

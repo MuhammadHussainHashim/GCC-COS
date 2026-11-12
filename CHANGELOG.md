@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.0 — CBAM default values and everyday products (2026-11-12)
+
+Added from the user's `GCC-carbon-data.xlsx` workbook, without repeating anything already held:
+- **570 UK CBAM default values** by 8-digit commodity code (tCO2e per tonne). Each record's HS code is the first six digits of the source's own code, so these are the first HS codes in the system that are not proposed mappings. The values were typed from GOV.UK and are flagged as not re-checked.
+- **201 ADEME Impact CO2 averages** for everyday products, rebuilt from the publisher's own file and checked value by value in a test.
+- The calculator accepts both, takes 8-digit commodity codes, and keeps each kind of value in its own total.
+
+Not added, because the system already has them: the workbook's 1,241 product footprints and 5,613 HS codes. Also left out: six ADEME digital devices that repeat existing product types, the HS-to-NAICS table (no footprint values) and the workbook's note sheets. Ten ADEME units in the workbook ("kg" for meals) were corrected to "item" from the source.
+
+Checked on Linux / Python 3.13: 184 of 184 tests pass; `ruff` clean. Windows untested.
+
 ## 1.3.0 — Calculator refinements (2026-11-11)
 
 Added after reviewing published descriptions of other calculators (see `docs/CALCULATOR.md`):

@@ -81,4 +81,9 @@ Sources read: [Sustainable Atlas comparison](https://sustainableatlas.org/post/c
 
 ## What the data can answer today
 
-Mostly electronics: laptops, monitors, desktops, servers, smartphones, tablets, printers and a few others, plus a handful of construction products. Any other product returns "no value".
+- **Electronics** (manufacturer-reported, per item): laptops, monitors, desktops, servers, smartphones, tablets, printers and a few others.
+- **Everyday products** (ADEME averages for France): food and drinks per kg or litre, clothing, household appliances, furniture and some digital accessories per item.
+- **CBAM goods** (UK default values, per kg): iron and steel, aluminium, fertilisers, cement and hydrogen, by 6-digit HS code or 8-digit commodity code. Enter the quantity in kg (1 tonne = 1000 kg).
+- A handful of construction products.
+
+Each of these groups gets its own total, because they measure different things. Any other product returns "no value".

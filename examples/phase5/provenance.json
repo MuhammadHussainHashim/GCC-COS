@@ -1,0 +1,130 @@
+{
+ "prepared": "2026-11-12",
+ "input_workbook": {
+  "name": "GCC-carbon-data.xlsx",
+  "sha256": "4391afc027a512a13cdb50b9155dac6ff3264b73475a18406c30b961678d6dba",
+  "note": "User-supplied compilation dated 11 November 2026; not stored in the repository."
+ },
+ "uk_cbam": {
+  "file": "uk-cbam-default-values.csv",
+  "rows": 570,
+  "taken_from": "Workbook sheet 'CBAM defaults', unchanged values",
+  "checked_against_source": false,
+  "reason": "www.gov.uk is not reachable from the build environment",
+  "flagged_row": "73065029"
+ },
+ "ademe": {
+  "file": "ademe-common-products.csv",
+  "rows": 201,
+  "upstream_repository": "https://github.com/incubateur-ademe/impactco2",
+  "upstream_commit": "aadc7be1d75b07d820452c07eaa79493c5f7bbd1",
+  "upstream_files": {
+   "values.json": "73ec80760e7aa9775dbff82cffc2304f4a1282509d23ebf42af1953e7f8da5f3",
+   "categories.tsx": "c5d62cd24ef56a21a1791c44f3c93a6d0563d34615a8ad25e60487993385c4eb",
+   "LICENSE-impactco2.txt": "404c100bc5ac0e6ae2a57d0fd80f3bb20510637d1bf2f8ef926eb6c2054a0017"
+  },
+  "checked_against_source": true,
+  "workbook_values_matching_upstream": 207,
+  "units_corrected_from_workbook": [
+   {
+    "id": "repasavecduboeuf",
+    "name": "Meal with beef",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecdupoulet",
+    "name": "Meal with chicken",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecdupoissonblanc",
+    "name": "Meal with cod",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecdulieunoir",
+    "name": "Meal with pollock",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecduporc",
+    "name": "Meal with pork",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecdupoissongras",
+    "name": "Meal with salmon",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecduthon",
+    "name": "Meal with tuna in oil",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasavecduveau",
+    "name": "Meal with veal",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasvegetalien",
+    "name": "Vegan meal",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   },
+   {
+    "id": "repasvegetarien",
+    "name": "Vegetarian meal",
+    "workbook_unit": "kg",
+    "upstream_unit": "item"
+   }
+  ],
+  "left_out_as_repeats": [
+   {
+    "id": "smartphone",
+    "name": "Smartphone",
+    "already_covered_by_product_type": "Smartphone"
+   },
+   {
+    "id": "ordinateurfixeparticulier",
+    "name": "Desktop computer without screen (personal)",
+    "already_covered_by_product_type": "Desktop"
+   },
+   {
+    "id": "ordinateurfixeprofessionnel",
+    "name": "Desktop computer without screen (office)",
+    "already_covered_by_product_type": "Desktop"
+   },
+   {
+    "id": "ecran",
+    "name": "Computer screen",
+    "already_covered_by_product_type": "Monitor"
+   },
+   {
+    "id": "tabletteclassique",
+    "name": "Tablet",
+    "already_covered_by_product_type": "Tablet"
+   },
+   {
+    "id": "ordinateurportable",
+    "name": "Laptop",
+    "already_covered_by_product_type": "Laptop"
+   }
+  ]
+ },
+ "not_added": {
+  "Product footprints": "1,241 rows already in the system (Boavizta and EPD records)",
+  "HS codes": "5,613 codes already in reference/hs2022",
+  "CBAM by HS6": "A summary of the CBAM sheet; the system calculates this itself",
+  "HS6 to NAICS": "A US industry concordance with no footprint values; nothing in the system uses it until spend-based factors are added",
+  "Calculator, Product calculator, Calculator features, Still to collect": "Worksheets and notes, not data"
+ }
+}

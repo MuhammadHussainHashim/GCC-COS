@@ -12,16 +12,16 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from .hs import annotate, load_table
-from .model import is_product
+from .model import is_item
 
 KINDS = ("record", "hs", "type")
 FULL_LIFECYCLE = "Full lifecycle (manufacturer-reported)"
-QUANTITY_UNITS = {"kg CO2e/item": "items", "kg CO2e/kg": "kg", "kg CO2e/m2": "m2", "kg CO2e/m3": "m3"}
+QUANTITY_UNITS = {"kg CO2e/item": "items", "kg CO2e/kg": "kg", "kg CO2e/l": "litres", "kg CO2e/m2": "m2", "kg CO2e/m3": "m3"}
 MESSAGES = {
     "invalid_quantity": "Quantity must be a number greater than zero.",
     "unknown_kind": "Use record, hs or type.",
     "unknown_record": "No product record has this id.",
-    "unknown_hs_code": "This is not a 2-, 4- or 6-digit code in the HS 2022 list.",
+    "unknown_hs_code": "This is not a 2-, 4- or 6-digit code in the HS 2022 list, or an 8-digit commodity code the system holds.",
     "no_data": "No footprint record is linked to this yet.",
     "heading_only": "Records exist under this 4-digit heading but none is assigned to this 6-digit code. Use the 4-digit heading or pick a product type.",
     "mixed_units_or_scopes": "The matching records use different units or lifecycle stages, so no single value represents them. Pick one record by id.",
@@ -30,7 +30,11 @@ MESSAGES = {
 
 
 def scope_of(row):
-    return ("EPD module " + str(row["lifecycle_module"])) if row.get("lifecycle_module") else FULL_LIFECYCLE
+    if row.get("lifecycle_module"):
+        return "EPD module " + str(row["lifecycle_module"])
+    if row.get("data_kind") == "published_generic_factor":
+        return str(row.get("lifecycle_scope") or "Scope not stated")
+    return FULL_LIFECYCLE
 
 
 def _value(row):
@@ -64,8 +68,8 @@ def lifetime(row):
 
 
 def prepare(rows):
-    """Product rows with HS columns; pass storage.records(db)."""
-    rows = [r for r in rows if is_product(r)]
+    """Product and product-factor rows with HS columns; pass storage.records(db)."""
+    rows = [r for r in rows if is_item(r)]
     return rows if all("hs_status" in r for r in rows) else annotate(rows)
 
 
@@ -90,10 +94,16 @@ def estimate(rows, kind, value, quantity, table=None):
     elif kind == "hs":
         query = line["query"] = query.replace(".", "").replace(" ", "")
         codes = table if table is not None else load_table()[0]
-        if not query.isdigit() or len(query) not in (2, 4, 6) or query not in codes:
+        if query.isdigit() and len(query) == 8:
+            # An 8-digit commodity (CN) code, as used by the CBAM default values.
+            matches = [r for r in rows if str(r.get("product_name") or "").startswith(f"CN {query}:")]
+            if not matches:
+                return _failed(line, "unknown_hs_code")
+        elif not query.isdigit() or len(query) not in (2, 4, 6) or query not in codes:
             return _failed(line, "unknown_hs_code")
-        line["hs_description"] = codes[query]["description"]
-        matches = [r for r in rows if (r.get("hs_code") or "").startswith(query)]
+        else:
+            line["hs_description"] = codes[query]["description"]
+            matches = [r for r in rows if (r.get("hs_code") or "").startswith(query)]
         if not matches:
             under_heading = any(r.get("hs_level") == 4 and query.startswith(r["hs_code"]) for r in rows)
             return _failed(line, "heading_only" if len(query) == 6 and under_heading else "no_data")
@@ -125,8 +135,12 @@ def estimate(rows, kind, value, quantity, table=None):
         flags.append("median_of_several_records")
     if len(types) > 1:
         flags.append("covers_several_product_types")
-    if scope != FULL_LIFECYCLE:
+    if scope.startswith("EPD module"):
         flags.append("production_stage_only_not_full_lifecycle")
+    if any(r.get("data_kind") == "published_generic_factor" for r in used):
+        flags.append("average_or_default_value_not_a_specific_product")
+    if any(r.get("verification_status") == "transcribed_from_source_page_not_digit_checked" for r in used):
+        flags.append("transcribed_not_checked_against_source")
     if any("declaration_expired" in (r.get("issues") or []) for r in used):
         flags.append("declaration_expired")
     if len(used) > 1 and low > 0 and high / low > 3:
@@ -218,6 +232,10 @@ def calculate(rows, lines, table=None, people=None):
         warnings.append(f"INCOMPLETE: {len(missing)} of {len(results)} lines have no value and are left out of the totals (lines {', '.join(map(str, missing))}).")
     if len(totals) > 1:
         warnings.append("Lines cover different lifecycle scopes. They are totalled separately and must not be added together.")
+    if any("transcribed_not_checked_against_source" in r.get("flags", []) for r in results):
+        warnings.append("NOT VERIFIED: some values were typed in from a web page and have not been checked against it digit by digit.")
+    if any("average_or_default_value_not_a_specific_product" in r.get("flags", []) for r in results):
+        warnings.append("Some lines use a published average or a regulatory default value, not the footprint of a specific product.")
     if any("wide_range" in r.get("flags", []) for r in results):
         warnings.append("WIDE RANGE: for some lines the highest source record is more than three times the lowest. Pick a specific product for a closer figure.")
     warnings.append("Transport of the goods (shipping) is not included.")
