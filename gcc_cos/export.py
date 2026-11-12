@@ -73,6 +73,10 @@ def excel_bytes(db, verified_only=False, **filters):
             if any(isinstance(v, str) and len(v) > 32767 for v in audit.to_numpy().flat):
                 raise ValueError("Audit note exceeds Excel cell limit; inspect SQLite instead")
             audit.to_excel(writer, index=False, sheet_name=sheet)
+        # Reference tables (CBAM defaults, activity factors, country data and so on), each on its own sheet.
+        from .refdata import frames
+        for sheet, reference in frames(db).items():
+            reference.to_excel(writer, index=False, sheet_name=sheet)
     return buffer.getvalue()
 
 

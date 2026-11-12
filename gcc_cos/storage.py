@@ -32,6 +32,8 @@ def connect(path):
     db.commit()
     from .verification import schema
     schema(db)
+    from .refdata import schema as reference_schema
+    reference_schema(db)
     return db
 
 

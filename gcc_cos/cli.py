@@ -63,6 +63,20 @@ def main(argv=None):
     p.add_argument("--output-dir", default="exports/research-review")
     p = sub.add_parser("hs-lookup", help="Search the bundled HS 2022 code list by number or words")
     p.add_argument("query")
+    for command, table, text in (
+            ("load-reference-values", "reference_values", "Load reference values by CN/HS code (bundled: UK CBAM default values)"),
+            ("load-activity-factors", "activity_factors", "Load emission factors by activity (bundled: ADEME transport, heating, digital use)"),
+            ("load-country-data", "country_data", "Load country data (bundled: Our World in Data emissions per person and electricity)"),
+            ("load-hs-codes", "hs_codes", "Load the HS 2022 code list into the database"),
+            ("load-hs-industry-links", "hs_industry_links", "Load the HS-to-industry link (bundled: HS 6-digit to NAICS, 2017)"),
+            ("load-benchmarks", "benchmarks", "Load published benchmarks and assumptions (bundled: US EPA calculator)"),
+            ("load-airports", "airports", "Load airports with coordinates (bundled: OurAirports)")):
+        p = sub.add_parser(command, help=text)
+        p.set_defaults(reference_table=table)
+        if table != "hs_codes":
+            p.add_argument("--dataset", help="Folder with data.csv and SOURCE.json; the bundled dataset is used when left out")
+    sub.add_parser("load-reference-data", help="Load every bundled reference dataset")
+    sub.add_parser("reference-tables", help="Show how many rows each reference table holds")
     p = sub.add_parser("calculate", help="Total footprint for a basket of products and quantities")
     p.add_argument("basket", nargs="?", help="CSV with quantity and one of record_id, hs_code, product_type per row")
     p.add_argument("--item", action="append", default=[], metavar="KIND=VALUE:QUANTITY",
@@ -108,6 +122,19 @@ def main(argv=None):
         return 0
     db = connect(args.db)
     try:
+        if args.command in {"load-reference-data", "reference-tables"} or getattr(args, "reference_table", None):
+            from . import refdata
+            try:
+                if args.command == "reference-tables":
+                    print(json.dumps(refdata.counts(db), indent=2))
+                    return 0
+                results = refdata.load_all(db) if args.command == "load-reference-data" else \
+                    refdata.load_table_datasets(db, args.reference_table, getattr(args, "dataset", None))
+            except (ValueError, OSError) as exc:
+                parser.error(str(exc))
+            for result in results:
+                print(json.dumps(result))
+            return 0
         if args.command == "calculate":
             from . import calculator
             from .storage import records

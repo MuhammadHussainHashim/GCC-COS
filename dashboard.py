@@ -30,7 +30,7 @@ try:
     warnings = sorted({issue for row in rows for issue in row.get('issues', [])})
     filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
     selected = select(rows, **filters)
-    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes", "Calculator"])
+    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes", "Calculator", "Reference data"])
     with tabs[0]:
         st.metric("Collected records", len(rows))
         st.metric("Product observations (all records)", sum(is_product(r) for r in rows))
@@ -241,5 +241,17 @@ try:
             st.download_button("Download result Excel", buffer.getvalue(), "gcc-footprint-result.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         else:
             st.info("Add a product or upload a basket to see a total.")
+    with tabs[9]:
+        from gcc_cos import refdata
+        st.subheader("Reference data")
+        st.caption("These tables hold other kinds of numbers than product footprints: regulatory default values, activity factors, country averages and published assumptions. They are kept apart on purpose and are not added to product footprints.")
+        reference_counts = refdata.counts(db)
+        if not any(reference_counts.values()):
+            st.info("No reference data is loaded yet. Run: python -m gcc_cos load-reference-data")
+        else:
+            st.dataframe(pd.DataFrame(refdata.rows(db, "reference_datasets")).astype(str), use_container_width=True, hide_index=True)
+            chosen_table = st.selectbox("Table", [t for t, n in reference_counts.items() if n],
+                                        format_func=lambda t: f"{refdata.TABLES[t][3]} ({reference_counts[t]:,} rows)")
+            st.dataframe(pd.DataFrame(refdata.rows(db, chosen_table)), use_container_width=True, hide_index=True)
 finally:
     db.close()
