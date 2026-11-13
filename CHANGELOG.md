@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.9.0 — Household footprint calculator (web) (2026-11-13)
+
+- New web calculator (`python -m gcc_cos.web`): guided questionnaire, results with charts, evidence for every entry, downloads. See `docs/CALCULATOR_APP.md`.
+- New versioned read-only API under `/api/v1/`. The database is opened read-only.
+- New approvals table and commands `calculator-approve`, `calculator-revoke`, `calculator-approvals`. Nothing is approved by default.
+- Entries are calculated only on an exact match of activity, unit, country, year and boundary; other-country and other-year factors need an explicit switch and are labelled stand-ins. Results are never presented as a complete footprint.
+- New requirements: `fastapi`, `uvicorn`, `httpx`.
+- The Streamlit dashboard, existing records, datasets and tests are unchanged.
+- 269 of 269 tests pass (the browser test needs Node.js and Playwright, otherwise it is skipped) on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.8.0 — Pakistan prices and more calculator options (2026-11-12)
 
 - New table `energy_prices`: 30 Pakistani regulated prices (NEPRA residential electricity tariff 2026, OGRA domestic gas, LPG, kerosene), transcribed from the scanned notifications and labelled so.
