@@ -79,6 +79,17 @@ def main(argv=None):
         if table != "hs_codes":
             p.add_argument("--dataset", help="Folder with data.csv and SOURCE.json; the bundled dataset is used when left out")
     sub.add_parser("load-reference-data", help="Load every bundled reference dataset")
+    p = sub.add_parser("calculator-approve", help="Approve a dataset for use by the household calculator (records who approved it and why)")
+    p.add_argument("dataset")
+    p.add_argument("--use", default="household_calculator")
+    p.add_argument("--approver", required=True)
+    p.add_argument("--note", required=True, help="What you checked before approving")
+    p = sub.add_parser("calculator-revoke", help="Withdraw a calculator approval")
+    p.add_argument("dataset")
+    p.add_argument("--use", default="household_calculator")
+    p.add_argument("--by", required=True)
+    p.add_argument("--note", required=True)
+    sub.add_parser("calculator-approvals", help="List calculator approvals, including withdrawn ones")
     sub.add_parser("reference-tables", help="Show how many rows each reference table holds")
     p = sub.add_parser("calculate", help="Total footprint for a basket of products and quantities")
     p.add_argument("basket", nargs="?", help="CSV with quantity and one of record_id, hs_code, product_type per row")
@@ -125,6 +136,20 @@ def main(argv=None):
         return 0
     db = connect(args.db)
     try:
+        if args.command in {"calculator-approve", "calculator-revoke", "calculator-approvals"}:
+            from . import approvals
+            try:
+                if args.command == "calculator-approve":
+                    print(json.dumps({"approval_id": approvals.approve(db, args.dataset, args.use, args.approver, args.note), "dataset": args.dataset,
+                                      "level": approvals.LEVEL, "note": "Approved for estimation only; values stay source-reported, not independently verified."}))
+                elif args.command == "calculator-revoke":
+                    print(json.dumps({"revoked": approvals.revoke(db, args.dataset, args.use, args.by, args.note), "dataset": args.dataset}))
+                else:
+                    for row in approvals.history(db):
+                        print(json.dumps(row, ensure_ascii=False))
+            except ValueError as exc:
+                parser.error(str(exc))
+            return 0
         if args.command in {"load-reference-data", "reference-tables"} or getattr(args, "reference_table", None):
             from . import refdata
             try:
