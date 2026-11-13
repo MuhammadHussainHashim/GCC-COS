@@ -240,6 +240,32 @@
       }
     },
     {
+      "label": "GCC-COS: 4 Run calculator (web)",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos.web",
+        "--db",
+        "data/carbon.sqlite"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
       "label": "GCC-COS: Run tests",
       "type": "process",
       "command": "${workspaceFolder}/.venv/bin/python",

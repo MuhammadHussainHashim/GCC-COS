@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GCC Footprint Calculator</title>
+<meta name="description" content="Green Carbon Corridor household carbon footprint calculator, built on published and approved data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2312372a'/%3E%3Cpath d='M9 21c3-9 9-12 15-12-1 7-5 13-14 13' fill='%2387b867'/%3E%3C/svg%3E">
+<script type="module" src="/static/app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the calculator</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" class="brand-ring"></circle>
+        <path d="M10 27c4-11 11-15 20-15-1 9-7 16-18 16" class="brand-leaf"></path>
+        <path d="M12 27c4-4 8-7 13-9" class="brand-vein"></path>
+      </svg>
+      <div>
+        <span class="brand-name">Green Carbon Corridor</span>
+        <span class="brand-sub">Household footprint calculator</span>
+      </div>
+    </div>
+    <span class="data-pill" id="data-pill">Checking data…</span>
+  </div>
+  <nav class="stepper" aria-label="Calculator steps">
+    <ol id="stepper"></ol>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+  <div id="alert" class="alert" role="alert" hidden></div>
+
+  <!-- 1 Household -->
+  <section class="step" id="step-household" data-step="0" aria-labelledby="h-household">
+    <p class="eyebrow">Step 1 of 6</p>
+    <h1 id="h-household">Who and where</h1>
+    <p class="lede">Your country and reporting year decide which published factors fit. A factor is only used when its country and year match yours, unless you allow a labelled stand-in below.</p>
+    <div class="grid two">
+      <div class="field">
+        <label for="country">Country</label>
+        <select id="country" required></select>
+      </div>
+      <div class="field">
+        <label for="year">Reporting year</label>
+        <select id="year"></select>
+        <p class="hint">The 12 months your answers describe.</p>
+      </div>
+      <div class="field">
+        <label for="people">People in the household</label>
+        <input id="people" type="number" min="1" max="50" step="1" inputmode="numeric" placeholder="e.g. 4">
+        <p class="hint">Used to show a per-person figure.</p>
+      </div>
+    </div>
+    <div class="panel" id="data-status">
+      <h2 class="panel-title">What the data can cover for you</h2>
+      <div id="data-status-body" class="status-list"><p class="muted">Choose a country and year.</p></div>
+    </div>
+    <fieldset class="panel proxies">
+      <legend>Stand-in factors (off by default)</legend>
+      <p class="hint">Most factors in the system are published for the United Kingdom (2026) or France. Turning these on lets the calculator use them for you, and marks every such line as a stand-in.</p>
+      <label class="switch"><input type="checkbox" id="proxy-geo"><span class="track" aria-hidden="true"></span><span>Allow factors published for another country</span></label>
+      <label class="switch"><input type="checkbox" id="proxy-year"><span class="track" aria-hidden="true"></span><span>Allow factors published for another year</span></label>
+    </fieldset>
+  </section>
+
+  <!-- 2 Home energy -->
+  <section class="step" id="step-home" data-step="1" aria-labelledby="h-home" hidden>
+    <p class="eyebrow">Step 2 of 6</p>
+    <h1 id="h-home">Home energy</h1>
+    <p class="lede">Use your bills. Enter the amount and the period it covers; the calculator turns it into a year.</p>
+    <div class="cards" id="home-cards"></div>
+  </section>
+
+  <!-- 3 Transport -->
+  <section class="step" id="step-transport" data-step="2" aria-labelledby="h-transport" hidden>
+    <p class="eyebrow">Step 3 of 6</p>
+    <h1 id="h-transport">Getting around</h1>
+    <p class="lede">Add each car, motorbike and type of trip. Flights can be entered by airports or by distance.</p>
+    <div class="add-row" role="group" aria-label="Add transport">
+      <button class="chip-btn" data-add="car">+ Car</button>
+      <button class="chip-btn" data-add="motorbike">+ Motorbike</button>
+      <button class="chip-btn" data-add="bus">+ Bus or coach</button>
+      <button class="chip-btn" data-add="rail">+ Train or metro</button>
+      <button class="chip-btn" data-add="flight">+ Flight</button>
+    </div>
+    <div class="cards" id="transport-cards"></div>
+    <label class="skip-toggle"><input type="checkbox" data-skip="transport"> I don't travel this way or don't know, skip transport</label>
+  </section>
+
+  <!-- 4 Food -->
+  <section class="step" id="step-food" data-step="3" aria-labelledby="h-food" hidden>
+    <p class="eyebrow">Step 4 of 6</p>
+    <h1 id="h-food">Food</h1>
+    <p class="lede">Search the foods you eat most and enter how much. Values are averages for food eaten in France (AGRIBALYSE), from field to plate.</p>
+    <div class="search">
+      <label for="food-search" class="sr-only">Search foods</label>
+      <input id="food-search" type="search" placeholder="Search foods, for example rice, chicken, milk" autocomplete="off">
+      <ul class="results" id="food-results" role="listbox" aria-label="Foods"></ul>
+    </div>
+    <div class="cards" id="food-cards"></div>
+    <label class="skip-toggle"><input type="checkbox" data-skip="food"> Skip food</label>
+  </section>
+
+  <!-- 5 Products -->
+  <section class="step" id="step-products" data-step="4" aria-labelledby="h-products" hidden>
+    <p class="eyebrow">Step 5 of 6</p>
+    <h1 id="h-products">Products you bought this year</h1>
+    <p class="lede">Find the exact manufacturer, model and variant. Each footprint is the manufacturer's own published figure for the whole product life.</p>
+    <div class="search">
+      <label for="product-search" class="sr-only">Search products</label>
+      <input id="product-search" type="search" placeholder="Search, for example MacBook Air M1 256GB" autocomplete="off">
+      <ul class="results" id="product-results" role="listbox" aria-label="Products"></ul>
+    </div>
+    <div class="cards" id="product-cards"></div>
+    <label class="skip-toggle"><input type="checkbox" data-skip="products"> Skip products</label>
+  </section>
+
+  <!-- 6 Review -->
+  <section class="step" id="step-review" data-step="5" aria-labelledby="h-review" hidden>
+    <p class="eyebrow">Step 6 of 6</p>
+    <h1 id="h-review">Check your answers</h1>
+    <p class="lede">Correct anything before calculating. Sections you skipped are left out of the result and shown as not covered.</p>
+    <div id="review-body" class="review"></div>
+  </section>
+
+  <!-- 7 Results -->
+  <section class="step" id="step-results" data-step="6" aria-labelledby="h-results" hidden>
+    <div aria-live="polite" id="results-body"></div>
+  </section>
+</main>
+
+<footer class="navbar">
+  <div class="navbar-inner">
+    <button class="btn ghost" id="back">Back</button>
+    <span class="nav-note" id="nav-note"></span>
+    <button class="btn primary" id="next">Next</button>
+  </div>
+</footer>
+
+<template id="tpl-card">
+  <article class="card">
+    <header class="card-head"><h3 class="card-title"></h3><button class="icon-btn remove" aria-label="Remove">×</button></header>
+    <div class="card-body"></div>
+    <p class="card-help hint"></p>
+  </article>
+</template>
+</body>
+</html>
