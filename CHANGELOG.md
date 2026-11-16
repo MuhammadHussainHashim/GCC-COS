@@ -8,6 +8,7 @@
 - Entries are calculated only on an exact match of activity, unit, country, year and boundary; other-country and other-year factors need an explicit switch and are labelled stand-ins. Results are never presented as a complete footprint.
 - New requirements: `fastapi`, `uvicorn`, `httpx`.
 - The Streamlit dashboard, existing records, datasets and tests are unchanged.
+- Data verification (`docs/DATA_VERIFICATION.md`): 61,817 bundled values and all 2,012 records equal their publishers' files; 630 of 1,226 product footprints were found in the manufacturers' reports, 5 were not, 591 could not be opened.
 - 269 of 269 tests pass (the browser test needs Node.js and Playwright, otherwise it is skipped) on Linux / Python 3.13; `ruff` clean. Windows untested.
 
 ## 1.8.0 — Pakistan prices and more calculator options (2026-11-12)

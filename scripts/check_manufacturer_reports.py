@@ -57,6 +57,11 @@ def text_of(path, info):
     if body[:5] == b"%PDF-":
         from pypdf import PdfReader
         return "\n".join((p.extract_text() or "") for p in PdfReader(io.BytesIO(body)).pages), "pdf"
+    if body[:2] == b"PK":  # PowerPoint or Word file: read the text inside its slides or pages
+        import zipfile
+        with zipfile.ZipFile(io.BytesIO(body)) as z:
+            parts = [n for n in z.namelist() if re.match(r"(ppt/slides/slide\d+|word/document)\.xml$", n)]
+            return " ".join(re.sub(r"<[^>]+>", " ", z.read(n).decode("utf-8", errors="replace")) for n in parts), "office"
     return re.sub(r"<[^>]+>", " ", body.decode("utf-8", errors="replace")), "html"
 
 
@@ -64,6 +69,11 @@ def find(text, value):
     """Return 'near' if the number is printed within 80 characters of CO2/kg, 'anywhere' if printed elsewhere, else None."""
     number = float(value)
     forms = {f"{number:g}", f"{number:.0f}" if number == int(number) else str(value).strip(), f"{number:,.0f}" if number == int(number) else f"{number:,}"}
+    forms |= {f"{number:.1f}", f"{number:.2f}", f"{number:,.1f}", f"{number:,.2f}"}  # the same number printed with trailing zeros
+    if number >= 10:  # scientific notation, as some reports print it (1.9E+05, 2.05E+01)
+        mantissa, exponent = f"{number:E}".split("E")
+        short = mantissa.rstrip("0").rstrip(".")
+        forms |= {f"{m}E+{int(exponent):02d}" for m in (short, f"{float(mantissa):.2f}", f"{float(mantissa):.1f}") if float(m) * 10 ** int(exponent) == number or abs(float(m) * 10 ** int(exponent) - number) < 1e-9}
     forms |= {f.replace(",", " ") for f in forms} | {f.replace(".", ",") for f in forms if "." in f}
     best = None
     flat = text.replace(" ", " ").replace(" ", " ")
