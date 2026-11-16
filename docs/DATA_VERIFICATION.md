@@ -45,22 +45,24 @@ Also confirmed: the publisher files for the UK factors, AGRIBALYSE, EPA factors 
 
 `scripts/check_manufacturer_reports.py` downloaded the report each Boavizta product links to and looked for the product's total footprint in its text. This is a screening aid. "Found" means the number is printed in the document next to CO2 or kg; it does not prove the number belongs to the same model and configuration, and it is **not** the human evidence review. No record's status was changed.
 
-| Manufacturer | Products | Number found in the report | Not found | Report could not be opened or read |
-|---|---|---|---|---|
-| Apple | 91 | 91 | 0 | 0 |
-| Google | 51 | 51 | 0 | 0 |
-| Samsung | 7 | 7 | 0 | 0 |
-| Dell | 525 | 300 | 2 | 223 |
-| Lenovo | 365 | 172 | 0 | 193 |
-| Microsoft | 36 | 4 | 2 | 30 |
-| Seagate | 12 | 4 | 0 | 8 |
-| Fairphone | 2 | 1 | 1 | 0 |
-| HP | 124 | 0 | 0 | 124 |
-| Lexmark | 11 | 0 | 0 | 11 |
-| Asus | 2 | 0 | 0 | 2 |
-| **Total** | **1,226** | **630** | **5** | **591** |
+| Manufacturer | Products | Number found in the report | Not in the report today | Report removed by the maker | Report could not be opened |
+|---|---|---|---|---|---|
+| Apple | 91 | 91 | 0 | 0 | 0 |
+| Google | 51 | 51 | 0 | 0 | 0 |
+| Samsung | 7 | 7 | 0 | 0 | 0 |
+| Asus | 2 | 2 | 0 | 0 | 0 |
+| Dell | 525 | 300 | 2 | 5 | 218 |
+| Lenovo | 365 | 172 | 0 | 0 | 193 |
+| HP (including HPE) | 124 | 1 | 4 | 0 | 119 |
+| Microsoft | 36 | 4 | 2 | 30 | 0 |
+| Seagate | 12 | 4 | 0 | 8 | 0 |
+| Fairphone | 2 | 1 | 1 | 0 | 0 |
+| Lexmark | 11 | 0 | 0 | 0 | 11 |
+| **Total** | **1,226** | **633** | **9** | **43** | **541** |
 
-### Five records whose number is NOT in the manufacturer's report today
+Second pass (17 November 2026): HP's server sends an incomplete certificate chain (it leaves out DigiCert's public "Global G2 TLS RSA SHA256 2020 CA1" intermediate, which web browsers fetch for themselves). The check was repeated with that public certificate added to the trusted list, with verification left on. Asus's reports had moved to esg.asus.com. That pass found 3 more reports and 4 more mismatches. Archived copies on the Internet Archive could not be used: this environment does not allow web.archive.org.
+
+### Nine records whose number is NOT in the manufacturer's report today
 
 | Product | Value in our data (from Boavizta) | What the report says today |
 |---|---|---|
@@ -69,21 +71,27 @@ Also confirmed: the publisher files for the UK factors, AGRIBALYSE, EPA factors 
 | Microsoft Surface Laptop SE | 101 kg CO2e | lists production 42, transport 2, use 28 kg CO2eq; 101 does not appear |
 | Microsoft Surface Pro X | 116 kg CO2e | lists production 137, transport 15, use 21 kg CO2eq; 116 does not appear |
 | Fairphone 4 | 49.9 kg CO2e | headline "estimated to be 43 kg CO2 eq."; 49.9 appears only elsewhere in the document |
+| HP Chromebook x360 14a | 315 kg CO2e | "125 kg CO2 eq." |
+| HP E24m G4 FHD USB-C Conferencing Monitor | 286 kg CO2e | 218 (North America), 200 (Europe), 256 (Asia Pacific) kg CO2e; 286 is the figure in HP's report for the E24mv G4 |
+| HP Fortis 14" G10 Chromebook Enterprise | 167 kg CO2e | 160 kg CO2e (range 140 to 200) |
+| HP Fortis 14" G10 Chromebook | 167 kg CO2e | 160 kg CO2e (range 140 to 200) |
 
-The likely cause is that the manufacturer replaced the report after Boavizta copied the figure, or that Boavizta used a different configuration. These five need a person to read the report and decide. They are still in the data, unchanged.
+The likely cause is that the manufacturer replaced the report after Boavizta copied the figure, or that Boavizta used a different configuration. These nine need a person to read the report and decide. They are still in the data, unchanged.
 
-### 591 products that could not be checked
+### 584 products that could not be checked
 
 | Reason | Products |
 |---|---|
-| Dell's site refused automated download (HTTP 403) | 218 |
-| Lenovo's site answered "unavailable" (HTTP 503) | 193 |
-| HP's site failed the secure connection | 124 |
-| Report no longer at its address (HTTP 404; mostly Microsoft, some Dell) | 35 |
-| Lexmark, HPE and Asus sites not reachable from this environment | 23 |
-| Seagate pages whose text is drawn by scripts and cannot be read this way | 8 |
+| Dell refuses automated downloads (HTTP 403) | 218 |
+| Lenovo refuses automated downloads (HTTP 503) | 193 |
+| HP refuses automated downloads (HTTP 503 from www8.hp.com) | 109 |
+| Report removed by Microsoft (HTTP 404) | 30 |
+| Lexmark site not reachable (server error) | 11 |
+| HPE site not reachable (connection error) | 10 |
+| Report removed by Seagate (old page now redirects to a general page) | 8 |
+| Report removed by Dell (HTTP 404) | 5 |
 
-These need a person with a normal web browser, which is what the Phase 4 human evidence review is for.
+Dell, Lenovo and HP block automated tools; retrying while posing as a normal browser was deliberately not done. These need a person with a normal web browser, which is what the Phase 4 human evidence review is for. Removed reports can only be checked against an archived copy or a new report from the maker.
 
 ## Where each dataset was verified, and on which second platform
 
@@ -102,7 +110,7 @@ The addresses of every source are in `docs/data-verification/where-verified.json
 | US EPA calculator figures (25) | EPA calculator page and assumptions page: 25 values, 0 differences | None exists: single source | Each number is printed on the publisher's pages |
 | HS-to-industry links (6,322) | concordance R package on GitHub: 6,322 pairs, 0 missing from the package | None reachable: not checked on a second platform | Pairs match the package; line counts could not be re-derived |
 | Pakistan energy prices (30) | NEPRA and OGRA official notices (scanned PDFs): 30 values read twice from the scans, 0 differences; notices unchanged (same checksums) | None: the regulators' web pages could not be read by machine: not checked on a second platform | Read twice by eye from the official notice |
-| Boavizta product footprints (1,226 records) | Boavizta file on GitHub: 4,904 values, 0 differences | Each manufacturer's own report (independent of Boavizta): 630 found in the report; 5 not found; 591 could not be opened | 630 confirmed in the maker's report by machine; none by the human review |
+| Boavizta product footprints (1,226 records) | Boavizta file on GitHub: 4,904 values, 0 differences | Each manufacturer's own report (independent of Boavizta): 633 found in the report; 9 not in the report today; 43 reports removed; 541 could not be opened | 633 confirmed in the maker's report by machine; none by the human review |
 | ADEME everyday products (201 records) | ADEME Impact CO2 source file on GitHub: 201 values, 0 differences | Not checked: not checked on a second platform | Matches the publisher (one platform) |
 | EPD construction records (15) | Each EPD's public data file (ocni-dtu/epdx mirror): 30 values, 0 differences | The signed EPD documents were not opened: not checked on a second platform | Matches the public data file (one platform) |
 | HS code mappings (26 product types) | Each code exists in the HS 2022 list: 26 of 26 codes exist | No authority has confirmed them: proposed, not verified | NOT verified: needs a customs expert |
@@ -121,7 +129,7 @@ The Python tests pass on Linux and on Windows (GitHub's test machines). Device r
 
 ## 5. What is still NOT verified
 
-- No product footprint has passed the human evidence review. 630 have a machine "number found in the report"; 596 have nothing.
+- No product footprint has passed the human evidence review. 633 have a machine "number found in the report"; 9 do not match the report today; 584 could not be checked.
 - The 15 EPD records were compared with their public data files, not with the signed EPD PDFs.
 - HS code mappings are proposals.
 - The EPA calculator check finds each number on the page; the meaning beside it was read once by a person.
