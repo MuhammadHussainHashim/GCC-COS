@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.sqlite
+ data/input/*
+data/output/*
+!data/input/README.txt
+!data/output/README.txt

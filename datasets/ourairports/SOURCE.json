@@ -1,0 +1,18 @@
+{
+ "id": "ourairports",
+ "table": "airports",
+ "title": "Airports with coordinates (OurAirports)",
+ "publisher": "OurAirports (David Megginson and contributors)",
+ "url": "https://github.com/davidmegginson/ourairports-data",
+ "license": "Public domain (Unlicense)",
+ "license_url": "https://raw.githubusercontent.com/davidmegginson/ourairports-data/97afc8b3ee4711d70199fda73bdd66df9fd58cb8/LICENSE",
+ "attribution": "OurAirports (ourairports.com), public domain.",
+ "upstream_commit": "97afc8b3ee4711d70199fda73bdd66df9fd58cb8",
+ "obtained": "Rows of airports.csv that are large or medium airports with scheduled service and an IATA code; values unchanged",
+ "verification_status": "copied from the publisher's file",
+ "verification_note": "Community-maintained data. Small airfields, heliports and closed airports are left out. Elevation in metres is the source's feet multiplied by 0.3048.",
+ "file": "data.csv",
+ "rows": 3245,
+ "sha256": "67062f28723d97f3e6675bdf0782245653794d6c5b86204584869cf6fb682bb6",
+ "prepared": "2026-11-12"
+}

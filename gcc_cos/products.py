@@ -1,6 +1,5 @@
 """Product adapters. Reported footprints are never promoted to independent verification."""
 from datetime import datetime, timezone
-from decimal import Decimal
 import re
 
 GWP_TOTAL = {'6a37f984-a4b3-458a-a20a-64418c145fa2', '77e416eb-a363-4258-a04e-171d843a6460'}

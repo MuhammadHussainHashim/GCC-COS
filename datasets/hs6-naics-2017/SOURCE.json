@@ -1,0 +1,18 @@
+{
+ "id": "hs6-naics-2017",
+ "table": "hs_industry_links",
+ "title": "HS 6-digit to NAICS industry link (Pierce and Schott concordance, 2017)",
+ "publisher": "Pierce and Schott; redistributed in the insongkim/concordance R package",
+ "url": "https://github.com/insongkim/concordance",
+ "license": "MIT (concordance package, Copyright 2022 concordance authors)",
+ "license_url": "https://raw.githubusercontent.com/insongkim/concordance/de8517e0fa2b6cd0de8c02bcb7ba4583cde76aa7/LICENSE",
+ "attribution": "Pierce, J. R. and Schott, P. K. (2012), 'Concording U.S. Harmonized System Codes over Time'; (2009) NBER Working Paper 15548. Redistributed in the concordance R package (Liao, Kim, Miyano, Zhang), MIT License.",
+ "upstream_commit": "de8517e0fa2b6cd0de8c02bcb7ba4583cde76aa7",
+ "obtained": "Copied from the workbook's 'HS6 to NAICS' sheet",
+ "verification_status": "pairs checked against the package",
+ "verification_note": "All 6,322 code pairs exist in the package's hs_naics table. The counts of 10-digit import lines and the shares come from the workbook and could not be re-derived, because the package does not carry the 10-digit lines. The codes are 2017 codes: 5,376 six-digit codes, which is not the same list as HS 2022. Some NAICS codes end in X, as in the source.",
+ "file": "data.csv",
+ "rows": 6322,
+ "sha256": "f322b81e970ac0f651680c13f47bf98a3725dc7ce455919d7a2cc4ff122b7242",
+ "prepared": "2026-11-12"
+}

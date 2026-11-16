@@ -1,0 +1,80 @@
+[
+ {
+  "id": "uk-cbam-defaults",
+  "title": "UK CBAM default values (HMRC, published 16 October 2026) — transcription",
+  "url": "https://www.gov.uk/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam",
+  "license": "Open Government Licence v3.0 (Crown copyright)",
+  "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+  "attribution": "Contains public sector information licensed under the Open Government Licence v3.0. HM Revenue & Customs, 'Check the default values for the Carbon Border Adjustment Mechanism (CBAM)'.",
+  "reuse_permitted": true,
+  "enabled": false,
+  "access_method": "local_transcription",
+  "format": "csv",
+  "adapter": "mapped",
+  "allowed_hosts": [
+   "www.gov.uk"
+  ],
+  "sha256": "7139863f9213445364bcd8b8f578e1bac1313b622c98dd2bd126d5ceea38e300",
+  "connector_status": "local_ingestion_tested",
+  "notes": "Values were typed from the GOV.UK pages into GCC-carbon-data.xlsx on 11 November 2026 and were NOT compared digit by digit with the source. GOV.UK could not be reached from the build environment to re-check them. Default values are conservative regulatory figures, not measurements of any factory. For iron and steel the description is the general HS 6-digit wording, not the UK 8-digit wording.",
+  "defaults": {
+   "entity_type": "product",
+   "data_kind": "published_generic_factor",
+   "category": "CBAM goods",
+   "original_unit": "t CO2e/t",
+   "geography": "UK (import default)",
+   "year": "2026",
+   "lifecycle_scope": "Embedded emissions (UK CBAM default value)",
+   "methodology": "UK CBAM default value published by HMRC; a conservative regulatory figure, not a measurement",
+   "hs_evidence": "First six digits of the commodity code in the UK CBAM default-values table",
+   "hs_edition": "HS 2022",
+   "verification_status": "transcribed_from_source_page_not_digit_checked",
+   "source_limitations": "Transcribed by hand and not re-checked against GOV.UK. Regulatory default, not a measured footprint. Check the source page before formal use."
+  },
+  "columns": {
+   "product_name": "product_name",
+   "subcategory": "sector",
+   "material": "sector",
+   "hs6": "hs6",
+   "original_value": "default_value_tco2e_per_tonne",
+   "primary_source_url": "source_page",
+   "publication_date": "published"
+  }
+ },
+ {
+  "id": "ademe-impactco2",
+  "title": "ADEME Impact CO2 — everyday product averages (values.json)",
+  "url": "https://raw.githubusercontent.com/incubateur-ademe/impactco2/aadc7be1d75b07d820452c07eaa79493c5f7bbd1/src/utils/Equivalent/values.json",
+  "license": "MIT (incubateur-ademe/impactco2 repository)",
+  "license_url": "https://raw.githubusercontent.com/incubateur-ademe/impactco2/aadc7be1d75b07d820452c07eaa79493c5f7bbd1/license",
+  "attribution": "ADEME Impact CO2 (incubateur-ademe/impactco2), Copyright (c) 2022 Datagir, MIT License.",
+  "reuse_permitted": true,
+  "enabled": false,
+  "access_method": "local_derived_csv",
+  "format": "csv",
+  "adapter": "mapped",
+  "allowed_hosts": [
+   "raw.githubusercontent.com"
+  ],
+  "sha256": "508bbfb4dd1e429b6074041f2ac34ba520ecd05eac0c3985333e9ebade9d152e",
+  "connector_status": "local_ingestion_tested",
+  "notes": "CSV derived from the unmodified upstream values.json (value in g CO2e divided by 1000; unit read from the upstream English label). French averages. Six digital devices already covered by Boavizta product types are left out to avoid repeats. The licence of the underlying ADEME figures beyond the repository's MIT licence was not confirmed.",
+  "defaults": {
+   "entity_type": "product",
+   "data_kind": "published_generic_factor",
+   "geography": "FR",
+   "lifecycle_scope": "Full lifecycle average (ADEME Impact CO2)",
+   "methodology": "ADEME Impact CO2 average value for France",
+   "verification_status": "published_average_not_independently_crosschecked",
+   "source_limitations": "An average for France, not a specific product. No publication year is given in the source file."
+  },
+  "columns": {
+   "product_name": "name_en",
+   "subcategory": "name_en",
+   "category": "category",
+   "original_value": "kg_co2e",
+   "original_unit": "unit",
+   "primary_source_url": "source_page"
+  }
+ }
+]

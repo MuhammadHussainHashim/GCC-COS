@@ -1,6 +1,5 @@
 """Audit and Windows workflow regressions. Invented values below are SYNTHETIC TEST DATA."""
 from contextlib import closing
-import hashlib
 import json
 from pathlib import Path
 import sqlite3

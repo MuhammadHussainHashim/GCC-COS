@@ -1,0 +1,18 @@
+{
+ "id": "agribalyse-3.2-synthesis",
+ "table": "product_averages",
+ "title": "AGRIBALYSE v3.2 synthesis: food products consumed in France",
+ "publisher": "ADEME (and INRAE), data.ademe.fr",
+ "url": "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/raw",
+ "license": "Licence Ouverte / Open Licence (Etalab)",
+ "license_url": "https://www.etalab.gouv.fr/licence-ouverte-open-licence",
+ "attribution": "AGRIBALYSE v3.2, ADEME. Licence Ouverte / Open Licence.",
+ "upstream_sha256": "0c85fdf1a257e27e7ea771789a2b973b8c2fe946aa2bc43a1fcc906c2f565cc4",
+ "obtained": "Downloaded from data.ademe.fr on 12 November 2026; every product row copied, empty rows dropped",
+ "verification_status": "copied from the publisher's file",
+ "verification_note": "Averages for food as consumed in France, from field to plate. English names are the publisher's own (LCI Name). The data quality rating runs from 1 (excellent) to 5 (very weak). The publisher asks users to read its user guide before use: https://doc.agribalyse.fr/documentation/utiliser-agribalyse/precautions-et-conditions-dusage",
+ "file": "data.csv",
+ "rows": 2451,
+ "sha256": "91ec95b785e28d99726246a80f157a6253b693ccfa98942f7d84faed58be96bb",
+ "prepared": "2026-11-12"
+}

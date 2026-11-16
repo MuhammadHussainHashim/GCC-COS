@@ -1,0 +1,25 @@
+{
+ "id": "ccf-embodied-servers",
+ "table": "not loaded into the database (kept apart: cloud server estimates, not product footprints)",
+ "title": "Cloud Carbon Footprint: embodied (manufacturing) emissions per cloud server type",
+ "publisher": "Cloud Carbon Footprint (Thoughtworks), ccf-coefficients repository",
+ "url": "https://github.com/cloud-carbon-footprint/ccf-coefficients",
+ "page_named_by_user": "https://www.cloudcarbonfootprint.org/docs/getting-started",
+ "upstream_commit": "b0032d928c787cf76cecd7d1d611c5b46f366e29",
+ "upstream_sha256": {
+  "output/coefficients-aws-embodied.csv": "b57b088cb210c2e9fede885d406a8ae215d35a3767e41ff96f957f3d02740281",
+  "output/coefficients-gcp-embodied.csv": "b2f33eabc5ac8aacfcdcd983c7befb57850f760bdda6b1368c99b433589b2a8d",
+  "output/coefficients-azure-embodied.csv": "a5c224fadebdf49275df04fd4ec15877b89de747b9e21f2cc30b9f2b0b32b2c1"
+ },
+ "license": "Apache License 2.0",
+ "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+ "attribution": "Cloud Carbon Footprint, (c) 2021 Thoughtworks, Inc. Coefficients from the ccf-coefficients tool (original work by David Mytton). Apache License 2.0.",
+ "method": "total = 1,000 kg CO2e for a base rack server + 22.21 kg for each 16 GB of memory above 16 GB (from the Dell PowerEdge R740 life cycle assessment, 533 kg for 384 GB) + 100 kg per extra CPU + 50 kg per extra HDD or 100 kg per extra SSD + 150 kg per GPU. Method from Teads Engineering (2021), as stated in ccfcoef/constants.py and the CCF Embodied Emissions page.",
+ "obtained": "Cloned the ccf-coefficients repository on 16 November 2026 and copied every row of the three embodied output files unchanged; columns renamed and labels added.",
+ "verification_status": "copied from the publisher's file",
+ "verification_note": "Every total equals 1,000 plus its listed additions (checked for all 1,493 rows). These are modelled estimates for a whole physical server, not measured or manufacturer-published footprints. CCF's own documentation calls the 2021 Teads method outdated as a sole reference; the CCF application now uses a newer Boavizta-based set for AWS and Google Cloud, which was NOT imported because its Google Cloud values (median 120, up to 3,700, labelled metric tons per server) cannot be in the same unit as its AWS and Azure values. The grid factors per cloud region were not imported (they are electricity factors, not footprints, and two Azure rows in the source file are malformed).",
+ "file": "embodied-servers.csv",
+ "rows": 1493,
+ "sha256": "85388ad30baaab791e033e222cac20e8c227a802270c916cb199b0d13ff0822d",
+ "prepared": "2026-11-16"
+}

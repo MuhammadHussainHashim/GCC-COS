@@ -1,4 +1,58 @@
-# Green Carbon Corridor — Carbon Operating System (GCC-COS)
+# GCC-Final-System — Green Carbon Corridor Carbon Operating System
+
+> **Status, 11 November 2026.** This is the single working copy of the Green Carbon Corridor (GCC) system. Layer 1 (data), layer 2 (HS codes) and layer 3 ([calculator](docs/CALCULATOR.md)) work. Layer 4 (reduce and offset recommendations) is **not built yet**. **Nothing is verified:** no footprint is independently verified, and every HS code on the original 1,241 product records is a proposed mapping marked `NOT VERIFIED` (see [HS codes](docs/HS_CODES.md)), and 64 of them have no HS code. Version 1.4.0 adds 570 UK CBAM default values (iron and steel, aluminium, fertilisers, cement, hydrogen; HS codes come from the source's own commodity codes) and 201 ADEME everyday-product averages (food, drinks, clothing, appliances, furniture; no HS codes yet). The CBAM values were typed from GOV.UK and have not been re-checked against it. Background: [project history](docs/PROJECT_HISTORY.md), [data policy](docs/DATA_POLICY.md), [asset catalog](docs/ASSET_CATALOG.md), [Windows and VS Code workflow](docs/WORKFLOW_VSCODE.md).
+
+This is the consolidated, cleaned-up repository for the Green Carbon Corridor **Carbon Operating System (GCC-COS)**. It brings together everything from the earlier `GCC-COS` repository: the Phase 1–4 application from `main` and the shared VS Code setup that previously lived only on a side branch. The Python package and command are still named `gcc_cos` / `gcc-cos`.
+
+## Quick start
+
+```powershell
+git clone https://github.com/MuhammadHussainHashim/GCC-Final-System.git
+cd GCC-Final-System
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase2/sources.json ingest --manifest examples/phase2/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase3/sources.json ingest --manifest examples/phase3/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase5/sources.json ingest --manifest examples/phase5/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos revalidate
+.\.venv\Scripts\python.exe -m gcc_cos load-reference-data
+.\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
+```
+
+That loads the 1,241 product observations plus 771 published averages and default values (2,012 records) and ten reference tables (24,467 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+
+## Household footprint calculator (web)
+
+A guided calculator in the browser, reading the database read-only: `python -m gcc_cos.web --db data/carbon.sqlite`, then open http://127.0.0.1:8000/. Datasets must be approved first. Full guide, rules and limits: [docs/CALCULATOR_APP.md](docs/CALCULATOR_APP.md).
+
+## Repository map
+
+| Path | What it is |
+| --- | --- |
+| `gcc_cos/` | The application: ingestion, validation, normalization, storage, audit, human review, export and the command line |
+| `dashboard.py` | Streamlit dashboard |
+| `config/` | Full source registry, the product-type HS mappings (`hs_mappings.json`, all marked not verified) and the (intentionally empty) exact-name HS6 rules |
+| `examples/` | Licensed offline input snapshots and historical phase reports; kept byte-for-byte. `examples/calculator/` holds two sample baskets |
+| `reference/hs2022/` | HS 2022 code list with its source, checksum and license |
+| `datasets/` | Reference datasets, each a folder with `data.csv` and `SOURCE.json` (source, licence, checksum, verification state) |
+| `tests/` | Test suite (269 tests) |
+| `docs/` | Project history, data policy, asset catalog and the beginner Windows workflow |
+| `research/` | Counts-only summary of the unverified manufacturer research workbook; the rows themselves are not in this repository |
+| `archive/legacy/` | Older prototype source code, kept for reference only; not used or tested |
+| `scripts/` | Windows PowerShell helpers, diagnostics and the smoke test |
+| `.vscode/` | Shared VS Code tasks, launch configurations and settings |
+| `.github/workflows/` | Linux and Windows test workflow |
+| `WINDOWS.md`, `PHASE4.md`, `DATA_LICENSES.md`, `CHANGELOG.md` | Beginner instructions, human-review guide, data licensing, and what changed in this consolidation |
+
+## Manufacturer research workbook (kept out of this repository)
+
+A separate workbook, `Combined_Product_Carbon_Footprints.xlsx`, holds 4,146 manufacturer-reported rows. They are unverified and their reuse rights are not established, so the rows are **not** stored here and are **not** part of the 1,241 observations. Only a counts summary is kept in `research/2026-11-10/audit_summary.json`. To rebuild the review files on your own PC from your copy of the workbook:
+
+```powershell
+.\.venv\Scripts\python.exe -m gcc_cos research-prepare "C:\path\to\Combined_Product_Carbon_Footprints.xlsx" --output-dir exports\research-review
+```
+
+## Overview
 
 GCC-COS is a local, free Python application for collecting carbon-footprint evidence. It downloads authorized documents, keeps their original values and references, checks data quality, stores records in SQLite, and exports CSV, Excel and SQLite. Streamlit provides a searchable dashboard. No paid APIs, AI subscriptions or account are required for the working sources.
 
@@ -61,8 +115,8 @@ The dashboard adds original-source links, selected-record details, warning filte
 Install **Python 3.12 (64-bit)** and select “Add Python to PATH”. Install Git and VS Code. Open PowerShell or CMD:
 
 ```powershell
-git clone https://github.com/MuhammadHussainHashim/GCC-COS.git
-cd GCC-COS
+git clone https://github.com/MuhammadHussainHashim/GCC-Final-System.git
+cd GCC-Final-System
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m pip check
@@ -71,6 +125,16 @@ py -3.12 -m venv .venv
 If you already have this repository, open its existing folder; skip cloning it. In VS Code choose **Python: Select Interpreter**, then `.venv\Scripts\python.exe`. Run every command below from the repository root. Using the Python executable directly avoids PowerShell activation-policy problems.
 
 These commands were checked against the CLI and Python packaging configuration. **Execution was tested on Linux/Python 3.12, not native Windows.** On Linux/macOS create the environment with `python3 -m venv .venv` and replace `.\.venv\Scripts\python.exe` with `.venv/bin/python`.
+
+### Run it from VS Code without typing commands
+
+The repository includes shared VS Code tasks. Open the GCC-Final-System folder in VS Code, install the recommended Python extension when prompted, then choose **Terminal → Run Task…** and run these in order:
+
+1. **GCC-COS: 1 Set up (run once)** — creates `.venv` and installs the requirements.
+2. **GCC-COS: 2 Load bundled data (offline)** — loads the bundled Phase 2 and Phase 3 files; no network needed.
+3. **GCC-COS: 3 Run dashboard** — starts Streamlit on `http://localhost:8501`. `Ctrl+Shift+B` runs this task directly.
+
+Streamlit normally opens your default browser. To view it inside VS Code instead, press `Ctrl+Shift+P`, choose **Simple Browser: Show** and enter `http://localhost:8501`. Stop the dashboard with `Ctrl+C` in its terminal panel. Press `F5` and pick **GCC-COS dashboard** to run it under the debugger. The tasks were checked on Linux; native Windows execution of them remains untested.
 
 ## 2. Collect real product records
 
@@ -168,6 +232,8 @@ The application keeps the published value/unit unchanged and records calculated 
 Run `revalidate` after updating validation logic and before exporting an existing database. Changes to derived checks/factors are audited without changing original evidence. Unchanged manual decisions survive; changed results return to review. Invalid numeric records cannot be manually accepted.
 
 ### HS6 and manual review
+
+**Update, version 1.1.0:** records now also get HS columns from product-type mappings in `config/hs_mappings.json`, shown at display and export time and always labelled with their status. See [HS codes](docs/HS_CODES.md). The paragraph below describes the older exact-name rule file, which is unchanged and still empty.
 
 No HS6 code is guessed from broad labels such as “cement”, “phone” or “aluminum”. `config/hs_rules.json` starts empty. An assignment requires a single exact-name rule with a six-digit code, the tariff edition and a real supporting classification reference. Missing or ambiguous matches enter the review queue. Product-family matches must first be checked for applicability. Inventory totals have no product HS classification.
 

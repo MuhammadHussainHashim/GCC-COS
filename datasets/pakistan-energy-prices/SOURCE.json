@@ -1,0 +1,31 @@
+{
+ "id": "pakistan-energy-prices",
+ "table": "energy_prices",
+ "title": "Pakistan regulated energy prices: residential electricity, domestic gas, LPG and kerosene",
+ "publisher": "National Electric Power Regulatory Authority (NEPRA) and Oil and Gas Regulatory Authority (OGRA), Pakistan",
+ "url": "https://nepra.org.pk/ ; https://www.ogra.org.pk/",
+ "license": "No licence stated: regulated prices published in official notifications for the Gazette of Pakistan. Loaded because NEPRA and OGRA were named as sources; confirm reuse terms before publishing.",
+ "license_url": "https://www.ogra.org.pk/consumer-gas-prices",
+ "attribution": "NEPRA S.R.O. 279(I)/2026 (12 February 2026) and decision dated 11 February 2026; OGRA consumer gas price notification effective 1 July 2025; OGRA LPG price notification effective 1 November 2026; OGRA kerosene price notification effective 7 November 2026.",
+ "obtained": "The four notifications were downloaded on 12 November 2026. All are scanned images without reliable text, so each value was read from the page image by eye and typed here.",
+ "verification_status": "transcribed from the scanned notification",
+ "verification_note": "Each value was read from the scanned page at high resolution. Where a notification prints its own totals (LPG and kerosene), the components were checked to add up to them. NEPRA's decision text confirms that the Authority approved the uniform tariff as proposed (page 11: 'the Authority has no objection in approving the Motion'). Check values against the notifications before formal use.",
+ "documents": {
+  "nepra_sro_279_2026": "https://nepra.org.pk/tariff/Tariff/Notifications/2026/02%20Feb/S.R.O.%20279(1)2026%20dated%2012-02-2026.pdf",
+  "nepra_decision_2026_02_11": "https://nepra.org.pk/tariff/Tariff/Ex-WAPDA%20DISCOS/2026/TRF-100%20XWDISCOS%20AND%20KE%20RATIONALIZATION%20OF%20TARIFF%2011-02-2026%202935-57.pdf",
+  "ogra_gas_2025_07": "https://www.ogra.org.pk/download/12238",
+  "ogra_lpg_2026_11": "https://www.ogra.org.pk/download/17819",
+  "ogra_kerosene_2026_11": "https://www.ogra.org.pk/download/18073"
+ },
+ "file": "data.csv",
+ "rows": 30,
+ "sha256": "5658d99262f21ebd3cf118ceb7956485724d1fa0041ebdc7a14067f890247088",
+ "prepared": "2026-11-12",
+ "document_sha256": {
+  "nepra_sro_279_2026": "9847f2b67463c50afd2d49c89004fb06d1ed90315304bd4bd7801556f19bcbb1",
+  "nepra_decision_2026_02_11": "4f19b21e611fd1781ef618fbe6f89bedba342bf6f34db289d5a913ed5023393d",
+  "ogra_gas_2025_07": "dd3971bc77b34cb13ee23accc4420c9856d3e9f221dfb754014677cb2b6736f5",
+  "ogra_lpg_2026_11": "35f6e6151758bca0b3e8f3eefa524c9c6a3b56d879ac1e20c6f8a04c234b5cbb",
+  "ogra_kerosene_2026_11": "dd83ef70f916768a2d09133ce87cb4e4dc1aab03a277bd960c4f33410e7244eb"
+ }
+}

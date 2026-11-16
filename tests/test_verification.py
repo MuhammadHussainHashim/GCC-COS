@@ -1,6 +1,5 @@
 """Every invented document/value/account in this module is SYNTHETIC TEST DATA, temporary only."""
 from contextlib import closing
-from datetime import date
 import json
 from pathlib import Path
 import sqlite3
@@ -9,9 +8,9 @@ import pytest
 from gcc_cos.storage import connect,insert,records,review
 from gcc_cos.model import validate
 from gcc_cos.verification import (add_reviewer,authenticate,attach_evidence,latest_packet,decide,verified_rows,
-                                  save_packet,digest,compare,FIELDS,_proof)
+                                  FIELDS,_proof)
 from gcc_cos.export import export
-from gcc_cos.review_batch import single,prepare,workbook
+from gcc_cos.review_batch import prepare,workbook
 
 PASSWORD='SYNTHETIC-test-only-password'
 

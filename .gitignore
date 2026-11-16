@@ -23,7 +23,11 @@ build/
 dist/
 .coverage
 htmlcov/
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea/
 
 # Historical machine-generated reports stay local; reusable licensed inputs remain versioned.
@@ -41,5 +45,9 @@ examples/phase3/source-verification.csv
 *.p12
 *.pfx
 .DS_Store
+# Unverified manufacturer research rows: reuse rights not established, so never commit them.
+research/**/*.csv
+research/**/*.xlsx
 /smoke-report.json
 /diagnostics.json
+/deliverables/

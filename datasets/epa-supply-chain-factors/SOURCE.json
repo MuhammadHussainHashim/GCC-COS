@@ -1,0 +1,18 @@
+{
+ "id": "epa-supply-chain-factors",
+ "table": "spend_factors",
+ "title": "US EPA Supply Chain GHG Emission Factors v1.3.0 by NAICS-6",
+ "publisher": "US EPA Office of Research and Development",
+ "url": "https://pasteur.epa.gov/uploads/10.23719/1531143/SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv",
+ "license": "US public domain (EPA data, 17 U.S.C. 105)",
+ "license_url": "https://pasteur.epa.gov/license/sciencehub-license.html",
+ "attribution": "US Environmental Protection Agency, Supply Chain Greenhouse Gas Emission Factors v1.3 by NAICS-6, doi:10.23719/1531143.",
+ "upstream_sha256": "6025a14c4fe16675735efba1683030e4d36011e3973f3c4261f8231aa69c002f",
+ "obtained": "Downloaded from EPA ScienceHub on 12 November 2026; every row copied unchanged",
+ "verification_status": "copied from the publisher's file",
+ "verification_note": "Factors are for US industries, per 2022 US dollar at purchaser price, including margins; the without-margins and margins-only values are kept beside them. They describe an average dollar spent in the United States and are not product footprints. Linking them to HS codes uses the 2017 HS-to-NAICS table and gives an estimate only.",
+ "file": "data.csv",
+ "rows": 1016,
+ "sha256": "184917d6f5f1967cb7259d9dd11af0d5b530de9ef4fc844f8cd4680a9c58c166",
+ "prepared": "2026-11-12"
+}

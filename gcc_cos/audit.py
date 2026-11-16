@@ -5,7 +5,6 @@ import csv
 import hashlib
 import json
 from pathlib import Path
-from urllib.parse import urlsplit
 import pandas as pd
 from .ingest import load_registry
 from .model import is_product

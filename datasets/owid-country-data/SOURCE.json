@@ -1,0 +1,25 @@
+{
+ "id": "owid-country-data",
+ "table": "country_data",
+ "title": "Country data: emissions per person and electricity (Our World in Data)",
+ "publisher": "Our World in Data",
+ "url": "https://github.com/owid/co2-data ; https://github.com/owid/energy-data",
+ "license": "CC BY 4.0 (Our World in Data); the original sources' terms also apply and are named on each row",
+ "license_url": "https://creativecommons.org/licenses/by/4.0/",
+ "attribution": "Our World in Data (owid/co2-data and owid/energy-data), with data from the Global Carbon Budget, Jones et al. and Ember. Each row names its original source.",
+ "upstream_commit": {
+  "owid/co2-data": "22d9a01321ddec951b36f2bfc66e05dc6ad50ad8",
+  "owid/energy-data": "f8de88a4f6f9cab44f1cf606047cbd6c4414042c"
+ },
+ "upstream_sha256": {
+  "owid/co2-data": "300fb68fe6b0d514ed7f5cf773df77d7e24a495438d84b76e2f39eba1584a0f7",
+  "owid/energy-data": "266f2e2baad7975351bc9bb4aa061d22b1da9fe4c47d51d2ac6071e01e171f76"
+ },
+ "obtained": "Latest year per country taken from the upstream CSV files; all four indicators in the workbook's 'Country data' sheet equal these values",
+ "verification_status": "checked against the publisher's file",
+ "verification_note": "Two electricity-per-person indicators were added from the same upstream file. Primary energy per person was left out because one of its sources (Energy Institute) has unclear reuse terms. 'World' is stored with the code WLD.",
+ "file": "data.csv",
+ "rows": 1184,
+ "sha256": "dd80d5e07c70a126457e22c4a896926887903bf4b10455cb04108d1fa66cc13a",
+ "prepared": "2026-11-12"
+}

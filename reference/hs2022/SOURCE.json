@@ -1,0 +1,16 @@
+{
+  "title": "Harmonized System (HS) 2022 code list",
+  "edition": "HS 2022",
+  "file": "harmonized-system.csv",
+  "sha256": "e77ee9e1cfd15a42d1fadeb2c0618d10f6b9ed9aec0e5d66826dc7ef9d3126a5",
+  "retrieved": "2026-11-11",
+  "url": "https://raw.githubusercontent.com/datasets/harmonized-system/b1be3f2531a85fb0ea17147b19c41d3641912e43/data/harmonized-system.csv",
+  "repository": "https://github.com/datasets/harmonized-system",
+  "repository_commit": "b1be3f2531a85fb0ea17147b19c41d3641912e43",
+  "license": "Open Data Commons Public Domain Dedication and License (PDDL) 1.0",
+  "license_url": "https://opendatacommons.org/licenses/pddl/1-0/",
+  "license_evidence": "datapackage.json in this folder (unmodified copy from the same repository)",
+  "attribution": "datasets/harmonized-system (Datahub core dataset), data extracted from UN Comtrade. The Harmonized System is developed by the World Customs Organization.",
+  "limitations": "Descriptions are UN Comtrade wording, not the WCO legal text. The official legal nomenclature is published by the WCO. National tariff lines (for example Pakistan's 8-digit PCT codes) are not included.",
+  "counts": {"chapters_2_digit": 97, "headings_4_digit": 1229, "subheadings_6_digit": 5613}
+}
