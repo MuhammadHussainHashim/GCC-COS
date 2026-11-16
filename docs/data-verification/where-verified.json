@@ -1,0 +1,170 @@
+{
+ "checked_on": "2026-11-16",
+ "rows": [
+  {
+   "data": "UK government conversion factors 2026 (2,622)",
+   "used_for": "Gas, LPG, vehicles, bus, rail, flights",
+   "first": "GOV.UK flat file",
+   "first_url": "https://assets.publishing.service.gov.uk/media/6a6c9748862aaf18d9c62ac9/ghg-conversion-factors-2026-flat-format-revised.xlsx",
+   "first_result": "15,732 values, 0 differences",
+   "second": "GOV.UK full-set workbook (separate file, same publisher)",
+   "second_url": "https://assets.publishing.service.gov.uk/media/6a29392bade52dc0882218a8/ghg-conversion-factors-2026-full-set.xlsx",
+   "second_result": "2,622 of 2,622 agree",
+   "level": "Matches the publisher on two files"
+  },
+  {
+   "data": "AGRIBALYSE 3.2 foods (2,451)",
+   "used_for": "Food",
+   "first": "data.ademe.fr download",
+   "first_url": "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/raw",
+   "first_result": "12,255 values, 0 differences",
+   "second": "data.ademe.fr query API (same publisher, different service)",
+   "second_url": "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-31-synthese/lines",
+   "second_result": "2,451 of 2,451 agree",
+   "level": "Matches the publisher on two services"
+  },
+  {
+   "data": "Our World in Data country data (1,184)",
+   "used_for": "Electricity by country, per-person comparison",
+   "first": "Our World in Data files on GitHub (co2-data, energy-data)",
+   "first_url": "https://github.com/owid/co2-data",
+   "first_result": "3,552 values, 0 differences",
+   "second": "World Bank API (independent estimate, different method)",
+   "second_url": "https://api.worldbank.org/v2/country/all/indicator/EN.GHG.CO2.PC.CE.AR5?format=json&mrnev=1&per_page=400",
+   "second_result": "CO2 per person: 158 of 197 countries within 25%; all gases: 125 of 191 within 25% (methods differ). Electricity carbon intensity: no second platform could be reached",
+   "level": "Matches the publisher; per-person figures broadly agree with an independent source; electricity figure checked on one platform only"
+  },
+  {
+   "data": "UK CBAM default values (570)",
+   "used_for": "Reference values and 570 records",
+   "first": "GOV.UK sector pages",
+   "first_url": "https://www.gov.uk/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam",
+   "first_result": "1,710 values, 0 differences",
+   "second": "GOV.UK content API (same publisher, data feed)",
+   "second_url": "https://www.gov.uk/api/content/government/publications/check-the-default-values-for-the-carbon-border-adjustment-mechanism-cbam/cement-default-values",
+   "second_result": "570 of 570 agree",
+   "level": "Matches the publisher on two services"
+  },
+  {
+   "data": "HS 2022 code list (6,939 codes)",
+   "used_for": "HS code layer",
+   "first": "datasets/harmonized-system on GitHub",
+   "first_url": "https://github.com/datasets/harmonized-system",
+   "first_result": "6,940 values, 0 differences",
+   "second": "UN Comtrade reference list, HS2022 (original publisher)",
+   "second_url": "https://comtradeapi.un.org/files/v1/app/reference/H6.json",
+   "second_result": "all 6,939 codes and descriptions identical",
+   "level": "Matches two platforms"
+  },
+  {
+   "data": "ADEME activity factors (63)",
+   "used_for": "Dashboard basket calculator (France)",
+   "first": "ADEME Impact CO2 source file on GitHub",
+   "first_url": "https://github.com/incubateur-ademe/impactco2",
+   "first_result": "126 values, 0 differences",
+   "second": "ADEME Impact CO2 live API (same publisher, live service)",
+   "second_url": "https://impactco2.fr/api/v1/transport?km=1&displayAll=1",
+   "second_result": "transport 47 of 47 agree; heating 9 of 9 agree; digital use not checked on a second platform",
+   "level": "Matches the publisher on two services (transport and heating)"
+  },
+  {
+   "data": "Airports (3,245)",
+   "used_for": "Flight distances",
+   "first": "OurAirports file on GitHub",
+   "first_url": "https://github.com/davidmegginson/ourairports-data",
+   "first_result": "16,187 values, 0 differences",
+   "second": "OpenFlights database (separate project, partly based on OurAirports)",
+   "second_url": "https://github.com/jpatokal/openflights",
+   "second_result": "3,085 of 3,129 agree within 5 km; the 44 others are moved airports or reused codes in the older OpenFlights list",
+   "level": "Matches the publisher; mostly agrees with a second list"
+  },
+  {
+   "data": "US EPA supply chain factors (1,016)",
+   "used_for": "Reference only",
+   "first": "EPA ScienceHub file",
+   "first_url": "https://pasteur.epa.gov/uploads/10.23719/1531143/SupplyChainGHGEmissionFactors_v1.3.0_NAICS_CO2e_USD2022.csv",
+   "first_result": "4,064 values, 0 differences",
+   "second": "None reachable",
+   "second_url": "",
+   "second_result": "not checked on a second platform",
+   "level": "Matches the publisher (one platform)"
+  },
+  {
+   "data": "US EPA calculator figures (25)",
+   "used_for": "Reference only",
+   "first": "EPA calculator page and assumptions page",
+   "first_url": "https://www.epa.gov/ghgemissions/carbon-footprint-calculator",
+   "first_result": "25 values, 0 differences",
+   "second": "None exists",
+   "second_url": "",
+   "second_result": "single source",
+   "level": "Each number is printed on the publisher's pages"
+  },
+  {
+   "data": "HS-to-industry links (6,322)",
+   "used_for": "Reference only",
+   "first": "concordance R package on GitHub",
+   "first_url": "https://github.com/insongkim/concordance",
+   "first_result": "6,322 pairs, 0 missing from the package",
+   "second": "None reachable",
+   "second_url": "",
+   "second_result": "not checked on a second platform",
+   "level": "Pairs match the package; line counts could not be re-derived"
+  },
+  {
+   "data": "Pakistan energy prices (30)",
+   "used_for": "Reference only",
+   "first": "NEPRA and OGRA official notices (scanned PDFs)",
+   "first_url": "https://nepra.org.pk/tariff/Tariff/Notifications/2026/02%20Feb/S.R.O.%20279(1)2026%20dated%2012-02-2026.pdf",
+   "first_result": "30 values read twice from the scans, 0 differences; notices unchanged (same checksums)",
+   "second": "None: the regulators' web pages could not be read by machine",
+   "second_url": "https://www.ogra.org.pk/consumer-gas-prices",
+   "second_result": "not checked on a second platform",
+   "level": "Read twice by eye from the official notice"
+  },
+  {
+   "data": "Boavizta product footprints (1,226 records)",
+   "used_for": "Products",
+   "first": "Boavizta file on GitHub",
+   "first_url": "https://github.com/Boavizta/environmental-footprint-data",
+   "first_result": "4,904 values, 0 differences",
+   "second": "Each manufacturer's own report (independent of Boavizta)",
+   "second_url": "",
+   "second_result": "630 found in the report; 5 not found; 591 could not be opened",
+   "level": "630 confirmed in the maker's report by machine; none by the human review"
+  },
+  {
+   "data": "ADEME everyday products (201 records)",
+   "used_for": "Dashboard basket calculator",
+   "first": "ADEME Impact CO2 source file on GitHub",
+   "first_url": "https://github.com/incubateur-ademe/impactco2",
+   "first_result": "201 values, 0 differences",
+   "second": "Not checked",
+   "second_url": "",
+   "second_result": "not checked on a second platform",
+   "level": "Matches the publisher (one platform)"
+  },
+  {
+   "data": "EPD construction records (15)",
+   "used_for": "Records (production stage only)",
+   "first": "Each EPD's public data file (ocni-dtu/epdx mirror)",
+   "first_url": "https://github.com/ocni-dtu/epdx",
+   "first_result": "30 values, 0 differences",
+   "second": "The signed EPD documents were not opened",
+   "second_url": "",
+   "second_result": "not checked on a second platform",
+   "level": "Matches the public data file (one platform)"
+  },
+  {
+   "data": "HS code mappings (26 product types)",
+   "used_for": "HS code layer",
+   "first": "Each code exists in the HS 2022 list",
+   "first_url": "",
+   "first_result": "26 of 26 codes exist",
+   "second": "No authority has confirmed them",
+   "second_url": "",
+   "second_result": "proposed, not verified",
+   "level": "NOT verified: needs a customs expert"
+  }
+ ]
+}

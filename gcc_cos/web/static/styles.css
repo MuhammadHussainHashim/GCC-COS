@@ -54,7 +54,8 @@ button, input, select { font: inherit; color: inherit; }
 /* Top bar and stepper */
 .topbar { position: sticky; top: 0; z-index: 5; background: var(--forest-900); color: #eaf3e4; padding-top: env(safe-area-inset-top, 0px); }
 .topbar-inner, .stepper { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
-.topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px 6px; }
+.topbar-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding-block: 12px 6px; }
+.topbar-inner > * { min-width: 0; }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand-mark { width: 36px; height: 36px; flex: none; }
 .brand-ring { fill: #12372a; stroke: #87b867; stroke-width: 1.5; }
@@ -62,7 +63,7 @@ button, input, select { font: inherit; color: inherit; }
 .brand-vein { fill: none; stroke: #12372a; stroke-width: 1.4; stroke-linecap: round; }
 .brand-name { display: block; font-family: var(--serif); font-size: 1.05rem; letter-spacing: .01em; }
 .brand-sub { display: block; font-size: .75rem; color: #a9c7a0; letter-spacing: .04em; text-transform: uppercase; }
-.data-pill { font-size: .78rem; border: 1px solid #3b6a52; border-radius: 999px; padding: 4px 10px; color: #cfe4c4; white-space: nowrap; }
+.data-pill { font-size: .78rem; border: 1px solid #3b6a52; border-radius: 999px; padding: 4px 10px; color: #cfe4c4; max-width: 100%; }
 .data-pill.bad { border-color: #f08a78; color: #f8c6bb; }
 .stepper ol { display: flex; gap: 4px; list-style: none; margin: 0; padding: 6px 0 10px; overflow-x: auto; scrollbar-width: none; }
 .stepper li button { background: none; border: 0; color: #a9c7a0; font-size: .82rem; padding: 6px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 6px; }

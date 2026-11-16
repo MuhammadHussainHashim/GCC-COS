@@ -6,8 +6,13 @@ const fail = (msg) => { console.error("UI FAIL: " + msg); process.exit(1); };
 (async () => {
   const browser = await chromium.launch();
   const errors = [];
-  for (const [w, label] of [[1280, "desktop"], [390, "phone"]]) {
-    const page = await browser.newPage({ viewport: { width: w, height: 900 } });
+  // Set GCC_UI_DEVICES="iPhone 13,Pixel 7,iPad (gen 7),Galaxy S9+" to also emulate those devices (screen size, touch, user agent).
+  const { devices } = require("playwright");
+  const extra = (process.env.GCC_UI_DEVICES || "").split(",").map((d) => d.trim()).filter(Boolean);
+  const targets = [[{ viewport: { width: 1280, height: 900 } }, "desktop"], [{ viewport: { width: 390, height: 900 } }, "phone"], [{ viewport: { width: 320, height: 658 }, isMobile: true, hasTouch: true }, "small-phone"]]
+    .concat(extra.map((d) => { if (!devices[d]) fail("unknown device " + d); const { defaultBrowserType, ...opts } = devices[d]; return [opts, d.replace(/[^A-Za-z0-9]+/g, "-")]; }));
+  for (const [options, label] of targets) {
+    const page = await browser.newPage(options);
     page.on("pageerror", (e) => errors.push(String(e)));
     page.on("console", (m) => { if (m.type() === "error" && !/fonts\.(googleapis|gstatic)/.test(m.text())) errors.push(m.text()); });
     await page.goto(base + "/");
@@ -16,8 +21,10 @@ const fail = (msg) => { console.error("UI FAIL: " + msg); process.exit(1); };
     await page.selectOption("#year", "2025");
     await page.fill("#people", "4");
     await page.waitForSelector("#data-status-body .status-item");
-    await page.check("#proxy-geo", { force: true });
-    await page.check("#proxy-year", { force: true });
+    for (const id of ["#proxy-geo", "#proxy-year"]) {  // click the visible switch, as a person would
+      await page.locator("label.switch", { has: page.locator(id) }).locator(".track").click();
+      if (!(await page.isChecked(id))) fail("switch " + id + " did not turn on");
+    }
     if (shots) await page.screenshot({ path: `${shots}/1-household-${label}.png`, fullPage: true });
     await page.click("#next");
     // Home energy
@@ -70,6 +77,7 @@ const fail = (msg) => { console.error("UI FAIL: " + msg); process.exit(1); };
     if (await page.locator(".donut path").count() < 2) fail("donut chart missing");
     if (await page.locator(".bar-row").count() < 3) fail("bar chart missing");
     const width = await page.evaluate(() => document.documentElement.scrollWidth);
+    const w = await page.evaluate(() => window.innerWidth);
     if (width > w + 1) fail(`page scrolls sideways at ${w}px (${width})`);
     if (shots) await page.screenshot({ path: `${shots}/7-results-${label}.png`, fullPage: true });
     const download = page.waitForEvent("download");

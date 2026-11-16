@@ -85,6 +85,40 @@ The likely cause is that the manufacturer replaced the report after Boavizta cop
 
 These need a person with a normal web browser, which is what the Phase 4 human evidence review is for.
 
+## Where each dataset was verified, and on which second platform
+
+The addresses of every source are in `docs/data-verification/where-verified.json`. "Second platform" means a place other than the file the data was copied from. Some are the same publisher's other service; only the World Bank, UN Comtrade (for the HS list), OpenFlights and the manufacturers' reports are separate organisations.
+
+| Data | First check (the publisher's file) | Second platform | Standing |
+|---|---|---|---|
+| UK government conversion factors 2026 (2,622) | GOV.UK flat file: 15,732 values, 0 differences | GOV.UK full-set workbook (separate file, same publisher): 2,622 of 2,622 agree | Matches the publisher on two files |
+| AGRIBALYSE 3.2 foods (2,451) | data.ademe.fr download: 12,255 values, 0 differences | data.ademe.fr query API (same publisher, different service): 2,451 of 2,451 agree | Matches the publisher on two services |
+| Our World in Data country data (1,184) | Our World in Data files on GitHub (co2-data, energy-data): 3,552 values, 0 differences | World Bank API (independent estimate, different method): CO2 per person: 158 of 197 countries within 25%; all gases: 125 of 191 within 25% (methods differ). Electricity carbon intensity: no second platform could be reached | Matches the publisher; per-person figures broadly agree with an independent source; electricity figure checked on one platform only |
+| UK CBAM default values (570) | GOV.UK sector pages: 1,710 values, 0 differences | GOV.UK content API (same publisher, data feed): 570 of 570 agree | Matches the publisher on two services |
+| HS 2022 code list (6,939 codes) | datasets/harmonized-system on GitHub: 6,940 values, 0 differences | UN Comtrade reference list, HS2022 (original publisher): all 6,939 codes and descriptions identical | Matches two platforms |
+| ADEME activity factors (63) | ADEME Impact CO2 source file on GitHub: 126 values, 0 differences | ADEME Impact CO2 live API (same publisher, live service): transport 47 of 47 agree; heating 9 of 9 agree; digital use not checked on a second platform | Matches the publisher on two services (transport and heating) |
+| Airports (3,245) | OurAirports file on GitHub: 16,187 values, 0 differences | OpenFlights database (separate project, partly based on OurAirports): 3,085 of 3,129 agree within 5 km; the 44 others are moved airports or reused codes in the older OpenFlights list | Matches the publisher; mostly agrees with a second list |
+| US EPA supply chain factors (1,016) | EPA ScienceHub file: 4,064 values, 0 differences | None reachable: not checked on a second platform | Matches the publisher (one platform) |
+| US EPA calculator figures (25) | EPA calculator page and assumptions page: 25 values, 0 differences | None exists: single source | Each number is printed on the publisher's pages |
+| HS-to-industry links (6,322) | concordance R package on GitHub: 6,322 pairs, 0 missing from the package | None reachable: not checked on a second platform | Pairs match the package; line counts could not be re-derived |
+| Pakistan energy prices (30) | NEPRA and OGRA official notices (scanned PDFs): 30 values read twice from the scans, 0 differences; notices unchanged (same checksums) | None: the regulators' web pages could not be read by machine: not checked on a second platform | Read twice by eye from the official notice |
+| Boavizta product footprints (1,226 records) | Boavizta file on GitHub: 4,904 values, 0 differences | Each manufacturer's own report (independent of Boavizta): 630 found in the report; 5 not found; 591 could not be opened | 630 confirmed in the maker's report by machine; none by the human review |
+| ADEME everyday products (201 records) | ADEME Impact CO2 source file on GitHub: 201 values, 0 differences | Not checked: not checked on a second platform | Matches the publisher (one platform) |
+| EPD construction records (15) | Each EPD's public data file (ocni-dtu/epdx mirror): 30 values, 0 differences | The signed EPD documents were not opened: not checked on a second platform | Matches the public data file (one platform) |
+| HS code mappings (26 product types) | Each code exists in the HS 2022 list: 26 of 26 codes exist | No authority has confirmed them: proposed, not verified | NOT verified: needs a customs expert |
+
+Notes on the second-platform results (script: `scripts/cross_check.py`, raw results: `docs/data-verification/second-platform.json`):
+
+- **World Bank against Our World in Data.** These are different research groups with different methods, so they should be close, not equal. Pakistan: CO2 per person 0.83 t (ours, 2025) against 0.81 t (World Bank, 2024); all gases 1.89 t (ours, includes land use) against 2.09 t (World Bank, excludes land use). The large gaps are very small island states and forest countries, where land-use accounting dominates.
+- **Airports.** 44 airports are more than 5 km from the OpenFlights position. They are new airports that replaced old ones (for example Phnom Penh, Hefei, Yantai) or codes reused for a different airport. Our list is the newer one.
+- **Electricity carbon intensity**, the one Pakistan-specific factor the calculator uses, could only be checked on one platform (Our World in Data, which takes it from Ember).
+
+## Devices the web calculator was tested on
+
+The whole questionnaire was run automatically on: desktop (1280 px), a 390 px phone, a 320 px phone, and emulated Galaxy S9+, iPhone 13, iPhone SE, Pixel 7, iPad (7th generation) and Galaxy Tab S4. All pass. The 320 px test found a real fault (the header pushed the page wider than the screen so the Next button was out of reach); it is fixed.
+
+The Python tests pass on Linux and on Windows (GitHub's test machines). Device runs use the Chromium browser engine with each device's screen size and touch settings; Firefox and Safari engines were not available here, and no physical phone was used.
+
 ## 5. What is still NOT verified
 
 - No product footprint has passed the human evidence review. 630 have a machine "number found in the report"; 596 have nothing.
