@@ -1,0 +1,153 @@
+[
+  {
+    "dataset": "uk-desnz-conversion-factors-2026",
+    "compared_with": "GOV.UK flat file, every row",
+    "values_compared": 15732,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches SOURCE.json: True; publisher file checksum matches the recorded one: True",
+      "publisher rows that are 'kg CO2e' with a number: 2622; bundled rows: 2622; missing from the bundle: 0",
+      "conversion kinds: none x1719; divided by 1.609344 x617; divided by 1000 x284; divided by 1,000,000 x2"
+    ]
+  },
+  {
+    "dataset": "agribalyse-3.2-synthesis",
+    "compared_with": "data.ademe.fr synthesis file, every food",
+    "values_compared": 12255,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; publisher file checksum matches the recorded one: True",
+      "publisher foods: 2451; bundled: 2451"
+    ]
+  },
+  {
+    "dataset": "epa-supply-chain-factors",
+    "compared_with": "EPA ScienceHub CSV, every industry",
+    "values_compared": 4064,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; publisher file checksum matches the recorded one: True",
+      "publisher industries: 1016; bundled: 1016"
+    ]
+  },
+  {
+    "dataset": "owid-country-data",
+    "compared_with": "Our World in Data CSV files at the recorded commits, latest year per country",
+    "values_compared": 3552,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; publisher file checksums match the recorded ones: True",
+      "conversion kinds: none x970; divided by 1000 x214"
+    ]
+  },
+  {
+    "dataset": "ademe-activity-factors",
+    "compared_with": "ADEME Impact CO2 values.json at the recorded commit",
+    "values_compared": 126,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; rows whose id is not a key of values.json (compared separately below): 0",
+      "conversion kinds: divided by 1000 x63"
+    ]
+  },
+  {
+    "dataset": "ourairports",
+    "compared_with": "OurAirports airports.csv at the recorded commit",
+    "values_compared": 16187,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; publisher airports meeting the stated rule: 3245; bundled: 3245"
+    ]
+  },
+  {
+    "dataset": "uk-cbam-defaults",
+    "compared_with": "the five GOV.UK sector pages, every commodity code",
+    "values_compared": 1710,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True; codes on the pages today: 570; bundled: 570; on the pages but not bundled: 0",
+      "conversion kinds: 1 t CO2e per tonne = 1 kg CO2e per kg x570"
+    ]
+  },
+  {
+    "dataset": "epa-calculator-reference",
+    "compared_with": "the EPA calculator page and its assumptions page (is each number printed there?)",
+    "values_compared": 25,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "data.csv checksum matches: True. This check only finds the number on the page; the wording beside it was read by a person on 12 November 2026."
+    ]
+  },
+  {
+    "dataset": "hs2022 (reference/hs2022)",
+    "compared_with": "datasets/harmonized-system CSV at the recorded commit",
+    "values_compared": 6940,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "byte-for-byte comparison of the whole file"
+    ]
+  },
+  {
+    "dataset": "boavizta-products (examples/phase2)",
+    "compared_with": "Boavizta CSV at the recorded commit",
+    "values_compared": 1226,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "byte-for-byte comparison of the whole file. Boavizta copied these figures from manufacturers' reports; that step is not checked here."
+    ]
+  },
+  {
+    "dataset": "records: Boavizta",
+    "compared_with": "the Boavizta CSV row each record names",
+    "values_compared": 4904,
+    "differences": 0,
+    "first_differences": [],
+    "notes": []
+  },
+  {
+    "dataset": "records: UK CBAM",
+    "compared_with": "the GOV.UK-checked table in datasets/uk-cbam-defaults",
+    "values_compared": 1710,
+    "differences": 0,
+    "first_differences": [],
+    "notes": []
+  },
+  {
+    "dataset": "records: ADEME everyday products",
+    "compared_with": "ADEME Impact CO2 values.json at the recorded commit (grams there, kg here)",
+    "values_compared": 201,
+    "differences": 0,
+    "first_differences": [],
+    "notes": []
+  },
+  {
+    "dataset": "records: EPD",
+    "compared_with": "each EPD's ILCD file, downloaded again from the recorded address",
+    "values_compared": 30,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "9 files. The check finds each record's number in its file; which lifecycle module it belongs to was set by the importer and is covered by the test suite."
+    ]
+  },
+  {
+    "dataset": "records: completeness",
+    "compared_with": "every record has a source, a licence, a unit and a value",
+    "values_compared": 2012,
+    "differences": 0,
+    "first_differences": [],
+    "notes": [
+      "2012 records; by source: boavizta-products 1226, EPD 15, uk-cbam-defaults 570, ademe-impactco2 201"
+    ]
+  }
+]

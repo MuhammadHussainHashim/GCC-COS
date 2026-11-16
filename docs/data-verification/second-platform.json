@@ -1,0 +1,122 @@
+[
+  {
+    "data": "HS 2022 code list",
+    "second_platform": "UN Comtrade reference list (comtradeapi.un.org, classification H6 = HS2022)",
+    "independence": "the list's original publisher, fetched directly",
+    "compared": 6940,
+    "agree": 6939,
+    "differ": 1,
+    "notes": "Codes in both: 6939; only in ours: 1; only in Comtrade: 0. Descriptions identical for 6939; worded differently for 0.",
+    "examples": [
+      "only in ours: ['TOTAL']",
+      "only in Comtrade: []"
+    ]
+  },
+  {
+    "data": "UK conversion factors 2026 (flat file)",
+    "second_platform": "GOV.UK 'full set' workbook, the same factors laid out as tables for people",
+    "independence": "same publisher, separately published file",
+    "compared": 2622,
+    "agree": 2622,
+    "differ": 0,
+    "notes": "Each flat-file value was looked for on the full-set sheet with the same name as its category. 0 rows are in a category with no sheet of that name.",
+    "examples": []
+  },
+  {
+    "data": "AGRIBALYSE 3.2 foods",
+    "second_platform": "data.ademe.fr query API (the dataset served row by row, not the downloaded file)",
+    "independence": "same publisher, different service",
+    "compared": 2451,
+    "agree": 2451,
+    "differ": 0,
+    "notes": "API returned 2451 foods.",
+    "examples": []
+  },
+  {
+    "data": "UK CBAM default values",
+    "second_platform": "GOV.UK content API (the publishing system's data feed, not the web pages)",
+    "independence": "same publisher, different service",
+    "compared": 570,
+    "agree": 570,
+    "differ": 0,
+    "notes": "API lists 570 commodity codes.",
+    "examples": []
+  },
+  {
+    "data": "Our World in Data: co2_per_person",
+    "second_platform": "World Bank API indicator EN.GHG.CO2.PC.CE.AR5",
+    "independence": "independent estimate (different research group and method), so close agreement is expected, not equality",
+    "compared": 197,
+    "agree": 158,
+    "differ": 39,
+    "notes": "World Bank: CO2 excluding land use, from EDGAR. Ours: fossil fuels and industry, from the Global Carbon Budget. Within 10%: 109 countries; within 25%: 158 of 197; median gap 8.5%. Pakistan: ours 0.83 (2025), World Bank 0.812 (2024) t per person.",
+    "examples": [
+      "Tuvalu: ours 1.259, World Bank 0",
+      "Nauru: ours 5.301, World Bank 0",
+      "Marshall Islands: ours 4.509, World Bank 0.0",
+      "Micronesia (country): ours 1.405, World Bank 0.0",
+      "Faroe Islands: ours 13.807, World Bank 0.04",
+      "Palau: ours 13.772, World Bank 82.84"
+    ]
+  },
+  {
+    "data": "Our World in Data: ghg_per_person",
+    "second_platform": "World Bank API indicator EN.GHG.ALL.PC.CE.AR5",
+    "independence": "independent estimate (different research group and method), so close agreement is expected, not equality",
+    "compared": 191,
+    "agree": 125,
+    "differ": 66,
+    "notes": "World Bank: all greenhouse gases EXCLUDING land use, from EDGAR. Ours (Jones et al.) INCLUDES land use, so larger differences are expected, especially for forest countries. Within 10%: 73 countries; within 25%: 125 of 191; median gap 14.0%. Pakistan: ours 1.886 (2024), World Bank 2.093 (2024) t per person.",
+    "examples": [
+      "Nauru: ours 5.339, World Bank 0.12",
+      "Democratic Republic of Congo: ours 6.229, World Bank 0.54",
+      "Belize: ours 19.056, World Bank 2.48",
+      "Liberia: ours 4.372, World Bank 0.79",
+      "Solomon Islands: ours 4.145, World Bank 0.76",
+      "Palau: ours 16.579, World Bank 86.68"
+    ]
+  },
+  {
+    "data": "Airports (coordinates)",
+    "second_platform": "OpenFlights airports database (GitHub)",
+    "independence": "separate project, though it draws partly on OurAirports, so only partly independent",
+    "compared": 3129,
+    "agree": 3085,
+    "differ": 44,
+    "notes": "116 of our airports have no IATA match in OpenFlights. 'Differ' means the two positions are more than 5 km apart, usually an airport that moved or a reused code.",
+    "examples": [
+      "AAP Aji Pangeran Tumenggung Pranoto International Airport: 15,248 km apart",
+      "BOR Bokeo International Airport: 8,582 km apart",
+      "AVR Amravati  Airport: 8,303 km apart",
+      "HGI Itanagar Donyi Polo Hollongi Airport: 6,629 km apart",
+      "KTI Techo International Airport: 176 km apart",
+      "JNG Jining Da'an Airport: 53 km apart",
+      "YNT Yantai Penglai International Airport: 45 km apart",
+      "VTZ Alluri Sitarama Raju International Airport (Vizag): 41 km apart",
+      "ZHA Zhanjiang Wuchuan International Airport: 38 km apart",
+      "HFE Hefei Xinqiao International Airport: 38 km apart",
+      "ZYI Zunyi Xinzhou Airport: 35 km apart",
+      "LYG Lianyungang Huaguoshan International Airport: 33 km apart"
+    ]
+  },
+  {
+    "data": "ADEME activity factors: Transport",
+    "second_platform": "ADEME Impact CO2 live API (impactco2.fr/api/v1, transport, kg CO2e per km)",
+    "independence": "same publisher, live service instead of the source-code file",
+    "compared": 47,
+    "agree": 47,
+    "differ": 0,
+    "notes": "A row agrees when the live API returns the same value for some mode. The live site may have been updated since the recorded file version.",
+    "examples": []
+  },
+  {
+    "data": "ADEME activity factors: Home heating",
+    "second_platform": "ADEME Impact CO2 live API (impactco2.fr/api/v1, heating, kg CO2e per m2 per year)",
+    "independence": "same publisher, live service instead of the source-code file",
+    "compared": 9,
+    "agree": 9,
+    "differ": 0,
+    "notes": "A row agrees when the live API returns the same value for some mode. The live site may have been updated since the recorded file version.",
+    "examples": []
+  }
+]

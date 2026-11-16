@@ -58,3 +58,9 @@ The only source-given HS codes in the system are the 283 on the UK CBAM values. 
 ## One label in examples/ (now handled)
 
 The calculator's own copy of the CBAM values (under `examples/phase5`) still carries the label "typed from the source page, not checked", because nothing under `examples/` is changed. The calculator now compares each of those records with the GOV.UK-checked table and drops the "not checked" warning when code and value agree, so results no longer show it.
+
+## Found by the data verification of 16 November 2026
+
+See `docs/DATA_VERIFICATION.md`. A person needs to read the manufacturer's report and decide for these five products, whose stored value is not in the report today: Dell PowerEdge R6515 (8,160 stored; report says 3,450), Dell PowerEdge R7515 (8,990; report says 3,920), Microsoft Surface Laptop SE (101), Microsoft Surface Pro X (116), Fairphone 4 (49.9; report headline says 43).
+
+591 product reports (Dell, Lenovo, HP, Microsoft, Lexmark, HPE, Asus, Seagate) could not be opened automatically and need checking in a web browser.
