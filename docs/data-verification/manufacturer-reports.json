@@ -3,10 +3,10 @@
  "distinct_documents": 1181,
  "summary": {
   "found_near_co2": 633,
-  "unreachable": 576,
+  "unreachable": 541,
+  "removed_by_publisher": 43,
   "not_found": 8,
-  "found_elsewhere_in_document": 1,
-  "removed_by_publisher": 8
+  "found_elsewhere_in_document": 1
  },
  "by_manufacturer": {
   "Apple": {
@@ -16,8 +16,9 @@
    "found_near_co2": 2
   },
   "Dell": {
-   "unreachable": 223,
+   "unreachable": 218,
    "found_near_co2": 300,
+   "removed_by_publisher": 5,
    "not_found": 2
   },
   "Fairphone": {
@@ -40,7 +41,7 @@
    "unreachable": 11
   },
   "Microsoft": {
-   "unreachable": 30,
+   "removed_by_publisher": 30,
    "not_found": 2,
    "found_near_co2": 4
   },
@@ -1187,7 +1188,7 @@
    "name": "E2220H Monitor",
    "gwp_total": "411.0",
    "url": "https://www.delltechnologies.com/asset/en-us/products/electronics-and-accessories/technical-support/e2220h-monitor-pcf-datasheet.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Dell (HTTP 404)"
   },
@@ -1282,7 +1283,7 @@
    "name": "E2420H Monitor",
    "gwp_total": "431.0",
    "url": "https://www.delltechnologies.com/asset/en-us/products/electronics-and-accessories/technical-support/e2420h-monitor-pcf-datasheet.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Dell (HTTP 404)"
   },
@@ -1346,7 +1347,7 @@
    "name": "E2720H Monitor",
    "gwp_total": "497.0",
    "url": "https://www.delltechnologies.com/asset/en-us/products/electronics-and-accessories/technical-support/e2720h-monitor-pcf-datasheet.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Dell (HTTP 404)"
   },
@@ -1356,7 +1357,7 @@
    "name": "E2720HS Monitor",
    "gwp_total": "511.0",
    "url": "https://www.delltechnologies.com/asset/en-us/products/electronics-and-accessories/technical-support/e2720hs-monitor-pcf-datasheet.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Dell (HTTP 404)"
   },
@@ -4162,7 +4163,7 @@
    "name": "PowerEdge R6525",
    "gwp_total": "12700",
    "url": "https://corporate.delltechnologies.com/asset/en-gb/products/servers/technical-support/poweredge-r6525.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Dell (HTTP 404)"
   },
@@ -11144,7 +11145,7 @@
    "name": "Surface Book 2  13.5-inch display",
    "gwp_total": "308.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceBook2-13inch.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11154,7 +11155,7 @@
    "name": "Surface Book 2  15-inch display",
    "gwp_total": "370.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceBook2-15inch.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11164,7 +11165,7 @@
    "name": "Surface Book 3  13.5-inch display",
    "gwp_total": "303.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceBook3-13inch.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11174,7 +11175,7 @@
    "name": "Surface Book 3  15-inch display",
    "gwp_total": "421.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceBook3-15inch.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11184,7 +11185,7 @@
    "name": "Surface Duo 2",
    "gwp_total": "94.1",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceDuo2.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11194,7 +11195,7 @@
    "name": "Surface Duo",
    "gwp_total": "75.2",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceDuo.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11204,7 +11205,7 @@
    "name": "Surface Go 2",
    "gwp_total": "107.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceGo2.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11214,7 +11215,7 @@
    "name": "Surface Go 3",
    "gwp_total": "106.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceGo3.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11224,7 +11225,7 @@
    "name": "Surface Go",
    "gwp_total": "93.8",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceGo.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11234,7 +11235,7 @@
    "name": "Surface Hub 2S 50 50-inch display",
    "gwp_total": "1224.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceHub2S-50inch.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11244,7 +11245,7 @@
    "name": "Surface Hub 2S 85in",
    "gwp_total": "2910.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceHub2S_85in.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11254,7 +11255,7 @@
    "name": "Surface Laptop 2",
    "gwp_total": "152.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop2.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11264,7 +11265,7 @@
    "name": "Surface Laptop 3 13.5-inch display Alcantara® palm rest",
    "gwp_total": "127.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop3-13inch-Alcantara.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11274,7 +11275,7 @@
    "name": "Surface Laptop 3 13.5-inch display metal palm rest",
    "gwp_total": "138.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop3_13inch-Metal.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11284,7 +11285,7 @@
    "name": "Surface Laptop 3 15-inch display Alcantara® palm rest",
    "gwp_total": "178.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop3-15inch-Alcantara.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11294,7 +11295,7 @@
    "name": "Surface Laptop 3 15-inch display metal palm rest",
    "gwp_total": "181.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop3-15inch-Metal.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11304,7 +11305,7 @@
    "name": "Surface Laptop 4 13.5-inch display Alcantara® palm rest",
    "gwp_total": "145.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop4-13inch-Alcantara.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11314,7 +11315,7 @@
    "name": "Surface Laptop 4 13.5-inch display metal palm rest",
    "gwp_total": "165.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop4_13inch-Metal.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11324,7 +11325,7 @@
    "name": "Surface Laptop 4 15-inch display metal palm rest",
    "gwp_total": "199.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop4-15inch-Metal.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11334,7 +11335,7 @@
    "name": "Surface Laptop Go 2",
    "gwp_total": "115.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptopGo%202.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11344,7 +11345,7 @@
    "name": "Surface Laptop Go",
    "gwp_total": "121.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptopGo.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11363,7 +11364,7 @@
    "name": "Surface Laptop Studio",
    "gwp_total": "212.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptopStudio.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11373,7 +11374,7 @@
    "name": "Surface Laptop",
    "gwp_total": "152.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfaceLaptop.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11383,7 +11384,7 @@
    "name": "Surface Pro (5th Gen)",
    "gwp_total": "121.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfacePro5Gen.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11393,7 +11394,7 @@
    "name": "Surface Pro 6",
    "gwp_total": "115.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfacePro6.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11403,7 +11404,7 @@
    "name": "Surface Pro 7",
    "gwp_total": "164.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfacePro7.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11413,7 +11414,7 @@
    "name": "Surface Pro 7+",
    "gwp_total": "181.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfacePro7+.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11423,7 +11424,7 @@
    "name": "Surface Pro 8",
    "gwp_total": "141.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_SurfacePro8.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11478,7 +11479,7 @@
    "name": "Xbox Series S",
    "gwp_total": "559.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_XboxSeriesS.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
@@ -11488,7 +11489,7 @@
    "name": "Xbox Series X",
    "gwp_total": "825.0",
    "url": "https://download.microsoft.com/download/4/8/D/48D50344-33CD-4D9A-BA11-0C7DCA1A3948/Ecoprofile_XboxSeriesX.pdf",
-   "result": "unreachable",
+   "result": "removed_by_publisher",
    "detail": "HTTP 404",
    "reason": "Report removed by Microsoft (HTTP 404)"
   },
