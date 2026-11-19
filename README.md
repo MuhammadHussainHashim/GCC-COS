@@ -14,12 +14,26 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase2/sources.json ingest --manifest examples/phase2/local-files.json
 .\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase3/sources.json ingest --manifest examples/phase3/local-files.json
 .\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase5/sources.json ingest --manifest examples/phase5/local-files.json
+.\.venv\Scripts\python.exe -m gcc_cos --registry examples/phase6/sources.json ingest --manifest examples/phase6/local-files.json
 .\.venv\Scripts\python.exe -m gcc_cos revalidate
 .\.venv\Scripts\python.exe -m gcc_cos load-reference-data
 .\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
 ```
 
-That loads the 1,241 product observations plus 771 published averages and default values (2,012 records) and ten reference tables (24,467 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+That loads the 1,241 product observations, 1,212 further manufacturer-reported electronics footprints from CarbonPDF and 771 published averages and default values (3,224 records), and eleven reference tables (24,755 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+
+## 19 November 2026 import (version 1.10.0)
+
+From the five files uploaded on 19 November 2026, only what the system did not already hold was added. Every value was taken from the publisher's own file and compared with the upload; all compared values are equal.
+
+| Added | Where | Rows |
+| --- | --- | --- |
+| CarbonPDF electronics footprints (HP, Dell, Lenovo, Acer), each with its manufacturer report link; CC BY 4.0 | `records` (`examples/phase6`) | 1,212 |
+| Food per kg, global mean (Poore & Nemecek 2018, via Our World in Data) | `product_averages` | 38 |
+| Electricity per kWh by generation technology (IPCC AR5; oil from UK POST via Electricity Maps) | `activity_factors` | 15 |
+| Suggested links from HS codes to emission factors, direct matches only | new table `hs_factor_links` | 235 |
+
+Not added, because the system already holds them: the 728 Boavizta products and 523 CarbonPDF products that are the same products as held Boavizta records, the 2,622 UK DESNZ 2026 factors, the 213 country electricity factors and the HS code list. For 286 of those products the CarbonPDF value differs from the held one; they are listed for review in `docs/data-verification/2026-11-19/`. The 558 "proxy" HS links are guesses, so they were not loaded either; the same folder lists them for a person to review. Details: [data import notes](DATA_IMPORT_NOTES.md). Rebuild with `scripts/build_phase6.py`.
 
 ## Household footprint calculator (web)
 

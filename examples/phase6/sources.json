@@ -1,0 +1,43 @@
+[
+ {
+  "id": "carbonpdf-products",
+  "title": "CarbonPDF product carbon footprints (HP, Dell, Lenovo, Acer) — products not already held",
+  "url": "https://raw.githubusercontent.com/pittcps/carbonpdf-dataset/400e9d8a9496dbb688e71d6f8e01e544bdd5ee5b/datasets/product/products.csv",
+  "schema_url": "https://github.com/pittcps/carbonpdf-dataset/blob/400e9d8a9496dbb688e71d6f8e01e544bdd5ee5b/README.md",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_evidence_url": "https://github.com/awslabs/open-data-registry/blob/main/datasets/carbonpdf.yaml",
+  "attribution": "Zhao et al. (2026), 'An electronic product carbon footprint dataset for question answering', Scientific Data, https://www.nature.com/articles/s41597-026-06544-5. CarbonPDF dataset (pittcps/carbonpdf-dataset), CC BY 4.0. Underlying manufacturer reports linked per record.",
+  "reuse_permitted": true,
+  "enabled": false,
+  "access_method": "local_derived_csv",
+  "format": "csv",
+  "adapter": "mapped",
+  "allowed_hosts": [
+   "raw.githubusercontent.com"
+  ],
+  "sha256": "4c1e04efed9a7bce56e7226004f638339c267424148f5a1a5481d211aed2249a",
+  "connector_status": "local_ingestion_tested",
+  "notes": "Rows of the publisher's products.csv (upstream sha256 d402a17a6bb344c48ab0ff4c02f9e29abb1e9c9e146758ae299362fb6751fa36) copied unchanged, minus the 523 products already held from Boavizta (same report link, or same maker and product name). Made by scripts/build_phase6.py. The dataset gives no report year and no use location, so those stay blank. Values were extracted from the manufacturers' PDFs by the dataset authors' parsers and checked against each report's total (see the 'Validation notes' column).",
+  "defaults": {
+   "entity_type": "product",
+   "data_kind": "published_product_footprint",
+   "category": "electronics",
+   "original_unit": "kg CO2e/item",
+   "declared_quantity": "1",
+   "declared_unit": "item",
+   "declared_unit_evidence": "https://github.com/pittcps/carbonpdf-dataset/blob/400e9d8a9496dbb688e71d6f8e01e544bdd5ee5b/README.md#dataset-description",
+   "lifecycle_scope": "Total product carbon footprint as stated in the manufacturer's report (each manufacturer's own lifecycle boundary)",
+   "methodology": "Manufacturer-reported PCF extracted from the PDF report by the CarbonPDF authors' parsers; individual methodology not independently established",
+   "verification_status": "manufacturer_reported_not_independently_crosschecked",
+   "source_limitations": "No report year or use location in the dataset. Manufacturers use different methods, so compare models from the same maker. Values were extracted by program from PDF reports and checked against the report total by the dataset authors, not by GCC-COS."
+  },
+  "columns": {
+   "product_name": "Product name",
+   "manufacturer": "Company name",
+   "subcategory": "product_type_original",
+   "original_value": "Product carbon footprint (PCF, kg CO2e)",
+   "primary_source_url": "File URL"
+  }
+ }
+]

@@ -41,6 +41,17 @@ These sites now open. Each needs careful reading of PDF or web tables by hand, s
 | 15 | Printing inputs | Source data is not public | — |
 | 16 | Local transport averages for Pakistan | No source identified | — |
 
+## From the 19 November 2026 uploads
+
+| What | Why it is not in the system | What to do |
+| --- | --- | --- |
+| 286 products where CarbonPDF and the held Boavizta record give different values | Same product; adding both would repeat it | A person reads both reports and decides which value to keep: `docs/data-verification/2026-11-19/carbonpdf-vs-held-boavizta-value-differences.csv` |
+| 558 "proxy" HS-to-factor links | Guesses by an AI; the data policy forbids filling HS blanks with guesses | A person reviews `docs/data-verification/2026-11-19/hs-proxy-links.csv`; approved links can be added to the `hs_factor_links` dataset |
+| 7 IPCC electricity values (utility and rooftop solar, concentrated solar, offshore wind, ocean, direct coal, direct gas) | ipcc.ch refused the connection, so they could not be re-checked | Download IPCC AR5 WGIII Annex III and compare Table A.III.2 |
+| Poore & Nemecek oils (olive, palm, rapeseed, sunflower) | OWID gives no per-kg value | Take them from the paper's supplementary data |
+| The Carbon Catalogue (866 products) and SU-EATABLE LIFE (food) | Figshare only; not downloaded | Download from figshare (doi 10.6084/m9.figshare.16908979 and 10.6084/m9.figshare.13271111) and upload |
+| The Big Climate Database v1.2 (540 foods, CC BY 4.0) | Website not reached | Download from thebigclimatedatabase.com and upload |
+
 ## Needs a licence check, not a download
 
 29 rows of the workbook's "Calculator reference data" were not loaded because no licence is given: 5 from carbonfootprint.com, 3 from The Nature Conservancy and 21 from WWF-UK. They are listed in `datasets/epa-calculator-reference/SOURCE.json`.

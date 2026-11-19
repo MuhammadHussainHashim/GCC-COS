@@ -73,6 +73,7 @@ def main(argv=None):
             ("load-product-averages", "product_averages", "Load published average footprints per kg of product (bundled: AGRIBALYSE foods, France)"),
             ("load-spend-factors", "spend_factors", "Load spend-based factors per US dollar by industry (bundled: US EPA supply chain factors)"),
             ("load-energy-prices", "energy_prices", "Load regulated energy prices (bundled: Pakistan electricity, gas, LPG and kerosene)"),
+            ("load-hs-factor-links", "hs_factor_links", "Load suggested HS-to-emission-factor links (bundled: direct matches, not checked by a person)"),
             ("load-airports", "airports", "Load airports with coordinates (bundled: OurAirports)")):
         p = sub.add_parser(command, help=text)
         p.set_defaults(reference_table=table)

@@ -1,0 +1,21 @@
+{
+ "id": "poore-nemecek-2018-food",
+ "table": "product_averages",
+ "title": "Greenhouse gas emissions per kg of food, global mean (Poore & Nemecek 2018, via Our World in Data)",
+ "publisher": "Our World in Data, from Poore & Nemecek (2018), Science 360(6392):987-992",
+ "url": "https://github.com/owid/owid-datasets/blob/13b8cd7f0f6cecd07a736381b3825bc9c5879019/datasets/Environmental%20impacts%20of%20food%20(Poore%20&%20Nemecek,%202018)/Environmental%20impacts%20of%20food%20(Poore%20&%20Nemecek,%202018).csv",
+ "license": "CC BY 4.0 (Our World in Data); the original study's own reuse terms were not confirmed",
+ "license_url": "https://creativecommons.org/licenses/by/4.0/",
+ "attribution": "Poore, J. & Nemecek, T. (2018). Reducing food's environmental impacts through producers and consumers. Science 360(6392):987-992. Data via Our World in Data (owid/owid-datasets).",
+ "upstream_commit": {
+  "owid/owid-datasets": "13b8cd7f0f6cecd07a736381b3825bc9c5879019"
+ },
+ "upstream_sha256": "8e3e1df4dc93658bf93bae2f42dff6ccdac232764ffc3f97dc5c8f585547f7aa",
+ "obtained": "Column 'GHG emissions per kilogram (Poore & Nemecek, 2018)' of the August 2022 version of the OWID file (emptied upstream in February 2023)",
+ "verification_status": "checked against the publisher's file",
+ "verification_note": "All 38 values in the uploaded GCC_Carbon_Footprint_Database_2026_1.xlsx equal the OWID file. Five OWID entities have no per-kg value (four oils and 'Grains') and are not loaded. The upload's food categories and suggested HS codes were made by an AI and are not stored here.",
+ "file": "data.csv",
+ "rows": 38,
+ "sha256": "a54f41ff1eebbd3098569bc864e1dc066c0ae359e6c4fca8b001937579c4cc1b",
+ "prepared": "2026-11-19"
+}

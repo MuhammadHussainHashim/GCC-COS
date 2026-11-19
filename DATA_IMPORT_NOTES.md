@@ -104,3 +104,32 @@ Only files hosted on GitHub could be reached. Every other site named in the work
 | 31 | 16 impact indicators | EU sites | — | Blocked; in STILL_NEEDED |
 | 29, 30, 32, 33 | Offsets, printing, WWF adjustments, government share | Not public, a business decision, or licence unclear | — | In STILL_NEEDED |
 | Pakistan fuel factors | ipcc-nggip.iges.or.jp | iea.org | — | Blocked; in STILL_NEEDED |
+
+## Import of 19 November 2026 (version 1.10.0)
+
+Five files were uploaded: `GCC_Carbon_Footprint_Database_2026_1.xlsx`, `GCC_HS_Code_Footprints_2026.xlsx` with its CSV copy `gcc_hs_footprints_2026.csv`, and `GCC_Product_Footprints_Electronics.xlsx` with its CSV copy `gcc_product_footprints_electronics.csv`. Each CSV equals its workbook sheet row for row. Their checksums are in `docs/data-verification/2026-11-19/import_summary.json`. The uploads themselves are not committed; `scripts/build_phase6.py` takes the values from the publishers' files and uses the uploads only to find which rows were offered and to compare numbers.
+
+### What was compared with what the system already holds
+
+| Offered | Already held? | Result |
+| --- | --- | --- |
+| 728 Boavizta products | Yes, all in `examples/phase2` (same maker and name, same report link) | Not added |
+| 1,735 CarbonPDF products | 523 are the same products as held Boavizta records (same report link, or same maker and product name ignoring a leading maker name such as "HP 255 G9" = "255 G9") | 1,212 added; 523 not added |
+| 2,622 UK DESNZ 2026 factors | Yes (`uk-desnz-conversion-factors-2026`) | Not added. 2,618 equal; 4 differ only by float noise in the held file (for example 0.13388999999999998 held, 0.13389 offered). The held file was not changed. |
+| 213 country electricity factors (Ember via OWID) | Yes (`owid-country-data`, `electricity_carbon_intensity`) | Not added; all 213 equal, same years |
+| HS code list (6,940 rows) | Yes (`reference/hs2022`) | Not added; same 6,939 codes plus the "TOTAL" root |
+| 38 foods (Poore & Nemecek 2018) | No | Added to `product_averages` |
+| 15 electricity-by-technology values | No | Added to `activity_factors` |
+| HS-to-factor links | No | 235 direct and country-specific links added to the new table `hs_factor_links`; 558 proxies not added |
+
+### Decisions made on your behalf
+
+1. **Same product, different value.** For 286 of the 523 overlapping products the CarbonPDF value differs from the held Boavizta value (often a newer report edition, for example HP E24 G4 monitor: 250 now, 565 held). These were not added as second records, because you asked for no repeats, and the held records were not changed. They are listed in `docs/data-verification/2026-11-19/carbonpdf-vs-held-boavizta-value-differences.csv` for a person to decide.
+2. **Values come from the publishers.** CarbonPDF rows are copied from `pittcps/carbonpdf-dataset` (commit `400e9d8…`), not from the upload; all 1,735 uploaded values equal the publisher's. Food values come from the OWID file at commit `13b8cd7…` (August 2022; OWID emptied the file in February 2023); all 38 equal.
+3. **CarbonPDF licence.** The repository's README states none; the AWS Open Data Registry entry for CarbonPDF states CC BY 4.0, and that is recorded.
+4. **No year, no place, no HS code invented for CarbonPDF products.** The dataset gives no report year or use location, so those stay blank and the records carry the "missing" warnings. The upload's HS codes and product types were suggested by an AI and were not used; the project's own product-type rules apply as for every other record.
+5. **IPCC values partly checked.** ipcc.ch refused the connection. Eight of the fifteen values (coal, gas, biomass, geothermal, hydro, nuclear, onshore wind, oil) equal the Electricity Maps open configuration; the other seven are stored with the note "not re-checked".
+6. **Proxy HS links kept out of the database.** `docs/DATA_POLICY.md` says HS blanks must never be filled with guesses. "Proxy (closest available)" links are guesses, so the 558 of them are in `docs/data-verification/2026-11-19/hs-proxy-links.csv` for review. The 233 direct and 2 country-specific links were loaded, labelled as suggested by an AI and not checked by a person; each per-kg value was checked against the linked factor.
+7. **Upload's food categories and suggested HS codes on food rows** were made by an AI and are not stored.
+8. **The uploads' "Not Included" sheets** name AGRIBALYSE and the US EPA supply chain factors as missing; the system already holds both. The others are added to `STILL_NEEDED.md`.
+

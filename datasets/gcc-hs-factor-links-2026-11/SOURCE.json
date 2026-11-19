@@ -1,0 +1,17 @@
+{
+ "id": "gcc-hs-factor-links-2026-11",
+ "table": "hs_factor_links",
+ "title": "Suggested links from HS codes to emission factors (direct matches only)",
+ "publisher": "GCC project (links suggested by an AI in the user's upload); the factors themselves are UK DESNZ 2026 and Poore & Nemecek (2018)",
+ "url": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026 ; https://github.com/owid/owid-datasets",
+ "license": "The links are project work; each linked factor keeps its own licence (OGL v3.0 for DESNZ, CC BY 4.0 for OWID)",
+ "license_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+ "attribution": "Links from the user's GCC_HS_Code_Footprints_2026.xlsx (19 November 2026). Factors: Department for Energy Security and Net Zero; Poore & Nemecek (2018) via Our World in Data.",
+ "obtained": "Rows of the 'HS Footprints' sheet whose status is 'Direct match' or 'Country-specific'",
+ "verification_status": "per-kg values checked against the linked factors; the links themselves are not checked by a person",
+ "verification_note": "Every per-kg value equals its linked factor after the stated unit conversion. 558 'Proxy (closest available)' links were not loaded (they are guesses); they are in docs/data-verification/2026-11-19/hs-proxy-links.csv for a person to review. An HS link is not an emission factor for every product under that code.",
+ "file": "data.csv",
+ "rows": 235,
+ "sha256": "3beb5493dcac840c6eda768be65aa2aac0d6ae1c7c5a81ae88580ac857e93e4b",
+ "prepared": "2026-11-19"
+}
