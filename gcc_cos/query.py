@@ -3,7 +3,7 @@ from .model import is_product
 
 
 def select(rows, products_only=False, search='', category=None, manufacturer=None,
-           geography=None, status=None, verification_status=None, warnings_only=False, warning=None, hs6=None):
+           geography=None, status=None, verification_status=None, warnings_only=False, warning=None, hs6=None, source=None):
     results = []
     needle = search.casefold().strip()
     for row in rows:
@@ -17,7 +17,7 @@ def select(rows, products_only=False, search='', category=None, manufacturer=Non
             continue
         if any(value and row.get(field) != value for field, value in [
             ('category', category), ('manufacturer', manufacturer), ('geography', geography),
-            ('review_status', status), ('verification_status', verification_status)]):
+            ('review_status', status), ('verification_status', verification_status), ('source_id', source)]):
             continue
         haystack = ' '.join(str(row.get(k) or '') for k in
                             ('product_name', 'manufacturer', 'category', 'subcategory', 'material', 'epd_id', 'hs6', 'hs_code'))

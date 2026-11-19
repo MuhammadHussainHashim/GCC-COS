@@ -1,5 +1,7 @@
 """Run from the repository root: python -m streamlit run dashboard.py"""
+import csv
 import json
+from pathlib import Path
 import pandas as pd
 import streamlit as st
 from gcc_cos.storage import connect, records, review
@@ -13,25 +15,91 @@ from gcc_cos import hs
 st.set_page_config(page_title="GCC-COS", layout="wide")
 st.title("Green Carbon Corridor — Carbon Data Collection")
 st.caption("Quality checks do not verify a footprint. Annual inventories are not product factors.")
+REVIEW_FOLDER = Path("docs/data-verification/2026-11-19")
+REVIEW_LISTS = {
+    "Products with two different values": ("carbonpdf-vs-held-boavizta-value-differences.csv",
+        "The same product is in Boavizta (held) and in CarbonPDF with a different footprint, often from a newer report. "
+        "The held record was kept. A person reads both reports and decides which value to keep."),
+    "Proxy HS links (guesses)": ("hs-proxy-links.csv",
+        "An AI linked these HS codes to the closest available factor. They are guesses, so they are not in the database. "
+        "A person approves or rejects each one."),
+}
+
+
+def review_list(name):
+    path = REVIEW_FOLDER / REVIEW_LISTS[name][0]
+    if not path.is_file():
+        return None
+    with open(path, encoding="utf-8", newline="") as handle:
+        return pd.DataFrame(list(csv.DictReader(handle)))
+
+
+def dataset_titles(rows):
+    titles = {}
+    for r in rows:
+        titles.setdefault(r.get("source_id"), r.get("document_title") or r.get("source_id"))
+    return titles
+
+
+
 db = connect("data/carbon.sqlite")
 try:
     hs_table, hs_source = hs.load_table()
     hs_mappings = hs.load_mappings(table=hs_table)
     rows = hs.annotate(records(db), hs_mappings, hs_table, hs_source)
     filters = {}
-    filters['products_only'] = st.checkbox("Products only", value=False)
-    filters['search'] = st.text_input("Search products, manufacturers, materials, EPD IDs or HS code")
-    for label, key, field in [("Category", "category", "category"), ("Manufacturer", "manufacturer", "manufacturer"),
-                              ("Geography", "geography", "geography"), ("Review status", "status", "review_status"),
-                              ("Source-reported verification status", "verification_status", "verification_status")]:
-        values = sorted({str(r[field]) for r in rows if r.get(field)})
-        filters[key] = st.selectbox(label, [None] + values, format_func=lambda v: "All" if v is None else v)
-    filters['warnings_only'] = st.checkbox("Only records with validation warnings", value=False)
-    warnings = sorted({issue for row in rows for issue in row.get('issues', [])})
-    filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
+    with st.sidebar:
+        st.header("Filter records")
+        st.caption("Filters apply to the Records, Exports and verified-only download.")
+        titles = dataset_titles(rows)
+        filters['products_only'] = st.checkbox("Products only", value=False)
+        filters['search'] = st.text_input("Search products, manufacturers, materials, EPD IDs or HS code")
+        filters['source'] = st.selectbox("Dataset", [None] + sorted(titles, key=lambda k: str(titles[k]).casefold()),
+                                         format_func=lambda v: "All datasets" if v is None else f"{titles[v]} ({sum(r.get('source_id') == v for r in rows):,})")
+        for label, key, field in [("Category", "category", "category"), ("Manufacturer", "manufacturer", "manufacturer"),
+                                  ("Geography", "geography", "geography"), ("Review status", "status", "review_status"),
+                                  ("Source-reported verification status", "verification_status", "verification_status")]:
+            values = sorted({str(r[field]) for r in rows if r.get(field)})
+            filters[key] = st.selectbox(label, [None] + values, format_func=lambda v: "All" if v is None else v)
+        filters['warnings_only'] = st.checkbox("Only records with validation warnings", value=False)
+        warnings = sorted({issue for row in rows for issue in row.get('issues', [])})
+        filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
     selected = select(rows, **filters)
-    tabs = st.tabs(["Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review", "HS codes", "Calculator", "Reference data"])
-    with tabs[0]:
+    tab_names = ["Overview", "Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review",
+                 "HS codes", "Calculator", "Reference data", "Review lists"]
+    tabs = dict(zip(tab_names, st.tabs(tab_names)))
+    with tabs["Overview"]:
+        from gcc_cos import refdata
+        from gcc_cos import verification as human_overview
+        human_overview.schema(db)
+        reference_counts = refdata.counts(db)
+        columns = st.columns(4)
+        columns[0].metric("Records in the database", f"{len(rows):,}")
+        columns[1].metric("Specific-product footprints", f"{sum(is_product(r) for r in rows):,}")
+        columns[2].metric("Published averages and default values", f"{sum(is_item(r) and not is_product(r) for r in rows):,}")
+        columns[3].metric("Reference rows", f"{sum(reference_counts.values()):,}", help=f"{sum(1 for n in reference_counts.values() if n)} reference tables hold rows.")
+        approved = len(human_overview.verified_rows(db))
+        if not rows:
+            st.info("The database is empty. In VS Code run the task “GCC-COS: 2 Load bundled data (offline)”, then reload this page.")
+        elif "carbonpdf-products" not in titles:
+            st.info("The 1,212 CarbonPDF products added on 19 November are not loaded in this database yet. "
+                    "Run the task “GCC-COS: 2 Load bundled data (offline)” (it adds only what is missing), then reload this page.")
+        st.warning(f"Human-approved (verified) records: {approved:,}. Every other value is as its publisher reported it and has not been checked by a person.")
+        if rows:
+            st.subheader("Records by dataset")
+            by_source = pd.DataFrame([{"Dataset": titles[k], "Records": sum(r.get("source_id") == k for r in rows),
+                                       "Licence": next(r.get("license") for r in rows if r.get("source_id") == k)} for k in titles])
+            st.dataframe(by_source.sort_values("Records", ascending=False), use_container_width=True, hide_index=True)
+        if any(reference_counts.values()):
+            st.subheader("Reference tables")
+            st.dataframe(pd.DataFrame([{"Table": refdata.TABLES[t][3], "Rows": n} for t, n in reference_counts.items() if n]),
+                         use_container_width=True, hide_index=True)
+        st.subheader("Waiting for a person")
+        waiting = [{"List": name, "Rows": len(frame_) if frame_ is not None else 0, "What to do": text}
+                   for name, (_, text) in REVIEW_LISTS.items() for frame_ in [review_list(name)]]
+        st.dataframe(pd.DataFrame(waiting), use_container_width=True, hide_index=True)
+        st.caption("Open the “Review lists” tab to read and download them. Sources that could not be downloaded are listed in STILL_NEEDED.md.")
+    with tabs["Records"]:
         st.metric("Collected records", len(rows))
         st.metric("Product observations (all records)", sum(is_product(r) for r in rows))
         st.caption(f"Showing {len(selected)} records. Exports use exactly this selection. Multiple lifecycle modules can describe one product.")
@@ -48,11 +116,11 @@ try:
                                              'publication_date','year','primary_source_url','source_url','license','attribution',
                                              'verification_status','hs_code','hs_description','hs_status','hs_basis','hs_reference_edition','issues','evidence']})
         st.warning("Manufacturer-reported PCFs and mirrored EPD review claims are not independent verification by GCC-COS. Read source limitations; do not compare different scopes or methods.")
-    with tabs[1]:
+    with tabs["Sources"]:
         st.dataframe(pd.DataFrame(load_registry("config/sources.json")).astype(str))
         st.subheader("Actual ingestion history")
         st.dataframe(pd.read_sql_query("SELECT * FROM runs ORDER BY id DESC", db))
-    with tabs[2]:
+    with tabs["Review queue"]:
         queue = [r for r in rows if r["review_status"] in {"needs_review", "rejected"}]
         st.dataframe(pd.DataFrame(queue).astype(str))
         if queue:
@@ -68,15 +136,15 @@ try:
                     except ValueError as exc:
                         st.error(str(exc))
         st.caption("HS assignment changes require a cited exact-name mapping and reingestion; acceptance alone never assigns an HS code.")
-    with tabs[3]:
+    with tabs["Documents"]:
         st.dataframe(pd.read_sql_query("SELECT * FROM documents", db))
-    with tabs[4]:
+    with tabs["Exports"]:
         st.download_button("Download selected CSV", frame(db, **filters).to_csv(index=False).encode("utf-8-sig"), "gcc-cos.csv", "text/csv")
         try:
             st.download_button("Download selected Excel", excel_bytes(db, **filters), "gcc-cos.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         except ValueError as exc:
             st.warning(str(exc))
-    with tabs[5]:
+    with tabs["Quality and verification"]:
         report = build_audit(db)
         st.json(report['summary'])
         st.caption("Pinned archive and license checks establish traceability to a published dataset, not independent verification against the publisher. Repeated names are not automatically merged.")
@@ -85,7 +153,7 @@ try:
         st.dataframe(pd.DataFrame(report['sources']).astype(str))
         st.dataframe(pd.DataFrame(report['duplicates']).astype(str))
         st.dataframe(pd.DataFrame(report['coverage']).astype(str))
-    with tabs[6]:
+    with tabs["Human evidence review"]:
         from gcc_cos import verification as human
         from gcc_cos import review_batch
         from pathlib import Path
@@ -143,7 +211,7 @@ try:
         st.caption(f"{len(qualified)} records currently qualify for human-approved verified-only export. Expired, rejected, stale and unsupported evidence is excluded dynamically.")
         st.download_button("Download human-approved verified-only Excel",excel_bytes(db,verified_only=True,**filters),'verified-only.xlsx',
                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    with tabs[7]:
+    with tabs["HS codes"]:
         st.subheader("HS codes (edition: " + hs_source["edition"] + ")")
         products = [r for r in rows if is_item(r)]
         summary = hs.coverage(products)
@@ -168,7 +236,7 @@ try:
             if not found:
                 st.info("No HS 2022 code matches.")
         st.caption("Source: " + hs_source["attribution"] + " License: " + hs_source["license"] + ". " + hs_source["limitations"])
-    with tabs[8]:
+    with tabs["Calculator"]:
         from gcc_cos import calculator
         import io
         st.subheader("Footprint calculator")
@@ -178,7 +246,7 @@ try:
         mode = st.radio("How do you want to enter products?", ["Pick products one by one", "Upload a CSV basket"], horizontal=True)
         if mode == "Pick products one by one":
             calculator_reference = calculator.reference_from(db)
-            find_by = st.radio("What do you want to add?", ["Product type", "Specific product", "HS code", "Travel, heating or digital use", "Home electricity", "Food (AGRIBALYSE)"], horizontal=True)
+            find_by = st.radio("What do you want to add?", ["Product type", "Specific product", "HS code", "Travel, heating or digital use", "Home electricity", "Food (per kg)"], horizontal=True)
             with st.form("calculator_add", clear_on_submit=True):
                 if find_by == "Product type":
                     kind, value = "type", st.selectbox("Product type", sorted({str(r["subcategory"]) for r in products if r.get("subcategory")}, key=str.casefold))
@@ -188,9 +256,12 @@ try:
                 elif find_by == "Travel, heating or digital use":
                     activities = {f"{a['geography']} | {a['area']}: {a['name_en']} (per {a['unit_metric'].split(' per ', 1)[-1]})": a["activity_id"] for a in calculator_reference["activity"].values()}
                     kind, value = "activity", activities.get(st.selectbox("Activity (the list starts with the country the factor is for; the quantity is in the unit shown)", sorted(activities))) if activities else None
-                elif find_by == "Food (AGRIBALYSE)":
-                    foods = {f"{f['name_en']} ({f['name_original']})": f["product_code"] for f in calculator_reference["food"].values()}
-                    kind, value = "food", foods.get(st.selectbox("Food (averages for France; the quantity is in kg)", sorted(foods))) if foods else None
+                elif find_by == "Food (per kg)":
+                    foods = {}
+                    for f in calculator_reference["food"].values():
+                        label = f"{f['geography']} | {f['name_en']}" + (f" ({f['name_original']})" if f.get("name_original") and f["name_original"] != f["name_en"] else "")
+                        foods[label if label not in foods else f"{label} [code {f['product_code']}]"] = f["product_code"]
+                    kind, value = "food", foods.get(st.selectbox("Food (the list starts with where the average is for: France = AGRIBALYSE, World = Poore & Nemecek 2018; the quantity is in kg)", sorted(foods))) if foods else None
                 elif find_by == "Home electricity":
                     countries = {f"{c['country']} ({float(c['value_metric']):.3f} kg CO2e per kWh, {c['year']})": c["iso3"] for c in calculator_reference["electricity"].values()}
                     names = sorted(countries)
@@ -254,7 +325,7 @@ try:
             st.download_button("Download result Excel", buffer.getvalue(), "gcc-footprint-result.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         else:
             st.info("Add a product or upload a basket to see a total.")
-    with tabs[9]:
+    with tabs["Reference data"]:
         from gcc_cos import refdata
         st.subheader("Reference data")
         st.caption("These tables hold other kinds of numbers than product footprints: regulatory default values, activity factors, country averages and published assumptions. They are kept apart on purpose and are not added to product footprints.")
@@ -266,5 +337,18 @@ try:
             chosen_table = st.selectbox("Table", [t for t, n in reference_counts.items() if n],
                                         format_func=lambda t: f"{refdata.TABLES[t][3]} ({reference_counts[t]:,} rows)")
             st.dataframe(pd.DataFrame(refdata.rows(db, chosen_table)), use_container_width=True, hide_index=True)
+    with tabs["Review lists"]:
+        st.subheader("Review lists from the 19 November 2026 import")
+        st.caption("Nothing in these lists is in the database. They wait for a person's decision; see DATA_IMPORT_NOTES.md.")
+        for name, (file_name, text) in REVIEW_LISTS.items():
+            table = review_list(name)
+            st.markdown(f"**{name}**")
+            st.caption(text)
+            if table is None:
+                st.info(f"{REVIEW_FOLDER / file_name} was not found. Run the dashboard from the repository root.")
+                continue
+            st.dataframe(table, use_container_width=True, hide_index=True,
+                         column_config={c: st.column_config.LinkColumn(c) for c in table.columns if c.endswith("_report")})
+            st.download_button(f"Download “{name}” CSV", table.to_csv(index=False).encode("utf-8-sig"), file_name, "text/csv", key=f"download-{file_name}")
 finally:
     db.close()

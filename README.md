@@ -199,7 +199,7 @@ Filters also support `--geography`, `--status` and `--verification-status`. Sear
 .\.venv\Scripts\python.exe -m streamlit run dashboard.py
 ```
 
-Open the local address printed by Streamlit. Select **Products only**, enter search text, and filter by category, manufacturer, geography, review status and verification status. CSV and Excel download buttons export exactly the current selection. Other tabs show source status, ingestion history, the manual review queue and archived-document metadata.
+Open the local address printed by Streamlit. The **Overview** tab opens first: record and reference-row counts, records by dataset with their licences, how many records a person has approved, and the review lists waiting for a decision. It also says when the database is empty or missing the 19 November data. The filters are in the sidebar: **Products only**, search text, **Dataset**, category, manufacturer, geography, review status and verification status. CSV and Excel download buttons export exactly the current selection. Other tabs show source status, ingestion history, the manual review queue, archived-document metadata, HS codes, the calculator (foods are labelled by where the average is for: France or World), reference data and the **Review lists** (products with two different values, proxy HS links), each downloadable as CSV.
 
 The dashboard uses `data/carbon.sqlite`. It is a trusted local application with no login system; do not expose it publicly. Quality checks and review acceptance do not certify carbon values.
 
