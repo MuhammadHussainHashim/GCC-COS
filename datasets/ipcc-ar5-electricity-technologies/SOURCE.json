@@ -1,0 +1,20 @@
+{
+ "id": "ipcc-ar5-electricity-technologies",
+ "table": "activity_factors",
+ "title": "Emissions per kWh by electricity generation technology (IPCC AR5 WGIII Annex III, Table A.III.2)",
+ "publisher": "Intergovernmental Panel on Climate Change (IPCC); the oil value is from UK POST as used by Electricity Maps",
+ "url": "https://www.ipcc.ch/report/ar5/wg3/",
+ "license": "IPCC: published figures, cited with the source (IPCC copyright); oil: Electricity Maps open configuration (AGPL-3.0 repository) citing UK POST",
+ "license_url": "https://www.ipcc.ch/copyright/",
+ "attribution": "Schlömer S. et al. (2014) Annex III: Technology-specific cost and performance parameters. In: Climate Change 2014: Mitigation of Climate Change. Contribution of Working Group III to the Fifth Assessment Report of the IPCC. Oil: UK Parliamentary Office of Science and Technology, as given in electricitymaps/electricitymaps-contrib config/defaults.yaml.",
+ "upstream_sha256": {
+  "electricitymaps-contrib config/defaults.yaml": "b14dfa059ef6b958025ba794143402477e234333cbb6ba54b8d1c436e5f19519"
+ },
+ "obtained": "Offered in the uploaded GCC_Carbon_Footprint_Database_2026_1.xlsx; eight values compared with the Electricity Maps open configuration",
+ "verification_status": "partly checked: 8 of 15 values equal a second published copy",
+ "verification_note": "Coal, gas, biomass, geothermal, hydro, nuclear, onshore wind (IPCC 2014) and oil (UK POST) equal Electricity Maps' lifecycle defaults. Utility and rooftop solar, concentrated solar, offshore wind, ocean and the two direct (combustion-only) values could not be re-checked because ipcc.ch refused the connection. Global medians for technologies; not a country's grid factor.",
+ "file": "data.csv",
+ "rows": 15,
+ "sha256": "e1e68e50b5c235ee7edf37985a3f2d025277b4aae17e52dfcd3aa5eb1f8bbd5a",
+ "prepared": "2026-11-19"
+}

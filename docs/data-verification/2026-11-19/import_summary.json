@@ -1,0 +1,35 @@
+{
+ "prepared": "2026-11-19",
+ "uploads_sha256": {
+  "GCC_Carbon_Footprint_Database_2026_1.xlsx": "7bcec30f848baeb3875fda63d429487456e9b4623c6ca3d150bf3da1e2e01a3a",
+  "GCC_HS_Code_Footprints_2026.xlsx": "6682a85f6c037e7007c20e4dff342ee8c6210ffebcb4fc510a4c6bae1cb0a5b6",
+  "GCC_Product_Footprints_Electronics.xlsx": "4bc1f5d3b2fbe65cb7bd6d4771735bdd2663ab8170eacf8693c60b3aef28e396",
+  "gcc_product_footprints_electronics.csv": "20077141db28c6f2f2534111d20a6cc67e99270841e35f0ccf0d4ab572bc8f1e",
+  "gcc_hs_footprints_2026.csv": "8fc1335b415abe8d12a65c0adcab701720a089eeb944035b4c5e19c0ffc2d567"
+ },
+ "already_held": {
+  "desnz equal": 2618,
+  "desnz equal apart from float noise in the held file": 4,
+  "electricity equal": 213,
+  "hs codes equal": 6939
+ },
+ "products": {
+  "new": 1212,
+  "already held (Boavizta)": 523,
+  "offered_in_upload": 2463,
+  "publisher_rows": 1735,
+  "held_value_differs": 286,
+  "file_sha256": "4c1e04efed9a7bce56e7226004f638339c267424148f5a1a5481d211aed2249a",
+  "upstream_sha256": "d402a17a6bb344c48ab0ff4c02f9e29abb1e9c9e146758ae299362fb6751fa36",
+  "upstream_commit": "400e9d8a9496dbb688e71d6f8e01e544bdd5ee5b"
+ },
+ "hs_links": {
+  "by_status": {
+   "Direct match": 233,
+   "Proxy (closest available)": 558,
+   "Country-specific": 2
+  },
+  "loaded": 235,
+  "proxies_to_review": 558
+ }
+}

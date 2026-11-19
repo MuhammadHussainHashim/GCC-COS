@@ -60,14 +60,21 @@ TABLES = {
         ["industry_system", "industry_code", "industry_title", "ghg", "value_original", "unit_original", "value_metric", "unit_metric", "conversion",
          "value_without_margins", "value_of_margins", "reference_useeio_code", "value_kind", "geography", "year", "year_basis"],
         ["dataset_id", "industry_code"], ["industry_system", "industry_code", "industry_title", "value_original", "unit_original", "value_kind", "geography", "year"], "Spend-based factors"),
+    "hs_factor_links": (
+        ["hs_code", "hs_level", "hs_edition", "match_status", "factor_table", "factor_dataset_id", "factor_id", "factor_name",
+         "value_metric", "unit_metric", "conversion", "factor_basis", "burn_factor_id", "burn_value_metric", "value_kind",
+         "geography", "year", "suggested_by", "note"],
+        ["dataset_id", "hs_code", "factor_id"], ["hs_code", "hs_level", "match_status", "factor_table", "factor_id", "value_kind", "geography", "suggested_by"],
+        "HS to factor links (suggested)"),
     "airports": (
         ["ident", "iata_code", "icao_code", "name", "type", "municipality", "iso_country", "iso_region", "latitude_deg", "longitude_deg",
          "elevation_ft", "elevation_m"],
         ["ident"], ["ident", "iata_code", "name", "iso_country", "latitude_deg", "longitude_deg"], "Airports"),
 }
 BUNDLED = {
-    "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors", "uk-desnz-conversion-factors-2026"], "country_data": ["owid-country-data"],
-    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis"], "spend_factors": ["epa-supply-chain-factors"], "energy_prices": ["pakistan-energy-prices"], "airports": ["ourairports"],
+    "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors", "uk-desnz-conversion-factors-2026", "ipcc-ar5-electricity-technologies"],
+    "country_data": ["owid-country-data"],
+    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis", "poore-nemecek-2018-food"], "hs_factor_links": ["gcc-hs-factor-links-2026-11"], "spend_factors": ["epa-supply-chain-factors"], "energy_prices": ["pakistan-energy-prices"], "airports": ["ourairports"],
 }
 REGISTRY = ["dataset_id", "table_name", "title", "publisher", "url", "license", "license_url", "attribution", "obtained",
             "verification_status", "verification_note", "file_sha256", "rows_in_file", "rows_loaded", "loaded_at"]

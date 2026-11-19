@@ -172,6 +172,34 @@
       "problemMatcher": []
     },
     {
+      "label": "GCC-COS: load CarbonPDF products",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "gcc_cos",
+        "--registry",
+        "examples/phase6/sources.json",
+        "ingest",
+        "--manifest",
+        "examples/phase6/local-files.json"
+      ],
+      "windows": {
+        "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONUTF8": "1"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "GCC-COS: load reference data",
       "type": "process",
       "command": "${workspaceFolder}/.venv/bin/python",
@@ -203,6 +231,7 @@
         "GCC-COS: revalidate records",
         "GCC-COS: load Phase 3 bundled data",
         "GCC-COS: load CBAM and ADEME data",
+        "GCC-COS: load CarbonPDF products",
         "GCC-COS: load reference data"
       ],
       "problemMatcher": []

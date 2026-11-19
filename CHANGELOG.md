@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.10.0 — Electronics, food and electricity data from the 19 November uploads (2026-11-19)
+
+- 1,212 new product records: CarbonPDF manufacturer-reported footprints (HP, Dell, Lenovo, Acer), copied from the publisher's `products.csv` (CC BY 4.0). All 1,735 CarbonPDF values in the upload equal the publisher's file. 523 products already held from Boavizta were left out.
+- `product_averages`: 38 foods per kg, global mean (Poore & Nemecek 2018, via Our World in Data). All equal the OWID file.
+- `activity_factors`: 15 emissions per kWh by generation technology (IPCC AR5 WGIII Annex III; oil from UK POST). 8 equal a second published copy; 7 could not be re-checked (ipcc.ch refused the connection).
+- New table `hs_factor_links` (235 rows) and command `load-hs-factor-links`: direct-match links from HS codes to factors, suggested by an AI and not checked by a person. Each linked per-kg value equals its factor. The 558 proxy links were not loaded.
+- Not added (already held): 728 Boavizta products, 2,622 UK DESNZ factors (four differ only by float noise in the held file), 213 country electricity factors, the HS code list.
+- Review lists in `docs/data-verification/2026-11-19/`: 286 products whose CarbonPDF value differs from the held Boavizta value, and the 558 proxy links.
+- New VS Code task "load CarbonPDF products", included in "2 Load bundled data (offline)".
+- 275 of 275 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.9.0 — Household footprint calculator (web) (2026-11-13)
 
 - New web calculator (`python -m gcc_cos.web`): guided questionnaire, results with charts, evidence for every entry, downloads. See `docs/CALCULATOR_APP.md`.
