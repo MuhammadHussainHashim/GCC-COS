@@ -102,3 +102,20 @@ def test_hs_links_are_direct_only_resolve_and_carry_the_linked_value(db):
     proxies = rows(ROOT / "docs/data-verification/2026-11-19/hs-proxy-links.csv")
     assert len(proxies) == 558 and {r["match_status"] for r in proxies} == {"Proxy (closest available)"}
     assert not {r["hs_code"] for r in links} & {r["hs_code"] for r in proxies}     # a code is either a direct link or a proxy to review
+
+
+def test_dashboard_overview_dataset_filter_and_review_lists(db, monkeypatch):
+    from streamlit.testing.v1 import AppTest
+    import gcc_cos.storage
+    path = db.execute("PRAGMA database_list").fetchone()[2]
+    original = gcc_cos.storage.connect
+    monkeypatch.setattr(gcc_cos.storage, "connect", lambda _: original(path))
+    monkeypatch.chdir(ROOT)
+    app = AppTest.from_file(str(ROOT / "dashboard.py")).run(timeout=120)
+    assert not app.exception
+    metrics = {m.label: m.value for m in app.metric}
+    assert metrics["Records in the database"] == "2,448" and metrics["Specific-product footprints"] == "2,448"
+    assert any(s.value == "Review lists from the 19 November 2026 import" for s in app.subheader)
+    assert {b.label for b in app.get("download_button")} >= {"Download “Products with two different values” CSV", "Download “Proxy HS links (guesses)” CSV"}
+    next(s for s in app.sidebar.selectbox if s.label == "Dataset").set_value("carbonpdf-products").run(timeout=120)
+    assert any("Showing 1212 records" in c.value for c in app.caption)

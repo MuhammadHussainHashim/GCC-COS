@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.10.1 — Dashboard update (2026-11-19)
+
+- New **Overview** tab, shown first: counts, records by dataset with licences, human-approved count, the review lists waiting for a person, and a notice when the database is empty or lacks the 19 November data.
+- Filters moved to the sidebar, so the tabs are visible without scrolling. New **Dataset** filter (also in `query.select` as `source`).
+- New **Review lists** tab: the 286 products with two different values and the 558 proxy HS links, with report links and CSV downloads.
+- Calculator: "Food (AGRIBALYSE)" is now "Food (per kg)" and each food shows where its average is for (France or World), so the 38 global foods are no longer labelled as French. Two AGRIBALYSE foods with the same name are both listed now (one was hidden before).
+- 276 of 276 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.10.0 — Electronics, food and electricity data from the 19 November uploads (2026-11-19)
 
 - 1,212 new product records: CarbonPDF manufacturer-reported footprints (HP, Dell, Lenovo, Acer), copied from the publisher's `products.csv` (CC BY 4.0). All 1,735 CarbonPDF values in the upload equal the publisher's file. 523 products already held from Boavizta were left out.

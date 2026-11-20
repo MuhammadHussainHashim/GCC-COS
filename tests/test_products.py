@@ -187,11 +187,11 @@ def test_product_dashboard_search(tmp_path,monkeypatch):
     monkeypatch.setattr(gcc_cos.storage,'connect',lambda _: original(path))
     app=AppTest.from_file(str(ROOT/'dashboard.py')).run(timeout=30)
     assert not app.exception
-    app.checkbox[0].check().run()
-    app.text_input[0].input('Rinn').run()
+    app.sidebar.checkbox[0].check().run()
+    app.sidebar.text_input[0].input('Rinn').run()
     assert not app.exception
     assert any('Showing 1 records' in c.value for c in app.caption)
-    app.text_input[0].input('not-a-real-product').run()
+    app.sidebar.text_input[0].input('not-a-real-product').run()
     assert any('Showing 0 records' in c.value for c in app.caption)
 
 
