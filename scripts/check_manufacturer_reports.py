@@ -6,6 +6,11 @@ looks for the row's total footprint (gwp_total). It is a screening aid for the h
 same model and configuration. Nothing in the database is changed.
 
     python scripts/check_manufacturer_reports.py --cache FOLDER --out report.json [--limit N]
+
+HP's server leaves out a public DigiCert intermediate certificate. To check HP reports, download
+https://cacerts.digicert.com/DigiCertGlobalG2TLSRSASHA2562020CA1-1.crt, convert it to PEM, add it to a copy of your
+CA bundle and set REQUESTS_CA_BUNDLE to that copy. Verification stays on. Sites that refuse automated downloads
+(HTTP 403 or 503) are reported as such and are not retried in disguise.
 """
 import argparse
 import csv
