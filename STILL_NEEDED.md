@@ -24,7 +24,7 @@ These sites now open. Each needs careful reading of PDF or web tables by hand, s
 | 3 | Pakistan household energy use | https://www.pbs.gov.pk/ | The right survey report (HIES or PSLM) with fuel and electricity tables. |
 | 4 | Vehicle make and model fuel economy | https://www.fueleconomy.gov/feg/epadata/vehicles.csv | The file downloads (22 MB, about 48,000 vehicles). Not loaded: it is a "Later" item and US-specific. Say if you want it. |
 | 5 | Recycling and landfill factors | https://www.epa.gov/waste-reduction-model/documentation-waste-reduction-model | The WARM documentation tables. (UK waste-disposal factors are already in `activity_factors`.) |
-| 6 | Pakistan fuel emission factors | https://www.ipcc-nggip.iges.or.jp/EFDB/main.php | IPCC default factors are behind a search form; the 2006 Guidelines tables are PDFs. (UK fuel factors are already in `activity_factors`.) |
+| 6 | Pakistan fuel emission factors | https://www.ipcc-nggip.iges.or.jp/EFDB/main.php | **Partly done (20 November 2026):** every EFDB record, including the IPCC default fuel factors per gas, is now in `inventory_factors`. Still needed: choosing which records apply to Pakistan and turning per-gas values into CO2e with a stated GWP set, which is a method decision for a person. |
 | 7 | Carbon price | https://icapcarbonaction.com/en/ets-prices | The price download; the site's reuse terms must be read first. |
 
 ## Still not obtained

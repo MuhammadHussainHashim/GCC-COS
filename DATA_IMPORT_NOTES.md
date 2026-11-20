@@ -133,3 +133,25 @@ Five files were uploaded: `GCC_Carbon_Footprint_Database_2026_1.xlsx`, `GCC_HS_C
 7. **Upload's food categories and suggested HS codes on food rows** were made by an AI and are not stored.
 8. **The uploads' "Not Included" sheets** name AGRIBALYSE and the US EPA supply chain factors as missing; the system already holds both. The others are added to `STILL_NEEDED.md`.
 
+## Import of 20 November 2026: IPCC Emission Factor Database (version 1.11.0)
+
+One file was uploaded: `IPCC_EFDB_All_Emission_Factors_2026.xlsx` (sha256 `bd239443dde9…`), an export of every record of the IPCC Emission Factor Database (EFDB) made on 19 November 2026. `scripts/build_efdb.py` makes `datasets/ipcc-efdb-2026-11/` from it; the counts and the check are in `docs/data-verification/2026-11-20/efdb-import-summary.json`.
+
+### What was added and what was not
+
+| | Records |
+| --- | --- |
+| In the upload | 27,566 |
+| Repeats: identical to another record in every field except the EF ID, stored once under the lowest EF ID (the others are in `also_listed_as`) | 778 |
+| No value, left out | 294 |
+| **Added to the new table `inventory_factors`** | **26,494** |
+
+The system held no EFDB data before, so nothing else was a repeat. (The 15 IPCC AR5 electricity values loaded on 19 November come from a different IPCC report.)
+
+### Decisions made on your behalf
+
+1. **A table of its own.** EFDB records are per-gas inventory parameters (for example kg CH4 per TJ, t dry matter per ha, or a fraction), not CO2e and not product footprints; the export says so itself. They are stored in `inventory_factors`, values and units exactly as given, and are not used by the calculator or added to any footprint total. Turning them into CO2e needs a chosen GWP set, which is a method decision for a person.
+2. **Text lost in the export was restored from the EFDB website.** A check against the website showed that the export lost text: descriptions left blank, units left blank, and characters such as "≤", "₂" or "°" turned into "?" (for example a value "? 0.001" that the website gives as a bounded value). 3,768 records had at least one such gap; 3,768 were fetched from the EFDB website and 3,557 were repaired. Fields restored: abatement 28, conditions 419, description 3,044, other_properties 32, region 53, technologies 134, unit_original 78, value_original 12. A field with "?" was replaced only when the website text equals the exported text with each "?" standing for one or more characters, and every restored field is named in the record's `fixed_from_efdb_site` column. Left as exported: 21 records with no description (the website has none either, or did not answer), 46 with no unit and 3 with "?" still in the value or unit.
+3. **Checked against the publisher.** After the repair, 300 records chosen at random were compared with the EFDB website field by field: 300 equal in value and unit, gas, description and type of parameter; 0 differ; 0 could not be reached. The differences are listed in the summary file.
+4. **Licence.** The EFDB website states no licence. It is published IPCC material, and the EFDB says its content has not been subject to formal IPCC review. The records are kept for the project's own work; confirm reuse terms with the IPCC before publishing them outside the project.
+5. **Sector names** (`sector_2006`) are read from the first digit of the IPCC 2006 category (1 Energy, 2 Industrial processes and product use, 3 Agriculture, forestry and other land use, 4 Waste). Records without a 2006 category say "Not stated".

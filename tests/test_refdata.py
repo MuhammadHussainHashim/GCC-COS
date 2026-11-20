@@ -14,7 +14,8 @@ from gcc_cos.export import export
 from gcc_cos.storage import connect, records
 
 EXPECTED = {"reference_values": 570, "activity_factors": 63 + 2622 + 15, "country_data": 1184, "hs_codes": 6939, "product_averages": 2451 + 38, "spend_factors": 1016,
-            "energy_prices": 30, "hs_industry_links": 6322, "hs_factor_links": 235, "benchmarks": 25, "airports": 3245}
+            "energy_prices": 30, "hs_industry_links": 6322, "hs_factor_links": 235, "inventory_factors": 26494, "benchmarks": 25,
+            "airports": 3245}
 
 
 @pytest.fixture(scope="module")
@@ -129,7 +130,7 @@ def test_hs_codes_links_benchmarks_and_airports(loaded):
 
 def test_register_lists_every_dataset_with_its_verification_state(loaded):
     register = {r["dataset_id"]: r for r in refdata.rows(loaded[0], "reference_datasets")}
-    assert len(register) == 14 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
+    assert len(register) == 15 and all(int(r["rows_loaded"]) == int(r["rows_in_file"]) for r in register.values())
     assert register["uk-cbam-defaults"]["verification_status"] == "checked against the publisher's pages" and "73065029" in register["uk-cbam-defaults"]["verification_note"]
     assert register["owid-country-data"]["verification_status"] == "checked against the publisher's file"
 
@@ -198,7 +199,7 @@ def test_bad_hs_code_and_wrong_table_are_refused(tmp_path):
 
 
 COMMANDS = [("load-reference-values", "reference_values"), ("load-activity-factors", "activity_factors"), ("load-country-data", "country_data"),
-            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-product-averages", "product_averages"), ("load-spend-factors", "spend_factors"), ("load-energy-prices", "energy_prices"), ("load-hs-factor-links", "hs_factor_links"), ("load-airports", "airports")]
+            ("load-hs-codes", "hs_codes"), ("load-hs-industry-links", "hs_industry_links"), ("load-benchmarks", "benchmarks"), ("load-product-averages", "product_averages"), ("load-spend-factors", "spend_factors"), ("load-energy-prices", "energy_prices"), ("load-hs-factor-links", "hs_factor_links"), ("load-inventory-factors", "inventory_factors"), ("load-airports", "airports")]
 
 
 @pytest.mark.parametrize("command, table", COMMANDS)
@@ -215,7 +216,7 @@ def test_each_load_command(tmp_path, capsys, command, table):
 def test_load_all_command_dataset_option_and_errors(tmp_path, capsys):
     path = str(tmp_path / "cli.sqlite")
     assert main(["--db", path, "load-reference-data"]) == 0
-    assert len(capsys.readouterr().out.strip().splitlines()) == 14
+    assert len(capsys.readouterr().out.strip().splitlines()) == 15
     assert main(["--db", path, "load-benchmarks", "--dataset", str(dataset(tmp_path / "d"))]) == 0
     assert json.loads(capsys.readouterr().out)["inserted"] == 1
     with pytest.raises(SystemExit):
@@ -230,13 +231,13 @@ def test_excel_and_sqlite_exports_carry_every_reference_table(loaded, tmp_path):
     sheets = pd.read_excel(tmp_path / "all.xlsx", sheet_name=None, dtype=str)
     for table, (_, _, _, sheet) in refdata.TABLES.items():
         assert len(sheets[sheet]) == EXPECTED[table], sheet
-    assert len(sheets["Reference datasets"]) == 14 and "Records" in sheets and "License notices" in sheets
+    assert len(sheets["Reference datasets"]) == 15 and "Records" in sheets and "License notices" in sheets
     assert sheets["Reference values by code"].loc[sheets["Reference values by code"]["code"] == "25232900", "hs6"].item() == "252329"
     export(db, tmp_path / "all.sqlite")
     with sqlite3.connect(tmp_path / "all.sqlite") as copy:
         for table, expected in EXPECTED.items():
             assert copy.execute(f"SELECT count(*) FROM {table}").fetchone()[0] == expected
-        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 14
+        assert copy.execute("SELECT count(*) FROM reference_datasets").fetchone()[0] == 15
 
 
 def test_export_without_reference_data_has_no_extra_sheets(tmp_path):

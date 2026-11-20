@@ -1,0 +1,17 @@
+{
+ "id": "ipcc-efdb-2026-11",
+ "table": "inventory_factors",
+ "title": "IPCC Emission Factor Database (EFDB): all records, as exported on 19 November 2026",
+ "publisher": "IPCC Task Force on National Greenhouse Gas Inventories (TFI), Emission Factor Database",
+ "url": "https://www.ipcc-nggip.iges.or.jp/EFDB/find_ef.php",
+ "license": "No licence is stated on the EFDB site. Published IPCC material (IPCC copyright); cite the EF ID and the technical reference. The EFDB says its content has not been subject to formal IPCC review.",
+ "license_url": "https://www.ipcc.ch/copyright/",
+ "attribution": "IPCC Emission Factor Database (EFDB), IPCC Task Force on National Greenhouse Gas Inventories, https://www.ipcc-nggip.iges.or.jp/EFDB/. Each record names its own source of data and technical reference.",
+ "obtained": "User's export IPCC_EFDB_All_Emission_Factors_2026.xlsx (sheet 'EFDB All Records'), uploaded 20 November 2026; values and units kept as exported",
+ "verification_status": "spot-checked against the publisher's website",
+ "verification_note": "300 of 300 records chosen at random equal the EFDB website record by record (value and unit, gas, description, type of parameter); see docs/data-verification/2026-11-20/efdb-import-summary.json. 778 records identical to another record in every field except the EF ID are stored once (see also_listed_as). 3557 records had text lost in the export (blank description or unit, or '?' for a character such as ≤ or ₂) restored from the EFDB website; the restored fields are named in fixed_from_efdb_site. 294 records with no value are left out. Per-gas inventory parameters, not CO2e and not product footprints.",
+ "file": "data.csv",
+ "rows": 26494,
+ "sha256": "03e6ca3b95d93489b0d6c07a90fa2f2504ce5c4ba5369fb88b55abb2d861849f",
+ "prepared": "2026-11-20"
+}

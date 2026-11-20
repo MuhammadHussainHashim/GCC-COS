@@ -20,7 +20,11 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
 ```
 
-That loads the 1,241 product observations, 1,212 further manufacturer-reported electronics footprints from CarbonPDF and 771 published averages and default values (3,224 records), and eleven reference tables (24,755 rows; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+That loads the 1,241 product observations, 1,212 further manufacturer-reported electronics footprints from CarbonPDF and 771 published averages and default values (3,224 records), and twelve reference tables (51,249 rows, including 26,494 IPCC EFDB records; see [data import notes](DATA_IMPORT_NOTES.md) and [what is still needed](STILL_NEEDED.md)) without any network access and opens the dashboard. In VS Code the same steps are available under **Terminal → Run Task…** (see section 1).
+
+## 20 November 2026 import: IPCC Emission Factor Database (version 1.11.0)
+
+All records of the IPCC Emission Factor Database (EFDB) from the uploaded export `IPCC_EFDB_All_Emission_Factors_2026.xlsx` are in the new reference table `inventory_factors` (command `load-inventory-factors`): **26,494 records**. 778 records that repeat another record in every field except the EF ID are stored once (their other IDs are kept in `also_listed_as`), and 294 records with no value are left out. The system held no EFDB data before, so nothing else was a repeat. Values and units are kept exactly as exported: they are per-gas inventory parameters (for example kg CH4 per TJ, or a fraction), not CO2e and not product footprints, so they are not added to any footprint total. A random sample of 300 records was compared with the EFDB website (`docs/data-verification/2026-11-20/efdb-import-summary.json`). The dashboard has a new **IPCC EFDB** tab to search them by sector, gas, fuel, type and words. Rebuild with `scripts/build_efdb.py`.
 
 ## 19 November 2026 import (version 1.10.0)
 

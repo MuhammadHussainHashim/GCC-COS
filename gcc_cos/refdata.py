@@ -66,6 +66,12 @@ TABLES = {
          "geography", "year", "suggested_by", "note"],
         ["dataset_id", "hs_code", "factor_id"], ["hs_code", "hs_level", "match_status", "factor_table", "factor_id", "value_kind", "geography", "suggested_by"],
         "HS to factor links (suggested)"),
+    "inventory_factors": (
+        ["ef_id", "ipcc_1996_category", "ipcc_2006_category", "gas", "fuel_1996", "fuel_2006", "carbon_pool", "parameter_type",
+         "description", "technologies", "conditions", "region", "abatement", "other_properties", "value_original", "unit_original",
+         "value_numeric", "equation", "ipcc_worksheet", "technical_reference", "source_of_data", "data_provider", "also_listed_as",
+         "sector_2006", "geography", "value_kind", "fixed_from_efdb_site"],
+        ["dataset_id", "ef_id"], ["ef_id", "parameter_type", "value_original", "value_kind", "geography"], "IPCC EFDB parameters"),
     "airports": (
         ["ident", "iata_code", "icao_code", "name", "type", "municipality", "iso_country", "iso_region", "latitude_deg", "longitude_deg",
          "elevation_ft", "elevation_m"],
@@ -74,7 +80,7 @@ TABLES = {
 BUNDLED = {
     "reference_values": ["uk-cbam-defaults"], "activity_factors": ["ademe-activity-factors", "uk-desnz-conversion-factors-2026", "ipcc-ar5-electricity-technologies"],
     "country_data": ["owid-country-data"],
-    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis", "poore-nemecek-2018-food"], "hs_factor_links": ["gcc-hs-factor-links-2026-11"], "spend_factors": ["epa-supply-chain-factors"], "energy_prices": ["pakistan-energy-prices"], "airports": ["ourairports"],
+    "hs_industry_links": ["hs6-naics-2017"], "benchmarks": ["epa-calculator-reference"], "product_averages": ["agribalyse-3.2-synthesis", "poore-nemecek-2018-food"], "hs_factor_links": ["gcc-hs-factor-links-2026-11"], "inventory_factors": ["ipcc-efdb-2026-11"], "spend_factors": ["epa-supply-chain-factors"], "energy_prices": ["pakistan-energy-prices"], "airports": ["ourairports"],
 }
 REGISTRY = ["dataset_id", "table_name", "title", "publisher", "url", "license", "license_url", "attribution", "obtained",
             "verification_status", "verification_note", "file_sha256", "rows_in_file", "rows_loaded", "loaded_at"]
@@ -85,6 +91,11 @@ def schema(db):
     for table, (columns, key, _, _) in TABLES.items():
         fields = ", ".join(f'"{c}" TEXT' for c in columns + [p for p in PROVENANCE if p not in columns])
         db.execute(f'CREATE TABLE IF NOT EXISTS {table}(id INTEGER PRIMARY KEY, {fields}, UNIQUE({", ".join(key)}))')
+        # A table made by an older version gains any column added since; its rows are kept.
+        present = {r[1] for r in db.execute(f"PRAGMA table_info({table})")}
+        for column in columns + [p for p in PROVENANCE if p not in columns]:
+            if column not in present:
+                db.execute(f'ALTER TABLE {table} ADD COLUMN "{column}" TEXT')
     db.execute(f'CREATE TABLE IF NOT EXISTS reference_datasets({", ".join(c + " TEXT" for c in REGISTRY)}, PRIMARY KEY(dataset_id))')
     db.commit()
 

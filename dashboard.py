@@ -66,7 +66,7 @@ try:
         filters['warning'] = st.selectbox("Validation warning", [None] + warnings, format_func=lambda v: 'All warnings' if v is None else v)
     selected = select(rows, **filters)
     tab_names = ["Overview", "Records", "Sources", "Review queue", "Documents", "Exports", "Quality and verification", "Human evidence review",
-                 "HS codes", "Calculator", "Reference data", "Review lists"]
+                 "HS codes", "Calculator", "Reference data", "IPCC EFDB", "Review lists"]
     tabs = dict(zip(tab_names, st.tabs(tab_names)))
     with tabs["Overview"]:
         from gcc_cos import refdata
@@ -81,7 +81,10 @@ try:
         approved = len(human_overview.verified_rows(db))
         if not rows:
             st.info("The database is empty. In VS Code run the task “GCC-COS: 2 Load bundled data (offline)”, then reload this page.")
-        elif "carbonpdf-products" not in titles:
+        elif not reference_counts.get("inventory_factors"):
+            st.info("The IPCC EFDB records added on 20 November are not loaded in this database yet. "
+                    "Run the task “GCC-COS: 2 Load bundled data (offline)” (it adds only what is missing), then reload this page.")
+        if rows and "carbonpdf-products" not in titles:
             st.info("The 1,212 CarbonPDF products added on 19 November are not loaded in this database yet. "
                     "Run the task “GCC-COS: 2 Load bundled data (offline)” (it adds only what is missing), then reload this page.")
         st.warning(f"Human-approved (verified) records: {approved:,}. Every other value is as its publisher reported it and has not been checked by a person.")
@@ -337,6 +340,44 @@ try:
             chosen_table = st.selectbox("Table", [t for t, n in reference_counts.items() if n],
                                         format_func=lambda t: f"{refdata.TABLES[t][3]} ({reference_counts[t]:,} rows)")
             st.dataframe(pd.DataFrame(refdata.rows(db, chosen_table)), use_container_width=True, hide_index=True)
+    with tabs["IPCC EFDB"]:
+        st.subheader("IPCC Emission Factor Database (EFDB)")
+        st.caption("Emission factors and other parameters for national greenhouse gas inventories, by gas. Values and units are as the EFDB "
+                   "gives them: they are not CO2e and not product footprints, so they are not added to any total. Check the EF ID, unit, "
+                   "region and technical reference before use; the EFDB says its content has not had formal IPCC review.")
+        efdb_count = db.execute("SELECT count(*) FROM inventory_factors").fetchone()[0] if "inventory_factors" in reference_counts else 0
+        if not efdb_count:
+            st.info("No EFDB records are loaded yet. Run: python -m gcc_cos load-inventory-factors")
+        else:
+            def efdb_choices(column):
+                return [None] + [r[0] for r in db.execute(f"SELECT DISTINCT {column} FROM inventory_factors WHERE {column} IS NOT NULL ORDER BY 1")]
+            left, middle, right = st.columns(3)
+            sector = left.selectbox("Sector (IPCC 2006)", efdb_choices("sector_2006"), format_func=lambda v: "All sectors" if v is None else v)
+            gas = middle.selectbox("Gas", efdb_choices("gas"), format_func=lambda v: "All gases" if v is None else v.replace("\n", ", "))
+            kind = right.selectbox("Type of parameter", efdb_choices("parameter_type"), format_func=lambda v: "All types" if v is None else v)
+            left, right = st.columns([2, 1])
+            words = left.text_input("Search description, category, fuel, technology, region or EF ID", key="efdb_search")
+            fuel = right.selectbox("Fuel (IPCC 2006)", efdb_choices("fuel_2006"), format_func=lambda v: "All fuels" if v is None else v)
+            where, params = [], []
+            for column, value in (("sector_2006", sector), ("gas", gas), ("parameter_type", kind), ("fuel_2006", fuel)):
+                if value:
+                    where.append(f"{column}=?")
+                    params.append(value)
+            if words.strip():
+                where.append("(" + " OR ".join(f"{c} LIKE ?" for c in ("ef_id", "description", "ipcc_2006_category", "ipcc_1996_category", "fuel_2006",
+                                                                          "technologies", "conditions", "region", "also_listed_as")) + ")")
+                params += [f"%{words.strip()}%"] * 9
+            sql = ("SELECT ef_id, sector_2006, ipcc_2006_category, gas, fuel_2006, parameter_type, description, technologies, conditions, region, "
+                   "value_original, unit_original, value_numeric, equation, source_of_data, technical_reference, also_listed_as FROM inventory_factors"
+                   + (" WHERE " + " AND ".join(where) if where else "") + " ORDER BY CAST(ef_id AS INTEGER)")
+            found = pd.read_sql_query(sql, db, params=params)
+            st.caption(f"Showing {len(found):,} of {efdb_count:,} EFDB records.")
+            st.dataframe(found.head(5000), use_container_width=True, hide_index=True)
+            if len(found) > 5000:
+                st.caption("The table shows the first 5,000; the download has every matching record.")
+            st.download_button("Download these EFDB records (CSV)", found.to_csv(index=False).encode("utf-8-sig"), "ipcc-efdb-selection.csv", "text/csv")
+            st.caption("Source: IPCC Emission Factor Database, https://www.ipcc-nggip.iges.or.jp/EFDB/. Records repeated in the export are stored once; "
+                       "their other EF IDs are in the last column.")
     with tabs["Review lists"]:
         st.subheader("Review lists from the 19 November 2026 import")
         st.caption("Nothing in these lists is in the database. They wait for a person's decision; see DATA_IMPORT_NOTES.md.")

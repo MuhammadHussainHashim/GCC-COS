@@ -1,0 +1,3632 @@
+{
+ "prepared": "2026-11-20",
+ "upload_sha256": "bd239443dde945ac907f70eb019eed2e84bf7712276e47ae273b22b13546bdd5",
+ "records_in_upload": 27566,
+ "left_out_no_value": 294,
+ "repeats_folded": 778,
+ "records_loaded": 26494,
+ "spot_check": {
+  "records_checked": 300,
+  "equal": 300,
+  "differs": 0,
+  "not_reached": 0,
+  "records": [
+   {
+    "ef_id": "416524",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "28 kg CH4/head/yr",
+    "site_value": "28 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "511221",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "40 t dm/ha",
+    "site_value": "40 t dm/ha"
+   },
+   {
+    "ef_id": "432364",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "11.9 %",
+    "site_value": "11.9 %"
+   },
+   {
+    "ef_id": "329191",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "21.1 g CH4/kg VS",
+    "site_value": "21.1 g CH4/kg VS"
+   },
+   {
+    "ef_id": "221994",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.33 fraction",
+    "site_value": "0.33 fraction"
+   },
+   {
+    "ef_id": "525222",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.230769230769231 tonne C/year",
+    "site_value": "0.230769230769231 tonne C/year"
+   },
+   {
+    "ef_id": "120634",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.314 million m^3/mine/year",
+    "site_value": "0.314 million m^3/mine/year"
+   },
+   {
+    "ef_id": "524955",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.3 tonnes C/ha",
+    "site_value": "3.3 tonnes C/ha"
+   },
+   {
+    "ef_id": "110718",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.99 fraction",
+    "site_value": "0.99 fraction"
+   },
+   {
+    "ef_id": "330276",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "67 kg CH4/head/yr",
+    "site_value": "67 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "46014",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.77 %",
+    "site_value": "0.77 %"
+   },
+   {
+    "ef_id": "330532",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0026 kg N2O–N/kg NO3-N",
+    "site_value": "0.0026 kg N2O–N/kg NO3-N"
+   },
+   {
+    "ef_id": "110486",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "8.7 g/kg fuel",
+    "site_value": "8.7 g/kg fuel"
+   },
+   {
+    "ef_id": "110141",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "20 - 260 kg/PJ of oil refined",
+    "site_value": "20 - 260 kg/PJ of oil refined"
+   },
+   {
+    "ef_id": "234086",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.19 tonne CO2/tonne pellet produced",
+    "site_value": "0.19 tonne CO2/tonne pellet produced"
+   },
+   {
+    "ef_id": "121032",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1 kg/TJ",
+    "site_value": "1 kg/TJ"
+   },
+   {
+    "ef_id": "423392",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.001625 kg N2O-N/kg N input",
+    "site_value": "0.001625 kg N2O-N/kg N input"
+   },
+   {
+    "ef_id": "328524",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0069 g N / g residue on dry weight basis",
+    "site_value": "0.0069 g N / g residue on dry weight basis"
+   },
+   {
+    "ef_id": "234839",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.04641 kg CH3F/kg CF4",
+    "site_value": "0.04641 kg CH3F/kg CF4"
+   },
+   {
+    "ef_id": "118005",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 kg/TJ",
+    "site_value": "10 kg/TJ"
+   },
+   {
+    "ef_id": "511156",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "222 (81 - 310) t dm/ha",
+    "site_value": "222 (81 - 310) t dm/ha"
+   },
+   {
+    "ef_id": "513895",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a = -3.7983; b = 7.7681; dimensionless",
+    "site_value": "a = -3.7983; b = 7.7681; dimensionless"
+   },
+   {
+    "ef_id": "433278",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "13.7 %",
+    "site_value": "13.7 %"
+   },
+   {
+    "ef_id": "224066",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.005 tonne CO2/tonne sinter produced",
+    "site_value": "0.005 tonne CO2/tonne sinter produced"
+   },
+   {
+    "ef_id": "43919",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "40 kg/animal/yr",
+    "site_value": "40 kg/animal/yr"
+   },
+   {
+    "ef_id": "225274",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.514-0.562 tonne CO2/tonne clinker produced",
+    "site_value": "0.514-0.562 tonne CO2/tonne clinker produced"
+   },
+   {
+    "ef_id": "19197",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "164 g/kg fuel",
+    "site_value": "164 g/kg fuel"
+   },
+   {
+    "ef_id": "62714",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.3 kg/cap/day",
+    "site_value": "1.3 kg/cap/day"
+   },
+   {
+    "ef_id": "525100",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "159.45 tonnes C/ha",
+    "site_value": "159.45 tonnes C/ha"
+   },
+   {
+    "ef_id": "327814",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "60 t dm/ha",
+    "site_value": "60 t dm/ha"
+   },
+   {
+    "ef_id": "510948",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "88 tonnes C/ha",
+    "site_value": "88 tonnes C/ha"
+   },
+   {
+    "ef_id": "622381",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0059 kgCH4/m3",
+    "site_value": "0.0059 kgCH4/m3"
+   },
+   {
+    "ef_id": "329680",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.025 kg N kg body weight-1",
+    "site_value": "0.025 kg N kg body weight-1"
+   },
+   {
+    "ef_id": "328560",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0134 g N / g residue on dry weight basis",
+    "site_value": "0.0134 g N / g residue on dry weight basis"
+   },
+   {
+    "ef_id": "234282",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "11 Ratio",
+    "site_value": "11 Ratio"
+   },
+   {
+    "ef_id": "328930",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5.9 kg VS/1000 kg animal mass/day",
+    "site_value": "5.9 kg VS/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "521398",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a=2.8157, b=0 See `Equation` field",
+    "site_value": "a=2.8157, b=0 See `Equation` field"
+   },
+   {
+    "ef_id": "328512",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.368 (0.007-0.5) dimensionless",
+    "site_value": "0.368 (0.007-0.5) dimensionless"
+   },
+   {
+    "ef_id": "328563",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "13 % dry basis",
+    "site_value": "13 % dry basis"
+   },
+   {
+    "ef_id": "15155",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "23.53 TJ/kt",
+    "site_value": "23.53 TJ/kt"
+   },
+   {
+    "ef_id": "621617",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4 %",
+    "site_value": "4 %"
+   },
+   {
+    "ef_id": "433304",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 %",
+    "site_value": "0 %"
+   },
+   {
+    "ef_id": "511360",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 t dm/ha",
+    "site_value": "10 t dm/ha"
+   },
+   {
+    "ef_id": "124723",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.034 Gg per 10^3 m^3 total oil production",
+    "site_value": "0.034 Gg per 10^3 m^3 total oil production"
+   },
+   {
+    "ef_id": "328056",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.12 tonnes dm/ha/year",
+    "site_value": "3.12 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "122954",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "39.04 MJ/kg",
+    "site_value": "39.04 MJ/kg"
+   },
+   {
+    "ef_id": "415841",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.68 (0.58 - 0.80) No dimension",
+    "site_value": "0.68 (0.58 - 0.80) No dimension"
+   },
+   {
+    "ef_id": "431577",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.9 %",
+    "site_value": "1.9 %"
+   },
+   {
+    "ef_id": "19226",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.4 g/km",
+    "site_value": "1.4 g/km"
+   },
+   {
+    "ef_id": "526072",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "74.90 tonnes C/ha",
+    "site_value": "74.90 tonnes C/ha"
+   },
+   {
+    "ef_id": "330419",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.027 kg N/kg of dry biomass",
+    "site_value": "0.027 kg N/kg of dry biomass"
+   },
+   {
+    "ef_id": "328519",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "45 dimensionless",
+    "site_value": "45 dimensionless"
+   },
+   {
+    "ef_id": "18887",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.25 - 0.29 g/km",
+    "site_value": "0.25 - 0.29 g/km"
+   },
+   {
+    "ef_id": "512137",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "198 t dm/ha",
+    "site_value": "198 t dm/ha"
+   },
+   {
+    "ef_id": "432390",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.1 %",
+    "site_value": "4.1 %"
+   },
+   {
+    "ef_id": "432526",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 %",
+    "site_value": "0 %"
+   },
+   {
+    "ef_id": "234323",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.4 fraction",
+    "site_value": "0.4 fraction"
+   },
+   {
+    "ef_id": "424287",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.89 kg N₂O-N/ha",
+    "site_value": "0.89 kg N₂O-N/ha"
+   },
+   {
+    "ef_id": "420743",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a=0.4; b= 1.8; N=0.65; dimensionless",
+    "site_value": "a=0.4; b= 1.8; N=0.65; dimensionless"
+   },
+   {
+    "ef_id": "424141",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.63 %",
+    "site_value": "0.63 %"
+   },
+   {
+    "ef_id": "329071",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2.4 g CH4/kg VS",
+    "site_value": "2.4 g CH4/kg VS"
+   },
+   {
+    "ef_id": "131250",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.13 g/m3 gas",
+    "site_value": "0.13 g/m3 gas"
+   },
+   {
+    "ef_id": "329718",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.65 (0.14-0.7) fraction",
+    "site_value": "0.65 (0.14-0.7) fraction"
+   },
+   {
+    "ef_id": "512989",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.78 tonnes dm/m3 fresh volume",
+    "site_value": "0.78 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "328660",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "72-85 %",
+    "site_value": "72-85 %"
+   },
+   {
+    "ef_id": "14212",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "42.62 TJ/kt",
+    "site_value": "42.62 TJ/kt"
+   },
+   {
+    "ef_id": "526361",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "202.310 tonnes dry matter/ha",
+    "site_value": "202.310 tonnes dry matter/ha"
+   },
+   {
+    "ef_id": "510924",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "19 tonnes C/ha",
+    "site_value": "19 tonnes C/ha"
+   },
+   {
+    "ef_id": "526110",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "20.5 tonnes C/ha",
+    "site_value": "20.5 tonnes C/ha"
+   },
+   {
+    "ef_id": "420751",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a=0.09; b= 7.6; N=0.5; dimensionless",
+    "site_value": "a=0.09; b= 7.6; N=0.5; dimensionless"
+   },
+   {
+    "ef_id": "18723",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "9.76 g/kg fuel",
+    "site_value": "9.76 g/kg fuel"
+   },
+   {
+    "ef_id": "432275",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 fraction",
+    "site_value": "0 fraction"
+   },
+   {
+    "ef_id": "234038",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.81 kg HFC-23/kg HCFC-22 manufactured",
+    "site_value": "0.81 kg HFC-23/kg HCFC-22 manufactured"
+   },
+   {
+    "ef_id": "515293",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.45 tonnes biomass/m^3  of wood volume",
+    "site_value": "0.45 tonnes biomass/m^3 of wood volume"
+   },
+   {
+    "ef_id": "46011",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.33 %",
+    "site_value": "0.33 %"
+   },
+   {
+    "ef_id": "120013",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.15 kg/LTO",
+    "site_value": "1.15 kg/LTO"
+   },
+   {
+    "ef_id": "511034",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.0 No dimension",
+    "site_value": "1.0 No dimension"
+   },
+   {
+    "ef_id": "118618",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "72 mg/start",
+    "site_value": "72 mg/start"
+   },
+   {
+    "ef_id": "527150",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.940 tonnes dm/ha/year",
+    "site_value": "3.940 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "19501",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "63.1 g/MJ",
+    "site_value": "63.1 g/MJ"
+   },
+   {
+    "ef_id": "117926",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.1 kg/TJ",
+    "site_value": "0.1 kg/TJ"
+   },
+   {
+    "ef_id": "622588",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "Food waste 30.6-48.4 Paper/cardboard 7.7-15.2 Plastics 19.4-27.9 Glass 1.7-5.1 Metals 0.9-2.2  Rubber and Leather 0.1-2.1  Textiles 2.8-8.1  Garden waste 5.1-8.5 Others 1.2-14.8 % (by weight)",
+    "site_value": "Food waste 30.6-48.4 Paper/cardboard 7.7-15.2 Plastics 19.4-27.9 Glass 1.7-5.1 Metals 0.9-2.2 Rubber and Leather 0.1-2.1 Textiles 2.8-8.1 Garden waste 5.1-8.5 Others 1.2-14.8 % (by weight)"
+   },
+   {
+    "ef_id": "234765",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.9999 fraction",
+    "site_value": "0.9999 fraction"
+   },
+   {
+    "ef_id": "214101",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2.5 tonne CO2/tonne ferroalloy produced",
+    "site_value": "2.5 tonne CO2/tonne ferroalloy produced"
+   },
+   {
+    "ef_id": "525489",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5.88 tonnes dry matter/ha",
+    "site_value": "5.88 tonnes dry matter/ha"
+   },
+   {
+    "ef_id": "327509",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.0 tonnes dry matter/ha",
+    "site_value": "4.0 tonnes dry matter/ha"
+   },
+   {
+    "ef_id": "330647",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "160.7 kg",
+    "site_value": "160.7 kg"
+   },
+   {
+    "ef_id": "110354",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.08 kg/LTO",
+    "site_value": "0.08 kg/LTO"
+   },
+   {
+    "ef_id": "17409",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1 KG/TJ",
+    "site_value": "1 KG/TJ"
+   },
+   {
+    "ef_id": "18962",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.24 g/km",
+    "site_value": "0.24 g/km"
+   },
+   {
+    "ef_id": "622335",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.13 fraction",
+    "site_value": "0.13 fraction"
+   },
+   {
+    "ef_id": "431733",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.11 fraction",
+    "site_value": "0.11 fraction"
+   },
+   {
+    "ef_id": "130786",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.243 million m^3/mine/year",
+    "site_value": "0.243 million m^3/mine/year"
+   },
+   {
+    "ef_id": "15299",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "26.66 TJ/kt",
+    "site_value": "26.66 TJ/kt"
+   },
+   {
+    "ef_id": "210206",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.3 fraction",
+    "site_value": "0.3 fraction"
+   },
+   {
+    "ef_id": "522677",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "18.09272 tonnes CO2-C/ha/yr",
+    "site_value": "18.09272 tonnes CO2-C/ha/yr"
+   },
+   {
+    "ef_id": "23081",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.15 Fraction of SF6/year",
+    "site_value": "0.15 Fraction of SF6/year"
+   },
+   {
+    "ef_id": "118767",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2 mg/km",
+    "site_value": "2 mg/km"
+   },
+   {
+    "ef_id": "525891",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2501 g C m^-2",
+    "site_value": "2501 g C m^-2"
+   },
+   {
+    "ef_id": "15020",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "28.71 TJ/kt",
+    "site_value": "28.71 TJ/kt"
+   },
+   {
+    "ef_id": "43177",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "6 kg/head/yr",
+    "site_value": "6 kg/head/yr"
+   },
+   {
+    "ef_id": "19367",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2.1 g/km",
+    "site_value": "2.1 g/km"
+   },
+   {
+    "ef_id": "131322",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5-100 %",
+    "site_value": "5-100 %"
+   },
+   {
+    "ef_id": "328841",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.3 kg VS/1000 kg animal mass/day",
+    "site_value": "4.3 kg VS/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "124750",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.00000062-0.00000085 Gg per 10^6 m^3 gas production",
+    "site_value": "0.00000062-0.00000085 Gg per 10^6 m^3 gas production"
+   },
+   {
+    "ef_id": "526457",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "95.920 tonnes dry matter/ha",
+    "site_value": "95.920 tonnes dry matter/ha"
+   },
+   {
+    "ef_id": "512461",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.53 tonnes dm/m3 fresh volume",
+    "site_value": "0.53 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "234172",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.001 kg/m2",
+    "site_value": "0.001 kg/m2"
+   },
+   {
+    "ef_id": "19183",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1 g/MJ",
+    "site_value": "1 g/MJ"
+   },
+   {
+    "ef_id": "328161",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "6-20 m3/ha/year",
+    "site_value": "6-20 m3/ha/year"
+   },
+   {
+    "ef_id": "433425",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "11 years",
+    "site_value": "11 years"
+   },
+   {
+    "ef_id": "19155",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "22 g/kg fuel",
+    "site_value": "22 g/kg fuel"
+   },
+   {
+    "ef_id": "110535",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.1 kg/t fuel",
+    "site_value": "0.1 kg/t fuel"
+   },
+   {
+    "ef_id": "62867",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "88 %",
+    "site_value": "88 %"
+   },
+   {
+    "ef_id": "18485",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 KG/TJ",
+    "site_value": "0 KG/TJ"
+   },
+   {
+    "ef_id": "328393",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5.30 tonnes C/ha/yr",
+    "site_value": "5.30 tonnes C/ha/yr"
+   },
+   {
+    "ef_id": "14628",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "14.65 TJ/kt",
+    "site_value": "14.65 TJ/kt"
+   },
+   {
+    "ef_id": "121041",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4 kg/TJ",
+    "site_value": "4 kg/TJ"
+   },
+   {
+    "ef_id": "118475",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.9 kg/TJ",
+    "site_value": "0.9 kg/TJ"
+   },
+   {
+    "ef_id": "433161",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "17 %",
+    "site_value": "17 %"
+   },
+   {
+    "ef_id": "14962",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "17.38 TJ/kt",
+    "site_value": "17.38 TJ/kt"
+   },
+   {
+    "ef_id": "424285",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.61 kg N₂O-N/ha",
+    "site_value": "0.61 kg N₂O-N/ha"
+   },
+   {
+    "ef_id": "433066",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.7 %",
+    "site_value": "3.7 %"
+   },
+   {
+    "ef_id": "614521",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "15 %",
+    "site_value": "15 %"
+   },
+   {
+    "ef_id": "329130",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "12.1 g CH4/kg VS",
+    "site_value": "12.1 g CH4/kg VS"
+   },
+   {
+    "ef_id": "515180",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.23 (0.13 - 0.37) tonne root d.m./tonne shoot d.m.",
+    "site_value": "0.23 (0.13 - 0.37) tonne root d.m./tonne shoot d.m."
+   },
+   {
+    "ef_id": "225287",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "22-63 kg/tonnes product",
+    "site_value": "22-63 kg/tonnes product"
+   },
+   {
+    "ef_id": "432852",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "61.9 %",
+    "site_value": "61.9 %"
+   },
+   {
+    "ef_id": "431859",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.18 tonnes/cap/yr",
+    "site_value": "0.18 tonnes/cap/yr"
+   },
+   {
+    "ef_id": "329980",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "16 %",
+    "site_value": "16 %"
+   },
+   {
+    "ef_id": "433669",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "67.2 %",
+    "site_value": "67.2 %"
+   },
+   {
+    "ef_id": "525894",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2868 g C m^-2",
+    "site_value": "2868 g C m^-2"
+   },
+   {
+    "ef_id": "234657",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 - 10000 kg",
+    "site_value": "10 - 10000 kg"
+   },
+   {
+    "ef_id": "234523",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.045 fraction",
+    "site_value": "0.045 fraction"
+   },
+   {
+    "ef_id": "511191",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "40 t dm/ha",
+    "site_value": "40 t dm/ha"
+   },
+   {
+    "ef_id": "421423",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "51.1 tonnes C/ha",
+    "site_value": "51.1 tonnes C/ha"
+   },
+   {
+    "ef_id": "18672",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.37 - 0.48 g/kg fuel",
+    "site_value": "0.37 - 0.48 g/kg fuel"
+   },
+   {
+    "ef_id": "45897",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.95 fraction",
+    "site_value": "0.95 fraction"
+   },
+   {
+    "ef_id": "433017",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "35.4 %",
+    "site_value": "35.4 %"
+   },
+   {
+    "ef_id": "45771",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.5 %",
+    "site_value": "1.5 %"
+   },
+   {
+    "ef_id": "19495",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.51 g/MJ",
+    "site_value": "0.51 g/MJ"
+   },
+   {
+    "ef_id": "328533",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.11 g N / g residue on dry weight basis",
+    "site_value": "0.11 g N / g residue on dry weight basis"
+   },
+   {
+    "ef_id": "329468",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10.92 %",
+    "site_value": "10.92 %"
+   },
+   {
+    "ef_id": "416811",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "25 %",
+    "site_value": "25 %"
+   },
+   {
+    "ef_id": "124783",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.00000088-0.000002 Gg per 10^6 m^3 of marketable gas",
+    "site_value": "0.00000088-0.000002 Gg per 10^6 m^3 of marketable gas"
+   },
+   {
+    "ef_id": "515208",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.57 (0.52-0.65) tonnes biomass/m^3  of wood volume",
+    "site_value": "0.57 (0.52-0.65) tonnes biomass/m^3 of wood volume"
+   },
+   {
+    "ef_id": "234872",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.00268 kg C2F6/kg c-C4F8",
+    "site_value": "0.00268 kg C2F6/kg c-C4F8"
+   },
+   {
+    "ef_id": "118145",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 kg/TJ",
+    "site_value": "10 kg/TJ"
+   },
+   {
+    "ef_id": "621647",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.023 - 0.056 /year",
+    "site_value": "0.023 - 0.056 /year"
+   },
+   {
+    "ef_id": "19282",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.9 g/MJ",
+    "site_value": "0.9 g/MJ"
+   },
+   {
+    "ef_id": "512332",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.45 tonnes dm/m3 fresh volume",
+    "site_value": "0.45 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "614952",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "septic tank=0.14, latrine=0.10, other=0.03, sewer=0.68, none=0.05 fraction",
+    "site_value": "septic tank=0.14, latrine=0.10, other=0.03, sewer=0.68, none=0.05 fraction"
+   },
+   {
+    "ef_id": "527023",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.24 dimensionless",
+    "site_value": "0.24 dimensionless"
+   },
+   {
+    "ef_id": "234841",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.07813 kg CH3F/kg CF4",
+    "site_value": "0.07813 kg CH3F/kg CF4"
+   },
+   {
+    "ef_id": "431503",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "44.4 %",
+    "site_value": "44.4 %"
+   },
+   {
+    "ef_id": "513223",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.121 (0.094-0.148) No dimension",
+    "site_value": "0.121 (0.094-0.148) No dimension"
+   },
+   {
+    "ef_id": "330364",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "81 kg CH4/head/yr",
+    "site_value": "81 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "214218",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.07 kg CF4/kg CHF3",
+    "site_value": "0.07 kg CF4/kg CHF3"
+   },
+   {
+    "ef_id": "623661",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.5 %",
+    "site_value": "4.5 %"
+   },
+   {
+    "ef_id": "513522",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0104 tonne C/year",
+    "site_value": "0.0104 tonne C/year"
+   },
+   {
+    "ef_id": "433646",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "92.7 %",
+    "site_value": "92.7 %"
+   },
+   {
+    "ef_id": "327932",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "80.94 t dm/ha",
+    "site_value": "80.94 t dm/ha"
+   },
+   {
+    "ef_id": "213980",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.694 Tonne CO2/tonne NH3 produced",
+    "site_value": "1.694 Tonne CO2/tonne NH3 produced"
+   },
+   {
+    "ef_id": "421425",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "52.6 tonnes C/ha",
+    "site_value": "52.6 tonnes C/ha"
+   },
+   {
+    "ef_id": "19235",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.6 g/km",
+    "site_value": "1.6 g/km"
+   },
+   {
+    "ef_id": "433225",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 %",
+    "site_value": "0 %"
+   },
+   {
+    "ef_id": "512969",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.70 tonnes dm/m3 fresh volume",
+    "site_value": "0.70 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "416000",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "13 kg CH4/head/yr",
+    "site_value": "13 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "330731",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.33 g CH₄/kg organic matter",
+    "site_value": "0.33 g CH₄/kg organic matter"
+   },
+   {
+    "ef_id": "225304",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2 % of the original HFC charge/year",
+    "site_value": "2 % of the original HFC charge/year"
+   },
+   {
+    "ef_id": "623172",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.43 % (by weight)",
+    "site_value": "1.43 % (by weight)"
+   },
+   {
+    "ef_id": "622385",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0000045 kgN2O-N/kg-N",
+    "site_value": "0.0000045 kgN2O-N/kg-N"
+   },
+   {
+    "ef_id": "515619",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3 (0.5-6) tonnes dm/ha/year",
+    "site_value": "3 (0.5-6) tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "330113",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2 %",
+    "site_value": "2 %"
+   },
+   {
+    "ef_id": "118871",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "13 mg/km",
+    "site_value": "13 mg/km"
+   },
+   {
+    "ef_id": "124625",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0000019 Gg per 10^3 m^3 total oil production",
+    "site_value": "0.0000019 Gg per 10^3 m^3 total oil production"
+   },
+   {
+    "ef_id": "234198",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.2 fraction",
+    "site_value": "0.2 fraction"
+   },
+   {
+    "ef_id": "523322",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.69 g/cm3",
+    "site_value": "0.69 g/cm3"
+   },
+   {
+    "ef_id": "18572",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10000 KG/TJ",
+    "site_value": "10000 KG/TJ"
+   },
+   {
+    "ef_id": "627244",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "14 g CH4/kg Input",
+    "site_value": "14 g CH4/kg Input"
+   },
+   {
+    "ef_id": "433651",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "49.9 %",
+    "site_value": "49.9 %"
+   },
+   {
+    "ef_id": "327836",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "25-80 t dm/ha",
+    "site_value": "25-80 t dm/ha"
+   },
+   {
+    "ef_id": "512711",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.29 tonnes dm/m3 fresh volume",
+    "site_value": "0.29 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "118547",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.9 kg/TJ",
+    "site_value": "0.9 kg/TJ"
+   },
+   {
+    "ef_id": "513717",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a = -2.1625; b = 2.3078; dimensionless",
+    "site_value": "a = -2.1625; b = 2.3078; dimensionless"
+   },
+   {
+    "ef_id": "15308",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "27.47 TJ/kt",
+    "site_value": "27.47 TJ/kt"
+   },
+   {
+    "ef_id": "18779",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.06 - 0.08 g/km",
+    "site_value": "0.06 - 0.08 g/km"
+   },
+   {
+    "ef_id": "431781",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.97 fraction",
+    "site_value": "0.97 fraction"
+   },
+   {
+    "ef_id": "330473",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.40 kg N/kg of dry biomass",
+    "site_value": "0.40 kg N/kg of dry biomass"
+   },
+   {
+    "ef_id": "120942",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "50 kg/TJ",
+    "site_value": "50 kg/TJ"
+   },
+   {
+    "ef_id": "125554",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "193 kg CH4 per well / year",
+    "site_value": "193 kg CH4 per well / year"
+   },
+   {
+    "ef_id": "431799",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.05 fraction",
+    "site_value": "0.05 fraction"
+   },
+   {
+    "ef_id": "131235",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.00011 ton/yr",
+    "site_value": "0.00011 ton/yr"
+   },
+   {
+    "ef_id": "119041",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10240 kg/LTO",
+    "site_value": "10240 kg/LTO"
+   },
+   {
+    "ef_id": "512064",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "57 t dm/ha",
+    "site_value": "57 t dm/ha"
+   },
+   {
+    "ef_id": "330230",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "29 %",
+    "site_value": "29 %"
+   },
+   {
+    "ef_id": "17755",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.2 g/kg fuel",
+    "site_value": "0.2 g/kg fuel"
+   },
+   {
+    "ef_id": "523746",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.30 g/cm3",
+    "site_value": "1.30 g/cm3"
+   },
+   {
+    "ef_id": "431567",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.3 %",
+    "site_value": "4.3 %"
+   },
+   {
+    "ef_id": "525852",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.39-0.68 kg dry mass ha-1",
+    "site_value": "0.39-0.68 kg dry mass ha-1"
+   },
+   {
+    "ef_id": "119133",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.2 kg/LTO",
+    "site_value": "0.2 kg/LTO"
+   },
+   {
+    "ef_id": "515232",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.0 (0.8-4.5) tonnes biomass/m^3  of wood volume",
+    "site_value": "3.0 (0.8-4.5) tonnes biomass/m^3 of wood volume"
+   },
+   {
+    "ef_id": "624596",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5.3 g N2O/kg N",
+    "site_value": "5.3 g N2O/kg N"
+   },
+   {
+    "ef_id": "123012",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "28.01 (GCV) 25.74 (NCV) TJ/kt",
+    "site_value": "28.01 (GCV) 25.74 (NCV) TJ/kt"
+   },
+   {
+    "ef_id": "330114",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 %",
+    "site_value": "10 %"
+   },
+   {
+    "ef_id": "521306",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.26 dimensionless",
+    "site_value": "0.26 dimensionless"
+   },
+   {
+    "ef_id": "329503",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.39 kg N/1000 kg animal mass/day",
+    "site_value": "0.39 kg N/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "62929",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.1 (2-7) g/l",
+    "site_value": "4.1 (2-7) g/l"
+   },
+   {
+    "ef_id": "43365",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "76 g/m2",
+    "site_value": "76 g/m2"
+   },
+   {
+    "ef_id": "433299",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "14.6 %",
+    "site_value": "14.6 %"
+   },
+   {
+    "ef_id": "527210",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.820 tonnes dm/ha/year",
+    "site_value": "1.820 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "234407",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.009 fraction",
+    "site_value": "0.009 fraction"
+   },
+   {
+    "ef_id": "513581",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.98 Mha",
+    "site_value": "3.98 Mha"
+   },
+   {
+    "ef_id": "526673",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5.5 tonnes dm/ha/year",
+    "site_value": "5.5 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "431396",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.04 fraction",
+    "site_value": "0.04 fraction"
+   },
+   {
+    "ef_id": "62944",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "30 % of sludge (dry matter)",
+    "site_value": "30 % of sludge (dry matter)"
+   },
+   {
+    "ef_id": "214138",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.4 kg CF4 /tonne Al",
+    "site_value": "0.4 kg CF4 /tonne Al"
+   },
+   {
+    "ef_id": "521221",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.705 tonnes dm/m3 fresh volume",
+    "site_value": "0.705 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "511558",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "58 m3/ha",
+    "site_value": "58 m3/ha"
+   },
+   {
+    "ef_id": "45745",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 - 100 %",
+    "site_value": "0 - 100 %"
+   },
+   {
+    "ef_id": "515550",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2.0 tonnes dm/ha/year",
+    "site_value": "2.0 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "119000",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.8 dimensionless",
+    "site_value": "0.8 dimensionless"
+   },
+   {
+    "ef_id": "18450",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 KG/TJ",
+    "site_value": "10 KG/TJ"
+   },
+   {
+    "ef_id": "118817",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 mg/km",
+    "site_value": "0 mg/km"
+   },
+   {
+    "ef_id": "131255",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0000012 g/m3 gas",
+    "site_value": "0.0000012 g/m3 gas"
+   },
+   {
+    "ef_id": "225803",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "4.61 kg/tonnes metal",
+    "site_value": "4.61 kg/tonnes metal"
+   },
+   {
+    "ef_id": "512730",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.82 tonnes dm/m3 fresh volume",
+    "site_value": "0.82 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "431513",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "21.7 %",
+    "site_value": "21.7 %"
+   },
+   {
+    "ef_id": "110384",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "21.6 kg/LTO",
+    "site_value": "21.6 kg/LTO"
+   },
+   {
+    "ef_id": "329931",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5 %",
+    "site_value": "5 %"
+   },
+   {
+    "ef_id": "123061",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "24.85 (GCV) 28.53 (NCV) tC/TJ",
+    "site_value": "24.85 (GCV) 28.53 (NCV) tC/TJ"
+   },
+   {
+    "ef_id": "511219",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "180 t dm/ha",
+    "site_value": "180 t dm/ha"
+   },
+   {
+    "ef_id": "510937",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "20 tonnes C/ha",
+    "site_value": "20 tonnes C/ha"
+   },
+   {
+    "ef_id": "234515",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.061 fraction",
+    "site_value": "0.061 fraction"
+   },
+   {
+    "ef_id": "513521",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.0122 tonne C/year",
+    "site_value": "0.0122 tonne C/year"
+   },
+   {
+    "ef_id": "513791",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a = 1.82795; b = 1.49367; dimensionless",
+    "site_value": "a = 1.82795; b = 1.49367; dimensionless"
+   },
+   {
+    "ef_id": "328955",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "16 kg VS/1000 kg animal mass/day",
+    "site_value": "16 kg VS/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "515169",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.56 (0.28 - 0.68) tonne root d.m./tonne shoot d.m.",
+    "site_value": "0.56 (0.28 - 0.68) tonne root d.m./tonne shoot d.m."
+   },
+   {
+    "ef_id": "214003",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.34 tonne CO2/tonne titanium dioxide produced",
+    "site_value": "1.34 tonne CO2/tonne titanium dioxide produced"
+   },
+   {
+    "ef_id": "433202",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 %",
+    "site_value": "0 %"
+   },
+   {
+    "ef_id": "432741",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.2 %",
+    "site_value": "1.2 %"
+   },
+   {
+    "ef_id": "512260",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "8.0 (3.8-11.5) tonnes dm/ha/year",
+    "site_value": "8.0 (3.8-11.5) tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "512909",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.82 tonnes dm/m3 fresh volume",
+    "site_value": "0.82 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "117983",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 kg/TJ",
+    "site_value": "10 kg/TJ"
+   },
+   {
+    "ef_id": "432104",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.57 tonnes/cap/yr",
+    "site_value": "0.57 tonnes/cap/yr"
+   },
+   {
+    "ef_id": "117672",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3 kg/TJ",
+    "site_value": "3 kg/TJ"
+   },
+   {
+    "ef_id": "118685",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "46 mg/start",
+    "site_value": "46 mg/start"
+   },
+   {
+    "ef_id": "19572",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "75 g/MJ",
+    "site_value": "75 g/MJ"
+   },
+   {
+    "ef_id": "117660",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3 kg/TJ",
+    "site_value": "3 kg/TJ"
+   },
+   {
+    "ef_id": "120996",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2 kg/TJ",
+    "site_value": "2 kg/TJ"
+   },
+   {
+    "ef_id": "621576",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "3.10-28.9 %",
+    "site_value": "3.10-28.9 %"
+   },
+   {
+    "ef_id": "624609",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "36 mg N/L",
+    "site_value": "36 mg N/L"
+   },
+   {
+    "ef_id": "510856",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "50 tonnes C/ha",
+    "site_value": "50 tonnes C/ha"
+   },
+   {
+    "ef_id": "56649",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "40-87 t dm/ha",
+    "site_value": "40-87 t dm/ha"
+   },
+   {
+    "ef_id": "431671",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.35 tonnes/cap/yr",
+    "site_value": "0.35 tonnes/cap/yr"
+   },
+   {
+    "ef_id": "43296",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "74 kg/head/yr",
+    "site_value": "74 kg/head/yr"
+   },
+   {
+    "ef_id": "424314",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.30 kg N2O–N/ha",
+    "site_value": "0.30 kg N2O–N/ha"
+   },
+   {
+    "ef_id": "19459",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.38 g/MJ",
+    "site_value": "0.38 g/MJ"
+   },
+   {
+    "ef_id": "521266",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.646 tonnes dm/m3 fresh volume",
+    "site_value": "0.646 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "118455",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1 kg/TJ",
+    "site_value": "1 kg/TJ"
+   },
+   {
+    "ef_id": "513533",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.008 kg/ha/day",
+    "site_value": "0.008 kg/ha/day"
+   },
+   {
+    "ef_id": "434017",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "7.9 % DOC by wet weight",
+    "site_value": "7.9 % DOC by wet weight"
+   },
+   {
+    "ef_id": "420781",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "a=0.8; b= 6.5; N=1.2; dimensionless",
+    "site_value": "a=0.8; b= 6.5; N=1.2; dimensionless"
+   },
+   {
+    "ef_id": "327598",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.284 tonne root d.m./tonne shoot d.m.",
+    "site_value": "0.284 tonne root d.m./tonne shoot d.m."
+   },
+   {
+    "ef_id": "330744",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.04 %",
+    "site_value": "0.04 %"
+   },
+   {
+    "ef_id": "416866",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "20 %",
+    "site_value": "20 %"
+   },
+   {
+    "ef_id": "525153",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "-14.6592307692308 tonnes C/ha",
+    "site_value": "-14.6592307692308 tonnes C/ha"
+   },
+   {
+    "ef_id": "43347",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "19 - 44 g/m2",
+    "site_value": "19 - 44 g/m2"
+   },
+   {
+    "ef_id": "424288",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "28.64 kg CH4/ha",
+    "site_value": "28.64 kg CH4/ha"
+   },
+   {
+    "ef_id": "511646",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "75 t dm/ha",
+    "site_value": "75 t dm/ha"
+   },
+   {
+    "ef_id": "327605",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.440 tonne root d.m./tonne shoot d.m.",
+    "site_value": "0.440 tonne root d.m./tonne shoot d.m."
+   },
+   {
+    "ef_id": "19596",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.002 g/MJ",
+    "site_value": "0.002 g/MJ"
+   },
+   {
+    "ef_id": "223720",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "10 %",
+    "site_value": "10 %"
+   },
+   {
+    "ef_id": "18636",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.25-0.38 g/kg fuel",
+    "site_value": "0.25-0.38 g/kg fuel"
+   },
+   {
+    "ef_id": "432142",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.32 tonnes/cap/yr",
+    "site_value": "0.32 tonnes/cap/yr"
+   },
+   {
+    "ef_id": "119854",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.1 kg/LTO",
+    "site_value": "0.1 kg/LTO"
+   },
+   {
+    "ef_id": "19113",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.06 g/kg fuel",
+    "site_value": "0.06 g/kg fuel"
+   },
+   {
+    "ef_id": "329481",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.51 kg N/1000 kg animal mass/day",
+    "site_value": "0.51 kg N/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "433698",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "21.5 %",
+    "site_value": "21.5 %"
+   },
+   {
+    "ef_id": "512091",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "125 t dm/ha",
+    "site_value": "125 t dm/ha"
+   },
+   {
+    "ef_id": "512465",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.62 tonnes dm/m3 fresh volume",
+    "site_value": "0.62 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "523306",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.084 dimensionless",
+    "site_value": "0.084 dimensionless"
+   },
+   {
+    "ef_id": "511995",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "213 t dm/ha",
+    "site_value": "213 t dm/ha"
+   },
+   {
+    "ef_id": "431400",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 fraction",
+    "site_value": "0 fraction"
+   },
+   {
+    "ef_id": "234286",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "8.5 Ratio",
+    "site_value": "8.5 Ratio"
+   },
+   {
+    "ef_id": "512391",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.57 tonnes dm/m3 fresh volume",
+    "site_value": "0.57 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "433690",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "67.1 %",
+    "site_value": "67.1 %"
+   },
+   {
+    "ef_id": "512536",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.28 tonnes dm/m3 fresh volume",
+    "site_value": "0.28 tonnes dm/m3 fresh volume"
+   },
+   {
+    "ef_id": "234512",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.031 fraction",
+    "site_value": "0.031 fraction"
+   },
+   {
+    "ef_id": "515751",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "2.4 tonnes dm/ha/year",
+    "site_value": "2.4 tonnes dm/ha/year"
+   },
+   {
+    "ef_id": "15272",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "12.56 TJ/kt",
+    "site_value": "12.56 TJ/kt"
+   },
+   {
+    "ef_id": "330316",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0 kg CH4/head/yr",
+    "site_value": "0 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "417173",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.36 kg N/1000 kg animal mass/day",
+    "site_value": "0.36 kg N/1000 kg animal mass/day"
+   },
+   {
+    "ef_id": "416766",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "5 %",
+    "site_value": "5 %"
+   },
+   {
+    "ef_id": "130844",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.286 million m^3/mine/year",
+    "site_value": "0.286 million m^3/mine/year"
+   },
+   {
+    "ef_id": "120095",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.93 kg/LTO",
+    "site_value": "0.93 kg/LTO"
+   },
+   {
+    "ef_id": "117526",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "26.6 kg/GJ",
+    "site_value": "26.6 kg/GJ"
+   },
+   {
+    "ef_id": "45858",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "0.83 fraction",
+    "site_value": "0.83 fraction"
+   },
+   {
+    "ef_id": "328719",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "18 kg CH4/head/yr",
+    "site_value": "18 kg CH4/head/yr"
+   },
+   {
+    "ef_id": "123088",
+    "status": "equal",
+    "fields_equal": {
+     "value_and_unit": true,
+     "gas": true,
+     "description": true,
+     "parameter_type": true
+    },
+    "upload_value": "1.1 KG/TJ",
+    "site_value": "1.1 KG/TJ"
+   }
+  ]
+ },
+ "records_needing_repair": 3768,
+ "records_fetched_for_repair": 3768,
+ "records_repaired": 3557,
+ "fields_repaired": {
+  "abatement": 28,
+  "conditions": 419,
+  "description": 3044,
+  "other_properties": 32,
+  "region": 53,
+  "technologies": 134,
+  "unit_original": 78,
+  "value_original": 12
+ },
+ "still_blank_description": 21,
+ "still_blank_unit": 46,
+ "still_with_question_mark_in_value_or_unit": 3
+}

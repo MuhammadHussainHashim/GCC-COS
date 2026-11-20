@@ -74,6 +74,7 @@ def main(argv=None):
             ("load-spend-factors", "spend_factors", "Load spend-based factors per US dollar by industry (bundled: US EPA supply chain factors)"),
             ("load-energy-prices", "energy_prices", "Load regulated energy prices (bundled: Pakistan electricity, gas, LPG and kerosene)"),
             ("load-hs-factor-links", "hs_factor_links", "Load suggested HS-to-emission-factor links (bundled: direct matches, not checked by a person)"),
+            ("load-inventory-factors", "inventory_factors", "Load IPCC inventory emission factors and parameters (bundled: IPCC EFDB, all records)"),
             ("load-airports", "airports", "Load airports with coordinates (bundled: OurAirports)")):
         p = sub.add_parser(command, help=text)
         p.set_defaults(reference_table=table)

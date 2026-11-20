@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.11.0 — IPCC Emission Factor Database (2026-11-20)
+
+- New reference table `inventory_factors` with 26,494 IPCC EFDB records (every record of the database, from the uploaded export), and command `load-inventory-factors`. Values and units as given; per gas, not CO2e, not product footprints.
+- Not added: 778 records that repeat another record except for the EF ID (kept as `also_listed_as`), and 294 records with no value.
+- Text lost in the export (blank descriptions and units, "?" for characters such as ≤ or ₂) restored from the EFDB website in 3,557 records; each restored field is named in `fixed_from_efdb_site`.
+- 300 of 300 randomly chosen records equal the EFDB website field by field after the repair.
+- Dashboard: new **IPCC EFDB** tab (search by sector, gas, type, fuel and words; CSV download), and the Overview says when the EFDB records are not loaded yet.
+- Loading reference data now adds any column a newer version introduced to an existing table, keeping its rows.
+- 282 of 282 tests pass on Linux / Python 3.13; `ruff` clean. Windows untested.
+
 ## 1.10.1 — Dashboard update (2026-11-19)
 
 - New **Overview** tab, shown first: counts, records by dataset with licences, human-approved count, the review lists waiting for a person, and a notice when the database is empty or lacks the 19 November data.
